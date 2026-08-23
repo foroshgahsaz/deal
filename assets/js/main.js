@@ -813,6 +813,10 @@
                         slide: function( event, ui ) {
                             var $from_price = ui.values[ 0 ];
                             var $to_price = ui.values[ 1 ];
+                            if ( wp_cardealer_opts.enable_usd_to_toman === 'yes' && wp_cardealer_opts.usd_to_toman_rate ) {
+                                $from_price = $from_price * wp_cardealer_opts.usd_to_toman_rate;
+                                $to_price = $to_price * wp_cardealer_opts.usd_to_toman_rate;
+                            }
                             if ( wp_cardealer_opts.enable_multi_currencies === 'yes' ) {
                                 $from_price = self.shortenNumber($from_price);
                                 $to_price = self.shortenNumber($to_price);

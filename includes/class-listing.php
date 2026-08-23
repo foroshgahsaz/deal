@@ -40,6 +40,18 @@ class WP_CarDealer_Listing {
 	public static function get_post_meta($post_id, $key, $single = true) {
 		return get_post_meta($post_id, WP_CARDEALER_LISTING_PREFIX.$key, $single);
 	}
+
+	/**
+	 * Formatted listing price. Themes call this helper; conversion to Toman
+	 * happens inside the price formatter so theme files do not need changes.
+	 *
+	 * @param int $post_id
+	 * @return string|false
+	 */
+	public static function get_price_html( $post_id ) {
+		$obj = WP_CarDealer_Listing_Meta::get_instance( $post_id );
+		return $obj->get_price_html();
+	}
 	
 	// add product viewed
 	public static function track_listing_view() {

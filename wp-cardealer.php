@@ -152,6 +152,7 @@ if ( !class_exists("WP_CarDealer") ) {
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-review.php';
 			
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-price.php';
+			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-navasan.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-query.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-shortcodes.php';
 
@@ -321,6 +322,9 @@ if ( !class_exists("WP_CarDealer") ) {
 			if ( ! wp_next_scheduled( 'wp_cardealer_email_daily_notices' ) ) {
 				wp_schedule_event( time(), 'daily', 'wp_cardealer_email_daily_notices' );
 			}
+			if ( ! wp_next_scheduled( 'wp_cardealer_navasan_refresh_rate' ) ) {
+				wp_schedule_event( time() + 60, 'hourly', 'wp_cardealer_navasan_refresh_rate' );
+			}
 		}
 
 		/**
@@ -330,6 +334,7 @@ if ( !class_exists("WP_CarDealer") ) {
 			wp_clear_scheduled_hook( 'wp_cardealer_check_for_expired_listings' );
 			wp_clear_scheduled_hook( 'wp_cardealer_delete_old_previews' );
 			wp_clear_scheduled_hook( 'wp_cardealer_email_daily_notices' );
+			wp_clear_scheduled_hook( 'wp_cardealer_navasan_refresh_rate' );
 		}
 
 		/**
