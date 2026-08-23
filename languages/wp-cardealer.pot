@@ -1,0 +1,4731 @@
+# Copyright (C) 2024 Habq
+# This file is distributed under the same license as the WP CarDealer plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP CarDealer 1.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-cardealer\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-01-29T07:34:18+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
+"X-Domain: wp-cardealer\n"
+
+#. Plugin Name of the plugin
+msgid "WP CarDealer"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "http://apusthemes.com/wp-cardealer/"
+msgstr ""
+
+#. Description of the plugin
+msgid "The latest plugins Car Dealer you want. Completely all features, easy customize and override layout, functions. Supported global payment, build market, single, list car...etc. All fields are defined dynamic, they will help you can build any kind of Car Dealer website."
+msgstr ""
+
+#. Author of the plugin
+msgid "Habq"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://apusthemes.com/"
+msgstr ""
+
+#: includes/3rd-party/class-polylang.php:99
+#: includes/3rd-party/class-wpml.php:108
+msgid "Page Not Set"
+msgstr ""
+
+#. translators: Placeholder (%s) is the URL to edit the primary language in WPML.
+#: includes/3rd-party/class-polylang.php:111
+#: includes/3rd-party/class-wpml.php:120
+msgid "<a href=\"%s\">Switch to primary language</a> to edit this setting."
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:26
+#: includes/admin/class-permalink-settings.php:171
+msgid "Listing base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:34
+msgid "Listing type base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:43
+msgid "Listing category base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:52
+msgid "Listing color base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:61
+msgid "Listing condition base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:70
+msgid "Listing label base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:79
+msgid "Listing cylinder base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:90
+msgid "Listing door base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:99
+msgid "Listing drive_type base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:108
+msgid "Listing feature base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:117
+msgid "Listing fuel type base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:126
+msgid "Listing make base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:135
+msgid "Listing model base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:144
+msgid "Listing offer type base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:153
+msgid "Listing transmission base"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:162
+#: includes/admin/class-permalink-settings.php:178
+msgid "Listing archive page"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:188
+msgid "listing"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:195
+msgid "listing-category"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:202
+msgid "listing-color"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:209
+msgid "listing-condition"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:216
+msgid "listing-label"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:223
+msgid "listing-cylinder"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:230
+msgid "listing-type"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:237
+msgid "listing-location"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:244
+msgid "listing-door"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:251
+msgid "listing-drive-type"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:258
+msgid "listing-feature"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:265
+msgid "listing-fuel-type"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:272
+msgid "listing-make"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:279
+msgid "listing-model"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:286
+msgid "listing-offer-type"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:293
+msgid "listing-safety-type"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:300
+msgid "listing-transmission"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:307
+msgid "listings"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:314
+msgid "dealer"
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:321
+msgid "dealers"
+msgstr ""
+
+#: includes/admin/class-settings.php:65
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:85
+#: includes/class-abstract-form.php:124
+#: includes/class-compare.php:312
+#: includes/custom-fields/class-custom-fields.php:82
+#: includes/custom-fields/class-custom-fields.php:185
+#: includes/post-types/class-post-type-dealer.php:154
+#: libraries/cmb2/cmb_field_taxonomy_select2_parent/cmb-field-taxonomy-select2-parent.php:108
+#: libraries/cmb2/cmb_field_taxonomy_select2_parent/cmb-field-taxonomy-select2-parent.php:158
+msgid "General"
+msgstr ""
+
+#: includes/admin/class-settings.php:86
+#: includes/admin/class-settings.php:624
+#: includes/admin/class-settings.php:631
+msgid "Listing Submission"
+msgstr ""
+
+#: includes/admin/class-settings.php:87
+#: includes/admin/class-settings.php:707
+msgid "Pages"
+msgstr ""
+
+#: includes/admin/class-settings.php:88
+#: includes/admin/class-settings.php:883
+msgid "User Register Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:89
+msgid "Compare Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:90
+#: includes/admin/class-settings.php:1133
+msgid "Review Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:91
+#: includes/admin/class-settings.php:1247
+msgid "Social API"
+msgstr ""
+
+#: includes/admin/class-settings.php:92
+msgid "ReCaptcha API"
+msgstr ""
+
+#: includes/admin/class-settings.php:93
+#: includes/admin/class-settings.php:1417
+msgid "Email Notification"
+msgstr ""
+
+#: includes/admin/class-settings.php:152
+#: includes/admin/class-settings.php:585
+msgid "All Countries"
+msgstr ""
+
+#: includes/admin/class-settings.php:165
+#: includes/admin/class-settings.php:172
+msgid "General Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:179
+msgid "Number listings per page"
+msgstr ""
+
+#: includes/admin/class-settings.php:180
+msgid "Number of listings to display per page."
+msgstr ""
+
+#: includes/admin/class-settings.php:186
+msgid "Number deaers per page"
+msgstr ""
+
+#: includes/admin/class-settings.php:187
+msgid "Number of dealers to display per page."
+msgstr ""
+
+#: includes/admin/class-settings.php:193
+msgid "Currency Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:200
+msgid "Enable Multiple Currencies"
+msgstr ""
+
+#: includes/admin/class-settings.php:204
+#: includes/admin/class-settings.php:366
+#: includes/class-email.php:475
+#: includes/class-listing-filter.php:701
+#: includes/custom-fields/class-custom-fields-display.php:75
+#: includes/custom-fields/class-custom-fields-html.php:43
+msgid "Yes"
+msgstr ""
+
+#: includes/admin/class-settings.php:205
+#: includes/admin/class-settings.php:367
+#: includes/class-email.php:477
+#: includes/custom-fields/class-custom-fields-display.php:75
+#: includes/custom-fields/class-custom-fields-html.php:42
+msgid "No"
+msgstr ""
+
+#: includes/admin/class-settings.php:210
+msgid "Exchangerate API Key"
+msgstr ""
+
+#: includes/admin/class-settings.php:213
+msgid "Acquire an API key from the <a href=\"%s\" target=\"_blank\">Exchange Rate API</a>"
+msgstr ""
+
+#: includes/admin/class-settings.php:216
+#: includes/admin/class-settings.php:288
+#: includes/admin/class-settings.php:297
+msgid "Currency"
+msgstr ""
+
+#: includes/admin/class-settings.php:217
+#: includes/admin/class-settings.php:298
+msgid "Choose a currency."
+msgstr ""
+
+#: includes/admin/class-settings.php:228
+#: includes/admin/class-settings.php:343
+msgid "Custom symbol"
+msgstr ""
+
+#: includes/admin/class-settings.php:232
+#: includes/admin/class-settings.php:347
+msgid "eg: CAD $"
+msgstr ""
+
+#: includes/admin/class-settings.php:236
+#: includes/admin/class-settings.php:309
+msgid "Currency Position"
+msgstr ""
+
+#: includes/admin/class-settings.php:241
+#: includes/admin/class-settings.php:314
+msgid "Before - $10"
+msgstr ""
+
+#: includes/admin/class-settings.php:242
+#: includes/admin/class-settings.php:315
+msgid "After - 10$"
+msgstr ""
+
+#: includes/admin/class-settings.php:243
+#: includes/admin/class-settings.php:316
+msgid "Before with space - $ 10"
+msgstr ""
+
+#: includes/admin/class-settings.php:244
+#: includes/admin/class-settings.php:317
+msgid "After with space - 10 $"
+msgstr ""
+
+#: includes/admin/class-settings.php:253
+#: includes/admin/class-settings.php:326
+msgid "Number of decimals"
+msgstr ""
+
+#: includes/admin/class-settings.php:254
+#: includes/admin/class-settings.php:327
+msgid "This sets the number of decimal points shown in displayed prices."
+msgstr ""
+
+#: includes/admin/class-settings.php:264
+msgid "Decimal Separator"
+msgstr ""
+
+#: includes/admin/class-settings.php:265
+msgid "The symbol (usually , or .) to separate decimal points"
+msgstr ""
+
+#: includes/admin/class-settings.php:274
+msgid "Thousands Separator"
+msgstr ""
+
+#: includes/admin/class-settings.php:275
+msgid "If you need space, enter &nbsp;"
+msgstr ""
+
+#: includes/admin/class-settings.php:284
+msgid "More Currencies"
+msgstr ""
+
+#: includes/admin/class-settings.php:289
+msgid "Add Another Currency"
+msgstr ""
+
+#: includes/admin/class-settings.php:290
+msgid "Remove Currency"
+msgstr ""
+
+#: includes/admin/class-settings.php:293
+msgid "Do you want to remove this currency"
+msgstr ""
+
+#: includes/admin/class-settings.php:337
+msgid "Rate + Exchange Fee"
+msgstr ""
+
+#: includes/admin/class-settings.php:354
+msgid "Shorten Long Number"
+msgstr ""
+
+#: includes/admin/class-settings.php:362
+msgid "Enable Shorten Long Number"
+msgstr ""
+
+#: includes/admin/class-settings.php:372
+msgid "Number precision"
+msgstr ""
+
+#: includes/admin/class-settings.php:373
+msgid "This sets the number of precision shown in displayed number."
+msgstr ""
+
+#: includes/admin/class-settings.php:384
+msgid "Shorten Thousand"
+msgstr ""
+
+#: includes/admin/class-settings.php:387
+msgid "Enter space for translate to all languages \"K\""
+msgstr ""
+
+#: includes/admin/class-settings.php:389
+msgid "eg: K"
+msgstr ""
+
+#: includes/admin/class-settings.php:393
+msgid "Shorten Million"
+msgstr ""
+
+#: includes/admin/class-settings.php:396
+msgid "Enter space for translate to all languages \"M\""
+msgstr ""
+
+#: includes/admin/class-settings.php:398
+msgid "eg: M"
+msgstr ""
+
+#: includes/admin/class-settings.php:402
+msgid "Shorten Billion"
+msgstr ""
+
+#: includes/admin/class-settings.php:405
+msgid "Enter space for translate to all languages \"B\""
+msgstr ""
+
+#: includes/admin/class-settings.php:407
+msgid "eg: B"
+msgstr ""
+
+#: includes/admin/class-settings.php:411
+msgid "Shorten Trillion"
+msgstr ""
+
+#: includes/admin/class-settings.php:414
+msgid "Enter space for translate to all languages \"T\""
+msgstr ""
+
+#: includes/admin/class-settings.php:416
+msgid "eg: T"
+msgstr ""
+
+#: includes/admin/class-settings.php:420
+msgid "Shorten Quadrillion"
+msgstr ""
+
+#: includes/admin/class-settings.php:423
+msgid "Enter space for translate to all languages \"Qa\""
+msgstr ""
+
+#: includes/admin/class-settings.php:425
+msgid "eg: Qa"
+msgstr ""
+
+#: includes/admin/class-settings.php:429
+msgid "Shorten Quintillion"
+msgstr ""
+
+#: includes/admin/class-settings.php:432
+msgid "Enter space for translate to all languages \"Qi\""
+msgstr ""
+
+#: includes/admin/class-settings.php:434
+msgid "eg: Qi"
+msgstr ""
+
+#: includes/admin/class-settings.php:440
+msgid "Measurement"
+msgstr ""
+
+#: includes/admin/class-settings.php:448
+msgid "Distance Unit"
+msgstr ""
+
+#: includes/admin/class-settings.php:454
+msgid "Search Distance unit"
+msgstr ""
+
+#: includes/admin/class-settings.php:458
+msgid "Kilometers"
+msgstr ""
+
+#: includes/admin/class-settings.php:459
+msgid "Miles"
+msgstr ""
+
+#: includes/admin/class-settings.php:469
+msgid "Map API Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:477
+msgid "Map Service"
+msgstr ""
+
+#: includes/admin/class-settings.php:481
+msgid "Mapbox"
+msgstr ""
+
+#: includes/admin/class-settings.php:482
+msgid "Google Maps"
+msgstr ""
+
+#: includes/admin/class-settings.php:483
+msgid "Here Maps"
+msgstr ""
+
+#: includes/admin/class-settings.php:484
+msgid "OpenStreetMap"
+msgstr ""
+
+#: includes/admin/class-settings.php:492
+msgid "Google Map API"
+msgstr ""
+
+#: includes/admin/class-settings.php:493
+msgid "Google requires an API key to retrieve location information for listing listings. Acquire an API key from the <a href=\"https://developers.google.com/maps/documentation/geocoding/get-api-key\">Google Maps API developer site.</a>"
+msgstr ""
+
+#: includes/admin/class-settings.php:499
+msgid "Google Map Type"
+msgstr ""
+
+#: includes/admin/class-settings.php:503
+msgid "ROADMAP"
+msgstr ""
+
+#: includes/admin/class-settings.php:504
+msgid "SATELLITE"
+msgstr ""
+
+#: includes/admin/class-settings.php:505
+msgid "HYBRID"
+msgstr ""
+
+#: includes/admin/class-settings.php:506
+msgid "TERRAIN"
+msgstr ""
+
+#: includes/admin/class-settings.php:515
+msgid "Google Maps Style"
+msgstr ""
+
+#: includes/admin/class-settings.php:516
+msgid "<a href=\"//snazzymaps.com/\">Get custom style</a> and paste it below. If there is nothing added, we will fallback to the Google Maps service."
+msgstr ""
+
+#: includes/admin/class-settings.php:522
+msgid "Mapbox Token"
+msgstr ""
+
+#: includes/admin/class-settings.php:523
+msgid "<a href=\"//www.mapbox.com/help/create-api-access-token/\">Get a FREE token</a> and paste it below. If there is nothing added, we will fallback to the Google Maps service."
+msgstr ""
+
+#: includes/admin/class-settings.php:529
+msgid "Mapbox Style"
+msgstr ""
+
+#: includes/admin/class-settings.php:535
+msgid "streets"
+msgstr ""
+
+#: includes/admin/class-settings.php:539
+msgid "light"
+msgstr ""
+
+#: includes/admin/class-settings.php:543
+msgid "dark"
+msgstr ""
+
+#: includes/admin/class-settings.php:547
+msgid "outdoors"
+msgstr ""
+
+#: includes/admin/class-settings.php:551
+msgid "satellite"
+msgstr ""
+
+#: includes/admin/class-settings.php:557
+msgid "Here Maps API Key"
+msgstr ""
+
+#: includes/admin/class-settings.php:558
+msgid "<a href=\"https://developer.here.com/tutorials/getting-here-credentials/\">Get a API key</a> and paste it below. If there is nothing added, we will fallback to the Google Maps service."
+msgstr ""
+
+#: includes/admin/class-settings.php:564
+msgid "Here Maps Style"
+msgstr ""
+
+#: includes/admin/class-settings.php:568
+msgid "Normal Day"
+msgstr ""
+
+#: includes/admin/class-settings.php:569
+msgid "Normal Day Grey"
+msgstr ""
+
+#: includes/admin/class-settings.php:570
+msgid "Normal Day Transit"
+msgstr ""
+
+#: includes/admin/class-settings.php:571
+msgid "Normal Night"
+msgstr ""
+
+#: includes/admin/class-settings.php:572
+msgid "Reduced Day"
+msgstr ""
+
+#: includes/admin/class-settings.php:573
+msgid "Reduced Night"
+msgstr ""
+
+#: includes/admin/class-settings.php:574
+msgid "Pedestrian Day"
+msgstr ""
+
+#: includes/admin/class-settings.php:578
+msgid "Geocoder Country"
+msgstr ""
+
+#: includes/admin/class-settings.php:589
+msgid "Default maps location"
+msgstr ""
+
+#: includes/admin/class-settings.php:597
+#: libraries/cmb2/cmb2_field_map/cmb-field-map.php:48
+msgid "Latitude"
+msgstr ""
+
+#: includes/admin/class-settings.php:598
+msgid "Enter your latitude"
+msgstr ""
+
+#: includes/admin/class-settings.php:604
+#: libraries/cmb2/cmb2_field_map/cmb-field-map.php:58
+msgid "Longitude"
+msgstr ""
+
+#: includes/admin/class-settings.php:605
+msgid "Enter your longitude"
+msgstr ""
+
+#: includes/admin/class-settings.php:618
+#: includes/admin/class-settings.php:644
+msgid "Everyone"
+msgstr ""
+
+#: includes/admin/class-settings.php:638
+msgid "Submit Listing Capability"
+msgstr ""
+
+#: includes/admin/class-settings.php:639
+msgid "Enter which roles allow visitors to submit listing."
+msgstr ""
+
+#: includes/admin/class-settings.php:651
+msgid "Submit Listing Form Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:652
+msgid "This is page to display form for submit listing. The <code>[wp_cardealer_submission]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:663
+msgid "Moderate New Listings"
+msgstr ""
+
+#: includes/admin/class-settings.php:664
+msgid "Require admin approval of all new listing submissions"
+msgstr ""
+
+#: includes/admin/class-settings.php:668
+#: includes/admin/class-settings.php:1109
+#: includes/admin/class-settings.php:1152
+#: includes/admin/class-settings.php:1203
+msgid "Enable"
+msgstr ""
+
+#: includes/admin/class-settings.php:669
+#: includes/admin/class-settings.php:1110
+#: includes/admin/class-settings.php:1153
+#: includes/admin/class-settings.php:1204
+msgid "Disable"
+msgstr ""
+
+#: includes/admin/class-settings.php:678
+msgid "Allow Published Edits"
+msgstr ""
+
+#: includes/admin/class-settings.php:679
+msgid "Choose whether published listing listings can be edited and if edits require admin approval. When moderation is required, the original listing listings will be unpublished while edits await admin approval."
+msgstr ""
+
+#: includes/admin/class-settings.php:683
+msgid "Users cannot edit"
+msgstr ""
+
+#: includes/admin/class-settings.php:684
+msgid "Users can edit without admin approval"
+msgstr ""
+
+#: includes/admin/class-settings.php:685
+msgid "Users can edit, but edits require admin approval"
+msgstr ""
+
+#: includes/admin/class-settings.php:694
+msgid "Listing Duration"
+msgstr ""
+
+#: includes/admin/class-settings.php:695
+msgid "Listings will display for the set number of days, then expire. Leave this field blank if you don't want listings to have an expiration date."
+msgstr ""
+
+#: includes/admin/class-settings.php:714
+msgid "Listings Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:715
+msgid "This lets the plugin know the location of the listings listing page. The <code>[wp_cardealer_listings]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:727
+msgid "Dealers Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:728
+msgid "This lets the plugin know the location of the dealers listing page. The <code>[wp_cardealer_dealers]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:740
+msgid "Login Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:741
+#: includes/admin/class-settings.php:753
+msgid "This lets the plugin know the location of the listing listings page. The <code>[wp_cardealer_login]</code> <code>[wp_cardealer_register]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:752
+msgid "Register Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:764
+msgid "After Login Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:765
+msgid "This lets the plugin know the page after User login/register."
+msgstr ""
+
+#: includes/admin/class-settings.php:776
+msgid "Approve User Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:777
+msgid "This lets the plugin know the location of the job listings page. The <code>[wp_cardealer_approve_user]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:788
+msgid "User Dashboard Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:789
+msgid "This lets the plugin know the location of the user dashboard. The <code>[wp_cardealer_user_dashboard]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:800
+msgid "Edit Profile Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:801
+msgid "This lets the plugin know the location of the user edit profile. The <code>[wp_cardealer_change_profile]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:812
+msgid "Change Password Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:813
+msgid "This lets the plugin know the location of the user change password. The <code>[wp_cardealer_change_password]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:824
+msgid "My Listings Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:825
+msgid "This lets the plugin know the location of the my listing page. The <code>[wp_cardealer_my_listings]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:836
+msgid "Favorite Listings Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:837
+msgid "This lets the plugin know the location of the my favorite listing page. The <code>[wp_cardealer_my_listing_favorite]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:849
+msgid "Compare Listings Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:850
+msgid "This lets the plugin know the location of the listing compare page. The <code>[wp_cardealer_listing_compare]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:861
+msgid "Terms and Conditions Page"
+msgstr ""
+
+#: includes/admin/class-settings.php:862
+msgid "This lets the plugin know the Terms and Conditions page."
+msgstr ""
+
+#: includes/admin/class-settings.php:890
+msgid "User Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:897
+msgid "Moderate New User"
+msgstr ""
+
+#: includes/admin/class-settings.php:898
+msgid "Require admin approval of all new users"
+msgstr ""
+
+#: includes/admin/class-settings.php:902
+msgid "Auto Approve"
+msgstr ""
+
+#: includes/admin/class-settings.php:903
+msgid "Email Approve"
+msgstr ""
+
+#: includes/admin/class-settings.php:904
+msgid "Phone Approve"
+msgstr ""
+
+#: includes/admin/class-settings.php:905
+msgid "Administrator Approve"
+msgstr ""
+
+#: includes/admin/class-settings.php:914
+msgid "Phone Approve Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:921
+msgid "Phone Operator"
+msgstr ""
+
+#: includes/admin/class-settings.php:925
+msgid "twilio"
+msgstr ""
+
+#: includes/admin/class-settings.php:926
+msgid "Amazon"
+msgstr ""
+
+#: includes/admin/class-settings.php:935
+msgid "Amazon SNS Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:942
+msgid "Access key"
+msgstr ""
+
+#: includes/admin/class-settings.php:947
+msgid "Secret access key"
+msgstr ""
+
+#: includes/admin/class-settings.php:952
+msgid "Twilio Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:959
+msgid "Account SID"
+msgstr ""
+
+#: includes/admin/class-settings.php:964
+msgid "Auth Token"
+msgstr ""
+
+#: includes/admin/class-settings.php:969
+msgid "Sender's Number"
+msgstr ""
+
+#: includes/admin/class-settings.php:974
+msgid "Register Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:982
+msgid "Default Country Code"
+msgstr ""
+
+#: includes/admin/class-settings.php:983
+msgid "Geolocation = User location."
+msgstr ""
+
+#: includes/admin/class-settings.php:987
+msgid "Geolocation"
+msgstr ""
+
+#: includes/admin/class-settings.php:988
+msgid "Custom"
+msgstr ""
+
+#: includes/admin/class-settings.php:997
+msgid "Default Country Code (Custom)"
+msgstr ""
+
+#: includes/admin/class-settings.php:1008
+msgid "SMS Text"
+msgstr ""
+
+#: includes/admin/class-settings.php:1009
+msgid "Shortcodes: [otp]"
+msgstr ""
+
+#: includes/admin/class-settings.php:1015
+msgid "OTP Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:1022
+msgid "OTP Digits"
+msgstr ""
+
+#: includes/admin/class-settings.php:1034
+msgid "Incorrect OTP Limit"
+msgstr ""
+
+#: includes/admin/class-settings.php:1046
+msgid "OTP Expiry"
+msgstr ""
+
+#: includes/admin/class-settings.php:1047
+msgid "In Seconds"
+msgstr ""
+
+#: includes/admin/class-settings.php:1059
+msgid "Resend OTP Limit"
+msgstr ""
+
+#: includes/admin/class-settings.php:1071
+msgid "Ban Time"
+msgstr ""
+
+#: includes/admin/class-settings.php:1072
+msgid "Time in seconds"
+msgstr ""
+
+#: includes/admin/class-settings.php:1084
+msgid "Resend OTP Wait Time"
+msgstr ""
+
+#: includes/admin/class-settings.php:1085
+msgid "Waiting time to resend a new OTP (In seconds)"
+msgstr ""
+
+#: includes/admin/class-settings.php:1105
+#: libraries/cmb2/cmb2_field_enable_input/cmb2-field-enable-input.php:27
+msgid "Enable %s"
+msgstr ""
+
+#: includes/admin/class-settings.php:1122
+msgid "Compare Fields Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:1141
+msgid "Listing review settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:1148
+msgid "Enable Listing Review"
+msgstr ""
+
+#: includes/admin/class-settings.php:1164
+msgid "Listing Review Category"
+msgstr ""
+
+#: includes/admin/class-settings.php:1167
+#: includes/admin/class-settings.php:1218
+msgid "Category {#}"
+msgstr ""
+
+#: includes/admin/class-settings.php:1168
+#: includes/admin/class-settings.php:1219
+msgid "Add Another Category"
+msgstr ""
+
+#: includes/admin/class-settings.php:1169
+#: includes/admin/class-settings.php:1220
+msgid "Remove Category"
+msgstr ""
+
+#: includes/admin/class-settings.php:1174
+#: includes/admin/class-settings.php:1225
+msgid "Category Key"
+msgstr ""
+
+#: includes/admin/class-settings.php:1175
+#: includes/admin/class-settings.php:1226
+msgid "Enter category key."
+msgstr ""
+
+#: includes/admin/class-settings.php:1183
+#: includes/admin/class-settings.php:1234
+msgid "Category Name"
+msgstr ""
+
+#: includes/admin/class-settings.php:1184
+#: includes/admin/class-settings.php:1235
+msgid "Enter category name."
+msgstr ""
+
+#: includes/admin/class-settings.php:1192
+msgid "Dealer review settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:1199
+msgid "Enable Dealer Review"
+msgstr ""
+
+#: includes/admin/class-settings.php:1215
+msgid "Dealer Review Category"
+msgstr ""
+
+#: includes/admin/class-settings.php:1255
+msgid "Facebook API settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:1260
+#: includes/admin/class-settings.php:1287
+#: includes/admin/class-settings.php:1314
+#: includes/admin/class-settings.php:1353
+msgid "Callback URL is: %s"
+msgstr ""
+
+#: includes/admin/class-settings.php:1263
+msgid "App ID"
+msgstr ""
+
+#: includes/admin/class-settings.php:1264
+msgid "Please enter App ID of your Facebook account."
+msgstr ""
+
+#: includes/admin/class-settings.php:1269
+msgid "App Secret"
+msgstr ""
+
+#: includes/admin/class-settings.php:1270
+msgid "Please enter App Secret of your Facebook account."
+msgstr ""
+
+#: includes/admin/class-settings.php:1275
+msgid "Enable Facebook Login"
+msgstr ""
+
+#: includes/admin/class-settings.php:1282
+msgid "Linkedin API settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:1290
+#: includes/admin/class-settings.php:1362
+msgid "Client ID"
+msgstr ""
+
+#: includes/admin/class-settings.php:1291
+msgid "Please enter Client ID of your linkedin app."
+msgstr ""
+
+#: includes/admin/class-settings.php:1296
+#: includes/admin/class-settings.php:1368
+msgid "Client Secret"
+msgstr ""
+
+#: includes/admin/class-settings.php:1297
+msgid "Please enter Client Secret of your linkedin app."
+msgstr ""
+
+#: includes/admin/class-settings.php:1302
+msgid "Enable Linkedin Login"
+msgstr ""
+
+#: includes/admin/class-settings.php:1309
+msgid "Twitter API settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:1317
+msgid "Consumer Key"
+msgstr ""
+
+#: includes/admin/class-settings.php:1318
+msgid "Set Consumer Key for twitter."
+msgstr ""
+
+#: includes/admin/class-settings.php:1323
+msgid "Consumer Secret"
+msgstr ""
+
+#: includes/admin/class-settings.php:1324
+msgid "Set Consumer Secret for twitter."
+msgstr ""
+
+#: includes/admin/class-settings.php:1329
+msgid "Access Token"
+msgstr ""
+
+#: includes/admin/class-settings.php:1330
+msgid "Set Access Token for twitter."
+msgstr ""
+
+#: includes/admin/class-settings.php:1335
+msgid "Token Secret"
+msgstr ""
+
+#: includes/admin/class-settings.php:1336
+msgid "Set Token Secret for twitter."
+msgstr ""
+
+#: includes/admin/class-settings.php:1341
+msgid "Enable Twitter Login"
+msgstr ""
+
+#: includes/admin/class-settings.php:1348
+msgid "Google API settings Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:1356
+msgid "API Key"
+msgstr ""
+
+#: includes/admin/class-settings.php:1357
+msgid "Please enter API key of your Google account."
+msgstr ""
+
+#: includes/admin/class-settings.php:1363
+msgid "Please enter Client ID of your Google account."
+msgstr ""
+
+#: includes/admin/class-settings.php:1369
+msgid "Please enter Client secret of your Google account."
+msgstr ""
+
+#: includes/admin/class-settings.php:1374
+msgid "Enable Google Login"
+msgstr ""
+
+#: includes/admin/class-settings.php:1385
+msgid "reCAPTCHA API"
+msgstr ""
+
+#: includes/admin/class-settings.php:1391
+msgid "Google reCAPTCHA API (V2) Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:1396
+msgid "The plugin use ReCaptcha v2"
+msgstr ""
+
+#: includes/admin/class-settings.php:1399
+msgid "Site Key"
+msgstr ""
+
+#: includes/admin/class-settings.php:1400
+msgid "You can retrieve your site key from <a href=\"https://www.google.com/recaptcha/admin#list\">Google's reCAPTCHA admin dashboard.</a>"
+msgstr ""
+
+#: includes/admin/class-settings.php:1405
+msgid "Secret Key"
+msgstr ""
+
+#: includes/admin/class-settings.php:1406
+msgid "You can retrieve your secret key from <a href=\"https://www.google.com/recaptcha/admin#list\">Google's reCAPTCHA admin dashboard.</a>"
+msgstr ""
+
+#: includes/admin/class-settings.php:1425
+#: includes/admin/class-settings.php:1433
+msgid "Admin Notice of New Listing"
+msgstr ""
+
+#: includes/admin/class-settings.php:1436
+msgid "Send a notice to the site administrator when a new listing is submitted on the frontend."
+msgstr ""
+
+#: includes/admin/class-settings.php:1439
+#: includes/admin/class-settings.php:1468
+#: includes/admin/class-settings.php:1505
+#: includes/admin/class-settings.php:1542
+#: templates/single-listing/contact-form.php:31
+msgid "Subject"
+msgstr ""
+
+#: includes/admin/class-settings.php:1440
+#: includes/admin/class-settings.php:1469
+#: includes/admin/class-settings.php:1506
+#: includes/admin/class-settings.php:1543
+#: includes/admin/class-settings.php:1567
+#: includes/admin/class-settings.php:1591
+#: includes/admin/class-settings.php:1615
+#: includes/admin/class-settings.php:1639
+#: includes/admin/class-settings.php:1663
+#: includes/admin/class-settings.php:1689
+#: includes/admin/class-settings.php:1712
+#: includes/admin/class-settings.php:1735
+#: includes/admin/class-settings.php:1758
+#: includes/admin/class-settings.php:1782
+msgid "Enter email subject. You can add variables: %s"
+msgstr ""
+
+#: includes/admin/class-settings.php:1446
+#: includes/admin/class-settings.php:1475
+#: includes/admin/class-settings.php:1512
+#: includes/admin/class-settings.php:1549
+msgid "Content"
+msgstr ""
+
+#: includes/admin/class-settings.php:1447
+#: includes/admin/class-settings.php:1476
+#: includes/admin/class-settings.php:1513
+#: includes/admin/class-settings.php:1550
+#: includes/admin/class-settings.php:1574
+#: includes/admin/class-settings.php:1598
+#: includes/admin/class-settings.php:1622
+#: includes/admin/class-settings.php:1646
+#: includes/admin/class-settings.php:1670
+#: includes/admin/class-settings.php:1696
+#: includes/admin/class-settings.php:1719
+#: includes/admin/class-settings.php:1742
+#: includes/admin/class-settings.php:1765
+#: includes/admin/class-settings.php:1789
+msgid "Enter email content. You can add variables: %s"
+msgstr ""
+
+#: includes/admin/class-settings.php:1454
+#: includes/admin/class-settings.php:1462
+msgid "Admin Notice of Updated Listing"
+msgstr ""
+
+#: includes/admin/class-settings.php:1465
+msgid "Send a notice to the site administrator when a listing is updated on the frontend."
+msgstr ""
+
+#: includes/admin/class-settings.php:1484
+#: includes/admin/class-settings.php:1492
+msgid "Admin Notice of Expiring Listing"
+msgstr ""
+
+#: includes/admin/class-settings.php:1495
+msgid "Send notices to the site administrator before a listing listing expires."
+msgstr ""
+
+#: includes/admin/class-settings.php:1498
+#: includes/admin/class-settings.php:1535
+msgid "Notice Period"
+msgstr ""
+
+#: includes/admin/class-settings.php:1499
+#: includes/admin/class-settings.php:1536
+msgid "days"
+msgstr ""
+
+#: includes/admin/class-settings.php:1521
+#: includes/admin/class-settings.php:1529
+msgid "User Notice of Expiring Listing"
+msgstr ""
+
+#: includes/admin/class-settings.php:1532
+msgid "Send notices to user before a listing listing expires."
+msgstr ""
+
+#: includes/admin/class-settings.php:1558
+msgid "Listing Saved Search"
+msgstr ""
+
+#: includes/admin/class-settings.php:1566
+msgid "Listing Saved Search Subject"
+msgstr ""
+
+#: includes/admin/class-settings.php:1570
+msgid "Listing Saved Search: %s"
+msgstr ""
+
+#: includes/admin/class-settings.php:1573
+msgid "Listing Saved Search Content"
+msgstr ""
+
+#: includes/admin/class-settings.php:1582
+msgid "Listing Contact Form"
+msgstr ""
+
+#: includes/admin/class-settings.php:1590
+msgid "Listing Contact Form Subject"
+msgstr ""
+
+#: includes/admin/class-settings.php:1594
+#: includes/admin/class-settings.php:1606
+msgid "Contact Form"
+msgstr ""
+
+#: includes/admin/class-settings.php:1597
+msgid "Listing Contact Form Content"
+msgstr ""
+
+#: includes/admin/class-settings.php:1614
+msgid "Contact Form Subject"
+msgstr ""
+
+#: includes/admin/class-settings.php:1618
+msgid "Contact Form: %s"
+msgstr ""
+
+#: includes/admin/class-settings.php:1621
+msgid "Contact Form Content"
+msgstr ""
+
+#: includes/admin/class-settings.php:1630
+#: includes/admin/class-settings.php:1642
+#: includes/admin/class-settings.php:1666
+msgid "Make an Offer"
+msgstr ""
+
+#: includes/admin/class-settings.php:1638
+#: includes/admin/class-settings.php:1662
+msgid "Make an Offer Subject"
+msgstr ""
+
+#: includes/admin/class-settings.php:1645
+#: includes/admin/class-settings.php:1669
+msgid "Make an Offer Content"
+msgstr ""
+
+#: includes/admin/class-settings.php:1654
+msgid "Schedule Test Drive"
+msgstr ""
+
+#: includes/admin/class-settings.php:1680
+msgid "New user register (auto approve)"
+msgstr ""
+
+#: includes/admin/class-settings.php:1688
+msgid "New user register Subject"
+msgstr ""
+
+#: includes/admin/class-settings.php:1692
+msgid "New user register: %s"
+msgstr ""
+
+#: includes/admin/class-settings.php:1695
+msgid "New user register Content"
+msgstr ""
+
+#: includes/admin/class-settings.php:1703
+msgid "Approve new user register"
+msgstr ""
+
+#: includes/admin/class-settings.php:1711
+msgid "Approve new user register Subject"
+msgstr ""
+
+#: includes/admin/class-settings.php:1715
+#: includes/admin/class-settings.php:1738
+#: includes/admin/class-settings.php:1761
+msgid "Approve new user register: %s"
+msgstr ""
+
+#: includes/admin/class-settings.php:1718
+msgid "Approve new user register Content"
+msgstr ""
+
+#: includes/admin/class-settings.php:1726
+msgid "Approved user"
+msgstr ""
+
+#: includes/admin/class-settings.php:1734
+msgid "Approved user Subject"
+msgstr ""
+
+#: includes/admin/class-settings.php:1741
+msgid "Approved user Content"
+msgstr ""
+
+#: includes/admin/class-settings.php:1749
+msgid "Denied user"
+msgstr ""
+
+#: includes/admin/class-settings.php:1757
+msgid "Denied user Subject"
+msgstr ""
+
+#: includes/admin/class-settings.php:1764
+msgid "Denied user Content"
+msgstr ""
+
+#: includes/admin/class-settings.php:1773
+#: templates/misc/login.php:48
+msgid "Reset Password"
+msgstr ""
+
+#: includes/admin/class-settings.php:1781
+msgid "Reset Password Subject"
+msgstr ""
+
+#: includes/admin/class-settings.php:1788
+msgid "Reset Password Content"
+msgstr ""
+
+#: includes/admin/class-settings.php:1825
+msgid "Settings updated."
+msgstr ""
+
+#: includes/admin/class-settings.php:1952
+msgid "Save Settings"
+msgstr ""
+
+#: includes/class-abstract-form.php:193
+#: includes/class-user.php:1317
+#: includes/post-types/class-post-type-dealer.php:215
+#: includes/post-types/class-post-type-saved-search.php:99
+msgid "General Options"
+msgstr ""
+
+#: includes/class-abstract-form.php:209
+#: includes/class-shortcodes.php:231
+#: includes/class-shortcodes.php:237
+msgid "A metabox with the specified 'metabox_id' doesn't exist."
+msgstr ""
+
+#: includes/class-abstract-form.php:221
+msgid "Save & Preview"
+msgstr ""
+
+#: includes/class-abstract-form.php:223
+#: includes/custom-fields/class-fields-manager.php:86
+#: includes/custom-fields/class-fields-manager.php:204
+#: includes/taxonomies/class-taxonomy-listing-category.php:37
+#: includes/taxonomies/class-taxonomy-listing-color.php:37
+#: includes/taxonomies/class-taxonomy-listing-condition.php:46
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:37
+#: includes/taxonomies/class-taxonomy-listing-door.php:37
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:37
+#: includes/taxonomies/class-taxonomy-listing-feature.php:53
+#: includes/taxonomies/class-taxonomy-listing-feature.php:84
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:37
+#: includes/taxonomies/class-taxonomy-listing-label.php:46
+#: includes/taxonomies/class-taxonomy-listing-location.php:37
+#: includes/taxonomies/class-taxonomy-listing-make.php:45
+#: includes/taxonomies/class-taxonomy-listing-model.php:45
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:37
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:37
+#: includes/taxonomies/class-taxonomy-listing-type.php:45
+#: templates/misc/profile-form-normal.php:97
+msgid "Update"
+msgstr ""
+
+#: includes/class-abstract-form.php:228
+msgid "You are not allowed to modify this listing."
+msgstr ""
+
+#: includes/class-compare.php:48
+#: includes/class-compare.php:89
+#: includes/class-compare.php:143
+#: includes/class-favorite.php:28
+#: includes/class-favorite.php:79
+#: includes/class-listing.php:305
+#: includes/class-saved-search.php:168
+#: includes/class-saved-search.php:238
+#: includes/class-submit-form.php:226
+#: includes/class-user-notification.php:54
+#: includes/post-types/class-post-type-listing.php:242
+msgid "Your nonce did not verify."
+msgstr ""
+
+#: includes/class-compare.php:56
+#: includes/class-compare.php:96
+#: includes/class-favorite.php:37
+#: includes/class-favorite.php:87
+msgid "Listing did not exists."
+msgstr ""
+
+#: includes/class-compare.php:80
+msgid "Add compare successfully."
+msgstr ""
+
+#: includes/class-compare.php:133
+msgid "Remove listing from compare successfully."
+msgstr ""
+
+#: includes/class-compare.php:158
+msgid "Remove all listings from compare successfully."
+msgstr ""
+
+#: includes/class-compare.php:200
+#: includes/class-compare.php:201
+msgid "Remove Compare"
+msgstr ""
+
+#: includes/class-compare.php:204
+#: includes/class-compare.php:206
+msgid "Add Compare"
+msgstr ""
+
+#: includes/class-edit-form.php:140
+msgid "Your changes have been saved."
+msgstr ""
+
+#: includes/class-edit-form.php:142
+#: includes/class-submit-form.php:176
+msgid "Can not update listing"
+msgstr ""
+
+#: includes/class-edit-form.php:152
+#: includes/class-submit-form.php:187
+msgid "Please login to submit listing"
+msgstr ""
+
+#: includes/class-edit-form.php:155
+#: includes/class-submit-form.php:190
+msgid "Title is required."
+msgstr ""
+
+#: includes/class-edit-form.php:158
+#: includes/class-submit-form.php:193
+msgid "Description is required."
+msgstr ""
+
+#: includes/class-email.php:108
+#: includes/class-email.php:173
+#: includes/class-email.php:238
+msgid "Your message has been successfully sent."
+msgstr ""
+
+#: includes/class-email.php:110
+#: includes/class-email.php:175
+#: includes/class-email.php:240
+msgid "An error occurred when sending an email."
+msgstr ""
+
+#: includes/class-email.php:113
+#: includes/class-email.php:178
+#: includes/class-email.php:243
+msgid "Form has been not filled correctly."
+msgstr ""
+
+#: includes/class-favorite.php:71
+msgid "Add favorite successfully."
+msgstr ""
+
+#: includes/class-favorite.php:121
+msgid "Remove listing from favorite successfully."
+msgstr ""
+
+#: includes/class-favorite.php:160
+#: includes/class-favorite.php:161
+msgid "Remove Favorite"
+msgstr ""
+
+#: includes/class-favorite.php:164
+#: includes/class-favorite.php:166
+msgid "Add Favorite"
+msgstr ""
+
+#: includes/class-image.php:29
+msgid "You must be logged in to upload files using this method."
+msgstr ""
+
+#. translators: %1$s is the file field label; %2$s is the file type; %3$s is the list of allowed file types.
+#: includes/class-image.php:154
+msgid "\"%1$s\" (filetype %2$s) needs to be one of the following file types: %3$s"
+msgstr ""
+
+#. translators: %s is the list of allowed file types.
+#: includes/class-image.php:157
+msgid "Uploaded files need to be one of the following file types: %s"
+msgstr ""
+
+#: includes/class-image.php:228
+msgid "Attachment Image"
+msgstr ""
+
+#: includes/class-listing-filter.php:27
+#: includes/class-listing-filter.php:650
+#: includes/custom-fields/class-custom-fields.php:50
+#: includes/custom-fields/class-custom-fields.php:158
+#: includes/taxonomies/class-taxonomy-listing-location.php:26
+msgid "Location"
+msgstr ""
+
+#: includes/class-listing-filter.php:29
+#: includes/custom-fields/class-custom-fields.php:52
+#: includes/custom-fields/class-custom-fields.php:160
+msgid "All Location"
+msgstr ""
+
+#: includes/class-listing-filter.php:592
+#: includes/class-listing-filter.php:702
+#: includes/custom-fields/class-fields-manager.php:367
+#: includes/post-types/class-post-type-dealer.php:244
+#: includes/post-types/class-post-type-listing.php:328
+#: templates/submission/my-listings.php:113
+msgid "Featured"
+msgstr ""
+
+#: includes/class-listing-filter.php:608
+#: includes/class-listing-filter.php:715
+#: templates/loop/listing/orderby.php:7
+#: templates/misc/listing-favorites.php:25
+#: templates/misc/my-saved-searches.php:28
+#: templates/submission/my-listings.php:28
+msgid "Default"
+msgstr ""
+
+#: includes/class-listing-filter.php:609
+#: includes/class-listing-filter.php:716
+#: templates/loop/listing/orderby.php:8
+#: templates/misc/listing-favorites.php:26
+#: templates/misc/my-saved-searches.php:29
+#: templates/submission/my-listings.php:29
+msgid "Newest"
+msgstr ""
+
+#: includes/class-listing-filter.php:610
+#: includes/class-listing-filter.php:717
+#: templates/loop/listing/orderby.php:9
+#: templates/misc/listing-favorites.php:27
+#: templates/misc/my-saved-searches.php:30
+#: templates/submission/my-listings.php:30
+msgid "Oldest"
+msgstr ""
+
+#: includes/class-listing-filter.php:611
+#: includes/class-listing-filter.php:718
+#: templates/loop/listing/orderby.php:12
+msgid "Random"
+msgstr ""
+
+#: includes/class-listing-filter.php:644
+#: includes/custom-fields/class-fields-manager.php:521
+#: includes/post-types/class-post-type-listing.php:314
+#: includes/taxonomies/class-taxonomy-listing-condition.php:35
+msgid "Condition"
+msgstr ""
+
+#: includes/class-listing-filter.php:647
+#: includes/custom-fields/class-fields-manager.php:497
+#: includes/post-types/class-post-type-listing.php:317
+#: includes/taxonomies/class-taxonomy-listing-category.php:26
+#: includes/taxonomies/class-taxonomy-listing-feature.php:119
+#: includes/taxonomies/class-taxonomy-listing-make.php:79
+#: includes/taxonomies/class-taxonomy-listing-model.php:79
+#: includes/taxonomies/class-taxonomy-listing-type.php:79
+msgid "Category"
+msgstr ""
+
+#: includes/class-listing-filter.php:653
+#: includes/custom-fields/class-fields-manager.php:513
+#: includes/post-types/class-post-type-listing.php:320
+#: includes/taxonomies/class-taxonomy-listing-type.php:34
+msgid "Type"
+msgstr ""
+
+#: includes/class-listing-filter.php:656
+#: includes/custom-fields/class-fields-manager.php:561
+#: includes/taxonomies/class-taxonomy-listing-feature.php:74
+msgid "Features"
+msgstr ""
+
+#: includes/class-listing-filter.php:659
+#: includes/custom-fields/class-fields-manager.php:505
+#: includes/taxonomies/class-taxonomy-listing-color.php:26
+#: includes/taxonomies/class-taxonomy-listing-condition.php:153
+#: includes/taxonomies/class-taxonomy-listing-label.php:153
+msgid "Color"
+msgstr ""
+
+#: includes/class-listing-filter.php:662
+#: includes/custom-fields/class-fields-manager.php:537
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:26
+msgid "Cylinder"
+msgstr ""
+
+#: includes/class-listing-filter.php:665
+#: includes/custom-fields/class-fields-manager.php:545
+#: includes/taxonomies/class-taxonomy-listing-door.php:26
+msgid "Door"
+msgstr ""
+
+#: includes/class-listing-filter.php:668
+#: includes/custom-fields/class-fields-manager.php:553
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:26
+msgid "Drive Type"
+msgstr ""
+
+#: includes/class-listing-filter.php:671
+#: includes/custom-fields/class-fields-manager.php:569
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:26
+msgid "Fuel Type"
+msgstr ""
+
+#: includes/class-listing-filter.php:674
+#: includes/custom-fields/class-fields-manager.php:577
+#: includes/post-types/class-post-type-listing.php:323
+#: includes/taxonomies/class-taxonomy-listing-make.php:34
+msgid "Make"
+msgstr ""
+
+#: includes/class-listing-filter.php:677
+#: includes/custom-fields/class-fields-manager.php:585
+#: includes/taxonomies/class-taxonomy-listing-model.php:34
+msgid "Model"
+msgstr ""
+
+#: includes/class-listing-filter.php:680
+#: includes/custom-fields/class-fields-manager.php:593
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:26
+msgid "Offer Type"
+msgstr ""
+
+#: includes/class-listing-filter.php:683
+#: includes/custom-fields/class-fields-manager.php:601
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:26
+msgid "Transmission"
+msgstr ""
+
+#: includes/class-listing-filter.php:690
+#: includes/custom-fields/class-fields-manager.php:426
+#: includes/post-types/class-post-type-listing.php:327
+msgid "Price"
+msgstr ""
+
+#: includes/class-listing-filter.php:697
+#: includes/custom-fields/class-custom-fields.php:60
+#: includes/custom-fields/class-custom-fields.php:168
+msgid "Distance"
+msgstr ""
+
+#: includes/class-listing-filter.php:711
+#: includes/custom-fields/class-custom-fields.php:112
+#: includes/custom-fields/class-custom-fields.php:115
+#: includes/custom-fields/class-custom-fields.php:215
+#: includes/custom-fields/class-custom-fields.php:218
+#: includes/post-types/class-post-type-saved-search.php:121
+msgid "Author"
+msgstr ""
+
+#: includes/class-listing-filter.php:724
+msgid "Orderby"
+msgstr ""
+
+#: includes/class-listing-filter.php:733
+#: templates/widgets/filter-fields/price_range_slider.php:23
+#: templates/widgets/filter-fields/range_slider.php:22
+msgid "to"
+msgstr ""
+
+#: includes/class-listing-filter.php:737
+msgid "from"
+msgstr ""
+
+#: includes/class-listing.php:232
+msgctxt "post status"
+msgid "Draft"
+msgstr ""
+
+#: includes/class-listing.php:233
+#: wp-cardealer.php:213
+msgctxt "post status"
+msgid "Expired"
+msgstr ""
+
+#: includes/class-listing.php:234
+#: wp-cardealer.php:225
+msgctxt "post status"
+msgid "Preview"
+msgstr ""
+
+#: includes/class-listing.php:235
+#: includes/class-listing.php:236
+msgctxt "post status"
+msgid "Pending approval"
+msgstr ""
+
+#: includes/class-listing.php:237
+msgctxt "post status"
+msgid "Pending payment"
+msgstr ""
+
+#: includes/class-listing.php:238
+msgctxt "post status"
+msgid "Active"
+msgstr ""
+
+#: includes/class-listing.php:310
+#: includes/post-types/class-post-type-listing.php:254
+msgid "Listing not found"
+msgstr ""
+
+#: includes/class-listing.php:318
+msgid "Views"
+msgstr ""
+
+#: includes/class-mixes.php:102
+msgid "Facebook"
+msgstr ""
+
+#: includes/class-mixes.php:103
+msgid "Twitter"
+msgstr ""
+
+#: includes/class-mixes.php:104
+msgid "Linkedin"
+msgstr ""
+
+#: includes/class-mixes.php:105
+msgid "Dribbble"
+msgstr ""
+
+#: includes/class-mixes.php:106
+msgid "Instagram"
+msgstr ""
+
+#: includes/class-mixes.php:107
+msgid "Google +"
+msgstr ""
+
+#: includes/class-mixes.php:108
+msgid "Github"
+msgstr ""
+
+#: includes/class-mixes.php:109
+msgid "Reddit"
+msgstr ""
+
+#: includes/class-mixes.php:110
+msgid "Youtube"
+msgstr ""
+
+#: includes/class-mixes.php:111
+msgid "Vimeo"
+msgstr ""
+
+#: includes/class-mixes.php:112
+msgid "Pinterest"
+msgstr ""
+
+#: includes/class-mixes.php:444
+msgid "Prev"
+msgstr ""
+
+#: includes/class-mixes.php:445
+msgid "Next"
+msgstr ""
+
+#: includes/class-mixes.php:645
+msgid "or"
+msgstr ""
+
+#: includes/class-price.php:166
+msgid "United Arab Emirates dirham"
+msgstr ""
+
+#: includes/class-price.php:167
+msgid "Afghan afghani"
+msgstr ""
+
+#: includes/class-price.php:168
+msgid "Albanian lek"
+msgstr ""
+
+#: includes/class-price.php:169
+msgid "Armenian dram"
+msgstr ""
+
+#: includes/class-price.php:170
+msgid "Netherlands Antillean guilder"
+msgstr ""
+
+#: includes/class-price.php:171
+msgid "Angolan kwanza"
+msgstr ""
+
+#: includes/class-price.php:172
+msgid "Argentine peso"
+msgstr ""
+
+#: includes/class-price.php:173
+msgid "Australian dollar"
+msgstr ""
+
+#: includes/class-price.php:174
+msgid "Aruban florin"
+msgstr ""
+
+#: includes/class-price.php:175
+msgid "Azerbaijani manat"
+msgstr ""
+
+#: includes/class-price.php:176
+msgid "Bosnia and Herzegovina convertible mark"
+msgstr ""
+
+#: includes/class-price.php:177
+msgid "Barbadian dollar"
+msgstr ""
+
+#: includes/class-price.php:178
+msgid "Bangladeshi taka"
+msgstr ""
+
+#: includes/class-price.php:179
+msgid "Bulgarian lev"
+msgstr ""
+
+#: includes/class-price.php:180
+msgid "Bahraini dinar"
+msgstr ""
+
+#: includes/class-price.php:181
+msgid "Burundian franc"
+msgstr ""
+
+#: includes/class-price.php:182
+msgid "Bermudian dollar"
+msgstr ""
+
+#: includes/class-price.php:183
+msgid "Brunei dollar"
+msgstr ""
+
+#: includes/class-price.php:184
+msgid "Bolivian boliviano"
+msgstr ""
+
+#: includes/class-price.php:185
+msgid "Brazilian real"
+msgstr ""
+
+#: includes/class-price.php:186
+msgid "Bahamian dollar"
+msgstr ""
+
+#: includes/class-price.php:187
+msgid "Bitcoin"
+msgstr ""
+
+#: includes/class-price.php:188
+msgid "Bhutanese ngultrum"
+msgstr ""
+
+#: includes/class-price.php:189
+msgid "Botswana pula"
+msgstr ""
+
+#: includes/class-price.php:190
+msgid "Belarusian ruble (old)"
+msgstr ""
+
+#: includes/class-price.php:191
+msgid "Belarusian ruble"
+msgstr ""
+
+#: includes/class-price.php:192
+msgid "Belize dollar"
+msgstr ""
+
+#: includes/class-price.php:193
+msgid "Canadian dollar"
+msgstr ""
+
+#: includes/class-price.php:194
+msgid "Congolese franc"
+msgstr ""
+
+#: includes/class-price.php:195
+msgid "Swiss franc"
+msgstr ""
+
+#: includes/class-price.php:196
+msgid "Chilean peso"
+msgstr ""
+
+#: includes/class-price.php:197
+msgid "Chinese yuan"
+msgstr ""
+
+#: includes/class-price.php:198
+msgid "Colombian peso"
+msgstr ""
+
+#: includes/class-price.php:199
+msgid "Costa Rican col&oacute;n"
+msgstr ""
+
+#: includes/class-price.php:200
+msgid "Cuban convertible peso"
+msgstr ""
+
+#: includes/class-price.php:201
+msgid "Cuban peso"
+msgstr ""
+
+#: includes/class-price.php:202
+msgid "Cape Verdean escudo"
+msgstr ""
+
+#: includes/class-price.php:203
+msgid "Czech koruna"
+msgstr ""
+
+#: includes/class-price.php:204
+msgid "Djiboutian franc"
+msgstr ""
+
+#: includes/class-price.php:205
+msgid "Danish krone"
+msgstr ""
+
+#: includes/class-price.php:206
+msgid "Dominican peso"
+msgstr ""
+
+#: includes/class-price.php:207
+msgid "Algerian dinar"
+msgstr ""
+
+#: includes/class-price.php:208
+msgid "Egyptian pound"
+msgstr ""
+
+#: includes/class-price.php:209
+msgid "Eritrean nakfa"
+msgstr ""
+
+#: includes/class-price.php:210
+msgid "Ethiopian birr"
+msgstr ""
+
+#: includes/class-price.php:211
+msgid "Euro"
+msgstr ""
+
+#: includes/class-price.php:212
+msgid "Fijian dollar"
+msgstr ""
+
+#: includes/class-price.php:213
+msgid "Falkland Islands pound"
+msgstr ""
+
+#: includes/class-price.php:214
+msgid "Pound sterling"
+msgstr ""
+
+#: includes/class-price.php:215
+msgid "Georgian lari"
+msgstr ""
+
+#: includes/class-price.php:216
+msgid "Guernsey pound"
+msgstr ""
+
+#: includes/class-price.php:217
+msgid "Ghana cedi"
+msgstr ""
+
+#: includes/class-price.php:218
+msgid "Gibraltar pound"
+msgstr ""
+
+#: includes/class-price.php:219
+msgid "Gambian dalasi"
+msgstr ""
+
+#: includes/class-price.php:220
+msgid "Guinean franc"
+msgstr ""
+
+#: includes/class-price.php:221
+msgid "Guatemalan quetzal"
+msgstr ""
+
+#: includes/class-price.php:222
+msgid "Guyanese dollar"
+msgstr ""
+
+#: includes/class-price.php:223
+msgid "Hong Kong dollar"
+msgstr ""
+
+#: includes/class-price.php:224
+msgid "Honduran lempira"
+msgstr ""
+
+#: includes/class-price.php:225
+msgid "Croatian kuna"
+msgstr ""
+
+#: includes/class-price.php:226
+msgid "Haitian gourde"
+msgstr ""
+
+#: includes/class-price.php:227
+msgid "Hungarian forint"
+msgstr ""
+
+#: includes/class-price.php:228
+msgid "Indonesian rupiah"
+msgstr ""
+
+#: includes/class-price.php:229
+msgid "Israeli new shekel"
+msgstr ""
+
+#: includes/class-price.php:230
+msgid "Manx pound"
+msgstr ""
+
+#: includes/class-price.php:231
+msgid "Indian rupee"
+msgstr ""
+
+#: includes/class-price.php:232
+msgid "Iraqi dinar"
+msgstr ""
+
+#: includes/class-price.php:233
+msgid "Iranian rial"
+msgstr ""
+
+#: includes/class-price.php:234
+msgid "Iranian toman"
+msgstr ""
+
+#: includes/class-price.php:235
+msgid "Icelandic kr&oacute;na"
+msgstr ""
+
+#: includes/class-price.php:236
+msgid "Jersey pound"
+msgstr ""
+
+#: includes/class-price.php:237
+msgid "Jamaican dollar"
+msgstr ""
+
+#: includes/class-price.php:238
+msgid "Jordanian dinar"
+msgstr ""
+
+#: includes/class-price.php:239
+msgid "Japanese yen"
+msgstr ""
+
+#: includes/class-price.php:240
+msgid "Kenyan shilling"
+msgstr ""
+
+#: includes/class-price.php:241
+msgid "Kyrgyzstani som"
+msgstr ""
+
+#: includes/class-price.php:242
+msgid "Cambodian riel"
+msgstr ""
+
+#: includes/class-price.php:243
+msgid "Comorian franc"
+msgstr ""
+
+#: includes/class-price.php:244
+msgid "North Korean won"
+msgstr ""
+
+#: includes/class-price.php:245
+msgid "South Korean won"
+msgstr ""
+
+#: includes/class-price.php:246
+msgid "Kuwaiti dinar"
+msgstr ""
+
+#: includes/class-price.php:247
+msgid "Cayman Islands dollar"
+msgstr ""
+
+#: includes/class-price.php:248
+msgid "Kazakhstani tenge"
+msgstr ""
+
+#: includes/class-price.php:249
+msgid "Lao kip"
+msgstr ""
+
+#: includes/class-price.php:250
+msgid "Lebanese pound"
+msgstr ""
+
+#: includes/class-price.php:251
+msgid "Sri Lankan rupee"
+msgstr ""
+
+#: includes/class-price.php:252
+msgid "Liberian dollar"
+msgstr ""
+
+#: includes/class-price.php:253
+msgid "Lesotho loti"
+msgstr ""
+
+#: includes/class-price.php:254
+msgid "Libyan dinar"
+msgstr ""
+
+#: includes/class-price.php:255
+msgid "Moroccan dirham"
+msgstr ""
+
+#: includes/class-price.php:256
+msgid "Moldovan leu"
+msgstr ""
+
+#: includes/class-price.php:257
+msgid "Malagasy ariary"
+msgstr ""
+
+#: includes/class-price.php:258
+msgid "Macedonian denar"
+msgstr ""
+
+#: includes/class-price.php:259
+msgid "Burmese kyat"
+msgstr ""
+
+#: includes/class-price.php:260
+msgid "Mongolian t&ouml;gr&ouml;g"
+msgstr ""
+
+#: includes/class-price.php:261
+msgid "Macanese pataca"
+msgstr ""
+
+#: includes/class-price.php:262
+msgid "Mauritanian ouguiya"
+msgstr ""
+
+#: includes/class-price.php:263
+msgid "Mauritian rupee"
+msgstr ""
+
+#: includes/class-price.php:264
+msgid "Maldivian rufiyaa"
+msgstr ""
+
+#: includes/class-price.php:265
+msgid "Malawian kwacha"
+msgstr ""
+
+#: includes/class-price.php:266
+msgid "Mexican peso"
+msgstr ""
+
+#: includes/class-price.php:267
+msgid "Malaysian ringgit"
+msgstr ""
+
+#: includes/class-price.php:268
+msgid "Mozambican metical"
+msgstr ""
+
+#: includes/class-price.php:269
+msgid "Namibian dollar"
+msgstr ""
+
+#: includes/class-price.php:270
+msgid "Nigerian naira"
+msgstr ""
+
+#: includes/class-price.php:271
+msgid "Nicaraguan c&oacute;rdoba"
+msgstr ""
+
+#: includes/class-price.php:272
+msgid "Norwegian krone"
+msgstr ""
+
+#: includes/class-price.php:273
+msgid "Nepalese rupee"
+msgstr ""
+
+#: includes/class-price.php:274
+msgid "New Zealand dollar"
+msgstr ""
+
+#: includes/class-price.php:275
+msgid "Omani rial"
+msgstr ""
+
+#: includes/class-price.php:276
+msgid "Panamanian balboa"
+msgstr ""
+
+#: includes/class-price.php:277
+msgid "Sol"
+msgstr ""
+
+#: includes/class-price.php:278
+msgid "Papua New Guinean kina"
+msgstr ""
+
+#: includes/class-price.php:279
+msgid "Philippine peso"
+msgstr ""
+
+#: includes/class-price.php:280
+msgid "Pakistani rupee"
+msgstr ""
+
+#: includes/class-price.php:281
+msgid "Polish z&#x142;oty"
+msgstr ""
+
+#: includes/class-price.php:282
+msgid "Transnistrian ruble"
+msgstr ""
+
+#: includes/class-price.php:283
+msgid "Paraguayan guaran&iacute;"
+msgstr ""
+
+#: includes/class-price.php:284
+msgid "Qatari riyal"
+msgstr ""
+
+#: includes/class-price.php:285
+msgid "Romanian leu"
+msgstr ""
+
+#: includes/class-price.php:286
+msgid "Serbian dinar"
+msgstr ""
+
+#: includes/class-price.php:287
+msgid "Russian ruble"
+msgstr ""
+
+#: includes/class-price.php:288
+msgid "Rwandan franc"
+msgstr ""
+
+#: includes/class-price.php:289
+msgid "Saudi riyal"
+msgstr ""
+
+#: includes/class-price.php:290
+msgid "Solomon Islands dollar"
+msgstr ""
+
+#: includes/class-price.php:291
+msgid "Seychellois rupee"
+msgstr ""
+
+#: includes/class-price.php:292
+msgid "Sudanese pound"
+msgstr ""
+
+#: includes/class-price.php:293
+msgid "Swedish krona"
+msgstr ""
+
+#: includes/class-price.php:294
+msgid "Singapore dollar"
+msgstr ""
+
+#: includes/class-price.php:295
+msgid "Saint Helena pound"
+msgstr ""
+
+#: includes/class-price.php:296
+msgid "Sierra Leonean leone"
+msgstr ""
+
+#: includes/class-price.php:297
+msgid "Somali shilling"
+msgstr ""
+
+#: includes/class-price.php:298
+msgid "Surinamese dollar"
+msgstr ""
+
+#: includes/class-price.php:299
+msgid "South Sudanese pound"
+msgstr ""
+
+#: includes/class-price.php:300
+msgid "S&atilde;o Tom&eacute; and Pr&iacute;ncipe dobra"
+msgstr ""
+
+#: includes/class-price.php:301
+msgid "Syrian pound"
+msgstr ""
+
+#: includes/class-price.php:302
+msgid "Swazi lilangeni"
+msgstr ""
+
+#: includes/class-price.php:303
+msgid "Thai baht"
+msgstr ""
+
+#: includes/class-price.php:304
+msgid "Tajikistani somoni"
+msgstr ""
+
+#: includes/class-price.php:305
+msgid "Turkmenistan manat"
+msgstr ""
+
+#: includes/class-price.php:306
+msgid "Tunisian dinar"
+msgstr ""
+
+#: includes/class-price.php:307
+msgid "Tongan pa&#x2bb;anga"
+msgstr ""
+
+#: includes/class-price.php:308
+msgid "Turkish lira"
+msgstr ""
+
+#: includes/class-price.php:309
+msgid "Trinidad and Tobago dollar"
+msgstr ""
+
+#: includes/class-price.php:310
+msgid "New Taiwan dollar"
+msgstr ""
+
+#: includes/class-price.php:311
+msgid "Tanzanian shilling"
+msgstr ""
+
+#: includes/class-price.php:312
+msgid "Ukrainian hryvnia"
+msgstr ""
+
+#: includes/class-price.php:313
+msgid "Ugandan shilling"
+msgstr ""
+
+#: includes/class-price.php:314
+msgid "United States (US) dollar"
+msgstr ""
+
+#: includes/class-price.php:315
+msgid "Uruguayan peso"
+msgstr ""
+
+#: includes/class-price.php:316
+msgid "Uzbekistani som"
+msgstr ""
+
+#: includes/class-price.php:317
+msgid "Venezuelan bol&iacute;var"
+msgstr ""
+
+#: includes/class-price.php:318
+msgid "Bol&iacute;var soberano"
+msgstr ""
+
+#: includes/class-price.php:319
+msgid "Vietnamese &#x111;&#x1ed3;ng"
+msgstr ""
+
+#: includes/class-price.php:320
+msgid "Vanuatu vatu"
+msgstr ""
+
+#: includes/class-price.php:321
+msgid "Samoan t&#x101;l&#x101;"
+msgstr ""
+
+#: includes/class-price.php:322
+msgid "Central African CFA franc"
+msgstr ""
+
+#: includes/class-price.php:323
+msgid "East Caribbean dollar"
+msgstr ""
+
+#: includes/class-price.php:324
+msgid "West African CFA franc"
+msgstr ""
+
+#: includes/class-price.php:325
+msgid "CFP franc"
+msgstr ""
+
+#: includes/class-price.php:326
+msgid "Yemeni rial"
+msgstr ""
+
+#: includes/class-price.php:327
+msgid "South African rand"
+msgstr ""
+
+#: includes/class-price.php:328
+msgid "Zambian kwacha"
+msgstr ""
+
+#: includes/class-price.php:591
+msgid "K"
+msgstr ""
+
+#: includes/class-price.php:603
+msgid "M"
+msgstr ""
+
+#: includes/class-price.php:615
+msgid "B"
+msgstr ""
+
+#: includes/class-price.php:627
+msgid "T"
+msgstr ""
+
+#: includes/class-price.php:639
+msgid "Qa"
+msgstr ""
+
+#: includes/class-price.php:651
+msgid "Qi"
+msgstr ""
+
+#: includes/class-recaptcha.php:31
+msgid "reCAPTCHA is a required field"
+msgstr ""
+
+#: includes/class-review.php:322
+msgid "Rating"
+msgstr ""
+
+#: includes/class-review.php:368
+msgid "%d Review"
+msgid_plural "%d Reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-review.php:370
+msgid "(%d Review)"
+msgid_plural "(%d Reviews)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-saved-search.php:35
+msgid "Daily"
+msgstr ""
+
+#: includes/class-saved-search.php:39
+msgid "Weekly"
+msgstr ""
+
+#: includes/class-saved-search.php:43
+msgid "Fortnightly"
+msgstr ""
+
+#: includes/class-saved-search.php:47
+msgid "Monthly"
+msgstr ""
+
+#: includes/class-saved-search.php:51
+msgid "Biannually"
+msgstr ""
+
+#: includes/class-saved-search.php:55
+msgid "Annually"
+msgstr ""
+
+#: includes/class-saved-search.php:213
+msgid "Add listing save search successfully."
+msgstr ""
+
+#: includes/class-saved-search.php:217
+msgid "Add listing save search error."
+msgstr ""
+
+#: includes/class-saved-search.php:226
+msgid "Name is required."
+msgstr ""
+
+#: includes/class-saved-search.php:230
+msgid "Email frequency is required."
+msgstr ""
+
+#: includes/class-saved-search.php:243
+msgid "Please login to remove listing saved search."
+msgstr ""
+
+#: includes/class-saved-search.php:250
+msgid "Applicant did not exists."
+msgstr ""
+
+#: includes/class-saved-search.php:258
+msgid "You can not remove this listing saved search."
+msgstr ""
+
+#: includes/class-saved-search.php:264
+msgid "Remove listing saved search successfully."
+msgstr ""
+
+#: includes/class-saved-search.php:268
+msgid "Remove listing saved search error."
+msgstr ""
+
+#: includes/class-scripts.php:50
+msgid "Invalid file type. Accepted types:"
+msgstr ""
+
+#: includes/class-scripts.php:51
+msgid "You are only allowed to upload a maximum of %d files."
+msgstr ""
+
+#: includes/class-scripts.php:60
+msgid "No results found"
+msgstr ""
+
+#: includes/class-scripts.php:117
+msgid "Show more +"
+msgstr ""
+
+#: includes/class-scripts.php:119
+msgid "Show less -"
+msgstr ""
+
+#: includes/class-scripts.php:124
+msgid "Are you sure?"
+msgstr ""
+
+#: includes/class-submit-form.php:174
+msgid "Can not create listing"
+msgstr ""
+
+#: includes/class-user-notification.php:70
+msgid "The notification was successfully removed"
+msgstr ""
+
+#: includes/class-user-notification.php:74
+msgid "The notification dosen't exist"
+msgstr ""
+
+#: includes/class-user-notification.php:139
+msgid "Your listing <a href=\"%s\" target=\"_blank\">%s</a> has been approved"
+msgstr ""
+
+#: includes/class-user-notification.php:147
+msgid "A new private message from %s."
+msgstr ""
+
+#: includes/class-user-notification.php:152
+msgid "Someone favorites your listing <a href=\"%s\" target=\"_blank\">%s</a>"
+msgstr ""
+
+#: includes/class-user-notification.php:156
+msgid "Someone leave a review your listing <a href=\"%s\" target=\"_blank\">%s</a>"
+msgstr ""
+
+#: includes/class-user.php:82
+#: includes/post-types/class-post-type-dealer.php:35
+msgid "Dealer"
+msgstr ""
+
+#: includes/class-user.php:174
+msgid "Please fill all form fields"
+msgstr ""
+
+#: includes/class-user.php:195
+msgid "Your account denied"
+msgstr ""
+
+#: includes/class-user.php:202
+msgid "Wrong username or password. Please try again!!!"
+msgstr ""
+
+#: includes/class-user.php:205
+msgid "Signin successful, redirecting..."
+msgstr ""
+
+#: includes/class-user.php:219
+#: includes/class-user.php:506
+msgid "Captcha is not valid"
+msgstr ""
+
+#: includes/class-user.php:231
+msgid "Enter an username or e-mail address."
+msgstr ""
+
+#: includes/class-user.php:237
+msgid "There is no user registered with that email address."
+msgstr ""
+
+#: includes/class-user.php:243
+msgid "There is no user registered with that username."
+msgstr ""
+
+#: includes/class-user.php:246
+msgid "Invalid username or e-mail address."
+msgstr ""
+
+#: includes/class-user.php:269
+#: includes/class-user.php:769
+msgid "Your account denied."
+msgstr ""
+
+#: includes/class-user.php:297
+msgid "Check your email address for you new password."
+msgstr ""
+
+#: includes/class-user.php:299
+msgid "System is unable to send you mail containg your new password."
+msgstr ""
+
+#: includes/class-user.php:302
+msgid "Oops! Something went wrong while updating your account."
+msgstr ""
+
+#: includes/class-user.php:347
+msgid "Number of tries exceeded, Please try again in few minutes"
+msgstr ""
+
+#: includes/class-user.php:353
+msgid "OTP Expired"
+msgstr ""
+
+#: includes/class-user.php:368
+msgid "Thank you for verifying your number."
+msgstr ""
+
+#: includes/class-user.php:377
+msgid "Invalid OTP"
+msgstr ""
+
+#: includes/class-user.php:397
+msgid "OTP Resent"
+msgstr ""
+
+#: includes/class-user.php:483
+msgid "You have registered, redirecting ..."
+msgstr ""
+
+#: includes/class-user.php:490
+msgid "Register user error!"
+msgstr ""
+
+#: includes/class-user.php:513
+msgid "Terms and Conditions are required"
+msgstr ""
+
+#: includes/class-user.php:518
+msgid "Required form field is missing"
+msgstr ""
+
+#: includes/class-user.php:522
+msgid "Username too short. At least 4 characters is required"
+msgstr ""
+
+#: includes/class-user.php:526
+msgid "The username already exists!"
+msgstr ""
+
+#: includes/class-user.php:530
+msgid "The username you entered is not valid"
+msgstr ""
+
+#: includes/class-user.php:534
+msgid "Password length must be greater than 5"
+msgstr ""
+
+#: includes/class-user.php:538
+msgid "Password must be equal Confirm Password"
+msgstr ""
+
+#: includes/class-user.php:542
+msgid "Email is not valid"
+msgstr ""
+
+#: includes/class-user.php:546
+msgid "Email Already in use"
+msgstr ""
+
+#: includes/class-user.php:680
+msgid "All fields are required."
+msgstr ""
+
+#: includes/class-user.php:685
+msgid "New and retyped password are not same."
+msgstr ""
+
+#: includes/class-user.php:691
+msgid "Your old password is not correct."
+msgstr ""
+
+#: includes/class-user.php:698
+msgid "Your password has been successfully changed."
+msgstr ""
+
+#: includes/class-user.php:709
+msgid "Username or Email not exactly."
+msgstr ""
+
+#: includes/class-user.php:739
+msgid "Sent a email successfully."
+msgstr ""
+
+#: includes/class-user.php:745
+msgid "Send a email error."
+msgstr ""
+
+#: includes/class-user.php:753
+msgid "Your account is not available."
+msgstr ""
+
+#: includes/class-user.php:791
+#: includes/class-user.php:799
+msgid "The user is not exists."
+msgstr ""
+
+#: includes/class-user.php:806
+msgid "Code is not exactly."
+msgstr ""
+
+#: includes/class-user.php:815
+msgid "Your account approved."
+msgstr ""
+
+#: includes/class-user.php:970
+msgid "Approve"
+msgstr ""
+
+#: includes/class-user.php:971
+msgid "Deny"
+msgstr ""
+
+#: includes/class-user.php:993
+#: includes/class-user.php:1188
+#: includes/class-user.php:1265
+#: includes/custom-fields/class-fields-manager.php:661
+#: includes/custom-fields/class-fields-manager.php:756
+#: templates/misc/profile-form-normal.php:80
+#: templates/misc/register.php:25
+#: templates/misc/register.php:43
+#: templates/single-listing/contact-form.php:41
+msgid "Phone"
+msgstr ""
+
+#: includes/class-user.php:994
+#: includes/post-types/class-post-type-listing.php:331
+#: templates/submission/my-listings.php:93
+msgid "Status"
+msgstr ""
+
+#: includes/class-user.php:1021
+msgid "approved"
+msgstr ""
+
+#: includes/class-user.php:1023
+msgid "denied"
+msgstr ""
+
+#: includes/class-user.php:1025
+msgid "pending"
+msgstr ""
+
+#: includes/class-user.php:1044
+msgid "Filter"
+msgstr ""
+
+#: includes/class-user.php:1051
+#: includes/class-user.php:1053
+msgid "View all users"
+msgstr ""
+
+#: includes/class-user.php:1128
+msgid "Registration complete. Before you can login, you must active your account sent to your email address."
+msgstr ""
+
+#: includes/class-user.php:1130
+msgid "Registration complete. Your account has to be confirmed by an administrator before you can login"
+msgstr ""
+
+#: includes/class-user.php:1132
+#: includes/class-user.php:1144
+msgid "Your account has to be confirmed yet."
+msgstr ""
+
+#: includes/class-user.php:1140
+msgid "Account account has not confirmed yet, you must active your account with the link sent to your email address. If you did not receive this email, please check your junk/spam folder. <a href=\"javascript:void(0);\" class=\"wp-cardealer-resend-approve-account-btn\" data-login=\"%s\">Click here</a> to resend the activation email."
+msgstr ""
+
+#: includes/class-user.php:1142
+msgid "Your account has to be confirmed by an administrator before you can login."
+msgstr ""
+
+#: includes/class-user.php:1159
+#: includes/class-user.php:1235
+#: includes/custom-fields/class-fields-manager.php:712
+msgid "Avatar"
+msgstr ""
+
+#: includes/class-user.php:1163
+msgid "Add Image"
+msgstr ""
+
+#: includes/class-user.php:1175
+#: includes/class-user.php:1293
+#: includes/custom-fields/class-fields-manager.php:410
+#: includes/custom-fields/class-fields-manager.php:686
+#: includes/custom-fields/class-fields-manager.php:781
+msgid "Friendly Address"
+msgstr ""
+
+#: includes/class-user.php:1181
+#: includes/class-user.php:1299
+#: includes/custom-fields/class-fields-manager.php:418
+#: includes/custom-fields/class-fields-manager.php:692
+#: includes/custom-fields/class-fields-manager.php:787
+msgid "Map Location"
+msgstr ""
+
+#: includes/class-user.php:1193
+#: includes/class-user.php:1270
+#: includes/custom-fields/class-fields-manager.php:666
+#: includes/custom-fields/class-fields-manager.php:761
+msgid "Whatsapp"
+msgstr ""
+
+#: includes/class-user.php:1198
+#: includes/class-user.php:1281
+#: includes/custom-fields/class-fields-manager.php:677
+#: includes/custom-fields/class-fields-manager.php:772
+msgid "Photos"
+msgstr ""
+
+#: includes/class-user.php:1210
+msgid "User Profile"
+msgstr ""
+
+#: includes/class-user.php:1247
+#: includes/custom-fields/class-fields-manager.php:736
+msgid "First Name"
+msgstr ""
+
+#: includes/class-user.php:1253
+#: includes/custom-fields/class-fields-manager.php:742
+msgid "Last Name"
+msgstr ""
+
+#: includes/class-user.php:1259
+#: includes/custom-fields/class-fields-manager.php:282
+#: includes/custom-fields/class-fields-manager.php:618
+#: includes/custom-fields/class-fields-manager.php:724
+#: templates/misc/register.php:18
+#: templates/single-listing/reviews.php:50
+msgid "Email"
+msgstr ""
+
+#: includes/class-user.php:1275
+#: includes/custom-fields/class-fields-manager.php:671
+#: includes/custom-fields/class-fields-manager.php:766
+#: templates/misc/profile-form-normal.php:87
+msgid "Website"
+msgstr ""
+
+#: includes/class-user.php:1306
+#: includes/custom-fields/class-custom-fields-html.php:100
+#: includes/custom-fields/class-custom-fields-html.php:162
+#: includes/custom-fields/class-custom-fields-html.php:295
+#: includes/custom-fields/class-custom-fields-html.php:361
+#: includes/custom-fields/class-custom-fields-html.php:416
+#: includes/custom-fields/class-custom-fields-html.php:479
+#: includes/custom-fields/class-custom-fields-html.php:543
+#: includes/custom-fields/class-custom-fields-html.php:607
+#: includes/custom-fields/class-custom-fields-html.php:668
+#: includes/custom-fields/class-custom-fields-html.php:729
+#: includes/custom-fields/class-fields-manager.php:624
+#: includes/custom-fields/class-fields-manager.php:730
+msgid "Description"
+msgstr ""
+
+#: includes/class-user.php:1352
+msgid "E-mail is required."
+msgstr ""
+
+#: includes/class-user.php:1357
+msgid "E-mail is exists."
+msgstr ""
+
+#: includes/class-user.php:1385
+msgid "Profile has been successfully updated."
+msgstr ""
+
+#: includes/class-user.php:1387
+msgid "Can not update profile."
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-display.php:89
+#: includes/custom-fields/class-custom-fields-display.php:96
+msgid "Download file"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:97
+#: includes/custom-fields/class-custom-fields-html.php:159
+#: includes/custom-fields/class-custom-fields-html.php:217
+#: includes/custom-fields/class-custom-fields-html.php:292
+#: includes/custom-fields/class-custom-fields-html.php:359
+#: includes/custom-fields/class-custom-fields-html.php:414
+#: includes/custom-fields/class-custom-fields-html.php:477
+#: includes/custom-fields/class-custom-fields-html.php:541
+#: includes/custom-fields/class-custom-fields-html.php:605
+#: includes/custom-fields/class-custom-fields-html.php:666
+#: includes/custom-fields/class-custom-fields-html.php:727
+#: includes/custom-fields/class-fields-manager.php:529
+#: includes/taxonomies/class-taxonomy-listing-label.php:35
+msgid "Label"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:98
+#: includes/custom-fields/class-custom-fields-html.php:160
+#: includes/custom-fields/class-custom-fields-html.php:218
+#: includes/custom-fields/class-custom-fields-html.php:293
+msgid "Key"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:99
+#: includes/custom-fields/class-custom-fields-html.php:161
+#: includes/custom-fields/class-custom-fields-html.php:294
+#: includes/custom-fields/class-custom-fields-html.php:360
+#: includes/custom-fields/class-custom-fields-html.php:415
+#: includes/custom-fields/class-custom-fields-html.php:478
+#: includes/custom-fields/class-custom-fields-html.php:542
+#: includes/custom-fields/class-custom-fields-html.php:606
+#: includes/custom-fields/class-custom-fields-html.php:667
+#: includes/custom-fields/class-custom-fields-html.php:728
+msgid "Placeholder"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:105
+#: includes/custom-fields/class-custom-fields-html.php:165
+#: includes/custom-fields/class-custom-fields-html.php:303
+#: includes/custom-fields/class-custom-fields-html.php:362
+#: includes/custom-fields/class-custom-fields-html.php:425
+#: includes/custom-fields/class-custom-fields-html.php:487
+#: includes/custom-fields/class-custom-fields-html.php:551
+#: includes/custom-fields/class-custom-fields-html.php:614
+#: includes/custom-fields/class-custom-fields-html.php:675
+#: includes/custom-fields/class-custom-fields-html.php:731
+msgid "Show in submit form"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:106
+#: includes/custom-fields/class-custom-fields-html.php:166
+#: includes/custom-fields/class-custom-fields-html.php:304
+#: includes/custom-fields/class-custom-fields-html.php:363
+#: includes/custom-fields/class-custom-fields-html.php:426
+#: includes/custom-fields/class-custom-fields-html.php:488
+#: includes/custom-fields/class-custom-fields-html.php:552
+#: includes/custom-fields/class-custom-fields-html.php:615
+#: includes/custom-fields/class-custom-fields-html.php:676
+#: includes/custom-fields/class-custom-fields-html.php:732
+msgid "Show in admin form"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:109
+#: includes/custom-fields/class-custom-fields-html.php:168
+#: includes/custom-fields/class-custom-fields-html.php:307
+#: includes/custom-fields/class-custom-fields-html.php:366
+#: includes/custom-fields/class-custom-fields-html.php:429
+#: includes/custom-fields/class-custom-fields-html.php:491
+#: includes/custom-fields/class-custom-fields-html.php:555
+#: includes/custom-fields/class-custom-fields-html.php:618
+#: includes/custom-fields/class-custom-fields-html.php:679
+#: includes/custom-fields/class-custom-fields-html.php:735
+msgid "Required"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:116
+#: includes/custom-fields/class-custom-fields-html.php:178
+#: includes/custom-fields/class-custom-fields-html.php:250
+#: includes/custom-fields/class-custom-fields-html.php:314
+#: includes/custom-fields/class-custom-fields-html.php:373
+#: includes/custom-fields/class-custom-fields-html.php:436
+#: includes/custom-fields/class-custom-fields-html.php:498
+#: includes/custom-fields/class-custom-fields-html.php:562
+#: includes/custom-fields/class-custom-fields-html.php:625
+#: includes/custom-fields/class-custom-fields-html.php:686
+#: includes/custom-fields/class-custom-fields-html.php:742
+msgid "Enable package visibility"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:117
+#: includes/custom-fields/class-custom-fields-html.php:179
+#: includes/custom-fields/class-custom-fields-html.php:251
+#: includes/custom-fields/class-custom-fields-html.php:315
+#: includes/custom-fields/class-custom-fields-html.php:374
+#: includes/custom-fields/class-custom-fields-html.php:437
+#: includes/custom-fields/class-custom-fields-html.php:499
+#: includes/custom-fields/class-custom-fields-html.php:563
+#: includes/custom-fields/class-custom-fields-html.php:626
+#: includes/custom-fields/class-custom-fields-html.php:687
+#: includes/custom-fields/class-custom-fields-html.php:743
+msgid "Packages"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:117
+#: includes/custom-fields/class-custom-fields-html.php:179
+#: includes/custom-fields/class-custom-fields-html.php:251
+#: includes/custom-fields/class-custom-fields-html.php:315
+#: includes/custom-fields/class-custom-fields-html.php:374
+#: includes/custom-fields/class-custom-fields-html.php:437
+#: includes/custom-fields/class-custom-fields-html.php:499
+#: includes/custom-fields/class-custom-fields-html.php:563
+#: includes/custom-fields/class-custom-fields-html.php:626
+#: includes/custom-fields/class-custom-fields-html.php:687
+#: includes/custom-fields/class-custom-fields-html.php:743
+msgid "Choose Packages to show this field insubmit form."
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:122
+#: includes/custom-fields/class-custom-fields-html.php:185
+#: includes/custom-fields/class-custom-fields-html.php:321
+msgid "Position Display"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:163
+#: includes/custom-fields/class-custom-fields-html.php:730
+msgid "Options"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:163
+#: includes/custom-fields/class-custom-fields-html.php:730
+msgid "Add each option in a new line."
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:223
+msgid "Icon"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:238
+msgid "1 Column"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:239
+msgid "2 Column"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:240
+msgid "3 Column"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:241
+msgid "4 Column"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:243
+msgid "Columns Inner"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:297
+#: includes/custom-fields/class-custom-fields-html.php:609
+msgid "File limit"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:300
+#: includes/custom-fields/class-custom-fields-html.php:549
+#: includes/custom-fields/class-custom-fields-html.php:612
+msgid "Allowed file types"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:302
+msgid "Multiple files"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:419
+#: includes/custom-fields/class-custom-fields-html.php:482
+msgid "Term Select"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:420
+#: includes/custom-fields/class-custom-fields-html.php:483
+msgid "Term Multiselect"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:421
+#: includes/custom-fields/class-custom-fields-html.php:484
+msgid "Term Checklist"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:422
+msgid "Term Radio Button"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:424
+#: includes/custom-fields/class-custom-fields-html.php:486
+#: includes/custom-fields/class-custom-fields-html.php:674
+msgid "Template"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:545
+msgid "Limit Files"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:671
+#: includes/custom-fields/class-fields-manager.php:277
+msgid "Textarea"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:672
+#: includes/custom-fields/class-fields-manager.php:278
+msgid "WP Editor"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields-html.php:777
+msgid "%s Field %s"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields.php:58
+#: includes/custom-fields/class-custom-fields.php:166
+msgid "Search Distance"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields.php:125
+msgid "Listing Metabox"
+msgstr ""
+
+#: includes/custom-fields/class-custom-fields.php:228
+msgid "Dealer Metabox"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:22
+#: includes/custom-fields/class-fields-manager.php:24
+#: includes/custom-fields/class-fields-manager.php:26
+msgid "Fields Manager"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:82
+msgid "Fields manager"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:207
+msgid "Create a custom field"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:218
+msgid "Create"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:225
+msgid "Available Fields"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:274
+msgid "Direct Input"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:276
+msgid "Text"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:279
+#: includes/post-types/class-post-type-dealer.php:245
+#: includes/post-types/class-post-type-saved-search.php:120
+msgid "Date"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:280
+msgid "Number"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:281
+msgid "Url"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:286
+msgid "Choices"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:288
+msgid "Select"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:289
+msgid "Multiselect"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:290
+msgid "Checkbox"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:291
+msgid "Radio Buttons"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:295
+msgid "Form UI"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:297
+msgid "Heading"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:301
+msgid "Others"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:303
+msgid "File"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:327
+#: templates/submission/my-listings.php:92
+msgid "Listing Title"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:336
+msgid "Listing Description"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:358
+msgid "Expiry Date"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:370
+msgid "Featured listings will be sticky during searches, and can be styled differently."
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:383
+#: includes/custom-fields/class-fields-manager.php:643
+msgid "Featured Image"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:391
+msgid "Gallery"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:399
+#: templates/single-listing/attachments.php:17
+msgid "Attachments"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:429
+msgid "e.g. 1000"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:434
+msgid "Price Prefix"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:439
+msgid "Price Suffix"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:444
+msgid "Price Custom"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:451
+msgid "Year"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:463
+msgid "Mileage"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:475
+msgid "Engine Size"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:481
+msgid "VIN"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:488
+msgid "Video link"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:491
+msgid "Enter Youtube or Vimeo url."
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:630
+msgid "Full Name"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:655
+msgid "Tagline"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:812
+msgid "Choose a position"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:813
+msgid "Single Listing - Description"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:814
+msgid "Single Listing - Details"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:815
+msgid "Single Listing - Features"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:816
+msgid "Single Listing - Contact Form"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:817
+msgid "Single Listing - Video"
+msgstr ""
+
+#: includes/custom-fields/class-fields-manager.php:818
+msgid "Single Listing - Attachments"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:36
+msgid "Dealers"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:41
+#: includes/post-types/class-post-type-dealer.php:42
+#: includes/post-types/class-post-type-listing.php:64
+#: includes/post-types/class-post-type-listing.php:65
+#: includes/post-types/class-post-type-saved-search.php:30
+#: includes/post-types/class-post-type-saved-search.php:31
+msgid "Add New %s"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:43
+#: includes/post-types/class-post-type-listing.php:66
+#: includes/post-types/class-post-type-saved-search.php:32
+msgid "Edit %s"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:44
+#: includes/post-types/class-post-type-listing.php:67
+#: includes/post-types/class-post-type-saved-search.php:33
+#: includes/taxonomies/class-taxonomy-listing-category.php:39
+#: includes/taxonomies/class-taxonomy-listing-color.php:39
+#: includes/taxonomies/class-taxonomy-listing-condition.php:48
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:39
+#: includes/taxonomies/class-taxonomy-listing-door.php:39
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:39
+#: includes/taxonomies/class-taxonomy-listing-feature.php:55
+#: includes/taxonomies/class-taxonomy-listing-feature.php:86
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:39
+#: includes/taxonomies/class-taxonomy-listing-label.php:48
+#: includes/taxonomies/class-taxonomy-listing-location.php:39
+#: includes/taxonomies/class-taxonomy-listing-make.php:47
+#: includes/taxonomies/class-taxonomy-listing-model.php:47
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:39
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:39
+#: includes/taxonomies/class-taxonomy-listing-type.php:47
+msgid "New %s"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:45
+#: includes/post-types/class-post-type-listing.php:68
+#: includes/post-types/class-post-type-saved-search.php:34
+#: includes/taxonomies/class-taxonomy-listing-category.php:33
+#: includes/taxonomies/class-taxonomy-listing-color.php:33
+#: includes/taxonomies/class-taxonomy-listing-condition.php:42
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:33
+#: includes/taxonomies/class-taxonomy-listing-door.php:33
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:33
+#: includes/taxonomies/class-taxonomy-listing-feature.php:49
+#: includes/taxonomies/class-taxonomy-listing-feature.php:80
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:33
+#: includes/taxonomies/class-taxonomy-listing-label.php:42
+#: includes/taxonomies/class-taxonomy-listing-location.php:33
+#: includes/taxonomies/class-taxonomy-listing-make.php:41
+#: includes/taxonomies/class-taxonomy-listing-model.php:41
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:33
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:33
+#: includes/taxonomies/class-taxonomy-listing-type.php:41
+msgid "All %s"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:46
+#: includes/post-types/class-post-type-listing.php:69
+#: includes/post-types/class-post-type-saved-search.php:35
+msgid "View %s"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:47
+#: includes/post-types/class-post-type-listing.php:70
+#: includes/post-types/class-post-type-saved-search.php:36
+#: includes/taxonomies/class-taxonomy-listing-category.php:32
+#: includes/taxonomies/class-taxonomy-listing-color.php:32
+#: includes/taxonomies/class-taxonomy-listing-condition.php:41
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:32
+#: includes/taxonomies/class-taxonomy-listing-door.php:32
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:32
+#: includes/taxonomies/class-taxonomy-listing-feature.php:48
+#: includes/taxonomies/class-taxonomy-listing-feature.php:79
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:32
+#: includes/taxonomies/class-taxonomy-listing-label.php:41
+#: includes/taxonomies/class-taxonomy-listing-location.php:32
+#: includes/taxonomies/class-taxonomy-listing-make.php:40
+#: includes/taxonomies/class-taxonomy-listing-model.php:40
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:32
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:32
+#: includes/taxonomies/class-taxonomy-listing-type.php:40
+msgid "Search %s"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:48
+#: includes/post-types/class-post-type-listing.php:71
+#: includes/post-types/class-post-type-saved-search.php:37
+msgid "No %s found"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:49
+#: includes/post-types/class-post-type-listing.php:72
+#: includes/post-types/class-post-type-saved-search.php:38
+msgid "No %s found in Trash"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:60
+msgctxt "Dealer slug - resave permalinks after changing this"
+msgid "dealer"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:239
+#: includes/post-types/class-post-type-saved-search.php:118
+#: includes/widgets/class-widget-listing-filter.php:74
+#: includes/widgets/class-widget-listing-save-search-form.php:71
+#: libraries/cmb2/cmb2-tabs/example.php:28
+#: libraries/cmb2/cmb2-tabs/example.php:52
+#: libraries/cmb2/cmb2-tabs/example.php:134
+#: libraries/cmb2/cmb2-tabs/example.php:158
+#: templates/loop/listing/listings-save-search-form.php:17
+#: templates/loop/listing/listings-save-search-form.php:19
+#: templates/misc/my-saved-searches.php:58
+#: templates/widgets/listing-save-search-form.php:22
+msgid "Title"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:240
+msgid "Thumbnail"
+msgstr ""
+
+#: includes/post-types/class-post-type-dealer.php:241
+msgid "Attached User"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:58
+msgid "Listing"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:59
+msgid "Listings"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:83
+msgctxt "Listing slug - resave permalinks after changing this"
+msgid "listing"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:248
+msgid "Please login to remove this listing"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:261
+msgid "You can not remove this listing."
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:269
+msgid "Listing has been successfully removed."
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:273
+msgid "An error occured when removing an item."
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:305
+msgid "ID"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:329
+msgid "Posted"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:330
+msgid "Expires"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:401
+msgid "by a guest"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:401
+msgid "by %s"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:448
+msgid "All conditions"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:464
+msgid "All categories"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:479
+msgid "All types"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:495
+msgid "All makes"
+msgstr ""
+
+#: includes/post-types/class-post-type-listing.php:511
+msgid "All models"
+msgstr ""
+
+#: includes/post-types/class-post-type-saved-search.php:24
+msgid "Saved Search"
+msgstr ""
+
+#: includes/post-types/class-post-type-saved-search.php:25
+msgid "Saved Searches"
+msgstr ""
+
+#: includes/post-types/class-post-type-saved-search.php:80
+msgid "Author: %s (%s)"
+msgstr ""
+
+#: includes/post-types/class-post-type-saved-search.php:87
+#: templates/misc/my-saved-searches.php:59
+msgid "Saved Search Query"
+msgstr ""
+
+#: includes/post-types/class-post-type-saved-search.php:92
+#: includes/post-types/class-post-type-saved-search.php:119
+#: templates/loop/listing/listings-save-search-form.php:23
+#: templates/widgets/listing-save-search-form.php:28
+msgid "Email Frequency"
+msgstr ""
+
+#: includes/sms/class-otp-handler.php:106
+msgid "Phone Number not found"
+msgstr ""
+
+#: includes/sms/class-otp-handler.php:179
+msgid "OTP Limit reached. Please try again in %s."
+msgstr ""
+
+#: includes/sms/class-otp-handler.php:185
+msgid "Please wait %s for a new OTP."
+msgstr ""
+
+#: includes/sms/class-otp-handler.php:195
+msgid "Maximum number of tries exceeded. Please try again in %s."
+msgstr ""
+
+#: includes/sms/class-sms.php:37
+msgid "Phone field cannot be empty"
+msgstr ""
+
+#: includes/sms/class-sms.php:46
+#: includes/sms/class-sms.php:78
+msgid "Please select country code"
+msgstr ""
+
+#: includes/sms/class-sms.php:109
+#: includes/sms/class-sms.php:143
+msgid "Please enter the OTP sent to <br> <strong>%s</strong>"
+msgstr ""
+
+#: includes/sms/class-sms.php:118
+msgid "Please verify your mobile number"
+msgstr ""
+
+#: includes/socials/class-social-facebook.php:140
+#: includes/socials/class-social-facebook.php:179
+msgid "Graph returned an error: "
+msgstr ""
+
+#: includes/socials/class-social-facebook.php:148
+#: includes/socials/class-social-facebook.php:185
+msgid "Facebook SDK returned an error: "
+msgstr ""
+
+#: includes/socials/class-social-facebook.php:282
+msgid "Login with Facebook"
+msgstr ""
+
+#: includes/socials/class-social-google.php:232
+msgid "Login with Google"
+msgstr ""
+
+#: includes/socials/class-social-linkedin.php:346
+msgid "Login with LinkedIn"
+msgstr ""
+
+#: includes/socials/class-social-twitter.php:92
+#: includes/socials/class-social-twitter.php:133
+msgid "There is problem while connecting to twitter"
+msgstr ""
+
+#: includes/socials/class-social-twitter.php:233
+msgid "Login with Twitter"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:27
+msgid "Categories"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:30
+#: includes/taxonomies/class-taxonomy-listing-color.php:30
+#: includes/taxonomies/class-taxonomy-listing-condition.php:39
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:30
+#: includes/taxonomies/class-taxonomy-listing-door.php:30
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:30
+#: includes/taxonomies/class-taxonomy-listing-feature.php:46
+#: includes/taxonomies/class-taxonomy-listing-feature.php:77
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:30
+#: includes/taxonomies/class-taxonomy-listing-label.php:39
+#: includes/taxonomies/class-taxonomy-listing-make.php:38
+#: includes/taxonomies/class-taxonomy-listing-model.php:38
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:30
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:30
+msgid "Car %s"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:34
+#: includes/taxonomies/class-taxonomy-listing-color.php:34
+#: includes/taxonomies/class-taxonomy-listing-condition.php:43
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:34
+#: includes/taxonomies/class-taxonomy-listing-door.php:34
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:34
+#: includes/taxonomies/class-taxonomy-listing-feature.php:50
+#: includes/taxonomies/class-taxonomy-listing-feature.php:81
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:34
+#: includes/taxonomies/class-taxonomy-listing-label.php:43
+#: includes/taxonomies/class-taxonomy-listing-location.php:34
+#: includes/taxonomies/class-taxonomy-listing-make.php:42
+#: includes/taxonomies/class-taxonomy-listing-model.php:42
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:34
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:34
+#: includes/taxonomies/class-taxonomy-listing-type.php:42
+msgid "Parent %s"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:35
+#: includes/taxonomies/class-taxonomy-listing-color.php:35
+#: includes/taxonomies/class-taxonomy-listing-condition.php:44
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:35
+#: includes/taxonomies/class-taxonomy-listing-door.php:35
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:35
+#: includes/taxonomies/class-taxonomy-listing-feature.php:51
+#: includes/taxonomies/class-taxonomy-listing-feature.php:82
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:35
+#: includes/taxonomies/class-taxonomy-listing-label.php:44
+#: includes/taxonomies/class-taxonomy-listing-location.php:35
+#: includes/taxonomies/class-taxonomy-listing-make.php:43
+#: includes/taxonomies/class-taxonomy-listing-model.php:43
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:35
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:35
+#: includes/taxonomies/class-taxonomy-listing-type.php:43
+msgid "Parent %s:"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:36
+#: includes/taxonomies/class-taxonomy-listing-color.php:36
+#: includes/taxonomies/class-taxonomy-listing-condition.php:45
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:36
+#: includes/taxonomies/class-taxonomy-listing-door.php:36
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:36
+#: includes/taxonomies/class-taxonomy-listing-feature.php:52
+#: includes/taxonomies/class-taxonomy-listing-feature.php:83
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:36
+#: includes/taxonomies/class-taxonomy-listing-label.php:45
+#: includes/taxonomies/class-taxonomy-listing-location.php:36
+#: includes/taxonomies/class-taxonomy-listing-make.php:44
+#: includes/taxonomies/class-taxonomy-listing-model.php:44
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:36
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:36
+#: includes/taxonomies/class-taxonomy-listing-type.php:44
+#: templates/submission/my-listings.php:158
+#: templates/submission/my-listings.php:159
+msgid "Edit"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:38
+#: includes/taxonomies/class-taxonomy-listing-color.php:38
+#: includes/taxonomies/class-taxonomy-listing-condition.php:47
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:38
+#: includes/taxonomies/class-taxonomy-listing-door.php:38
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:38
+#: includes/taxonomies/class-taxonomy-listing-feature.php:54
+#: includes/taxonomies/class-taxonomy-listing-feature.php:85
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:38
+#: includes/taxonomies/class-taxonomy-listing-label.php:47
+#: includes/taxonomies/class-taxonomy-listing-location.php:38
+#: includes/taxonomies/class-taxonomy-listing-make.php:46
+#: includes/taxonomies/class-taxonomy-listing-model.php:46
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:38
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:38
+#: includes/taxonomies/class-taxonomy-listing-type.php:46
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:185
+msgid "Add New"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:45
+msgctxt "Car category slug - resave permalinks after changing this"
+msgid "listing-category"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-color.php:27
+msgid "Colors"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-color.php:45
+msgctxt "Car color slug - resave permalinks after changing this"
+msgid "listing-color"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-condition.php:36
+msgid "Conditions"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-condition.php:54
+msgctxt "Car condition slug - resave permalinks after changing this"
+msgid "listing-condition"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-condition.php:79
+#: includes/taxonomies/class-taxonomy-listing-condition.php:99
+#: includes/taxonomies/class-taxonomy-listing-label.php:79
+#: includes/taxonomies/class-taxonomy-listing-label.php:99
+msgid "Background Color"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-condition.php:83
+#: includes/taxonomies/class-taxonomy-listing-condition.php:105
+#: includes/taxonomies/class-taxonomy-listing-label.php:83
+#: includes/taxonomies/class-taxonomy-listing-label.php:105
+msgid "Text Color"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-condition.php:87
+#: includes/taxonomies/class-taxonomy-listing-condition.php:111
+#: includes/taxonomies/class-taxonomy-listing-condition.php:156
+#: includes/taxonomies/class-taxonomy-listing-feature.php:220
+#: includes/taxonomies/class-taxonomy-listing-feature.php:230
+#: includes/taxonomies/class-taxonomy-listing-feature.php:248
+#: includes/taxonomies/class-taxonomy-listing-label.php:87
+#: includes/taxonomies/class-taxonomy-listing-label.php:111
+#: includes/taxonomies/class-taxonomy-listing-label.php:156
+msgid "Order"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:27
+msgid "Cylinders"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:45
+msgctxt "Car cylinder slug - resave permalinks after changing this"
+msgid "listing-cylinder"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-door.php:27
+msgid "Doors"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-door.php:45
+msgctxt "Car door slug - resave permalinks after changing this"
+msgid "listing-door"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:27
+msgid "Drive Types"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:45
+msgctxt "Car drive type slug - resave permalinks after changing this"
+msgid "listing-drive-type"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:42
+msgid "Features Category"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:43
+msgid "Features Categories"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:73
+msgid "Feature"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:92
+msgctxt "Car feature slug - resave permalinks after changing this"
+msgid "listing-feature"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:146
+#: includes/taxonomies/class-taxonomy-listing-feature.php:156
+msgid "Select Category"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:181
+msgid "Choose a feature category"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:193
+#: includes/taxonomies/class-taxonomy-listing-make.php:158
+#: includes/taxonomies/class-taxonomy-listing-type.php:159
+msgid "Choose on what listing categories should this term be available. Set to empty for all."
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:27
+msgid "Fuel Types"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:45
+msgctxt "Car fuel type slug - resave permalinks after changing this"
+msgid "listing-fuel-type"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-label.php:36
+msgid "Labels"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-label.php:54
+msgctxt "Car label slug - resave permalinks after changing this"
+msgid "listing-label"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-location.php:27
+msgid "Locations"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-location.php:30
+#: includes/taxonomies/class-taxonomy-listing-type.php:38
+msgid "Listing %s"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-location.php:45
+msgctxt "Listing location slug - resave permalinks after changing this"
+msgid "listing-location"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-make.php:35
+msgid "Makes"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-make.php:53
+msgctxt "Car make slug - resave permalinks after changing this"
+msgid "listing-make"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-make.php:99
+#: includes/taxonomies/class-taxonomy-listing-model.php:99
+#: includes/taxonomies/class-taxonomy-listing-type.php:99
+msgid "All"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-make.php:109
+#: includes/taxonomies/class-taxonomy-listing-make.php:119
+#: includes/taxonomies/class-taxonomy-listing-type.php:109
+#: includes/taxonomies/class-taxonomy-listing-type.php:119
+msgid "Select Categories"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-model.php:35
+msgid "Models"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-model.php:53
+msgctxt "Car model slug - resave permalinks after changing this"
+msgid "listing-model"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-model.php:109
+#: includes/taxonomies/class-taxonomy-listing-model.php:119
+msgid "Select Makes"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-model.php:158
+msgid "Choose on what listing makes should this term be available. Set to empty for all."
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:27
+msgid "Offer Types"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:45
+msgctxt "Car offer type slug - resave permalinks after changing this"
+msgid "listing-offer-type"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:27
+msgid "Transmissions"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:45
+msgctxt "Car transmission slug - resave permalinks after changing this"
+msgid "listing-transmission"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-type.php:35
+msgid "Types"
+msgstr ""
+
+#: includes/taxonomies/class-taxonomy-listing-type.php:53
+msgctxt "Listing type slug - resave permalinks after changing this"
+msgid "listing-type"
+msgstr ""
+
+#: includes/widgets/class-widget-listing-filter.php:24
+msgid "Listing Filter"
+msgstr ""
+
+#: includes/widgets/class-widget-listing-filter.php:26
+msgid "Filter for filtering listings."
+msgstr ""
+
+#: includes/widgets/class-widget-listing-filter.php:83
+#: includes/widgets/class-widget-listing-save-search-form.php:80
+msgid "Button text"
+msgstr ""
+
+#: includes/widgets/class-widget-listing-filter.php:89
+msgid "Filter Fields"
+msgstr ""
+
+#: includes/widgets/class-widget-listing-filter.php:124
+#: includes/widgets/class-widget-listing-filter.php:129
+msgid "Show Advance Filter Fields"
+msgstr ""
+
+#: includes/widgets/class-widget-listing-filter.php:134
+msgid "Advance Filter Fields"
+msgstr ""
+
+#: includes/widgets/class-widget-listing-save-search-form.php:24
+msgid "Listing Save Search Form"
+msgstr ""
+
+#: includes/widgets/class-widget-listing-save-search-form.php:26
+msgid "Listing save search form for add email alert."
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:9
+#: libraries/cmb2/cmb2-tabs/example.php:109
+msgid "Example tabs"
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:25
+#: libraries/cmb2/cmb2-tabs/example.php:131
+msgid "Tab 1"
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:33
+#: libraries/cmb2/cmb2-tabs/example.php:57
+#: libraries/cmb2/cmb2-tabs/example.php:139
+#: libraries/cmb2/cmb2-tabs/example.php:163
+msgid "Subtitle"
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:38
+#: libraries/cmb2/cmb2-tabs/example.php:144
+msgid "Background image"
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:49
+#: libraries/cmb2/cmb2-tabs/example.php:155
+msgid "Tab 2"
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:65
+#: libraries/cmb2/cmb2-tabs/example.php:171
+msgid "Review {#}"
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:66
+#: libraries/cmb2/cmb2-tabs/example.php:172
+msgid "Add review"
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:67
+#: libraries/cmb2/cmb2-tabs/example.php:173
+msgid "Remove review"
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:72
+#: libraries/cmb2/cmb2-tabs/example.php:178
+msgid "Author name"
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:77
+#: libraries/cmb2/cmb2-tabs/example.php:183
+msgid "Author avatar"
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:85
+#: libraries/cmb2/cmb2-tabs/example.php:191
+msgid "Comment"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_ajax_search/cmb2-field-ajax-search.php:238
+msgid "Error : Unauthorized action"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_ajax_search/cmb2-field-ajax-search.php:244
+msgid "Error : Wrong request parameters"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_file/cmb2-field-type-file.php:63
+msgid "Upload Files"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_file/cmb2-field-type-file.php:65
+msgid "Upload File"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:44
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:45
+msgid "Timezone"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:82
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:83
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:137
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:138
+#: templates/widgets/filter-fields/price_range_slider.php:21
+#: templates/widgets/filter-fields/range_slider.php:20
+msgid "From"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:97
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:98
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:152
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:153
+#: templates/widgets/filter-fields/text_date.php:34
+msgid "To"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:116
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:171
+msgid "Enter Hours"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:117
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:172
+msgid "Open All Days"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:118
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:173
+msgid "Closed All Days"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:186
+#: templates/listings-styles/inner-list-favorite.php:70
+#: templates/submission/my-listings.php:163
+#: templates/submission/my-listings.php:164
+msgid "Remove"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:242
+msgid "Select a city"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:287
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:292
+msgid "UTC"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_map/cmb-field-map.php:31
+msgid "Enter search e.g. Lincoln Park"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:45
+msgid "Update Rate"
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:60
+msgid "Please choose a currency."
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:69
+msgid "Unable to communicate with Instagram."
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:73
+msgid "Instagram did not return a 200."
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:79
+msgid "The currency is not available."
+msgstr ""
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:85
+msgid "error."
+msgstr ""
+
+#: templates/listings-styles/inner-list-favorite.php:41
+#: templates/listings-styles/inner-list.php:41
+msgid "%s ago"
+msgstr ""
+
+#: templates/listings-styles/inner-list-favorite.php:47
+#: templates/listings-styles/inner-list.php:47
+msgid "%d Home Area"
+msgstr ""
+
+#: templates/listings-styles/inner-list-favorite.php:50
+#: templates/listings-styles/inner-list.php:50
+msgid "%d Beds"
+msgstr ""
+
+#: templates/listings-styles/inner-list-favorite.php:53
+#: templates/listings-styles/inner-list.php:53
+msgid "%d Baths"
+msgstr ""
+
+#: templates/loop/listing/archive-inner.php:38
+#: templates/loop/listing/pagination.php:11
+#: templates/misc/listing-favorites.php:102
+#: templates/misc/my-saved-searches.php:151
+#: templates/single-listing.php:16
+msgid "Previous page"
+msgstr ""
+
+#: templates/loop/listing/archive-inner.php:39
+#: templates/loop/listing/pagination.php:12
+#: templates/misc/listing-favorites.php:103
+#: templates/misc/my-saved-searches.php:152
+#: templates/single-listing.php:17
+msgid "Next page"
+msgstr ""
+
+#: templates/loop/listing/archive-inner.php:45
+msgid "No listing found."
+msgstr ""
+
+#: templates/loop/listing/listings-save-search-form.php:12
+msgid "Save Search"
+msgstr ""
+
+#: templates/loop/listing/listings-save-search-form.php:46
+msgid "Save"
+msgstr ""
+
+#: templates/loop/listing/orderby.php:10
+msgid "Lowest Price"
+msgstr ""
+
+#: templates/loop/listing/orderby.php:11
+msgid "Highest Price"
+msgstr ""
+
+#: templates/loop/listing/orderby.php:22
+msgid "Sort by:"
+msgstr ""
+
+#: templates/loop/listing/orderby.php:23
+msgid "Sort by"
+msgstr ""
+
+#. translators: %d: total results
+#: templates/loop/listing/results-count.php:11
+msgid "Showing the single result"
+msgid_plural "Showing all %d results"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: first result 2: last result 3: total results
+#: templates/loop/listing/results-count.php:16
+msgctxt "with first and last result"
+msgid "Showing the single result"
+msgid_plural "Showing <span class=\"first\">%1$d</span> &ndash; <span class=\"last\">%2$d</span> of %3$d results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/loop/listing/results-filters.php:9
+msgid "Your Selected"
+msgstr ""
+
+#: templates/loop/listing/results-filters.php:16
+msgid "Clear all"
+msgstr ""
+
+#: templates/misc/delete-profile-form.php:11
+msgid "Are you sure! You want to delete your profile."
+msgstr ""
+
+#: templates/misc/delete-profile-form.php:12
+msgid "This can't be undone!"
+msgstr ""
+
+#: templates/misc/delete-profile-form.php:17
+msgid "Please enter your login Password to confirm:"
+msgstr ""
+
+#: templates/misc/delete-profile-form.php:26
+msgid "Delete Profile"
+msgstr ""
+
+#: templates/misc/listing-compare.php:24
+msgid "Basic Info"
+msgstr ""
+
+#: templates/misc/listing-compare.php:79
+#: templates/misc/listing-favorites.php:110
+msgid "No listings found."
+msgstr ""
+
+#: templates/misc/listing-favorites.php:12
+#: templates/misc/my-saved-searches.php:15
+#: templates/submission/my-listings.php:20
+msgid "Search ..."
+msgstr ""
+
+#: templates/misc/listing-favorites.php:35
+#: templates/misc/my-saved-searches.php:38
+#: templates/submission/my-listings.php:38
+msgid "Sort by: "
+msgstr ""
+
+#: templates/misc/login.php:13
+msgid "Username Or Email"
+msgstr ""
+
+#: templates/misc/login.php:15
+msgid "Enter username or email"
+msgstr ""
+
+#: templates/misc/login.php:18
+#: templates/misc/register.php:48
+msgid "Password"
+msgstr ""
+
+#: templates/misc/login.php:20
+#: templates/misc/login.php:53
+#: templates/misc/register.php:50
+#: templates/misc/register.php:55
+msgid "Enter Password"
+msgstr ""
+
+#: templates/misc/login.php:26
+msgid "Keep me signed in"
+msgstr ""
+
+#: templates/misc/login.php:32
+msgid "Forgot Password"
+msgstr ""
+
+#: templates/misc/login.php:32
+msgid "Lost Your Password?"
+msgstr ""
+
+#: templates/misc/login.php:37
+msgid "Login"
+msgstr ""
+
+#: templates/misc/login.php:51
+msgid "Username or E-mail"
+msgstr ""
+
+#: templates/misc/login.php:60
+msgid "Get New Password"
+msgstr ""
+
+#: templates/misc/login.php:61
+msgid "Cancel"
+msgstr ""
+
+#: templates/misc/login.php:64
+msgid "Back To Login"
+msgstr ""
+
+#: templates/misc/my-saved-searches.php:9
+msgid "Listing Saved Searches"
+msgstr ""
+
+#: templates/misc/my-saved-searches.php:60
+msgid "Number Listings"
+msgstr ""
+
+#: templates/misc/my-saved-searches.php:61
+msgid "Times"
+msgstr ""
+
+#: templates/misc/my-saved-searches.php:62
+msgid "Actions"
+msgstr ""
+
+#: templates/misc/my-saved-searches.php:128
+msgid "Listings found %d"
+msgstr ""
+
+#: templates/misc/my-saved-searches.php:157
+msgid "No listing alert found."
+msgstr ""
+
+#: templates/misc/not-allowed.php:8
+msgid "You are not allowed to access this page."
+msgstr ""
+
+#: templates/misc/password-form.php:9
+msgid "Old password"
+msgstr ""
+
+#: templates/misc/password-form.php:14
+msgid "New password"
+msgstr ""
+
+#: templates/misc/password-form.php:19
+msgid "Retype password"
+msgstr ""
+
+#: templates/misc/password-form.php:23
+msgid "Change Password"
+msgstr ""
+
+#: templates/misc/profile-form-normal.php:12
+#: templates/misc/profile-form.php:7
+msgid "Edit Profile"
+msgstr ""
+
+#: templates/misc/profile-form-normal.php:36
+msgid "Change Avatar"
+msgstr ""
+
+#: templates/misc/profile-form-normal.php:47
+#: templates/misc/profile-form-normal.php:49
+#: templates/misc/uploaded-file-html.php:20
+#: templates/misc/uploaded-file-html.php:22
+msgid "remove"
+msgstr ""
+
+#: templates/misc/profile-form-normal.php:61
+msgid "Upload Image"
+msgstr ""
+
+#: templates/misc/profile-form-normal.php:68
+msgid "First name"
+msgstr ""
+
+#: templates/misc/profile-form-normal.php:72
+msgid "Last name"
+msgstr ""
+
+#: templates/misc/profile-form-normal.php:76
+#: templates/single-listing/contact-form.php:36
+msgid "E-mail"
+msgstr ""
+
+#: templates/misc/profile-form-normal.php:83
+msgid "Address"
+msgstr ""
+
+#: templates/misc/profile-form-normal.php:92
+msgid "Biographical Info"
+msgstr ""
+
+#: templates/misc/profile-form.php:32
+msgid "Save Profile"
+msgstr ""
+
+#: templates/misc/register.php:13
+msgid "Username"
+msgstr ""
+
+#: templates/misc/register.php:15
+msgid "Enter Username"
+msgstr ""
+
+#: templates/misc/register.php:20
+msgid "Enter Email"
+msgstr ""
+
+#: templates/misc/register.php:37
+msgid "Select Country Code"
+msgstr ""
+
+#: templates/misc/register.php:53
+msgid "Confirm Password"
+msgstr ""
+
+#: templates/misc/register.php:66
+msgid "Register now"
+msgstr ""
+
+#: templates/misc/user-dashboard.php:23
+msgid "Dashboard"
+msgstr ""
+
+#: templates/misc/user-dashboard.php:28
+msgid "Posted Listings"
+msgstr ""
+
+#: templates/misc/user-dashboard.php:34
+msgid "Favorites"
+msgstr ""
+
+#: templates/misc/user-dashboard.php:79
+#: templates/misc/user-reviews.php:64
+msgid "No reviews found."
+msgstr ""
+
+#: templates/misc/user-review-item.php:18
+#: templates/single-listing/review.php:18
+msgid "Rated %d out of 5"
+msgstr ""
+
+#: templates/misc/user-review-item.php:29
+#: templates/single-listing/review.php:29
+msgid "Your comment is awaiting approval"
+msgstr ""
+
+#: templates/single-listing.php:18
+msgid "Page"
+msgstr ""
+
+#: templates/single-listing/contact-form.php:23
+msgid "Contact %s"
+msgstr ""
+
+#: templates/single-listing/contact-form.php:46
+msgid "Message"
+msgstr ""
+
+#: templates/single-listing/contact-form.php:56
+msgid "Send Message"
+msgstr ""
+
+#: templates/single-listing/description.php:11
+msgid "Overview"
+msgstr ""
+
+#: templates/single-listing/detail.php:11
+msgid "Details"
+msgstr ""
+
+#: templates/single-listing/detail.php:15
+msgid "Listing ID : "
+msgstr ""
+
+#: templates/single-listing/detail.php:22
+msgid "Price : "
+msgstr ""
+
+#: templates/single-listing/detail.php:29
+msgid "Year built : "
+msgstr ""
+
+#: templates/single-listing/features.php:16
+msgid "Amenities"
+msgstr ""
+
+#: templates/single-listing/header.php:20
+msgid "posted %s ago"
+msgstr ""
+
+#: templates/single-listing/related.php:53
+msgid "Related Listings"
+msgstr ""
+
+#: templates/single-listing/reviews.php:34
+msgid "There are no reviews yet."
+msgstr ""
+
+#: templates/single-listing/reviews.php:43
+msgid "Add a review"
+msgstr ""
+
+#: templates/single-listing/reviews.php:43
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: templates/single-listing/reviews.php:44
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: templates/single-listing/reviews.php:48
+msgid "Name"
+msgstr ""
+
+#: templates/single-listing/reviews.php:49
+msgid "Your Name"
+msgstr ""
+
+#: templates/single-listing/reviews.php:51
+msgid "your@mail.com"
+msgstr ""
+
+#: templates/single-listing/reviews.php:53
+msgid "Submit Review"
+msgstr ""
+
+#: templates/single-listing/reviews.php:58
+msgid "You must be <a href=\"\">logged in</a> to post a review."
+msgstr ""
+
+#: templates/single-listing/reviews.php:60
+msgid "Review"
+msgstr ""
+
+#: templates/single-listing/reviews.php:60
+msgid "Write Comment"
+msgstr ""
+
+#: templates/single-listing/video.php:14
+msgid "Video"
+msgstr ""
+
+#: templates/submission/listing-submit-done.php:13
+msgid "Listing listed successfully. To view your listing <a href=\"%s\">click here</a>."
+msgstr ""
+
+#: templates/submission/listing-submit-done.php:16
+msgid "Listing submitted successfully. Your listing will be visible once approved."
+msgstr ""
+
+#: templates/submission/listing-submit-preview.php:26
+msgid "Submit Listing"
+msgstr ""
+
+#: templates/submission/listing-submit-preview.php:27
+msgid "Edit Listing"
+msgstr ""
+
+#: templates/submission/my-listings.php:108
+msgid "Urgent"
+msgstr ""
+
+#: templates/submission/my-listings.php:127
+msgid "Created: "
+msgstr ""
+
+#: templates/submission/my-listings.php:151
+msgid "View"
+msgstr ""
+
+#: templates/submission/my-listings.php:185
+msgid "You don't have any listings, yet. Start by creating new one."
+msgstr ""
+
+#: templates/widgets/filter-fields/distance.php:16
+msgid "Radius"
+msgstr ""
+
+#: templates/widgets/filter-fields/distance.php:17
+msgid "%s: <span class=\"text-distance\">%s</span> %s"
+msgstr ""
+
+#: templates/widgets/filter-fields/min_max_text.php:19
+msgid "Min %s"
+msgstr ""
+
+#: templates/widgets/filter-fields/min_max_text.php:24
+msgid "Max %s"
+msgstr ""
+
+#: templates/widgets/filter-fields/number_select.php:6
+msgid "%s : Any"
+msgstr ""
+
+#: templates/widgets/filter-fields/regions_select.php:104
+#: templates/widgets/filter-fields/select.php:24
+msgid "Filter by %s"
+msgstr ""
+
+#: templates/widgets/filter-fields/tax_radios.php:82
+msgid "Show More"
+msgstr ""
+
+#: templates/widgets/filter-fields/text_date.php:26
+msgid "Form"
+msgstr ""
+
+#: templates/widgets/listing-filter.php:38
+msgid "Advanced Search"
+msgstr ""
+
+#: wp-cardealer.php:219
+msgid "Expired <span class=\"count\">(%s)</span>"
+msgid_plural "Expired <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-cardealer.php:230
+msgid "Preview <span class=\"count\">(%s)</span>"
+msgid_plural "Preview <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-cardealer.php:236
+msgctxt "post status"
+msgid "Pending Approval"
+msgstr ""
+
+#: wp-cardealer.php:242
+msgid "Pending Approve <span class=\"count\">(%s)</span>"
+msgid_plural "Pending Approve <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""

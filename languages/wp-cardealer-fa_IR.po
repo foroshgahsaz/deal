@@ -1,0 +1,4754 @@
+# Copyright (C) 2024 Habq
+# This file is distributed under the same license as the WP CarDealer plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP CarDealer 1.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-cardealer\n"
+"Last-Translator: \n"
+"Language-Team: فارسی\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-01-29T07:34:18+00:00\n"
+"PO-Revision-Date: 2024-03-29 22:29+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Domain: wp-cardealer\n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.6.7; wp-6.4.3"
+
+#. Plugin Name of the plugin
+msgid "WP CarDealer"
+msgstr "فروشنده خودرو WP"
+
+#. Plugin URI of the plugin
+msgid "http://apusthemes.com/wp-cardealer/"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"The latest plugins Car Dealer you want. Completely all features, easy "
+"customize and override layout, functions. Supported global payment, build "
+"market, single, list car...etc. All fields are defined dynamic, they will "
+"help you can build any kind of Car Dealer website."
+msgstr ""
+"آخرین افزونه‌های فروشنده خودرویی که می‌خواهید. کاملاً همه ویژگی‌ها، "
+"سفارشی‌سازی آسان و لایه، توابع. پرداخت جهانی پشتیبانی می‌شود، بازار را ایجاد "
+"کنید، مفرد، لیست خودرو... و غیره. تمامی فیلدها به صورت پویا تعریف شده‌اند، "
+"که به شما کمک خواهند کرد تا هر نوع وب‌سایت فروشنده خودرویی را بسازید."
+
+#. Author of the plugin
+msgid "Habq"
+msgstr "حقیقت"
+
+#. Author URI of the plugin
+msgid "http://apusthemes.com/"
+msgstr ""
+
+#: includes/3rd-party/class-polylang.php:99
+#: includes/3rd-party/class-wpml.php:108
+msgid "Page Not Set"
+msgstr "صفحه تنظیم نشده"
+
+#. translators: Placeholder (%s) is the URL to edit the primary language in WPML.
+#: includes/3rd-party/class-polylang.php:111
+#: includes/3rd-party/class-wpml.php:120
+msgid "<a href=\"%s\">Switch to primary language</a> to edit this setting."
+msgstr ""
+
+#: includes/admin/class-permalink-settings.php:26
+#: includes/admin/class-permalink-settings.php:171
+msgid "Listing base"
+msgstr "پایه آگهی"
+
+#: includes/admin/class-permalink-settings.php:34
+msgid "Listing type base"
+msgstr "پایه نوع آگهی"
+
+#: includes/admin/class-permalink-settings.php:43
+msgid "Listing category base"
+msgstr "پایه دسته بندی آگهی"
+
+#: includes/admin/class-permalink-settings.php:52
+msgid "Listing color base"
+msgstr "پایه رنگ آگهی"
+
+#: includes/admin/class-permalink-settings.php:61
+msgid "Listing condition base"
+msgstr "پایه وضعیت آگهی"
+
+#: includes/admin/class-permalink-settings.php:70
+msgid "Listing label base"
+msgstr "پایه برچسب آگهی"
+
+#: includes/admin/class-permalink-settings.php:79
+msgid "Listing cylinder base"
+msgstr "پایه سیلندر آگهی"
+
+#: includes/admin/class-permalink-settings.php:90
+msgid "Listing door base"
+msgstr "پایه در آگهی"
+
+#: includes/admin/class-permalink-settings.php:99
+msgid "Listing drive_type base"
+msgstr "پایه نوع حرکت آگهی"
+
+#: includes/admin/class-permalink-settings.php:108
+msgid "Listing feature base"
+msgstr "پایه ویژگی آگهی"
+
+#: includes/admin/class-permalink-settings.php:117
+msgid "Listing fuel type base"
+msgstr "پایه نوع سوخت آگهی"
+
+#: includes/admin/class-permalink-settings.php:126
+msgid "Listing make base"
+msgstr "پایه سازنده آگهی"
+
+#: includes/admin/class-permalink-settings.php:135
+msgid "Listing model base"
+msgstr "پایه مدل آگهی"
+
+#: includes/admin/class-permalink-settings.php:144
+msgid "Listing offer type base"
+msgstr "پایه نوع پیشنهاد آگهی"
+
+#: includes/admin/class-permalink-settings.php:153
+msgid "Listing transmission base"
+msgstr "پایه گیربکس آگهی"
+
+#: includes/admin/class-permalink-settings.php:162
+#: includes/admin/class-permalink-settings.php:178
+msgid "Listing archive page"
+msgstr "صفحه آرشیو آگهی"
+
+#: includes/admin/class-permalink-settings.php:188
+msgid "listing"
+msgstr "آگهی"
+
+#: includes/admin/class-permalink-settings.php:195
+msgid "listing-category"
+msgstr "دسته بندی آگهی"
+
+#: includes/admin/class-permalink-settings.php:202
+msgid "listing-color"
+msgstr "رنگ آگهی"
+
+#: includes/admin/class-permalink-settings.php:209
+msgid "listing-condition"
+msgstr "وضعیت آگهی"
+
+#: includes/admin/class-permalink-settings.php:216
+msgid "listing-label"
+msgstr "برچسب آگهی"
+
+#: includes/admin/class-permalink-settings.php:223
+msgid "listing-cylinder"
+msgstr "سیلندر آگهی"
+
+#: includes/admin/class-permalink-settings.php:230
+msgid "listing-type"
+msgstr "نوع آگهی"
+
+#: includes/admin/class-permalink-settings.php:237
+msgid "listing-location"
+msgstr "مکان آگهی"
+
+#: includes/admin/class-permalink-settings.php:244
+msgid "listing-door"
+msgstr "در آگهی"
+
+#: includes/admin/class-permalink-settings.php:251
+msgid "listing-drive-type"
+msgstr "نوع حرکت آگهی"
+
+#: includes/admin/class-permalink-settings.php:258
+msgid "listing-feature"
+msgstr "ویژگی آگهی"
+
+#: includes/admin/class-permalink-settings.php:265
+msgid "listing-fuel-type"
+msgstr "نوع سوخت آگهی"
+
+#: includes/admin/class-permalink-settings.php:272
+msgid "listing-make"
+msgstr "سازنده آگهی"
+
+#: includes/admin/class-permalink-settings.php:279
+msgid "listing-model"
+msgstr "مدل آگهی"
+
+#: includes/admin/class-permalink-settings.php:286
+msgid "listing-offer-type"
+msgstr "نوع پیشنهاد آگهی"
+
+#: includes/admin/class-permalink-settings.php:293
+msgid "listing-safety-type"
+msgstr "نوع ایمنی آگهی"
+
+#: includes/admin/class-permalink-settings.php:300
+msgid "listing-transmission"
+msgstr "گیربکس آگهی"
+
+#: includes/admin/class-permalink-settings.php:307
+msgid "listings"
+msgstr "آگهی‌ها"
+
+#: includes/admin/class-permalink-settings.php:314
+msgid "dealer"
+msgstr "فروشنده"
+
+#: includes/admin/class-permalink-settings.php:321
+msgid "dealers"
+msgstr "فروشندگان"
+
+#: includes/admin/class-settings.php:65
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: includes/admin/class-settings.php:85 includes/class-abstract-form.php:124
+#: includes/class-compare.php:312
+#: includes/custom-fields/class-custom-fields.php:82
+#: includes/custom-fields/class-custom-fields.php:185
+#: includes/post-types/class-post-type-dealer.php:154
+#: libraries/cmb2/cmb_field_taxonomy_select2_parent/cmb-field-taxonomy-select2-parent.php:108
+#: libraries/cmb2/cmb_field_taxonomy_select2_parent/cmb-field-taxonomy-select2-parent.php:158
+msgid "General"
+msgstr "عمومی"
+
+#: includes/admin/class-settings.php:86 includes/admin/class-settings.php:624
+#: includes/admin/class-settings.php:631
+msgid "Listing Submission"
+msgstr "ثبت آگهی"
+
+#: includes/admin/class-settings.php:87 includes/admin/class-settings.php:707
+msgid "Pages"
+msgstr "صفحات"
+
+#: includes/admin/class-settings.php:88 includes/admin/class-settings.php:883
+msgid "User Register Settings"
+msgstr "تنظیمات ثبت‌نام کاربر"
+
+#: includes/admin/class-settings.php:89
+msgid "Compare Settings"
+msgstr "تنظیمات مقایسه"
+
+#: includes/admin/class-settings.php:90 includes/admin/class-settings.php:1133
+msgid "Review Settings"
+msgstr "تنظیمات بررسی"
+
+#: includes/admin/class-settings.php:91 includes/admin/class-settings.php:1247
+msgid "Social API"
+msgstr "API اجتماعی"
+
+#: includes/admin/class-settings.php:92
+msgid "ReCaptcha API"
+msgstr "API ReCaptcha"
+
+#: includes/admin/class-settings.php:93 includes/admin/class-settings.php:1417
+msgid "Email Notification"
+msgstr "اطلاع رسانی ایمیل"
+
+#: includes/admin/class-settings.php:152 includes/admin/class-settings.php:585
+msgid "All Countries"
+msgstr "همه کشورها"
+
+#: includes/admin/class-settings.php:165 includes/admin/class-settings.php:172
+msgid "General Settings"
+msgstr "تنظیمات عمومی"
+
+#: includes/admin/class-settings.php:179
+msgid "Number listings per page"
+msgstr "تعداد آگهی‌ها در هر صفحه"
+
+#: includes/admin/class-settings.php:180
+msgid "Number of listings to display per page."
+msgstr "تعداد آگهی‌هایی که در هر صفحه نمایش داده می‌شود."
+
+#: includes/admin/class-settings.php:186
+msgid "Number deaers per page"
+msgstr "تعداد فروشندگان در هر صفحه"
+
+#: includes/admin/class-settings.php:187
+msgid "Number of dealers to display per page."
+msgstr "تعداد فروشندگانی که در هر صفحه نمایش داده می‌شود."
+
+#: includes/admin/class-settings.php:193
+msgid "Currency Settings"
+msgstr "تنظیمات ارزی"
+
+#: includes/admin/class-settings.php:200
+msgid "Enable Multiple Currencies"
+msgstr "فعال کردن ارزهای چندگانه"
+
+#: includes/admin/class-settings.php:204 includes/admin/class-settings.php:366
+#: includes/class-email.php:475 includes/class-listing-filter.php:701
+#: includes/custom-fields/class-custom-fields-display.php:75
+#: includes/custom-fields/class-custom-fields-html.php:43
+msgid "Yes"
+msgstr "بله"
+
+#: includes/admin/class-settings.php:205 includes/admin/class-settings.php:367
+#: includes/class-email.php:477
+#: includes/custom-fields/class-custom-fields-display.php:75
+#: includes/custom-fields/class-custom-fields-html.php:42
+msgid "No"
+msgstr "خیر"
+
+#: includes/admin/class-settings.php:210
+msgid "Exchangerate API Key"
+msgstr "کلید API نرخ ارز"
+
+#: includes/admin/class-settings.php:213
+msgid ""
+"Acquire an API key from the <a href=\"%s\" target=\"_blank\">Exchange Rate "
+"API</a>"
+msgstr ""
+
+#: includes/admin/class-settings.php:216 includes/admin/class-settings.php:288
+#: includes/admin/class-settings.php:297
+msgid "Currency"
+msgstr "واحد پول"
+
+#: includes/admin/class-settings.php:217 includes/admin/class-settings.php:298
+msgid "Choose a currency."
+msgstr "یک واحد پول انتخاب کنید."
+
+#: includes/admin/class-settings.php:228 includes/admin/class-settings.php:343
+msgid "Custom symbol"
+msgstr "نماد سفارشی"
+
+#: includes/admin/class-settings.php:232 includes/admin/class-settings.php:347
+msgid "eg: CAD $"
+msgstr "مثلاً CAD $"
+
+#: includes/admin/class-settings.php:236 includes/admin/class-settings.php:309
+msgid "Currency Position"
+msgstr "موقعیت واحد پول"
+
+#: includes/admin/class-settings.php:241 includes/admin/class-settings.php:314
+msgid "Before - $10"
+msgstr "قبل - $10"
+
+#: includes/admin/class-settings.php:242 includes/admin/class-settings.php:315
+msgid "After - 10$"
+msgstr "بعد - 10$"
+
+#: includes/admin/class-settings.php:243 includes/admin/class-settings.php:316
+msgid "Before with space - $ 10"
+msgstr "قبل با فضا - $ 10"
+
+#: includes/admin/class-settings.php:244 includes/admin/class-settings.php:317
+msgid "After with space - 10 $"
+msgstr "بعد با فضا - 10 $"
+
+#: includes/admin/class-settings.php:253 includes/admin/class-settings.php:326
+msgid "Number of decimals"
+msgstr "تعداد اعشار"
+
+#: includes/admin/class-settings.php:254 includes/admin/class-settings.php:327
+msgid "This sets the number of decimal points shown in displayed prices."
+msgstr ""
+"این تعداد نقاط اعشاری را که در قیمت‌های نمایش داده شده نشان داده می‌شود، "
+"تنظیم می‌کند."
+
+#: includes/admin/class-settings.php:264
+msgid "Decimal Separator"
+msgstr "جداکننده اعشار"
+
+#: includes/admin/class-settings.php:265
+msgid "The symbol (usually , or .) to separate decimal points"
+msgstr "نماد (معمولاً , یا .) برای جدا کردن نقاط اعشار"
+
+#: includes/admin/class-settings.php:274
+msgid "Thousands Separator"
+msgstr "جداکننده هزارها"
+
+#: includes/admin/class-settings.php:275
+msgid "If you need space, enter &nbsp;"
+msgstr ""
+
+#: includes/admin/class-settings.php:284
+msgid "More Currencies"
+msgstr "ارزهای بیشتر"
+
+#: includes/admin/class-settings.php:289
+msgid "Add Another Currency"
+msgstr "افزودن ارز دیگر"
+
+#: includes/admin/class-settings.php:290
+msgid "Remove Currency"
+msgstr "حذف ارز"
+
+#: includes/admin/class-settings.php:293
+msgid "Do you want to remove this currency"
+msgstr "آیا می‌خواهید این ارز را حذف کنید؟"
+
+#: includes/admin/class-settings.php:337
+msgid "Rate + Exchange Fee"
+msgstr "نرخ + هزینه تبادل"
+
+#: includes/admin/class-settings.php:354
+msgid "Shorten Long Number"
+msgstr "کوتاه کردن اعداد بلند"
+
+#: includes/admin/class-settings.php:362
+msgid "Enable Shorten Long Number"
+msgstr "فعال کردن کوتاه کردن اعداد بلند"
+
+#: includes/admin/class-settings.php:372
+msgid "Number precision"
+msgstr "دقت عددی"
+
+#: includes/admin/class-settings.php:373
+msgid "This sets the number of precision shown in displayed number."
+msgstr ""
+"این تعداد دقت را که در عدد نمایش داده شده نشان داده می‌شود، تنظیم می‌کند."
+
+#: includes/admin/class-settings.php:384
+msgid "Shorten Thousand"
+msgstr "کوتاه کردن هزار"
+
+#: includes/admin/class-settings.php:387
+msgid "Enter space for translate to all languages \"K\""
+msgstr "برای ترجمه به همه زبان‌ها \"K\" را وارد کنید."
+
+#: includes/admin/class-settings.php:389
+msgid "eg: K"
+msgstr "مثلاً K"
+
+#: includes/admin/class-settings.php:393
+msgid "Shorten Million"
+msgstr "کوتاه کردن میلیون"
+
+#: includes/admin/class-settings.php:396
+msgid "Enter space for translate to all languages \"M\""
+msgstr "برای ترجمه به همه زبان‌ها \"M\" را وارد کنید."
+
+#: includes/admin/class-settings.php:398
+msgid "eg: M"
+msgstr "مثلاً M"
+
+#: includes/admin/class-settings.php:402
+msgid "Shorten Billion"
+msgstr "کوتاه کردن میلیارد"
+
+#: includes/admin/class-settings.php:405
+msgid "Enter space for translate to all languages \"B\""
+msgstr "برای ترجمه به همه زبان‌ها \"B\" را وارد کنید."
+
+#: includes/admin/class-settings.php:407
+msgid "eg: B"
+msgstr "مثلاً B"
+
+#: includes/admin/class-settings.php:411
+msgid "Shorten Trillion"
+msgstr "کوتاه کردن تریلیون"
+
+#: includes/admin/class-settings.php:414
+msgid "Enter space for translate to all languages \"T\""
+msgstr "برای ترجمه به همه زبان‌ها \"T\" را وارد کنید."
+
+#: includes/admin/class-settings.php:416
+msgid "eg: T"
+msgstr "مثلاً T"
+
+#: includes/admin/class-settings.php:420
+msgid "Shorten Quadrillion"
+msgstr "کوتاه کردن کادریلیون"
+
+#: includes/admin/class-settings.php:423
+msgid "Enter space for translate to all languages \"Qa\""
+msgstr "برای ترجمه به همه زبان‌ها \"Qa\" را وارد کنید."
+
+#: includes/admin/class-settings.php:425
+msgid "eg: Qa"
+msgstr "مثلاً Qa"
+
+#: includes/admin/class-settings.php:429
+msgid "Shorten Quintillion"
+msgstr "کوتاه کردن کوآنتیلیون"
+
+#: includes/admin/class-settings.php:432
+msgid "Enter space for translate to all languages \"Qi\""
+msgstr "برای ترجمه به همه زبان‌ها \"Qi\" را وارد کنید."
+
+#: includes/admin/class-settings.php:434
+msgid "eg: Qi"
+msgstr "مثلاً Qi"
+
+#: includes/admin/class-settings.php:440
+msgid "Measurement"
+msgstr "اندازه‌گیری"
+
+#: includes/admin/class-settings.php:448
+msgid "Distance Unit"
+msgstr "واحد فاصله"
+
+#: includes/admin/class-settings.php:454
+msgid "Search Distance unit"
+msgstr "جستجوی واحد فاصله"
+
+#: includes/admin/class-settings.php:458
+msgid "Kilometers"
+msgstr "کیلومتر"
+
+#: includes/admin/class-settings.php:459
+msgid "Miles"
+msgstr "مایل"
+
+#: includes/admin/class-settings.php:469
+msgid "Map API Settings"
+msgstr "تنظیمات API نقشه"
+
+#: includes/admin/class-settings.php:477
+msgid "Map Service"
+msgstr "سرویس نقشه"
+
+#: includes/admin/class-settings.php:481
+msgid "Mapbox"
+msgstr "Mapbox"
+
+#: includes/admin/class-settings.php:482
+msgid "Google Maps"
+msgstr "نقشه‌های گوگل"
+
+#: includes/admin/class-settings.php:483
+msgid "Here Maps"
+msgstr "نقشه‌های Here"
+
+#: includes/admin/class-settings.php:484
+msgid "OpenStreetMap"
+msgstr "OpenStreetMap"
+
+#: includes/admin/class-settings.php:492
+msgid "Google Map API"
+msgstr "API نقشه گوگل"
+
+#: includes/admin/class-settings.php:493
+msgid ""
+"Google requires an API key to retrieve location information for listing "
+"listings. Acquire an API key from the <a href=\"https://developers.google."
+"com/maps/documentation/geocoding/get-api-key\">Google Maps API developer "
+"site.</a>"
+msgstr ""
+
+#: includes/admin/class-settings.php:499
+msgid "Google Map Type"
+msgstr "نوع نقشه گوگل"
+
+#: includes/admin/class-settings.php:503
+msgid "ROADMAP"
+msgstr "نقشه جاده"
+
+#: includes/admin/class-settings.php:504
+msgid "SATELLITE"
+msgstr "نقشه ماهواره‌ای"
+
+#: includes/admin/class-settings.php:505
+msgid "HYBRID"
+msgstr "نقشه ترکیبی"
+
+#: includes/admin/class-settings.php:506
+msgid "TERRAIN"
+msgstr "نقشه زمینی"
+
+#: includes/admin/class-settings.php:515
+msgid "Google Maps Style"
+msgstr "سبک نقشه‌های گوگل"
+
+#: includes/admin/class-settings.php:516
+msgid ""
+"<a href=\"//snazzymaps.com/\">Get custom style</a> and paste it below. If "
+"there is nothing added, we will fallback to the Google Maps service."
+msgstr ""
+
+#: includes/admin/class-settings.php:522
+msgid "Mapbox Token"
+msgstr "توکن Mapbox"
+
+#: includes/admin/class-settings.php:523
+msgid ""
+"<a href=\"//www.mapbox.com/help/create-api-access-token/\">Get a FREE "
+"token</a> and paste it below. If there is nothing added, we will fallback to "
+"the Google Maps service."
+msgstr ""
+
+#: includes/admin/class-settings.php:529
+msgid "Mapbox Style"
+msgstr "سبک Mapbox"
+
+#: includes/admin/class-settings.php:535
+msgid "streets"
+msgstr "خیابان‌ها"
+
+#: includes/admin/class-settings.php:539
+msgid "light"
+msgstr "روشن"
+
+#: includes/admin/class-settings.php:543
+msgid "dark"
+msgstr "تاریک"
+
+#: includes/admin/class-settings.php:547
+msgid "outdoors"
+msgstr "فضای باز"
+
+#: includes/admin/class-settings.php:551
+msgid "satellite"
+msgstr "ماهواره‌ای"
+
+#: includes/admin/class-settings.php:557
+msgid "Here Maps API Key"
+msgstr "کلید API نقشه‌های Here"
+
+#: includes/admin/class-settings.php:558
+msgid ""
+"<a href=\"https://developer.here.com/tutorials/getting-here-credentials/\">"
+"Get a API key</a> and paste it below. If there is nothing added, we will "
+"fallback to the Google Maps service."
+msgstr ""
+
+#: includes/admin/class-settings.php:564
+msgid "Here Maps Style"
+msgstr "سبک نقشه‌های Here"
+
+#: includes/admin/class-settings.php:568
+msgid "Normal Day"
+msgstr "روز عادی"
+
+#: includes/admin/class-settings.php:569
+msgid "Normal Day Grey"
+msgstr "روز عادی خاکستری"
+
+#: includes/admin/class-settings.php:570
+msgid "Normal Day Transit"
+msgstr "روز عادی ترانزیت"
+
+#: includes/admin/class-settings.php:571
+msgid "Normal Night"
+msgstr "شب عادی"
+
+#: includes/admin/class-settings.php:572
+msgid "Reduced Day"
+msgstr "روز کاهش یافته"
+
+#: includes/admin/class-settings.php:573
+msgid "Reduced Night"
+msgstr "شب کاهش یافته"
+
+#: includes/admin/class-settings.php:574
+msgid "Pedestrian Day"
+msgstr "روز پیاده‌روی"
+
+#: includes/admin/class-settings.php:578
+msgid "Geocoder Country"
+msgstr "کشور Geocoder"
+
+#: includes/admin/class-settings.php:589
+msgid "Default maps location"
+msgstr "موقعیت پیش‌فرض نقشه‌ها"
+
+#: includes/admin/class-settings.php:597
+#: libraries/cmb2/cmb2_field_map/cmb-field-map.php:48
+msgid "Latitude"
+msgstr "عرض جغرافیایی"
+
+#: includes/admin/class-settings.php:598
+msgid "Enter your latitude"
+msgstr "عرض جغرافیایی خود را وارد کنید"
+
+#: includes/admin/class-settings.php:604
+#: libraries/cmb2/cmb2_field_map/cmb-field-map.php:58
+msgid "Longitude"
+msgstr "طول جغرافیایی"
+
+#: includes/admin/class-settings.php:605
+msgid "Enter your longitude"
+msgstr "طول جغرافیایی خود را وارد کنید"
+
+#: includes/admin/class-settings.php:618 includes/admin/class-settings.php:644
+msgid "Everyone"
+msgstr "همه"
+
+#: includes/admin/class-settings.php:638
+msgid "Submit Listing Capability"
+msgstr "قابلیت ارسال آگهی"
+
+#: includes/admin/class-settings.php:639
+msgid "Enter which roles allow visitors to submit listing."
+msgstr "وارد کنید کدام نقش‌ها به بازدیدکنندگان امکان ارسال آگهی می‌دهند."
+
+#: includes/admin/class-settings.php:651
+msgid "Submit Listing Form Page"
+msgstr "صفحه فرم ارسال آگهی"
+
+#: includes/admin/class-settings.php:652
+msgid ""
+"This is page to display form for submit listing. The <code>"
+"[wp_cardealer_submission]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:663
+msgid "Moderate New Listings"
+msgstr "مدیریت آگهی‌های جدید"
+
+#: includes/admin/class-settings.php:664
+msgid "Require admin approval of all new listing submissions"
+msgstr "نیاز به تأیید مدیر برای همه آگهی‌های جدید"
+
+#: includes/admin/class-settings.php:668 includes/admin/class-settings.php:1109
+#: includes/admin/class-settings.php:1152
+#: includes/admin/class-settings.php:1203
+msgid "Enable"
+msgstr "فعال"
+
+#: includes/admin/class-settings.php:669 includes/admin/class-settings.php:1110
+#: includes/admin/class-settings.php:1153
+#: includes/admin/class-settings.php:1204
+msgid "Disable"
+msgstr "غیرفعال"
+
+#: includes/admin/class-settings.php:678
+msgid "Allow Published Edits"
+msgstr "اجازه ویرایش‌های منتشر شده"
+
+#: includes/admin/class-settings.php:679
+msgid ""
+"Choose whether published listing listings can be edited and if edits require "
+"admin approval. When moderation is required, the original listing listings "
+"will be unpublished while edits await admin approval."
+msgstr ""
+"انتخاب کنید که آیا می‌توان آگهی‌های منتشر شده ویرایش شوند و آیا ویرایش‌ها "
+"نیاز به تأیید مدیر دارند. هنگامی که مدیریت مورد نیاز است، آگهی‌های اصلی "
+"منتشر نخواهند شد در حالی که ویرایش‌ها منتظر تأیید مدیریت هستند."
+
+#: includes/admin/class-settings.php:683
+msgid "Users cannot edit"
+msgstr "کاربران نمی‌توانند ویرایش کنند"
+
+#: includes/admin/class-settings.php:684
+msgid "Users can edit without admin approval"
+msgstr "کاربران می‌توانند بدون تأیید مدیر ویرایش کنند"
+
+#: includes/admin/class-settings.php:685
+msgid "Users can edit, but edits require admin approval"
+msgstr "کاربران می‌توانند ویرایش کنند، اما ویرایش‌ها نیاز به تأیید مدیر دارند"
+
+#: includes/admin/class-settings.php:694
+msgid "Listing Duration"
+msgstr "مدت زمان آگهی"
+
+#: includes/admin/class-settings.php:695
+msgid ""
+"Listings will display for the set number of days, then expire. Leave this "
+"field blank if you don't want listings to have an expiration date."
+msgstr ""
+"آگهی‌ها برای تعداد مشخصی روز نمایش داده می‌شوند، سپس منقضی می‌شوند. اگر "
+"نمی‌خواهید آگهی‌ها تاریخ انقضا داشته باشند، این فیلد را خالی بگذارید."
+
+#: includes/admin/class-settings.php:714
+msgid "Listings Page"
+msgstr "صفحه آگهی‌ها"
+
+#: includes/admin/class-settings.php:715
+msgid ""
+"This lets the plugin know the location of the listings listing page. The "
+"<code>[wp_cardealer_listings]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:727
+msgid "Dealers Page"
+msgstr "صفحه فروشندگان"
+
+#: includes/admin/class-settings.php:728
+msgid ""
+"This lets the plugin know the location of the dealers listing page. The "
+"<code>[wp_cardealer_dealers]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:740
+msgid "Login Page"
+msgstr "صفحه ورود"
+
+#: includes/admin/class-settings.php:741 includes/admin/class-settings.php:753
+msgid ""
+"This lets the plugin know the location of the listing listings page. The "
+"<code>[wp_cardealer_login]</code> <code>[wp_cardealer_register]</code> "
+"shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:752
+msgid "Register Page"
+msgstr "صفحه ثبت‌نام"
+
+#: includes/admin/class-settings.php:764
+msgid "After Login Page"
+msgstr "پس از صفحه ورود"
+
+#: includes/admin/class-settings.php:765
+msgid "This lets the plugin know the page after User login/register."
+msgstr "این به افزونه می‌گوید که بعد از ورود/ثبت‌نام کاربر صفحه کدام است."
+
+#: includes/admin/class-settings.php:776
+msgid "Approve User Page"
+msgstr "تأیید صفحه کاربر"
+
+#: includes/admin/class-settings.php:777
+msgid ""
+"This lets the plugin know the location of the job listings page. The <code>"
+"[wp_cardealer_approve_user]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:788
+msgid "User Dashboard Page"
+msgstr "صفحه داشبورد کاربر"
+
+#: includes/admin/class-settings.php:789
+msgid ""
+"This lets the plugin know the location of the user dashboard. The <code>"
+"[wp_cardealer_user_dashboard]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:800
+msgid "Edit Profile Page"
+msgstr "ویرایش صفحه پروفایل"
+
+#: includes/admin/class-settings.php:801
+msgid ""
+"This lets the plugin know the location of the user edit profile. The <code>"
+"[wp_cardealer_change_profile]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:812
+msgid "Change Password Page"
+msgstr "تغییر صفحه رمز عبور"
+
+#: includes/admin/class-settings.php:813
+msgid ""
+"This lets the plugin know the location of the user change password. The "
+"<code>[wp_cardealer_change_password]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:824
+msgid "My Listings Page"
+msgstr "صفحه آگهی‌های من"
+
+#: includes/admin/class-settings.php:825
+msgid ""
+"This lets the plugin know the location of the my listing page. The <code>"
+"[wp_cardealer_my_listings]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:836
+msgid "Favorite Listings Page"
+msgstr "صفحه آگهی‌های مورد علاقه"
+
+#: includes/admin/class-settings.php:837
+msgid ""
+"This lets the plugin know the location of the my favorite listing page. The "
+"<code>[wp_cardealer_my_listing_favorite]</code> shortcode should be on this "
+"page."
+msgstr ""
+
+#: includes/admin/class-settings.php:849
+msgid "Compare Listings Page"
+msgstr "صفحه مقایسه آگهی‌ها"
+
+#: includes/admin/class-settings.php:850
+msgid ""
+"This lets the plugin know the location of the listing compare page. The "
+"<code>[wp_cardealer_listing_compare]</code> shortcode should be on this page."
+msgstr ""
+
+#: includes/admin/class-settings.php:861
+msgid "Terms and Conditions Page"
+msgstr "صفحه شرایط و مقررات"
+
+#: includes/admin/class-settings.php:862
+msgid "This lets the plugin know the Terms and Conditions page."
+msgstr "این به افزونه می‌گوید که صفحه شرایط و مقررات کدام است."
+
+#: includes/admin/class-settings.php:890
+msgid "User Settings"
+msgstr "تنظیمات کاربر"
+
+#: includes/admin/class-settings.php:897
+msgid "Moderate New User"
+msgstr "مدیریت کاربر جدید"
+
+#: includes/admin/class-settings.php:898
+msgid "Require admin approval of all new users"
+msgstr "نیاز به تأیید مدیر برای همه کاربران جدید"
+
+#: includes/admin/class-settings.php:902
+msgid "Auto Approve"
+msgstr "تأیید خودکار"
+
+#: includes/admin/class-settings.php:903
+msgid "Email Approve"
+msgstr "تأیید ایمیل"
+
+#: includes/admin/class-settings.php:904
+msgid "Phone Approve"
+msgstr "تأیید تلفن"
+
+#: includes/admin/class-settings.php:905
+msgid "Administrator Approve"
+msgstr "تأیید مدیر"
+
+#: includes/admin/class-settings.php:914
+msgid "Phone Approve Settings"
+msgstr "تنظیمات تأیید تلفن"
+
+#: includes/admin/class-settings.php:921
+msgid "Phone Operator"
+msgstr "اپراتور تلفن"
+
+#: includes/admin/class-settings.php:925
+msgid "twilio"
+msgstr "تویلیو"
+
+#: includes/admin/class-settings.php:926
+msgid "Amazon"
+msgstr "آمازون"
+
+#: includes/admin/class-settings.php:935
+msgid "Amazon SNS Settings"
+msgstr "تنظیمات SNS آمازون"
+
+#: includes/admin/class-settings.php:942
+msgid "Access key"
+msgstr "کلید دسترسی"
+
+#: includes/admin/class-settings.php:947
+msgid "Secret access key"
+msgstr "کلید دسترسی مخفی"
+
+#: includes/admin/class-settings.php:952
+msgid "Twilio Settings"
+msgstr "تنظیمات تویلیو"
+
+#: includes/admin/class-settings.php:959
+msgid "Account SID"
+msgstr "SID حساب"
+
+#: includes/admin/class-settings.php:964
+msgid "Auth Token"
+msgstr "توکن احراز هویت"
+
+#: includes/admin/class-settings.php:969
+msgid "Sender's Number"
+msgstr "شماره فرستنده"
+
+#: includes/admin/class-settings.php:974
+msgid "Register Settings"
+msgstr "تنظیمات ثبت‌نام"
+
+#: includes/admin/class-settings.php:982
+msgid "Default Country Code"
+msgstr "کد کشور پیش‌فرض"
+
+#: includes/admin/class-settings.php:983
+msgid "Geolocation = User location."
+msgstr "موقعیت جغرافیایی = موقعیت کاربر"
+
+#: includes/admin/class-settings.php:987
+msgid "Geolocation"
+msgstr "موقعیت جغرافیایی"
+
+#: includes/admin/class-settings.php:988
+msgid "Custom"
+msgstr "سفارشی"
+
+#: includes/admin/class-settings.php:997
+msgid "Default Country Code (Custom)"
+msgstr "کد کشور پیش‌فرض (سفارشی)"
+
+#: includes/admin/class-settings.php:1008
+msgid "SMS Text"
+msgstr "متن پیامک"
+
+#: includes/admin/class-settings.php:1009
+msgid "Shortcodes: [otp]"
+msgstr ""
+
+#: includes/admin/class-settings.php:1015
+msgid "OTP Settings"
+msgstr "تنظیمات OTP"
+
+#: includes/admin/class-settings.php:1022
+msgid "OTP Digits"
+msgstr "رقم OTP"
+
+#: includes/admin/class-settings.php:1034
+msgid "Incorrect OTP Limit"
+msgstr "محدودیت اشتباه OTP"
+
+#: includes/admin/class-settings.php:1046
+msgid "OTP Expiry"
+msgstr "انقضای OTP"
+
+#: includes/admin/class-settings.php:1047
+msgid "In Seconds"
+msgstr "به ثانیه"
+
+#: includes/admin/class-settings.php:1059
+msgid "Resend OTP Limit"
+msgstr "محدودیت ارسال مجدد OTP"
+
+#: includes/admin/class-settings.php:1071
+msgid "Ban Time"
+msgstr "زمان ممنوعیت"
+
+#: includes/admin/class-settings.php:1072
+msgid "Time in seconds"
+msgstr "زمان به ثانیه"
+
+#: includes/admin/class-settings.php:1084
+msgid "Resend OTP Wait Time"
+msgstr "زمان انتظار برای ارسال مجدد OTP"
+
+#: includes/admin/class-settings.php:1085
+msgid "Waiting time to resend a new OTP (In seconds)"
+msgstr "زمان انتظار برای ارسال مجدد OTP جدید (به ثانیه)"
+
+#: includes/admin/class-settings.php:1105
+#: libraries/cmb2/cmb2_field_enable_input/cmb2-field-enable-input.php:27
+msgid "Enable %s"
+msgstr "فعال کردن %s"
+
+#: includes/admin/class-settings.php:1122
+msgid "Compare Fields Settings"
+msgstr "تنظیمات مقایسه فیلدها"
+
+#: includes/admin/class-settings.php:1141
+msgid "Listing review settings"
+msgstr "تنظیمات بررسی آگهی"
+
+#: includes/admin/class-settings.php:1148
+msgid "Enable Listing Review"
+msgstr "فعال کردن بررسی آگهی"
+
+#: includes/admin/class-settings.php:1164
+msgid "Listing Review Category"
+msgstr "دسته‌بندی بررسی آگهی"
+
+#: includes/admin/class-settings.php:1167
+#: includes/admin/class-settings.php:1218
+msgid "Category {#}"
+msgstr ""
+
+#: includes/admin/class-settings.php:1168
+#: includes/admin/class-settings.php:1219
+msgid "Add Another Category"
+msgstr "افزودن یک دسته دیگر"
+
+#: includes/admin/class-settings.php:1169
+#: includes/admin/class-settings.php:1220
+msgid "Remove Category"
+msgstr "حذف دسته"
+
+#: includes/admin/class-settings.php:1174
+#: includes/admin/class-settings.php:1225
+msgid "Category Key"
+msgstr "کلید دسته"
+
+#: includes/admin/class-settings.php:1175
+#: includes/admin/class-settings.php:1226
+msgid "Enter category key."
+msgstr "کلید دسته را وارد کنید."
+
+#: includes/admin/class-settings.php:1183
+#: includes/admin/class-settings.php:1234
+msgid "Category Name"
+msgstr "نام دسته"
+
+#: includes/admin/class-settings.php:1184
+#: includes/admin/class-settings.php:1235
+msgid "Enter category name."
+msgstr "نام دسته را وارد کنید."
+
+#: includes/admin/class-settings.php:1192
+msgid "Dealer review settings"
+msgstr "تنظیمات بررسی فروشنده"
+
+#: includes/admin/class-settings.php:1199
+msgid "Enable Dealer Review"
+msgstr "فعال کردن بررسی فروشنده"
+
+#: includes/admin/class-settings.php:1215
+msgid "Dealer Review Category"
+msgstr "دسته‌بندی بررسی فروشنده"
+
+#: includes/admin/class-settings.php:1255
+msgid "Facebook API settings"
+msgstr "تنظیمات API فیسبوک"
+
+#: includes/admin/class-settings.php:1260
+#: includes/admin/class-settings.php:1287
+#: includes/admin/class-settings.php:1314
+#: includes/admin/class-settings.php:1353
+msgid "Callback URL is: %s"
+msgstr "آدرس بازخوانی URL: %s"
+
+#: includes/admin/class-settings.php:1263
+msgid "App ID"
+msgstr "شناسه برنامه"
+
+#: includes/admin/class-settings.php:1264
+msgid "Please enter App ID of your Facebook account."
+msgstr "لطفاً شناسه برنامه حساب فیسبوک خود را وارد کنید."
+
+#: includes/admin/class-settings.php:1269
+msgid "App Secret"
+msgstr "راز برنامه"
+
+#: includes/admin/class-settings.php:1270
+msgid "Please enter App Secret of your Facebook account."
+msgstr "لطفاً راز برنامه حساب فیسبوک خود را وارد کنید."
+
+#: includes/admin/class-settings.php:1275
+msgid "Enable Facebook Login"
+msgstr "فعال کردن ورود از طریق فیسبوک"
+
+#: includes/admin/class-settings.php:1282
+msgid "Linkedin API settings"
+msgstr "تنظیمات API لینکداین"
+
+#: includes/admin/class-settings.php:1290
+#: includes/admin/class-settings.php:1362
+msgid "Client ID"
+msgstr "شناسه مشتری"
+
+#: includes/admin/class-settings.php:1291
+msgid "Please enter Client ID of your linkedin app."
+msgstr "لطفاً شناسه مشتری برنامه لینکداین خود را وارد کنید."
+
+#: includes/admin/class-settings.php:1296
+#: includes/admin/class-settings.php:1368
+msgid "Client Secret"
+msgstr "راز مشتری"
+
+#: includes/admin/class-settings.php:1297
+msgid "Please enter Client Secret of your linkedin app."
+msgstr "لطفاً راز مشتری برنامه لینکداین خود را وارد کنید."
+
+#: includes/admin/class-settings.php:1302
+msgid "Enable Linkedin Login"
+msgstr "فعال کردن ورود از طریق لینکداین"
+
+#: includes/admin/class-settings.php:1309
+msgid "Twitter API settings"
+msgstr "تنظیمات API توییتر"
+
+#: includes/admin/class-settings.php:1317
+msgid "Consumer Key"
+msgstr "کلید مصرف‌کننده"
+
+#: includes/admin/class-settings.php:1318
+msgid "Set Consumer Key for twitter."
+msgstr "کلید مصرف‌کننده را برای توییتر تنظیم کنید."
+
+#: includes/admin/class-settings.php:1323
+msgid "Consumer Secret"
+msgstr "راز مصرف‌کننده"
+
+#: includes/admin/class-settings.php:1324
+msgid "Set Consumer Secret for twitter."
+msgstr "راز مصرف‌کننده را برای توییتر تنظیم کنید."
+
+#: includes/admin/class-settings.php:1329
+msgid "Access Token"
+msgstr "توکن دسترسی"
+
+#: includes/admin/class-settings.php:1330
+msgid "Set Access Token for twitter."
+msgstr "توکن دسترسی را برای توییتر تنظیم کنید."
+
+#: includes/admin/class-settings.php:1335
+msgid "Token Secret"
+msgstr "راز توکن"
+
+#: includes/admin/class-settings.php:1336
+msgid "Set Token Secret for twitter."
+msgstr "راز توکن را برای توییتر تنظیم کنید."
+
+#: includes/admin/class-settings.php:1341
+msgid "Enable Twitter Login"
+msgstr "فعال کردن ورود از طریق توییتر"
+
+#: includes/admin/class-settings.php:1348
+msgid "Google API settings Settings"
+msgstr "تنظیمات API گوگل"
+
+#: includes/admin/class-settings.php:1356
+msgid "API Key"
+msgstr "کلید API"
+
+#: includes/admin/class-settings.php:1357
+msgid "Please enter API key of your Google account."
+msgstr "لطفاً کلید API حساب گوگل خود را وارد کنید."
+
+#: includes/admin/class-settings.php:1363
+msgid "Please enter Client ID of your Google account."
+msgstr "لطفاً شناسه مشتری حساب گوگل خود را وارد کنید."
+
+#: includes/admin/class-settings.php:1369
+msgid "Please enter Client secret of your Google account."
+msgstr "لطفاً راز مشتری حساب گوگل خود را وارد کنید."
+
+#: includes/admin/class-settings.php:1374
+msgid "Enable Google Login"
+msgstr "فعال کردن ورود از طریق گوگل"
+
+#: includes/admin/class-settings.php:1385
+msgid "reCAPTCHA API"
+msgstr "API reCAPTCHA"
+
+#: includes/admin/class-settings.php:1391
+msgid "Google reCAPTCHA API (V2) Settings"
+msgstr "تنظیمات API reCAPTCHA گوگل (V2)"
+
+#: includes/admin/class-settings.php:1396
+msgid "The plugin use ReCaptcha v2"
+msgstr "افزونه از ReCaptcha v2 استفاده می‌کند"
+
+#: includes/admin/class-settings.php:1399
+msgid "Site Key"
+msgstr "کلید سایت"
+
+#: includes/admin/class-settings.php:1400
+msgid ""
+"You can retrieve your site key from <a href=\"https://www.google."
+"com/recaptcha/admin#list\">Google's reCAPTCHA admin dashboard.</a>"
+msgstr ""
+
+#: includes/admin/class-settings.php:1405
+msgid "Secret Key"
+msgstr "کلید مخفی"
+
+#: includes/admin/class-settings.php:1406
+msgid ""
+"You can retrieve your secret key from <a href=\"https://www.google."
+"com/recaptcha/admin#list\">Google's reCAPTCHA admin dashboard.</a>"
+msgstr ""
+
+#: includes/admin/class-settings.php:1425
+#: includes/admin/class-settings.php:1433
+msgid "Admin Notice of New Listing"
+msgstr "اعلان مدیر در مورد آگهی جدید"
+
+#: includes/admin/class-settings.php:1436
+msgid ""
+"Send a notice to the site administrator when a new listing is submitted on "
+"the frontend."
+msgstr "هنگام ارسال یک آگهی جدید در جلوگیری، یک اعلان به مدیر سایت ارسال شود."
+
+#: includes/admin/class-settings.php:1439
+#: includes/admin/class-settings.php:1468
+#: includes/admin/class-settings.php:1505
+#: includes/admin/class-settings.php:1542
+#: templates/single-listing/contact-form.php:31
+msgid "Subject"
+msgstr "موضوع"
+
+#: includes/admin/class-settings.php:1440
+#: includes/admin/class-settings.php:1469
+#: includes/admin/class-settings.php:1506
+#: includes/admin/class-settings.php:1543
+#: includes/admin/class-settings.php:1567
+#: includes/admin/class-settings.php:1591
+#: includes/admin/class-settings.php:1615
+#: includes/admin/class-settings.php:1639
+#: includes/admin/class-settings.php:1663
+#: includes/admin/class-settings.php:1689
+#: includes/admin/class-settings.php:1712
+#: includes/admin/class-settings.php:1735
+#: includes/admin/class-settings.php:1758
+#: includes/admin/class-settings.php:1782
+msgid "Enter email subject. You can add variables: %s"
+msgstr "موضوع ایمیل را وارد کنید. می‌توانید متغیرها را اضافه کنید: %s"
+
+#: includes/admin/class-settings.php:1446
+#: includes/admin/class-settings.php:1475
+#: includes/admin/class-settings.php:1512
+#: includes/admin/class-settings.php:1549
+msgid "Content"
+msgstr "محتوا"
+
+#: includes/admin/class-settings.php:1447
+#: includes/admin/class-settings.php:1476
+#: includes/admin/class-settings.php:1513
+#: includes/admin/class-settings.php:1550
+#: includes/admin/class-settings.php:1574
+#: includes/admin/class-settings.php:1598
+#: includes/admin/class-settings.php:1622
+#: includes/admin/class-settings.php:1646
+#: includes/admin/class-settings.php:1670
+#: includes/admin/class-settings.php:1696
+#: includes/admin/class-settings.php:1719
+#: includes/admin/class-settings.php:1742
+#: includes/admin/class-settings.php:1765
+#: includes/admin/class-settings.php:1789
+msgid "Enter email content. You can add variables: %s"
+msgstr "محتوای ایمیل را وارد کنید. می‌توانید متغیرها را اضافه کنید: %s"
+
+#: includes/admin/class-settings.php:1454
+#: includes/admin/class-settings.php:1462
+msgid "Admin Notice of Updated Listing"
+msgstr "اعلان مدیر در مورد آگهی به‌روزرسانی شده"
+
+#: includes/admin/class-settings.php:1465
+msgid ""
+"Send a notice to the site administrator when a listing is updated on the "
+"frontend."
+msgstr "هنگام به‌روزرسانی یک آگهی در جلوگیری، یک اعلان به مدیر سایت ارسال شود."
+
+#: includes/admin/class-settings.php:1484
+#: includes/admin/class-settings.php:1492
+msgid "Admin Notice of Expiring Listing"
+msgstr "اعلان مدیر در مورد آگهی‌های منقضی شده"
+
+#: includes/admin/class-settings.php:1495
+msgid ""
+"Send notices to the site administrator before a listing listing expires."
+msgstr "پیش از انقضای یک آگهی، اعلان‌ها را به مدیر سایت ارسال کنید."
+
+#: includes/admin/class-settings.php:1498
+#: includes/admin/class-settings.php:1535
+msgid "Notice Period"
+msgstr "دوره اطلاع رسانی"
+
+#: includes/admin/class-settings.php:1499
+#: includes/admin/class-settings.php:1536
+msgid "days"
+msgstr "روزها"
+
+#: includes/admin/class-settings.php:1521
+#: includes/admin/class-settings.php:1529
+msgid "User Notice of Expiring Listing"
+msgstr "اعلان کاربر از آگهی‌های منقضی شده"
+
+#: includes/admin/class-settings.php:1532
+msgid "Send notices to user before a listing listing expires."
+msgstr "پیش از انقضای یک آگهی، اعلان‌ها را به کاربر ارسال کنید."
+
+#: includes/admin/class-settings.php:1558
+msgid "Listing Saved Search"
+msgstr "جستجوی ذخیره‌شده آگهی"
+
+#: includes/admin/class-settings.php:1566
+msgid "Listing Saved Search Subject"
+msgstr "موضوع جستجوی ذخیره‌شده آگهی"
+
+#: includes/admin/class-settings.php:1570
+msgid "Listing Saved Search: %s"
+msgstr "جستجوی ذخیره‌شده آگهی: %s"
+
+#: includes/admin/class-settings.php:1573
+msgid "Listing Saved Search Content"
+msgstr "محتوای جستجوی ذخیره‌شده آگهی"
+
+#: includes/admin/class-settings.php:1582
+msgid "Listing Contact Form"
+msgstr "فرم تماس با آگهی"
+
+#: includes/admin/class-settings.php:1590
+msgid "Listing Contact Form Subject"
+msgstr "موضوع فرم تماس با آگهی"
+
+#: includes/admin/class-settings.php:1594
+#: includes/admin/class-settings.php:1606
+msgid "Contact Form"
+msgstr "فرم تماس"
+
+#: includes/admin/class-settings.php:1597
+msgid "Listing Contact Form Content"
+msgstr "محتوای فرم تماس با آگهی"
+
+#: includes/admin/class-settings.php:1614
+msgid "Contact Form Subject"
+msgstr "موضوع فرم تماس"
+
+#: includes/admin/class-settings.php:1618
+msgid "Contact Form: %s"
+msgstr "فرم تماس: %s"
+
+#: includes/admin/class-settings.php:1621
+msgid "Contact Form Content"
+msgstr "محتوای فرم تماس"
+
+#: includes/admin/class-settings.php:1630
+#: includes/admin/class-settings.php:1642
+#: includes/admin/class-settings.php:1666
+msgid "Make an Offer"
+msgstr "پیشنهادی دهید"
+
+#: includes/admin/class-settings.php:1638
+#: includes/admin/class-settings.php:1662
+msgid "Make an Offer Subject"
+msgstr "موضوع پیشنهادی دهید"
+
+#: includes/admin/class-settings.php:1645
+#: includes/admin/class-settings.php:1669
+msgid "Make an Offer Content"
+msgstr "محتوای پیشنهادی دهید"
+
+#: includes/admin/class-settings.php:1654
+msgid "Schedule Test Drive"
+msgstr "زمان بندی آزمایشی رانندگی"
+
+#: includes/admin/class-settings.php:1680
+msgid "New user register (auto approve)"
+msgstr "ثبت‌نام کاربر جدید (خودکار تأیید شده)"
+
+#: includes/admin/class-settings.php:1688
+msgid "New user register Subject"
+msgstr "موضوع ثبت‌نام کاربر جدید"
+
+#: includes/admin/class-settings.php:1692
+msgid "New user register: %s"
+msgstr "ثبت‌نام کاربر جدید: %s"
+
+#: includes/admin/class-settings.php:1695
+msgid "New user register Content"
+msgstr "محتوای ثبت‌نام کاربر جدید"
+
+#: includes/admin/class-settings.php:1703
+msgid "Approve new user register"
+msgstr "تأیید ثبت‌نام کاربر جدید"
+
+#: includes/admin/class-settings.php:1711
+msgid "Approve new user register Subject"
+msgstr "موضوع تأیید ثبت‌نام کاربر جدید"
+
+#: includes/admin/class-settings.php:1715
+#: includes/admin/class-settings.php:1738
+#: includes/admin/class-settings.php:1761
+msgid "Approve new user register: %s"
+msgstr "تأیید ثبت‌نام کاربر جدید: %s"
+
+#: includes/admin/class-settings.php:1718
+msgid "Approve new user register Content"
+msgstr "محتوای تأیید ثبت‌نام کاربر جدید"
+
+#: includes/admin/class-settings.php:1726
+msgid "Approved user"
+msgstr "کاربر تأیید شده"
+
+#: includes/admin/class-settings.php:1734
+msgid "Approved user Subject"
+msgstr "موضوع کاربر تأیید شده"
+
+#: includes/admin/class-settings.php:1741
+msgid "Approved user Content"
+msgstr "محتوای کاربر تأیید شده"
+
+#: includes/admin/class-settings.php:1749
+msgid "Denied user"
+msgstr "کاربر رد شده"
+
+#: includes/admin/class-settings.php:1757
+msgid "Denied user Subject"
+msgstr "موضوع کاربر رد شده"
+
+#: includes/admin/class-settings.php:1764
+msgid "Denied user Content"
+msgstr "محتوای کاربر رد شده"
+
+#: includes/admin/class-settings.php:1773 templates/misc/login.php:48
+msgid "Reset Password"
+msgstr "بازنشانی رمز عبور"
+
+#: includes/admin/class-settings.php:1781
+msgid "Reset Password Subject"
+msgstr "موضوع بازنشانی رمز عبور"
+
+#: includes/admin/class-settings.php:1788
+msgid "Reset Password Content"
+msgstr "محتوای بازنشانی رمز عبور"
+
+#: includes/admin/class-settings.php:1825
+msgid "Settings updated."
+msgstr "تنظیمات به‌روز شد."
+
+#: includes/admin/class-settings.php:1952
+msgid "Save Settings"
+msgstr "ذخیره تنظیمات"
+
+#: includes/class-abstract-form.php:193 includes/class-user.php:1317
+#: includes/post-types/class-post-type-dealer.php:215
+#: includes/post-types/class-post-type-saved-search.php:99
+msgid "General Options"
+msgstr "گزینه‌های عمومی"
+
+#: includes/class-abstract-form.php:209 includes/class-shortcodes.php:231
+#: includes/class-shortcodes.php:237
+msgid "A metabox with the specified 'metabox_id' doesn't exist."
+msgstr "یک متاباکس با 'metabox_id' مشخص شده وجود ندارد."
+
+#: includes/class-abstract-form.php:221
+msgid "Save & Preview"
+msgstr "ذخیره و پیش‌نمایش"
+
+#: includes/class-abstract-form.php:223
+#: includes/custom-fields/class-fields-manager.php:86
+#: includes/custom-fields/class-fields-manager.php:204
+#: includes/taxonomies/class-taxonomy-listing-category.php:37
+#: includes/taxonomies/class-taxonomy-listing-color.php:37
+#: includes/taxonomies/class-taxonomy-listing-condition.php:46
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:37
+#: includes/taxonomies/class-taxonomy-listing-door.php:37
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:37
+#: includes/taxonomies/class-taxonomy-listing-feature.php:53
+#: includes/taxonomies/class-taxonomy-listing-feature.php:84
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:37
+#: includes/taxonomies/class-taxonomy-listing-label.php:46
+#: includes/taxonomies/class-taxonomy-listing-location.php:37
+#: includes/taxonomies/class-taxonomy-listing-make.php:45
+#: includes/taxonomies/class-taxonomy-listing-model.php:45
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:37
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:37
+#: includes/taxonomies/class-taxonomy-listing-type.php:45
+#: templates/misc/profile-form-normal.php:97
+msgid "Update"
+msgstr "به‌روزرسانی"
+
+#: includes/class-abstract-form.php:228
+msgid "You are not allowed to modify this listing."
+msgstr "شما مجاز به اصلاح این آگهی نیستید."
+
+#: includes/class-compare.php:48 includes/class-compare.php:89
+#: includes/class-compare.php:143 includes/class-favorite.php:28
+#: includes/class-favorite.php:79 includes/class-listing.php:305
+#: includes/class-saved-search.php:168 includes/class-saved-search.php:238
+#: includes/class-submit-form.php:226 includes/class-user-notification.php:54
+#: includes/post-types/class-post-type-listing.php:242
+msgid "Your nonce did not verify."
+msgstr "نانس شما تأیید نشد."
+
+#: includes/class-compare.php:56 includes/class-compare.php:96
+#: includes/class-favorite.php:37 includes/class-favorite.php:87
+msgid "Listing did not exists."
+msgstr "آگهی وجود ندارد."
+
+#: includes/class-compare.php:80
+msgid "Add compare successfully."
+msgstr "افزودن به مقایسه با موفقیت انجام شد."
+
+#: includes/class-compare.php:133
+msgid "Remove listing from compare successfully."
+msgstr "حذف آگهی از مقایسه با موفقیت انجام شد."
+
+#: includes/class-compare.php:158
+msgid "Remove all listings from compare successfully."
+msgstr "حذف همه آگهی‌ها از مقایسه با موفقیت انجام شد."
+
+#: includes/class-compare.php:200 includes/class-compare.php:201
+msgid "Remove Compare"
+msgstr "حذف مقایسه"
+
+#: includes/class-compare.php:204 includes/class-compare.php:206
+msgid "Add Compare"
+msgstr "افزودن به مقایسه"
+
+#: includes/class-edit-form.php:140
+msgid "Your changes have been saved."
+msgstr "تغییرات شما ذخیره شده است."
+
+#: includes/class-edit-form.php:142 includes/class-submit-form.php:176
+msgid "Can not update listing"
+msgstr "امکان به‌روزرسانی آگهی وجود ندارد"
+
+#: includes/class-edit-form.php:152 includes/class-submit-form.php:187
+msgid "Please login to submit listing"
+msgstr "لطفاً برای ارسال آگهی وارد شوید"
+
+#: includes/class-edit-form.php:155 includes/class-submit-form.php:190
+msgid "Title is required."
+msgstr "عنوان لازم است."
+
+#: includes/class-edit-form.php:158 includes/class-submit-form.php:193
+msgid "Description is required."
+msgstr "توضیحات لازم است."
+
+#: includes/class-email.php:108 includes/class-email.php:173
+#: includes/class-email.php:238
+msgid "Your message has been successfully sent."
+msgstr "پیام شما با موفقیت ارسال شد."
+
+#: includes/class-email.php:110 includes/class-email.php:175
+#: includes/class-email.php:240
+msgid "An error occurred when sending an email."
+msgstr "خطا در ارسال ایمیل رخ داده است."
+
+#: includes/class-email.php:113 includes/class-email.php:178
+#: includes/class-email.php:243
+msgid "Form has been not filled correctly."
+msgstr "فرم به درستی پر نشده است."
+
+#: includes/class-favorite.php:71
+msgid "Add favorite successfully."
+msgstr "افزودن به علاقه‌مندی‌ها با موفقیت انجام شد."
+
+#: includes/class-favorite.php:121
+msgid "Remove listing from favorite successfully."
+msgstr "حذف آگهی از علاقه‌مندی‌ها با موفقیت انجام شد."
+
+#: includes/class-favorite.php:160 includes/class-favorite.php:161
+msgid "Remove Favorite"
+msgstr "حذف علاقه‌مندی"
+
+#: includes/class-favorite.php:164 includes/class-favorite.php:166
+msgid "Add Favorite"
+msgstr "افزودن به علاقه‌مندی‌ها"
+
+#: includes/class-image.php:29
+msgid "You must be logged in to upload files using this method."
+msgstr "برای آپلود فایل با استفاده از این روش باید وارد شوید."
+
+#. translators: %1$s is the file field label; %2$s is the file type; %3$s is the list of allowed file types.
+#: includes/class-image.php:154
+msgid ""
+"\"%1$s\" (filetype %2$s) needs to be one of the following file types: %3$s"
+msgstr "\"%1$s\" (نوع فایل %2$s) باید یکی از انواع فایل‌های زیر باشد: %3$s"
+
+#. translators: %s is the list of allowed file types.
+#: includes/class-image.php:157
+msgid "Uploaded files need to be one of the following file types: %s"
+msgstr "فایل‌های آپلود شده باید یکی از انواع فایل‌های زیر باشند: %s"
+
+#: includes/class-image.php:228
+msgid "Attachment Image"
+msgstr "تصویر ضمیمه"
+
+#: includes/class-listing-filter.php:27 includes/class-listing-filter.php:650
+#: includes/custom-fields/class-custom-fields.php:50
+#: includes/custom-fields/class-custom-fields.php:158
+#: includes/taxonomies/class-taxonomy-listing-location.php:26
+msgid "Location"
+msgstr "موقعیت"
+
+#: includes/class-listing-filter.php:29
+#: includes/custom-fields/class-custom-fields.php:52
+#: includes/custom-fields/class-custom-fields.php:160
+msgid "All Location"
+msgstr "همه موقعیت‌ها"
+
+#: includes/class-listing-filter.php:592 includes/class-listing-filter.php:702
+#: includes/custom-fields/class-fields-manager.php:367
+#: includes/post-types/class-post-type-dealer.php:244
+#: includes/post-types/class-post-type-listing.php:328
+#: templates/submission/my-listings.php:113
+msgid "Featured"
+msgstr "برگزیده"
+
+#: includes/class-listing-filter.php:608 includes/class-listing-filter.php:715
+#: templates/loop/listing/orderby.php:7 templates/misc/listing-favorites.php:25
+#: templates/misc/my-saved-searches.php:28
+#: templates/submission/my-listings.php:28
+msgid "Default"
+msgstr "پیش‌فرض"
+
+#: includes/class-listing-filter.php:609 includes/class-listing-filter.php:716
+#: templates/loop/listing/orderby.php:8 templates/misc/listing-favorites.php:26
+#: templates/misc/my-saved-searches.php:29
+#: templates/submission/my-listings.php:29
+msgid "Newest"
+msgstr "جدیدترین"
+
+#: includes/class-listing-filter.php:610 includes/class-listing-filter.php:717
+#: templates/loop/listing/orderby.php:9 templates/misc/listing-favorites.php:27
+#: templates/misc/my-saved-searches.php:30
+#: templates/submission/my-listings.php:30
+msgid "Oldest"
+msgstr "قدیمی‌ترین"
+
+#: includes/class-listing-filter.php:611 includes/class-listing-filter.php:718
+#: templates/loop/listing/orderby.php:12
+msgid "Random"
+msgstr "تصادفی"
+
+#: includes/class-listing-filter.php:644
+#: includes/custom-fields/class-fields-manager.php:521
+#: includes/post-types/class-post-type-listing.php:314
+#: includes/taxonomies/class-taxonomy-listing-condition.php:35
+msgid "Condition"
+msgstr "شرایط"
+
+#: includes/class-listing-filter.php:647
+#: includes/custom-fields/class-fields-manager.php:497
+#: includes/post-types/class-post-type-listing.php:317
+#: includes/taxonomies/class-taxonomy-listing-category.php:26
+#: includes/taxonomies/class-taxonomy-listing-feature.php:119
+#: includes/taxonomies/class-taxonomy-listing-make.php:79
+#: includes/taxonomies/class-taxonomy-listing-model.php:79
+#: includes/taxonomies/class-taxonomy-listing-type.php:79
+msgid "Category"
+msgstr "دسته بندی"
+
+#: includes/class-listing-filter.php:653
+#: includes/custom-fields/class-fields-manager.php:513
+#: includes/post-types/class-post-type-listing.php:320
+#: includes/taxonomies/class-taxonomy-listing-type.php:34
+msgid "Type"
+msgstr "نوع"
+
+#: includes/class-listing-filter.php:656
+#: includes/custom-fields/class-fields-manager.php:561
+#: includes/taxonomies/class-taxonomy-listing-feature.php:74
+msgid "Features"
+msgstr "ویژگی‌ها"
+
+#: includes/class-listing-filter.php:659
+#: includes/custom-fields/class-fields-manager.php:505
+#: includes/taxonomies/class-taxonomy-listing-color.php:26
+#: includes/taxonomies/class-taxonomy-listing-condition.php:153
+#: includes/taxonomies/class-taxonomy-listing-label.php:153
+msgid "Color"
+msgstr "رنگ"
+
+#: includes/class-listing-filter.php:662
+#: includes/custom-fields/class-fields-manager.php:537
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:26
+msgid "Cylinder"
+msgstr "سیلندر"
+
+#: includes/class-listing-filter.php:665
+#: includes/custom-fields/class-fields-manager.php:545
+#: includes/taxonomies/class-taxonomy-listing-door.php:26
+msgid "Door"
+msgstr "در"
+
+#: includes/class-listing-filter.php:668
+#: includes/custom-fields/class-fields-manager.php:553
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:26
+msgid "Drive Type"
+msgstr "نوع رانندگی"
+
+#: includes/class-listing-filter.php:671
+#: includes/custom-fields/class-fields-manager.php:569
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:26
+msgid "Fuel Type"
+msgstr "نوع سوخت"
+
+#: includes/class-listing-filter.php:674
+#: includes/custom-fields/class-fields-manager.php:577
+#: includes/post-types/class-post-type-listing.php:323
+#: includes/taxonomies/class-taxonomy-listing-make.php:34
+msgid "Make"
+msgstr "سازنده"
+
+#: includes/class-listing-filter.php:677
+#: includes/custom-fields/class-fields-manager.php:585
+#: includes/taxonomies/class-taxonomy-listing-model.php:34
+msgid "Model"
+msgstr "مدل"
+
+#: includes/class-listing-filter.php:680
+#: includes/custom-fields/class-fields-manager.php:593
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:26
+msgid "Offer Type"
+msgstr "نوع پیشنهاد"
+
+#: includes/class-listing-filter.php:683
+#: includes/custom-fields/class-fields-manager.php:601
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:26
+msgid "Transmission"
+msgstr "انتقال"
+
+#: includes/class-listing-filter.php:690
+#: includes/custom-fields/class-fields-manager.php:426
+#: includes/post-types/class-post-type-listing.php:327
+msgid "Price"
+msgstr "قیمت"
+
+#: includes/class-listing-filter.php:697
+#: includes/custom-fields/class-custom-fields.php:60
+#: includes/custom-fields/class-custom-fields.php:168
+msgid "Distance"
+msgstr "فاصله"
+
+#: includes/class-listing-filter.php:711
+#: includes/custom-fields/class-custom-fields.php:112
+#: includes/custom-fields/class-custom-fields.php:115
+#: includes/custom-fields/class-custom-fields.php:215
+#: includes/custom-fields/class-custom-fields.php:218
+#: includes/post-types/class-post-type-saved-search.php:121
+msgid "Author"
+msgstr "نویسنده"
+
+#: includes/class-listing-filter.php:724
+msgid "Orderby"
+msgstr "سفارشی بر اساس"
+
+#: includes/class-listing-filter.php:733
+#: templates/widgets/filter-fields/price_range_slider.php:23
+#: templates/widgets/filter-fields/range_slider.php:22
+msgid "to"
+msgstr "به"
+
+#: includes/class-listing-filter.php:737
+msgid "from"
+msgstr "از"
+
+#: includes/class-listing.php:232
+msgctxt "post status"
+msgid "Draft"
+msgstr "پیش نویس"
+
+#: includes/class-listing.php:233 wp-cardealer.php:213
+msgctxt "post status"
+msgid "Expired"
+msgstr "منقضی شده"
+
+#: includes/class-listing.php:234 wp-cardealer.php:225
+msgctxt "post status"
+msgid "Preview"
+msgstr "پیش نمایش"
+
+#: includes/class-listing.php:235 includes/class-listing.php:236
+msgctxt "post status"
+msgid "Pending approval"
+msgstr "در انتظار تأیید"
+
+#: includes/class-listing.php:237
+msgctxt "post status"
+msgid "Pending payment"
+msgstr "در انتظار پرداخت"
+
+#: includes/class-listing.php:238
+msgctxt "post status"
+msgid "Active"
+msgstr "فعال"
+
+#: includes/class-listing.php:310
+#: includes/post-types/class-post-type-listing.php:254
+msgid "Listing not found"
+msgstr "آگهی یافت نشد"
+
+#: includes/class-listing.php:318
+msgid "Views"
+msgstr "بازدیدها"
+
+#: includes/class-mixes.php:102
+msgid "Facebook"
+msgstr "فیسبوک"
+
+#: includes/class-mixes.php:103
+msgid "Twitter"
+msgstr "توییتر"
+
+#: includes/class-mixes.php:104
+msgid "Linkedin"
+msgstr "لینکدین"
+
+#: includes/class-mixes.php:105
+msgid "Dribbble"
+msgstr "دریبل"
+
+#: includes/class-mixes.php:106
+msgid "Instagram"
+msgstr "اینستاگرام"
+
+#: includes/class-mixes.php:107
+msgid "Google +"
+msgstr "گوگل پلاس"
+
+#: includes/class-mixes.php:108
+msgid "Github"
+msgstr "گیت‌هاب"
+
+#: includes/class-mixes.php:109
+msgid "Reddit"
+msgstr "ردیت"
+
+#: includes/class-mixes.php:110
+msgid "Youtube"
+msgstr "یوتیوب"
+
+#: includes/class-mixes.php:111
+msgid "Vimeo"
+msgstr "ویمیو"
+
+#: includes/class-mixes.php:112
+msgid "Pinterest"
+msgstr "پینترست"
+
+#: includes/class-mixes.php:444
+msgid "Prev"
+msgstr "قبلی"
+
+#: includes/class-mixes.php:445
+msgid "Next"
+msgstr "بعدی"
+
+#: includes/class-mixes.php:645
+msgid "or"
+msgstr "یا"
+
+#: includes/class-price.php:166
+msgid "United Arab Emirates dirham"
+msgstr "درهم امارات متحده عربی"
+
+#: includes/class-price.php:167
+msgid "Afghan afghani"
+msgstr "افغانی افغانستان"
+
+#: includes/class-price.php:168
+msgid "Albanian lek"
+msgstr "لک آلبانی"
+
+#: includes/class-price.php:169
+msgid "Armenian dram"
+msgstr "درام ارمنستان"
+
+#: includes/class-price.php:170
+msgid "Netherlands Antillean guilder"
+msgstr "گیلدر هلند آنتیل"
+
+#: includes/class-price.php:171
+msgid "Angolan kwanza"
+msgstr "کوانزای آنگولا"
+
+#: includes/class-price.php:172
+msgid "Argentine peso"
+msgstr "پزوی آرژانتین"
+
+#: includes/class-price.php:173
+msgid "Australian dollar"
+msgstr "دلار استرالیا"
+
+#: includes/class-price.php:174
+msgid "Aruban florin"
+msgstr "فلورین آروبا"
+
+#: includes/class-price.php:175
+msgid "Azerbaijani manat"
+msgstr "منات آذربایجان"
+
+#: includes/class-price.php:176
+msgid "Bosnia and Herzegovina convertible mark"
+msgstr "مارک قابل تبدیل بوسنی و هرزگوین"
+
+#: includes/class-price.php:177
+msgid "Barbadian dollar"
+msgstr "دلار باربادوس"
+
+#: includes/class-price.php:178
+msgid "Bangladeshi taka"
+msgstr "تاکا بنگلادش"
+
+#: includes/class-price.php:179
+msgid "Bulgarian lev"
+msgstr "لو اسکی"
+
+#: includes/class-price.php:180
+msgid "Bahraini dinar"
+msgstr "دینار بحرین"
+
+#: includes/class-price.php:181
+msgid "Burundian franc"
+msgstr "فرانک بوروندی"
+
+#: includes/class-price.php:182
+msgid "Bermudian dollar"
+msgstr "دلار برمودا"
+
+#: includes/class-price.php:183
+msgid "Brunei dollar"
+msgstr "دلار برونئی"
+
+#: includes/class-price.php:184
+msgid "Bolivian boliviano"
+msgstr "بولیویانو بولیوی"
+
+#: includes/class-price.php:185
+msgid "Brazilian real"
+msgstr "رئال برزیل"
+
+#: includes/class-price.php:186
+msgid "Bahamian dollar"
+msgstr "دلار باهاما"
+
+#: includes/class-price.php:187
+msgid "Bitcoin"
+msgstr "بیت‌کوین"
+
+#: includes/class-price.php:188
+msgid "Bhutanese ngultrum"
+msgstr "نگولتروم بوتان"
+
+#: includes/class-price.php:189
+msgid "Botswana pula"
+msgstr "پولای بوتسوانا"
+
+#: includes/class-price.php:190
+msgid "Belarusian ruble (old)"
+msgstr "روبل بلاروس (قدیمی)"
+
+#: includes/class-price.php:191
+msgid "Belarusian ruble"
+msgstr "روبل بلاروس"
+
+#: includes/class-price.php:192
+msgid "Belize dollar"
+msgstr "دلار بلیز"
+
+#: includes/class-price.php:193
+msgid "Canadian dollar"
+msgstr "دلار کانادا"
+
+#: includes/class-price.php:194
+msgid "Congolese franc"
+msgstr "فرانک کنگو"
+
+#: includes/class-price.php:195
+msgid "Swiss franc"
+msgstr "فرانک سوئیس"
+
+#: includes/class-price.php:196
+msgid "Chilean peso"
+msgstr "پزوی شیلی"
+
+#: includes/class-price.php:197
+msgid "Chinese yuan"
+msgstr "یوان چینی"
+
+#: includes/class-price.php:198
+msgid "Colombian peso"
+msgstr "پزوی کلمبیا"
+
+#: includes/class-price.php:199
+msgid "Costa Rican col&oacute;n"
+msgstr ""
+
+#: includes/class-price.php:200
+msgid "Cuban convertible peso"
+msgstr "پزوی کانورتیبل کوبا"
+
+#: includes/class-price.php:201
+msgid "Cuban peso"
+msgstr "پزوی کوبا"
+
+#: includes/class-price.php:202
+msgid "Cape Verdean escudo"
+msgstr "اسکودوی کیپ ورد"
+
+#: includes/class-price.php:203
+msgid "Czech koruna"
+msgstr "کورونای چک"
+
+#: includes/class-price.php:204
+msgid "Djiboutian franc"
+msgstr "فرانک جیبوتی"
+
+#: includes/class-price.php:205
+msgid "Danish krone"
+msgstr "کرون دانمارک"
+
+#: includes/class-price.php:206
+msgid "Dominican peso"
+msgstr "پزوی دومینیکا"
+
+#: includes/class-price.php:207
+msgid "Algerian dinar"
+msgstr "دینار الجزایر"
+
+#: includes/class-price.php:208
+msgid "Egyptian pound"
+msgstr "پوند مصر"
+
+#: includes/class-price.php:209
+msgid "Eritrean nakfa"
+msgstr "ناکفای اریتره"
+
+#: includes/class-price.php:210
+msgid "Ethiopian birr"
+msgstr "بیر اتیوپی"
+
+#: includes/class-price.php:211
+msgid "Euro"
+msgstr "یورو"
+
+#: includes/class-price.php:212
+msgid "Fijian dollar"
+msgstr "دلار فیجی"
+
+#: includes/class-price.php:213
+msgid "Falkland Islands pound"
+msgstr "پوند جزایر فالکلند"
+
+#: includes/class-price.php:214
+msgid "Pound sterling"
+msgstr "پوند استرلینگ"
+
+#: includes/class-price.php:215
+msgid "Georgian lari"
+msgstr "لاری گرجستان"
+
+#: includes/class-price.php:216
+msgid "Guernsey pound"
+msgstr "پوند گرنزی"
+
+#: includes/class-price.php:217
+msgid "Ghana cedi"
+msgstr "سدی غنا"
+
+#: includes/class-price.php:218
+msgid "Gibraltar pound"
+msgstr "پوند جبل‌طارق"
+
+#: includes/class-price.php:219
+msgid "Gambian dalasi"
+msgstr "دالاسی گامبیا"
+
+#: includes/class-price.php:220
+msgid "Guinean franc"
+msgstr "فرانک گینه"
+
+#: includes/class-price.php:221
+msgid "Guatemalan quetzal"
+msgstr "کتزال گواتمالا"
+
+#: includes/class-price.php:222
+msgid "Guyanese dollar"
+msgstr "دلار گویان"
+
+#: includes/class-price.php:223
+msgid "Hong Kong dollar"
+msgstr "دلار هنگ‌کنگ"
+
+#: includes/class-price.php:224
+msgid "Honduran lempira"
+msgstr "لمپیرا هندوراس"
+
+#: includes/class-price.php:225
+msgid "Croatian kuna"
+msgstr "کونای کرواسی"
+
+#: includes/class-price.php:226
+msgid "Haitian gourde"
+msgstr "گورد هائیتی"
+
+#: includes/class-price.php:227
+msgid "Hungarian forint"
+msgstr "فورینت مجارستان"
+
+#: includes/class-price.php:228
+msgid "Indonesian rupiah"
+msgstr "روپیه اندونزی"
+
+#: includes/class-price.php:229
+msgid "Israeli new shekel"
+msgstr "شقل جدید اسرائیل"
+
+#: includes/class-price.php:230
+msgid "Manx pound"
+msgstr "پوند مان"
+
+#: includes/class-price.php:231
+msgid "Indian rupee"
+msgstr "روپیه هند"
+
+#: includes/class-price.php:232
+msgid "Iraqi dinar"
+msgstr "دینار عراق"
+
+#: includes/class-price.php:233
+msgid "Iranian rial"
+msgstr "ریال ایران"
+
+#: includes/class-price.php:234
+msgid "Iranian toman"
+msgstr "تومان ایران"
+
+#: includes/class-price.php:235
+msgid "Icelandic kr&oacute;na"
+msgstr ""
+
+#: includes/class-price.php:236
+msgid "Jersey pound"
+msgstr "پوند جرزی"
+
+#: includes/class-price.php:237
+msgid "Jamaican dollar"
+msgstr "دلار جامائیکا"
+
+#: includes/class-price.php:238
+msgid "Jordanian dinar"
+msgstr "دینار اردن"
+
+#: includes/class-price.php:239
+msgid "Japanese yen"
+msgstr "ین ژاپن"
+
+#: includes/class-price.php:240
+msgid "Kenyan shilling"
+msgstr "شیلینگ کنیا"
+
+#: includes/class-price.php:241
+msgid "Kyrgyzstani som"
+msgstr "سوم قرقیزستان"
+
+#: includes/class-price.php:242
+msgid "Cambodian riel"
+msgstr "ریل کامبوج"
+
+#: includes/class-price.php:243
+msgid "Comorian franc"
+msgstr "فرانک کومور"
+
+#: includes/class-price.php:244
+msgid "North Korean won"
+msgstr "وون کره شمالی"
+
+#: includes/class-price.php:245
+msgid "South Korean won"
+msgstr "وون کره جنوبی"
+
+#: includes/class-price.php:246
+msgid "Kuwaiti dinar"
+msgstr "دینار کویت"
+
+#: includes/class-price.php:247
+msgid "Cayman Islands dollar"
+msgstr "دلار جزایر کایمان"
+
+#: includes/class-price.php:248
+msgid "Kazakhstani tenge"
+msgstr "تنگه قزاقستان"
+
+#: includes/class-price.php:249
+msgid "Lao kip"
+msgstr "کیپ لائوس"
+
+#: includes/class-price.php:250
+msgid "Lebanese pound"
+msgstr "پوند لبنان"
+
+#: includes/class-price.php:251
+msgid "Sri Lankan rupee"
+msgstr "روپیه سری‌لانکا"
+
+#: includes/class-price.php:252
+msgid "Liberian dollar"
+msgstr "دلار لیبریا"
+
+#: includes/class-price.php:253
+msgid "Lesotho loti"
+msgstr "لوتی لسوتو"
+
+#: includes/class-price.php:254
+msgid "Libyan dinar"
+msgstr "دینار لیبی"
+
+#: includes/class-price.php:255
+msgid "Moroccan dirham"
+msgstr "درهم مراکش"
+
+#: includes/class-price.php:256
+msgid "Moldovan leu"
+msgstr "لئو مولداوی"
+
+#: includes/class-price.php:257
+msgid "Malagasy ariary"
+msgstr "آریاری ماداگاسکار"
+
+#: includes/class-price.php:258
+msgid "Macedonian denar"
+msgstr "دینار مقدونیه"
+
+#: includes/class-price.php:259
+msgid "Burmese kyat"
+msgstr "کیات میانمار"
+
+#: includes/class-price.php:260
+msgid "Mongolian t&ouml;gr&ouml;g"
+msgstr ""
+
+#: includes/class-price.php:261
+msgid "Macanese pataca"
+msgstr "پاتاکا ماکائو"
+
+#: includes/class-price.php:262
+msgid "Mauritanian ouguiya"
+msgstr "اوگویای موریتانی"
+
+#: includes/class-price.php:263
+msgid "Mauritian rupee"
+msgstr "روپیه موریس"
+
+#: includes/class-price.php:264
+msgid "Maldivian rufiyaa"
+msgstr "روفیا مالدیو"
+
+#: includes/class-price.php:265
+msgid "Malawian kwacha"
+msgstr "کواچای مالاوی"
+
+#: includes/class-price.php:266
+msgid "Mexican peso"
+msgstr "پزوی مکزیک"
+
+#: includes/class-price.php:267
+msgid "Malaysian ringgit"
+msgstr "رینگیت مالزی"
+
+#: includes/class-price.php:268
+msgid "Mozambican metical"
+msgstr "متیکال موزامبیک"
+
+#: includes/class-price.php:269
+msgid "Namibian dollar"
+msgstr "دلار نامیبیا"
+
+#: includes/class-price.php:270
+msgid "Nigerian naira"
+msgstr "نایرا نیجریه"
+
+#: includes/class-price.php:271
+msgid "Nicaraguan c&oacute;rdoba"
+msgstr ""
+
+#: includes/class-price.php:272
+msgid "Norwegian krone"
+msgstr "کرون نروژ"
+
+#: includes/class-price.php:273
+msgid "Nepalese rupee"
+msgstr "روپیه نپال"
+
+#: includes/class-price.php:274
+msgid "New Zealand dollar"
+msgstr "دلار نیوزلند"
+
+#: includes/class-price.php:275
+msgid "Omani rial"
+msgstr "ریال عمانی"
+
+#: includes/class-price.php:276
+msgid "Panamanian balboa"
+msgstr "بالبوای پاناما"
+
+#: includes/class-price.php:277
+msgid "Sol"
+msgstr "سول"
+
+#: includes/class-price.php:278
+msgid "Papua New Guinean kina"
+msgstr "کینای پاپوآ گینهٔ نو"
+
+#: includes/class-price.php:279
+msgid "Philippine peso"
+msgstr "پزوی فیلیپین"
+
+#: includes/class-price.php:280
+msgid "Pakistani rupee"
+msgstr "روپیه پاکستان"
+
+#: includes/class-price.php:281
+msgid "Polish z&#x142;oty"
+msgstr ""
+
+#: includes/class-price.php:282
+msgid "Transnistrian ruble"
+msgstr "روبل ترانسنیستری"
+
+#: includes/class-price.php:283
+msgid "Paraguayan guaran&iacute;"
+msgstr ""
+
+#: includes/class-price.php:284
+msgid "Qatari riyal"
+msgstr "ریال قطر"
+
+#: includes/class-price.php:285
+msgid "Romanian leu"
+msgstr "لئو رومانی"
+
+#: includes/class-price.php:286
+msgid "Serbian dinar"
+msgstr "دینار صربستان"
+
+#: includes/class-price.php:287
+msgid "Russian ruble"
+msgstr "روبل روسیه"
+
+#: includes/class-price.php:288
+msgid "Rwandan franc"
+msgstr "فرانک رواندا"
+
+#: includes/class-price.php:289
+msgid "Saudi riyal"
+msgstr "ریال سعودی"
+
+#: includes/class-price.php:290
+msgid "Solomon Islands dollar"
+msgstr "دلار جزایر سلیمان"
+
+#: includes/class-price.php:291
+msgid "Seychellois rupee"
+msgstr "روپیه سیشل"
+
+#: includes/class-price.php:292
+msgid "Sudanese pound"
+msgstr "پوند سودان"
+
+#: includes/class-price.php:293
+msgid "Swedish krona"
+msgstr "کرون سوئد"
+
+#: includes/class-price.php:294
+msgid "Singapore dollar"
+msgstr "دلار سنگاپور"
+
+#: includes/class-price.php:295
+msgid "Saint Helena pound"
+msgstr "پوند سنت هلنا"
+
+#: includes/class-price.php:296
+msgid "Sierra Leonean leone"
+msgstr "لئون سیرالئون"
+
+#: includes/class-price.php:297
+msgid "Somali shilling"
+msgstr "شیلینگ سومالی"
+
+#: includes/class-price.php:298
+msgid "Surinamese dollar"
+msgstr "دلار سورینام"
+
+#: includes/class-price.php:299
+msgid "South Sudanese pound"
+msgstr "پوند سودان جنوبی"
+
+#: includes/class-price.php:300
+msgid "S&atilde;o Tom&eacute; and Pr&iacute;ncipe dobra"
+msgstr ""
+
+#: includes/class-price.php:301
+msgid "Syrian pound"
+msgstr "پوند سوریه"
+
+#: includes/class-price.php:302
+msgid "Swazi lilangeni"
+msgstr "لیلانگنی سوازیلند"
+
+#: includes/class-price.php:303
+msgid "Thai baht"
+msgstr "بات تایلند"
+
+#: includes/class-price.php:304
+msgid "Tajikistani somoni"
+msgstr "سومونی تاجیکستان"
+
+#: includes/class-price.php:305
+msgid "Turkmenistan manat"
+msgstr "منات ترکمنستان"
+
+#: includes/class-price.php:306
+msgid "Tunisian dinar"
+msgstr "دینار تونس"
+
+#: includes/class-price.php:307
+msgid "Tongan pa&#x2bb;anga"
+msgstr ""
+
+#: includes/class-price.php:308
+msgid "Turkish lira"
+msgstr "لیره ترکیه"
+
+#: includes/class-price.php:309
+msgid "Trinidad and Tobago dollar"
+msgstr "دلار ترینیداد و توباگو"
+
+#: includes/class-price.php:310
+msgid "New Taiwan dollar"
+msgstr "دلار تایوان جدید"
+
+#: includes/class-price.php:311
+msgid "Tanzanian shilling"
+msgstr "شیلینگ تانزانیا"
+
+#: includes/class-price.php:312
+msgid "Ukrainian hryvnia"
+msgstr "هریونیای اوکراین"
+
+#: includes/class-price.php:313
+msgid "Ugandan shilling"
+msgstr "شیلینگ اوگاندا"
+
+#: includes/class-price.php:314
+msgid "United States (US) dollar"
+msgstr "دلار ایالات متحده (آمریکا)"
+
+#: includes/class-price.php:315
+msgid "Uruguayan peso"
+msgstr "پزوی اوروگوئه"
+
+#: includes/class-price.php:316
+msgid "Uzbekistani som"
+msgstr "سوم ازبکستان"
+
+#: includes/class-price.php:317
+msgid "Venezuelan bol&iacute;var"
+msgstr ""
+
+#: includes/class-price.php:318
+msgid "Bol&iacute;var soberano"
+msgstr ""
+
+#: includes/class-price.php:319
+msgid "Vietnamese &#x111;&#x1ed3;ng"
+msgstr ""
+
+#: includes/class-price.php:320
+msgid "Vanuatu vatu"
+msgstr "واتو وانواتو"
+
+#: includes/class-price.php:321
+msgid "Samoan t&#x101;l&#x101;"
+msgstr ""
+
+#: includes/class-price.php:322
+msgid "Central African CFA franc"
+msgstr "فرانک CFA آفریقای مرکزی"
+
+#: includes/class-price.php:323
+msgid "East Caribbean dollar"
+msgstr "دلار شرق کارائیب"
+
+#: includes/class-price.php:324
+msgid "West African CFA franc"
+msgstr "فرانک CFA غرب آفریقا"
+
+#: includes/class-price.php:325
+msgid "CFP franc"
+msgstr "فرانک CFP"
+
+#: includes/class-price.php:326
+msgid "Yemeni rial"
+msgstr "ریال یمن"
+
+#: includes/class-price.php:327
+msgid "South African rand"
+msgstr "راند آفریقای جنوبی"
+
+#: includes/class-price.php:328
+msgid "Zambian kwacha"
+msgstr "کواچای زامبیا"
+
+#: includes/class-price.php:591
+msgid "K"
+msgstr "هزار"
+
+#: includes/class-price.php:603
+msgid "M"
+msgstr "میلیون"
+
+#: includes/class-price.php:615
+msgid "B"
+msgstr "میلیارد"
+
+#: includes/class-price.php:627
+msgid "T"
+msgstr "تریلیون"
+
+#: includes/class-price.php:639
+msgid "Qa"
+msgstr "کوادریلیون"
+
+#: includes/class-price.php:651
+msgid "Qi"
+msgstr "کوینتیلیون"
+
+#: includes/class-recaptcha.php:31
+msgid "reCAPTCHA is a required field"
+msgstr "reCAPTCHA یک فیلد ضروری است"
+
+#: includes/class-review.php:322
+msgid "Rating"
+msgstr "امتیازدهی"
+
+#: includes/class-review.php:368
+msgid "%d Review"
+msgid_plural "%d Reviews"
+msgstr[0] "%d بررسی"
+msgstr[1] "%d بررسی"
+
+#: includes/class-review.php:370
+msgid "(%d Review)"
+msgid_plural "(%d Reviews)"
+msgstr[0] "(%d بررسی)"
+msgstr[1] "(%d بررسی)"
+
+#: includes/class-saved-search.php:35
+msgid "Daily"
+msgstr "روزانه"
+
+#: includes/class-saved-search.php:39
+msgid "Weekly"
+msgstr "هفتگی"
+
+#: includes/class-saved-search.php:43
+msgid "Fortnightly"
+msgstr "دو هفته یکبار"
+
+#: includes/class-saved-search.php:47
+msgid "Monthly"
+msgstr "ماهانه"
+
+#: includes/class-saved-search.php:51
+msgid "Biannually"
+msgstr "نیمسالی"
+
+#: includes/class-saved-search.php:55
+msgid "Annually"
+msgstr "سالانه"
+
+#: includes/class-saved-search.php:213
+msgid "Add listing save search successfully."
+msgstr "جستجوی ذخیره لیست با موفقیت اضافه شد."
+
+#: includes/class-saved-search.php:217
+msgid "Add listing save search error."
+msgstr "خطا در اضافه کردن جستجوی ذخیره آگهی."
+
+#: includes/class-saved-search.php:226
+msgid "Name is required."
+msgstr "نام مورد نیاز است."
+
+#: includes/class-saved-search.php:230
+msgid "Email frequency is required."
+msgstr "فرکانس ایمیل مورد نیاز است."
+
+#: includes/class-saved-search.php:243
+msgid "Please login to remove listing saved search."
+msgstr "لطفاً برای حذف جستجوی ذخیره لیست وارد شوید."
+
+#: includes/class-saved-search.php:250
+msgid "Applicant did not exists."
+msgstr "متقاضی وجود ندارد."
+
+#: includes/class-saved-search.php:258
+msgid "You can not remove this listing saved search."
+msgstr "شما نمی‌توانید این جستجوی ذخیره لیست را حذف کنید."
+
+#: includes/class-saved-search.php:264
+msgid "Remove listing saved search successfully."
+msgstr "جستجوی ذخیره لیست با موفقیت حذف شد."
+
+#: includes/class-saved-search.php:268
+msgid "Remove listing saved search error."
+msgstr "خطا در حذف جستجوی ذخیره لیست."
+
+#: includes/class-scripts.php:50
+msgid "Invalid file type. Accepted types:"
+msgstr "نوع فایل نامعتبر است. نوع‌های قابل قبول:"
+
+#: includes/class-scripts.php:51
+msgid "You are only allowed to upload a maximum of %d files."
+msgstr "شما تنها مجاز به بارگذاری حداکثر %d فایل هستید."
+
+#: includes/class-scripts.php:60
+msgid "No results found"
+msgstr "نتیجه‌ای یافت نشد"
+
+#: includes/class-scripts.php:117
+msgid "Show more +"
+msgstr "نمایش بیشتر +"
+
+#: includes/class-scripts.php:119
+msgid "Show less -"
+msgstr "نمایش کمتر -"
+
+#: includes/class-scripts.php:124
+msgid "Are you sure?"
+msgstr "آیا مطمئن هستید؟"
+
+#: includes/class-submit-form.php:174
+msgid "Can not create listing"
+msgstr "امکان ایجاد آگهی نیست"
+
+#: includes/class-user-notification.php:70
+msgid "The notification was successfully removed"
+msgstr "اعلان با موفقیت حذف شد"
+
+#: includes/class-user-notification.php:74
+msgid "The notification dosen't exist"
+msgstr "اعلان وجود ندارد"
+
+#: includes/class-user-notification.php:139
+msgid "Your listing <a href=\"%s\" target=\"_blank\">%s</a> has been approved"
+msgstr "آگهی شما <a href=\"%s\" target=\"_blank\">%s</a> تایید شده است."
+
+#: includes/class-user-notification.php:147
+msgid "A new private message from %s."
+msgstr "یک پیام خصوصی جدید از %s."
+
+#: includes/class-user-notification.php:152
+msgid "Someone favorites your listing <a href=\"%s\" target=\"_blank\">%s</a>"
+msgstr ""
+
+#: includes/class-user-notification.php:156
+msgid ""
+"Someone leave a review your listing <a href=\"%s\" target=\"_blank\">%s</a>"
+msgstr ""
+
+#: includes/class-user.php:82 includes/post-types/class-post-type-dealer.php:35
+msgid "Dealer"
+msgstr "نماینده"
+
+#: includes/class-user.php:174
+msgid "Please fill all form fields"
+msgstr "لطفاً تمام فیلدهای فرم را پر کنید"
+
+#: includes/class-user.php:195
+msgid "Your account denied"
+msgstr "حساب شما رد شد"
+
+#: includes/class-user.php:202
+msgid "Wrong username or password. Please try again!!!"
+msgstr "نام کاربری یا رمز عبور اشتباه است. لطفاً دوباره امتحان کنید!!!"
+
+#: includes/class-user.php:205
+msgid "Signin successful, redirecting..."
+msgstr "ورود موفقیت آمیز، هدایت می‌شود..."
+
+#: includes/class-user.php:219 includes/class-user.php:506
+msgid "Captcha is not valid"
+msgstr "کد امنیتی معتبر نیست"
+
+#: includes/class-user.php:231
+msgid "Enter an username or e-mail address."
+msgstr "نام کاربری یا آدرس ایمیل را وارد کنید."
+
+#: includes/class-user.php:237
+msgid "There is no user registered with that email address."
+msgstr "هیچ کاربری با این آدرس ایمیل ثبت نام نکرده است."
+
+#: includes/class-user.php:243
+msgid "There is no user registered with that username."
+msgstr "هیچ کاربری با این نام کاربری ثبت نام نکرده است."
+
+#: includes/class-user.php:246
+msgid "Invalid username or e-mail address."
+msgstr "نام کاربری یا آدرس ایمیل نامعتبر است."
+
+#: includes/class-user.php:269 includes/class-user.php:769
+msgid "Your account denied."
+msgstr "حساب شما رد شد."
+
+#: includes/class-user.php:297
+msgid "Check your email address for you new password."
+msgstr "آدرس ایمیل خود را برای رمز عبور جدید خود بررسی کنید."
+
+#: includes/class-user.php:299
+msgid "System is unable to send you mail containg your new password."
+msgstr "سیستم قادر به ارسال ایمیل شامل رمز عبور جدید شما نیست."
+
+#: includes/class-user.php:302
+msgid "Oops! Something went wrong while updating your account."
+msgstr "اوه! مشکلی در به‌روزرسانی حساب شما رخ داده است."
+
+#: includes/class-user.php:347
+msgid "Number of tries exceeded, Please try again in few minutes"
+msgstr "تعداد تلاش‌ها بیش از حد است، لطفاً چند دقیقه دیگر دوباره تلاش کنید"
+
+#: includes/class-user.php:353
+msgid "OTP Expired"
+msgstr "OTP منقضی شده است"
+
+#: includes/class-user.php:368
+msgid "Thank you for verifying your number."
+msgstr "از تایید شماره شما متشکریم."
+
+#: includes/class-user.php:377
+msgid "Invalid OTP"
+msgstr "OTP نامعتبر است"
+
+#: includes/class-user.php:397
+msgid "OTP Resent"
+msgstr "OTP دوباره ارسال شد"
+
+#: includes/class-user.php:483
+msgid "You have registered, redirecting ..."
+msgstr "شما ثبت نام کرده‌اید، هدایت می‌شود..."
+
+#: includes/class-user.php:490
+msgid "Register user error!"
+msgstr "خطا در ثبت نام کاربر!"
+
+#: includes/class-user.php:513
+msgid "Terms and Conditions are required"
+msgstr "شرایط و ضوابط مورد نیاز است"
+
+#: includes/class-user.php:518
+msgid "Required form field is missing"
+msgstr "فیلد فرم مورد نیاز وجود ندارد"
+
+#: includes/class-user.php:522
+msgid "Username too short. At least 4 characters is required"
+msgstr "نام کاربری خیلی کوتاه است. حداقل 4 کاراکتر مورد نیاز است"
+
+#: includes/class-user.php:526
+msgid "The username already exists!"
+msgstr "نام کاربری از قبل موجود است!"
+
+#: includes/class-user.php:530
+msgid "The username you entered is not valid"
+msgstr "نام کاربری وارد شده معتبر نیست"
+
+#: includes/class-user.php:534
+msgid "Password length must be greater than 5"
+msgstr "طول رمز عبور باید بیشتر از ۵ باشد"
+
+#: includes/class-user.php:538
+msgid "Password must be equal Confirm Password"
+msgstr "رمز عبور باید با تأیید رمز عبور برابر باشد"
+
+#: includes/class-user.php:542
+msgid "Email is not valid"
+msgstr "ایمیل معتبر نیست"
+
+#: includes/class-user.php:546
+msgid "Email Already in use"
+msgstr "ایمیل قبلاً استفاده شده است"
+
+#: includes/class-user.php:680
+msgid "All fields are required."
+msgstr "تمام فیلدها الزامی هستند."
+
+#: includes/class-user.php:685
+msgid "New and retyped password are not same."
+msgstr "رمز عبور جدید و تأیید شده یکسان نیستند."
+
+#: includes/class-user.php:691
+msgid "Your old password is not correct."
+msgstr "رمز عبور قدیمی شما صحیح نیست."
+
+#: includes/class-user.php:698
+msgid "Your password has been successfully changed."
+msgstr "رمز عبور شما با موفقیت تغییر کرد."
+
+#: includes/class-user.php:709
+msgid "Username or Email not exactly."
+msgstr "نام کاربری یا ایمیل دقیق نیست."
+
+#: includes/class-user.php:739
+msgid "Sent a email successfully."
+msgstr "ایمیل با موفقیت ارسال شد."
+
+#: includes/class-user.php:745
+msgid "Send a email error."
+msgstr "خطا در ارسال ایمیل."
+
+#: includes/class-user.php:753
+msgid "Your account is not available."
+msgstr "حساب شما در دسترس نیست."
+
+#: includes/class-user.php:791 includes/class-user.php:799
+msgid "The user is not exists."
+msgstr "کاربر وجود ندارد."
+
+#: includes/class-user.php:806
+msgid "Code is not exactly."
+msgstr "کد دقیق نیست."
+
+#: includes/class-user.php:815
+msgid "Your account approved."
+msgstr "حساب شما تأیید شد."
+
+#: includes/class-user.php:970
+msgid "Approve"
+msgstr "تأیید"
+
+#: includes/class-user.php:971
+msgid "Deny"
+msgstr "رد"
+
+#: includes/class-user.php:993 includes/class-user.php:1188
+#: includes/class-user.php:1265
+#: includes/custom-fields/class-fields-manager.php:661
+#: includes/custom-fields/class-fields-manager.php:756
+#: templates/misc/profile-form-normal.php:80 templates/misc/register.php:25
+#: templates/misc/register.php:43 templates/single-listing/contact-form.php:41
+msgid "Phone"
+msgstr "تلفن"
+
+#: includes/class-user.php:994
+#: includes/post-types/class-post-type-listing.php:331
+#: templates/submission/my-listings.php:93
+msgid "Status"
+msgstr "وضعیت"
+
+#: includes/class-user.php:1021
+msgid "approved"
+msgstr "تأیید شده"
+
+#: includes/class-user.php:1023
+msgid "denied"
+msgstr "رد شده"
+
+#: includes/class-user.php:1025
+msgid "pending"
+msgstr "در انتظار"
+
+#: includes/class-user.php:1044
+msgid "Filter"
+msgstr "فیلتر"
+
+#: includes/class-user.php:1051 includes/class-user.php:1053
+msgid "View all users"
+msgstr "مشاهده تمام کاربران"
+
+#: includes/class-user.php:1128
+msgid ""
+"Registration complete. Before you can login, you must active your account "
+"sent to your email address."
+msgstr ""
+"ثبت‌نام کامل شد. قبل از ورود، باید حساب کاربری خود را فعال کنید که به آدرس "
+"ایمیل شما ارسال شده است."
+
+#: includes/class-user.php:1130
+msgid ""
+"Registration complete. Your account has to be confirmed by an administrator "
+"before you can login"
+msgstr ""
+"ثبت‌نام کامل شد. حساب کاربری شما باید توسط یک مدیر تأیید شود تا بتوانید وارد "
+"شوید"
+
+#: includes/class-user.php:1132 includes/class-user.php:1144
+msgid "Your account has to be confirmed yet."
+msgstr "حساب شما هنوز باید تأیید شود."
+
+#: includes/class-user.php:1140
+msgid ""
+"Account account has not confirmed yet, you must active your account with the "
+"link sent to your email address. If you did not receive this email, please "
+"check your junk/spam folder. <a href=\"javascript:void(0);\" class=\"wp-"
+"cardealer-resend-approve-account-btn\" data-login=\"%s\">Click here</a> to "
+"resend the activation email."
+msgstr ""
+
+#: includes/class-user.php:1142
+msgid ""
+"Your account has to be confirmed by an administrator before you can login."
+msgstr "حساب شما باید توسط یک مدیر تأیید شود تا بتوانید وارد شوید."
+
+#: includes/class-user.php:1159 includes/class-user.php:1235
+#: includes/custom-fields/class-fields-manager.php:712
+msgid "Avatar"
+msgstr "آواتار"
+
+#: includes/class-user.php:1163
+msgid "Add Image"
+msgstr "افزودن تصویر"
+
+#: includes/class-user.php:1175 includes/class-user.php:1293
+#: includes/custom-fields/class-fields-manager.php:410
+#: includes/custom-fields/class-fields-manager.php:686
+#: includes/custom-fields/class-fields-manager.php:781
+msgid "Friendly Address"
+msgstr "آدرس دوستانه"
+
+#: includes/class-user.php:1181 includes/class-user.php:1299
+#: includes/custom-fields/class-fields-manager.php:418
+#: includes/custom-fields/class-fields-manager.php:692
+#: includes/custom-fields/class-fields-manager.php:787
+msgid "Map Location"
+msgstr "موقعیت روی نقشه"
+
+#: includes/class-user.php:1193 includes/class-user.php:1270
+#: includes/custom-fields/class-fields-manager.php:666
+#: includes/custom-fields/class-fields-manager.php:761
+msgid "Whatsapp"
+msgstr "واتساپ"
+
+#: includes/class-user.php:1198 includes/class-user.php:1281
+#: includes/custom-fields/class-fields-manager.php:677
+#: includes/custom-fields/class-fields-manager.php:772
+msgid "Photos"
+msgstr "عکس‌ها"
+
+#: includes/class-user.php:1210
+msgid "User Profile"
+msgstr "پروفایل کاربری"
+
+#: includes/class-user.php:1247
+#: includes/custom-fields/class-fields-manager.php:736
+msgid "First Name"
+msgstr "نام"
+
+#: includes/class-user.php:1253
+#: includes/custom-fields/class-fields-manager.php:742
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: includes/class-user.php:1259
+#: includes/custom-fields/class-fields-manager.php:282
+#: includes/custom-fields/class-fields-manager.php:618
+#: includes/custom-fields/class-fields-manager.php:724
+#: templates/misc/register.php:18 templates/single-listing/reviews.php:50
+msgid "Email"
+msgstr "ایمیل"
+
+#: includes/class-user.php:1275
+#: includes/custom-fields/class-fields-manager.php:671
+#: includes/custom-fields/class-fields-manager.php:766
+#: templates/misc/profile-form-normal.php:87
+msgid "Website"
+msgstr "وب‌سایت"
+
+#: includes/class-user.php:1306
+#: includes/custom-fields/class-custom-fields-html.php:100
+#: includes/custom-fields/class-custom-fields-html.php:162
+#: includes/custom-fields/class-custom-fields-html.php:295
+#: includes/custom-fields/class-custom-fields-html.php:361
+#: includes/custom-fields/class-custom-fields-html.php:416
+#: includes/custom-fields/class-custom-fields-html.php:479
+#: includes/custom-fields/class-custom-fields-html.php:543
+#: includes/custom-fields/class-custom-fields-html.php:607
+#: includes/custom-fields/class-custom-fields-html.php:668
+#: includes/custom-fields/class-custom-fields-html.php:729
+#: includes/custom-fields/class-fields-manager.php:624
+#: includes/custom-fields/class-fields-manager.php:730
+msgid "Description"
+msgstr "توضیحات"
+
+#: includes/class-user.php:1352
+msgid "E-mail is required."
+msgstr "ایمیل الزامی است."
+
+#: includes/class-user.php:1357
+msgid "E-mail is exists."
+msgstr "ایمیل وجود دارد."
+
+#: includes/class-user.php:1385
+msgid "Profile has been successfully updated."
+msgstr "پروفایل با موفقیت به‌روزرسانی شد."
+
+#: includes/class-user.php:1387
+msgid "Can not update profile."
+msgstr "امکان به‌روزرسانی پروفایل وجود ندارد."
+
+#: includes/custom-fields/class-custom-fields-display.php:89
+#: includes/custom-fields/class-custom-fields-display.php:96
+msgid "Download file"
+msgstr "دانلود فایل"
+
+#: includes/custom-fields/class-custom-fields-html.php:97
+#: includes/custom-fields/class-custom-fields-html.php:159
+#: includes/custom-fields/class-custom-fields-html.php:217
+#: includes/custom-fields/class-custom-fields-html.php:292
+#: includes/custom-fields/class-custom-fields-html.php:359
+#: includes/custom-fields/class-custom-fields-html.php:414
+#: includes/custom-fields/class-custom-fields-html.php:477
+#: includes/custom-fields/class-custom-fields-html.php:541
+#: includes/custom-fields/class-custom-fields-html.php:605
+#: includes/custom-fields/class-custom-fields-html.php:666
+#: includes/custom-fields/class-custom-fields-html.php:727
+#: includes/custom-fields/class-fields-manager.php:529
+#: includes/taxonomies/class-taxonomy-listing-label.php:35
+msgid "Label"
+msgstr "برچسب"
+
+#: includes/custom-fields/class-custom-fields-html.php:98
+#: includes/custom-fields/class-custom-fields-html.php:160
+#: includes/custom-fields/class-custom-fields-html.php:218
+#: includes/custom-fields/class-custom-fields-html.php:293
+msgid "Key"
+msgstr "کلید"
+
+#: includes/custom-fields/class-custom-fields-html.php:99
+#: includes/custom-fields/class-custom-fields-html.php:161
+#: includes/custom-fields/class-custom-fields-html.php:294
+#: includes/custom-fields/class-custom-fields-html.php:360
+#: includes/custom-fields/class-custom-fields-html.php:415
+#: includes/custom-fields/class-custom-fields-html.php:478
+#: includes/custom-fields/class-custom-fields-html.php:542
+#: includes/custom-fields/class-custom-fields-html.php:606
+#: includes/custom-fields/class-custom-fields-html.php:667
+#: includes/custom-fields/class-custom-fields-html.php:728
+msgid "Placeholder"
+msgstr "مکان‌نما"
+
+#: includes/custom-fields/class-custom-fields-html.php:105
+#: includes/custom-fields/class-custom-fields-html.php:165
+#: includes/custom-fields/class-custom-fields-html.php:303
+#: includes/custom-fields/class-custom-fields-html.php:362
+#: includes/custom-fields/class-custom-fields-html.php:425
+#: includes/custom-fields/class-custom-fields-html.php:487
+#: includes/custom-fields/class-custom-fields-html.php:551
+#: includes/custom-fields/class-custom-fields-html.php:614
+#: includes/custom-fields/class-custom-fields-html.php:675
+#: includes/custom-fields/class-custom-fields-html.php:731
+msgid "Show in submit form"
+msgstr "نمایش در فرم ارسال"
+
+#: includes/custom-fields/class-custom-fields-html.php:106
+#: includes/custom-fields/class-custom-fields-html.php:166
+#: includes/custom-fields/class-custom-fields-html.php:304
+#: includes/custom-fields/class-custom-fields-html.php:363
+#: includes/custom-fields/class-custom-fields-html.php:426
+#: includes/custom-fields/class-custom-fields-html.php:488
+#: includes/custom-fields/class-custom-fields-html.php:552
+#: includes/custom-fields/class-custom-fields-html.php:615
+#: includes/custom-fields/class-custom-fields-html.php:676
+#: includes/custom-fields/class-custom-fields-html.php:732
+msgid "Show in admin form"
+msgstr "نمایش در فرم مدیر"
+
+#: includes/custom-fields/class-custom-fields-html.php:109
+#: includes/custom-fields/class-custom-fields-html.php:168
+#: includes/custom-fields/class-custom-fields-html.php:307
+#: includes/custom-fields/class-custom-fields-html.php:366
+#: includes/custom-fields/class-custom-fields-html.php:429
+#: includes/custom-fields/class-custom-fields-html.php:491
+#: includes/custom-fields/class-custom-fields-html.php:555
+#: includes/custom-fields/class-custom-fields-html.php:618
+#: includes/custom-fields/class-custom-fields-html.php:679
+#: includes/custom-fields/class-custom-fields-html.php:735
+msgid "Required"
+msgstr "الزامی"
+
+#: includes/custom-fields/class-custom-fields-html.php:116
+#: includes/custom-fields/class-custom-fields-html.php:178
+#: includes/custom-fields/class-custom-fields-html.php:250
+#: includes/custom-fields/class-custom-fields-html.php:314
+#: includes/custom-fields/class-custom-fields-html.php:373
+#: includes/custom-fields/class-custom-fields-html.php:436
+#: includes/custom-fields/class-custom-fields-html.php:498
+#: includes/custom-fields/class-custom-fields-html.php:562
+#: includes/custom-fields/class-custom-fields-html.php:625
+#: includes/custom-fields/class-custom-fields-html.php:686
+#: includes/custom-fields/class-custom-fields-html.php:742
+msgid "Enable package visibility"
+msgstr "فعال‌سازی قابلیت دیده‌شدن بسته"
+
+#: includes/custom-fields/class-custom-fields-html.php:117
+#: includes/custom-fields/class-custom-fields-html.php:179
+#: includes/custom-fields/class-custom-fields-html.php:251
+#: includes/custom-fields/class-custom-fields-html.php:315
+#: includes/custom-fields/class-custom-fields-html.php:374
+#: includes/custom-fields/class-custom-fields-html.php:437
+#: includes/custom-fields/class-custom-fields-html.php:499
+#: includes/custom-fields/class-custom-fields-html.php:563
+#: includes/custom-fields/class-custom-fields-html.php:626
+#: includes/custom-fields/class-custom-fields-html.php:687
+#: includes/custom-fields/class-custom-fields-html.php:743
+msgid "Packages"
+msgstr "بسته‌ها"
+
+#: includes/custom-fields/class-custom-fields-html.php:117
+#: includes/custom-fields/class-custom-fields-html.php:179
+#: includes/custom-fields/class-custom-fields-html.php:251
+#: includes/custom-fields/class-custom-fields-html.php:315
+#: includes/custom-fields/class-custom-fields-html.php:374
+#: includes/custom-fields/class-custom-fields-html.php:437
+#: includes/custom-fields/class-custom-fields-html.php:499
+#: includes/custom-fields/class-custom-fields-html.php:563
+#: includes/custom-fields/class-custom-fields-html.php:626
+#: includes/custom-fields/class-custom-fields-html.php:687
+#: includes/custom-fields/class-custom-fields-html.php:743
+msgid "Choose Packages to show this field insubmit form."
+msgstr "برای نمایش این فیلد در فرم ارسال بسته‌ها را انتخاب کنید."
+
+#: includes/custom-fields/class-custom-fields-html.php:122
+#: includes/custom-fields/class-custom-fields-html.php:185
+#: includes/custom-fields/class-custom-fields-html.php:321
+msgid "Position Display"
+msgstr "نمایش موقعیت"
+
+#: includes/custom-fields/class-custom-fields-html.php:163
+#: includes/custom-fields/class-custom-fields-html.php:730
+msgid "Options"
+msgstr "گزینه‌ها"
+
+#: includes/custom-fields/class-custom-fields-html.php:163
+#: includes/custom-fields/class-custom-fields-html.php:730
+msgid "Add each option in a new line."
+msgstr "هر گزینه را در یک خط جدید اضافه کنید."
+
+#: includes/custom-fields/class-custom-fields-html.php:223
+msgid "Icon"
+msgstr "آیکون"
+
+#: includes/custom-fields/class-custom-fields-html.php:238
+msgid "1 Column"
+msgstr "یک ستون"
+
+#: includes/custom-fields/class-custom-fields-html.php:239
+msgid "2 Column"
+msgstr "دو ستون"
+
+#: includes/custom-fields/class-custom-fields-html.php:240
+msgid "3 Column"
+msgstr "سه ستون"
+
+#: includes/custom-fields/class-custom-fields-html.php:241
+msgid "4 Column"
+msgstr "چهار ستون"
+
+#: includes/custom-fields/class-custom-fields-html.php:243
+msgid "Columns Inner"
+msgstr "ستون‌های داخلی"
+
+#: includes/custom-fields/class-custom-fields-html.php:297
+#: includes/custom-fields/class-custom-fields-html.php:609
+msgid "File limit"
+msgstr "محدودیت فایل"
+
+#: includes/custom-fields/class-custom-fields-html.php:300
+#: includes/custom-fields/class-custom-fields-html.php:549
+#: includes/custom-fields/class-custom-fields-html.php:612
+msgid "Allowed file types"
+msgstr "انواع فایل مجاز"
+
+#: includes/custom-fields/class-custom-fields-html.php:302
+msgid "Multiple files"
+msgstr "چند فایل"
+
+#: includes/custom-fields/class-custom-fields-html.php:419
+#: includes/custom-fields/class-custom-fields-html.php:482
+msgid "Term Select"
+msgstr "انتخاب شرایط"
+
+#: includes/custom-fields/class-custom-fields-html.php:420
+#: includes/custom-fields/class-custom-fields-html.php:483
+msgid "Term Multiselect"
+msgstr "چندانتخاب شرایط"
+
+#: includes/custom-fields/class-custom-fields-html.php:421
+#: includes/custom-fields/class-custom-fields-html.php:484
+msgid "Term Checklist"
+msgstr "کنترل لیست شرایط"
+
+#: includes/custom-fields/class-custom-fields-html.php:422
+msgid "Term Radio Button"
+msgstr "دکمه رادیویی شرایط"
+
+#: includes/custom-fields/class-custom-fields-html.php:424
+#: includes/custom-fields/class-custom-fields-html.php:486
+#: includes/custom-fields/class-custom-fields-html.php:674
+msgid "Template"
+msgstr "قالب"
+
+#: includes/custom-fields/class-custom-fields-html.php:545
+msgid "Limit Files"
+msgstr "محدودیت فایل‌ها"
+
+#: includes/custom-fields/class-custom-fields-html.php:671
+#: includes/custom-fields/class-fields-manager.php:277
+msgid "Textarea"
+msgstr "ناحیه متنی"
+
+#: includes/custom-fields/class-custom-fields-html.php:672
+#: includes/custom-fields/class-fields-manager.php:278
+msgid "WP Editor"
+msgstr "ویرایشگر WP"
+
+#: includes/custom-fields/class-custom-fields-html.php:777
+msgid "%s Field %s"
+msgstr "فیلد %s %s"
+
+#: includes/custom-fields/class-custom-fields.php:58
+#: includes/custom-fields/class-custom-fields.php:166
+msgid "Search Distance"
+msgstr "فاصله جستجو"
+
+#: includes/custom-fields/class-custom-fields.php:125
+msgid "Listing Metabox"
+msgstr "جعبه اطلاعات لیست"
+
+#: includes/custom-fields/class-custom-fields.php:228
+msgid "Dealer Metabox"
+msgstr "جعبه اطلاعات فروشنده"
+
+#: includes/custom-fields/class-fields-manager.php:22
+#: includes/custom-fields/class-fields-manager.php:24
+#: includes/custom-fields/class-fields-manager.php:26
+msgid "Fields Manager"
+msgstr "مدیریت فیلدها"
+
+#: includes/custom-fields/class-fields-manager.php:82
+msgid "Fields manager"
+msgstr "مدیریت فیلدها"
+
+#: includes/custom-fields/class-fields-manager.php:207
+msgid "Create a custom field"
+msgstr "ساخت یک فیلد سفارشی"
+
+#: includes/custom-fields/class-fields-manager.php:218
+msgid "Create"
+msgstr "ایجاد"
+
+#: includes/custom-fields/class-fields-manager.php:225
+msgid "Available Fields"
+msgstr "فیلدهای موجود"
+
+#: includes/custom-fields/class-fields-manager.php:274
+msgid "Direct Input"
+msgstr "ورود مستقیم"
+
+#: includes/custom-fields/class-fields-manager.php:276
+msgid "Text"
+msgstr "متن"
+
+#: includes/custom-fields/class-fields-manager.php:279
+#: includes/post-types/class-post-type-dealer.php:245
+#: includes/post-types/class-post-type-saved-search.php:120
+msgid "Date"
+msgstr "تاریخ"
+
+#: includes/custom-fields/class-fields-manager.php:280
+msgid "Number"
+msgstr "عدد"
+
+#: includes/custom-fields/class-fields-manager.php:281
+msgid "Url"
+msgstr "آدرس اینترنتی"
+
+#: includes/custom-fields/class-fields-manager.php:286
+msgid "Choices"
+msgstr "انتخاب‌ها"
+
+#: includes/custom-fields/class-fields-manager.php:288
+msgid "Select"
+msgstr "انتخاب کردن"
+
+#: includes/custom-fields/class-fields-manager.php:289
+msgid "Multiselect"
+msgstr "چندانتخابی"
+
+#: includes/custom-fields/class-fields-manager.php:290
+msgid "Checkbox"
+msgstr "چک باکس"
+
+#: includes/custom-fields/class-fields-manager.php:291
+msgid "Radio Buttons"
+msgstr "دکمه‌های رادیویی"
+
+#: includes/custom-fields/class-fields-manager.php:295
+msgid "Form UI"
+msgstr "رابط کاربری فرم"
+
+#: includes/custom-fields/class-fields-manager.php:297
+msgid "Heading"
+msgstr "سربرگ"
+
+#: includes/custom-fields/class-fields-manager.php:301
+msgid "Others"
+msgstr "دیگر"
+
+#: includes/custom-fields/class-fields-manager.php:303
+msgid "File"
+msgstr "فایل"
+
+#: includes/custom-fields/class-fields-manager.php:327
+#: templates/submission/my-listings.php:92
+msgid "Listing Title"
+msgstr "عنوان لیست"
+
+#: includes/custom-fields/class-fields-manager.php:336
+msgid "Listing Description"
+msgstr "توضیحات لیست"
+
+#: includes/custom-fields/class-fields-manager.php:358
+msgid "Expiry Date"
+msgstr "تاریخ انقضا"
+
+#: includes/custom-fields/class-fields-manager.php:370
+msgid ""
+"Featured listings will be sticky during searches, and can be styled "
+"differently."
+msgstr ""
+"لیست‌های ویژه در طول جستجوها چسبناک خواهند بود و می‌توانند به طرز متفاوتی "
+"استایل شوند."
+
+#: includes/custom-fields/class-fields-manager.php:383
+#: includes/custom-fields/class-fields-manager.php:643
+msgid "Featured Image"
+msgstr "تصویر ویژه"
+
+#: includes/custom-fields/class-fields-manager.php:391
+msgid "Gallery"
+msgstr "گالری"
+
+#: includes/custom-fields/class-fields-manager.php:399
+#: templates/single-listing/attachments.php:17
+msgid "Attachments"
+msgstr "ضمائم"
+
+#: includes/custom-fields/class-fields-manager.php:429
+msgid "e.g. 1000"
+msgstr "مثال: ۱۰۰۰"
+
+#: includes/custom-fields/class-fields-manager.php:434
+msgid "Price Prefix"
+msgstr "پیشوند قیمت"
+
+#: includes/custom-fields/class-fields-manager.php:439
+msgid "Price Suffix"
+msgstr "پسوند قیمت"
+
+#: includes/custom-fields/class-fields-manager.php:444
+msgid "Price Custom"
+msgstr "قیمت سفارشی"
+
+#: includes/custom-fields/class-fields-manager.php:451
+msgid "Year"
+msgstr "سال"
+
+#: includes/custom-fields/class-fields-manager.php:463
+msgid "Mileage"
+msgstr "مسافت طی‌شده"
+
+#: includes/custom-fields/class-fields-manager.php:475
+msgid "Engine Size"
+msgstr "اندازه موتور"
+
+#: includes/custom-fields/class-fields-manager.php:481
+msgid "VIN"
+msgstr "شماره VIN"
+
+#: includes/custom-fields/class-fields-manager.php:488
+msgid "Video link"
+msgstr "پیوند ویدئو"
+
+#: includes/custom-fields/class-fields-manager.php:491
+msgid "Enter Youtube or Vimeo url."
+msgstr "پیوند ویدئوی Youtube یا Vimeo را وارد کنید."
+
+#: includes/custom-fields/class-fields-manager.php:630
+msgid "Full Name"
+msgstr "نام کامل"
+
+#: includes/custom-fields/class-fields-manager.php:655
+msgid "Tagline"
+msgstr "خط تگ"
+
+#: includes/custom-fields/class-fields-manager.php:812
+msgid "Choose a position"
+msgstr "یک موقعیت را انتخاب کنید"
+
+#: includes/custom-fields/class-fields-manager.php:813
+msgid "Single Listing - Description"
+msgstr "توضیحات تک لیست"
+
+#: includes/custom-fields/class-fields-manager.php:814
+msgid "Single Listing - Details"
+msgstr "جزئیات تک لیست"
+
+#: includes/custom-fields/class-fields-manager.php:815
+msgid "Single Listing - Features"
+msgstr "ویژگی‌های تک آگهی ها"
+
+#: includes/custom-fields/class-fields-manager.php:816
+msgid "Single Listing - Contact Form"
+msgstr "فرم تماس تک لیست"
+
+#: includes/custom-fields/class-fields-manager.php:817
+msgid "Single Listing - Video"
+msgstr "ویدئو تک لیست"
+
+#: includes/custom-fields/class-fields-manager.php:818
+msgid "Single Listing - Attachments"
+msgstr "ضمائم تک لیست"
+
+#: includes/post-types/class-post-type-dealer.php:36
+msgid "Dealers"
+msgstr "فروشندگان"
+
+#: includes/post-types/class-post-type-dealer.php:41
+#: includes/post-types/class-post-type-dealer.php:42
+#: includes/post-types/class-post-type-listing.php:64
+#: includes/post-types/class-post-type-listing.php:65
+#: includes/post-types/class-post-type-saved-search.php:30
+#: includes/post-types/class-post-type-saved-search.php:31
+msgid "Add New %s"
+msgstr "افزودن جدید %s"
+
+#: includes/post-types/class-post-type-dealer.php:43
+#: includes/post-types/class-post-type-listing.php:66
+#: includes/post-types/class-post-type-saved-search.php:32
+msgid "Edit %s"
+msgstr "ویرایش %s"
+
+#: includes/post-types/class-post-type-dealer.php:44
+#: includes/post-types/class-post-type-listing.php:67
+#: includes/post-types/class-post-type-saved-search.php:33
+#: includes/taxonomies/class-taxonomy-listing-category.php:39
+#: includes/taxonomies/class-taxonomy-listing-color.php:39
+#: includes/taxonomies/class-taxonomy-listing-condition.php:48
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:39
+#: includes/taxonomies/class-taxonomy-listing-door.php:39
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:39
+#: includes/taxonomies/class-taxonomy-listing-feature.php:55
+#: includes/taxonomies/class-taxonomy-listing-feature.php:86
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:39
+#: includes/taxonomies/class-taxonomy-listing-label.php:48
+#: includes/taxonomies/class-taxonomy-listing-location.php:39
+#: includes/taxonomies/class-taxonomy-listing-make.php:47
+#: includes/taxonomies/class-taxonomy-listing-model.php:47
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:39
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:39
+#: includes/taxonomies/class-taxonomy-listing-type.php:47
+msgid "New %s"
+msgstr "جدید %s"
+
+#: includes/post-types/class-post-type-dealer.php:45
+#: includes/post-types/class-post-type-listing.php:68
+#: includes/post-types/class-post-type-saved-search.php:34
+#: includes/taxonomies/class-taxonomy-listing-category.php:33
+#: includes/taxonomies/class-taxonomy-listing-color.php:33
+#: includes/taxonomies/class-taxonomy-listing-condition.php:42
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:33
+#: includes/taxonomies/class-taxonomy-listing-door.php:33
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:33
+#: includes/taxonomies/class-taxonomy-listing-feature.php:49
+#: includes/taxonomies/class-taxonomy-listing-feature.php:80
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:33
+#: includes/taxonomies/class-taxonomy-listing-label.php:42
+#: includes/taxonomies/class-taxonomy-listing-location.php:33
+#: includes/taxonomies/class-taxonomy-listing-make.php:41
+#: includes/taxonomies/class-taxonomy-listing-model.php:41
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:33
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:33
+#: includes/taxonomies/class-taxonomy-listing-type.php:41
+msgid "All %s"
+msgstr "همه %s"
+
+#: includes/post-types/class-post-type-dealer.php:46
+#: includes/post-types/class-post-type-listing.php:69
+#: includes/post-types/class-post-type-saved-search.php:35
+msgid "View %s"
+msgstr "مشاهده %s"
+
+#: includes/post-types/class-post-type-dealer.php:47
+#: includes/post-types/class-post-type-listing.php:70
+#: includes/post-types/class-post-type-saved-search.php:36
+#: includes/taxonomies/class-taxonomy-listing-category.php:32
+#: includes/taxonomies/class-taxonomy-listing-color.php:32
+#: includes/taxonomies/class-taxonomy-listing-condition.php:41
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:32
+#: includes/taxonomies/class-taxonomy-listing-door.php:32
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:32
+#: includes/taxonomies/class-taxonomy-listing-feature.php:48
+#: includes/taxonomies/class-taxonomy-listing-feature.php:79
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:32
+#: includes/taxonomies/class-taxonomy-listing-label.php:41
+#: includes/taxonomies/class-taxonomy-listing-location.php:32
+#: includes/taxonomies/class-taxonomy-listing-make.php:40
+#: includes/taxonomies/class-taxonomy-listing-model.php:40
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:32
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:32
+#: includes/taxonomies/class-taxonomy-listing-type.php:40
+msgid "Search %s"
+msgstr "جستجو %s"
+
+#: includes/post-types/class-post-type-dealer.php:48
+#: includes/post-types/class-post-type-listing.php:71
+#: includes/post-types/class-post-type-saved-search.php:37
+msgid "No %s found"
+msgstr "هیچ %s یافت نشد"
+
+#: includes/post-types/class-post-type-dealer.php:49
+#: includes/post-types/class-post-type-listing.php:72
+#: includes/post-types/class-post-type-saved-search.php:38
+msgid "No %s found in Trash"
+msgstr "هیچ %s در زباله دان یافت نشد"
+
+#: includes/post-types/class-post-type-dealer.php:60
+msgctxt "Dealer slug - resave permalinks after changing this"
+msgid "dealer"
+msgstr "فروشنده"
+
+#: includes/post-types/class-post-type-dealer.php:239
+#: includes/post-types/class-post-type-saved-search.php:118
+#: includes/widgets/class-widget-listing-filter.php:74
+#: includes/widgets/class-widget-listing-save-search-form.php:71
+#: libraries/cmb2/cmb2-tabs/example.php:28
+#: libraries/cmb2/cmb2-tabs/example.php:52
+#: libraries/cmb2/cmb2-tabs/example.php:134
+#: libraries/cmb2/cmb2-tabs/example.php:158
+#: templates/loop/listing/listings-save-search-form.php:17
+#: templates/loop/listing/listings-save-search-form.php:19
+#: templates/misc/my-saved-searches.php:58
+#: templates/widgets/listing-save-search-form.php:22
+msgid "Title"
+msgstr "عنوان"
+
+#: includes/post-types/class-post-type-dealer.php:240
+msgid "Thumbnail"
+msgstr "تصویر بندانگشتی"
+
+#: includes/post-types/class-post-type-dealer.php:241
+msgid "Attached User"
+msgstr "کاربر متصل"
+
+#: includes/post-types/class-post-type-listing.php:58
+msgid "Listing"
+msgstr "آگهی"
+
+#: includes/post-types/class-post-type-listing.php:59
+msgid "Listings"
+msgstr "آگهی ها"
+
+#: includes/post-types/class-post-type-listing.php:83
+msgctxt "Listing slug - resave permalinks after changing this"
+msgid "listing"
+msgstr "آگهی"
+
+#: includes/post-types/class-post-type-listing.php:248
+msgid "Please login to remove this listing"
+msgstr "لطفاً برای حذف این لیست وارد شوید"
+
+#: includes/post-types/class-post-type-listing.php:261
+msgid "You can not remove this listing."
+msgstr "شما نمی‌توانید این لیست را حذف کنید."
+
+#: includes/post-types/class-post-type-listing.php:269
+msgid "Listing has been successfully removed."
+msgstr "لیست با موفقیت حذف شد."
+
+#: includes/post-types/class-post-type-listing.php:273
+msgid "An error occured when removing an item."
+msgstr "یک خطا رخ داده است هنگام حذف یک مورد."
+
+#: includes/post-types/class-post-type-listing.php:305
+msgid "ID"
+msgstr "شناسه"
+
+#: includes/post-types/class-post-type-listing.php:329
+msgid "Posted"
+msgstr "ارسال شده"
+
+#: includes/post-types/class-post-type-listing.php:330
+msgid "Expires"
+msgstr "انقضا می‌شود"
+
+#: includes/post-types/class-post-type-listing.php:401
+msgid "by a guest"
+msgstr "توسط مهمان"
+
+#: includes/post-types/class-post-type-listing.php:401
+msgid "by %s"
+msgstr "توسط %s"
+
+#: includes/post-types/class-post-type-listing.php:448
+msgid "All conditions"
+msgstr "همه شرایط"
+
+#: includes/post-types/class-post-type-listing.php:464
+msgid "All categories"
+msgstr "همه دسته‌بندی‌ها"
+
+#: includes/post-types/class-post-type-listing.php:479
+msgid "All types"
+msgstr "همه انواع"
+
+#: includes/post-types/class-post-type-listing.php:495
+msgid "All makes"
+msgstr "همه سازندگان"
+
+#: includes/post-types/class-post-type-listing.php:511
+msgid "All models"
+msgstr "همه مدل‌ها"
+
+#: includes/post-types/class-post-type-saved-search.php:24
+msgid "Saved Search"
+msgstr "جستجوی ذخیره شده"
+
+#: includes/post-types/class-post-type-saved-search.php:25
+msgid "Saved Searches"
+msgstr "جستجوهای ذخیره شده"
+
+#: includes/post-types/class-post-type-saved-search.php:80
+msgid "Author: %s (%s)"
+msgstr "نویسنده: %s (%s)"
+
+#: includes/post-types/class-post-type-saved-search.php:87
+#: templates/misc/my-saved-searches.php:59
+msgid "Saved Search Query"
+msgstr "پرس و جوی جستجوی ذخیره شده"
+
+#: includes/post-types/class-post-type-saved-search.php:92
+#: includes/post-types/class-post-type-saved-search.php:119
+#: templates/loop/listing/listings-save-search-form.php:23
+#: templates/widgets/listing-save-search-form.php:28
+msgid "Email Frequency"
+msgstr "فرکانس ایمیل"
+
+#: includes/sms/class-otp-handler.php:106
+msgid "Phone Number not found"
+msgstr "شماره تلفن یافت نشد"
+
+#: includes/sms/class-otp-handler.php:179
+msgid "OTP Limit reached. Please try again in %s."
+msgstr "حداکثر تعداد مجاز برای OTP رسیده است. لطفاً %s دوباره امتحان کنید."
+
+#: includes/sms/class-otp-handler.php:185
+msgid "Please wait %s for a new OTP."
+msgstr "لطفاً %s برای یک OTP جدید صبر کنید."
+
+#: includes/sms/class-otp-handler.php:195
+msgid "Maximum number of tries exceeded. Please try again in %s."
+msgstr "حداکثر تعداد دفعات تلاش انجام شد. لطفاً %s دوباره امتحان کنید."
+
+#: includes/sms/class-sms.php:37
+msgid "Phone field cannot be empty"
+msgstr "فیلد تلفن نمی‌تواند خالی باشد"
+
+#: includes/sms/class-sms.php:46 includes/sms/class-sms.php:78
+msgid "Please select country code"
+msgstr "لطفاً کد کشور را انتخاب کنید"
+
+#: includes/sms/class-sms.php:109 includes/sms/class-sms.php:143
+msgid "Please enter the OTP sent to <br> <strong>%s</strong>"
+msgstr ""
+
+#: includes/sms/class-sms.php:118
+msgid "Please verify your mobile number"
+msgstr "لطفاً شماره تلفن همراه خود را تأیید کنید"
+
+#: includes/socials/class-social-facebook.php:140
+#: includes/socials/class-social-facebook.php:179
+msgid "Graph returned an error: "
+msgstr "گراف با خطا روبرو شد: "
+
+#: includes/socials/class-social-facebook.php:148
+#: includes/socials/class-social-facebook.php:185
+msgid "Facebook SDK returned an error: "
+msgstr "SDK فیسبوک با خطا روبرو شد: "
+
+#: includes/socials/class-social-facebook.php:282
+msgid "Login with Facebook"
+msgstr "ورود با فیسبوک"
+
+#: includes/socials/class-social-google.php:232
+msgid "Login with Google"
+msgstr "ورود با گوگل"
+
+#: includes/socials/class-social-linkedin.php:346
+msgid "Login with LinkedIn"
+msgstr "ورود با LinkedIn"
+
+#: includes/socials/class-social-twitter.php:92
+#: includes/socials/class-social-twitter.php:133
+msgid "There is problem while connecting to twitter"
+msgstr "هنگام اتصال به توییتر مشکلی وجود دارد"
+
+#: includes/socials/class-social-twitter.php:233
+msgid "Login with Twitter"
+msgstr "ورود با توییتر"
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:27
+msgid "Categories"
+msgstr "دسته‌بندی‌ها"
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:30
+#: includes/taxonomies/class-taxonomy-listing-color.php:30
+#: includes/taxonomies/class-taxonomy-listing-condition.php:39
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:30
+#: includes/taxonomies/class-taxonomy-listing-door.php:30
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:30
+#: includes/taxonomies/class-taxonomy-listing-feature.php:46
+#: includes/taxonomies/class-taxonomy-listing-feature.php:77
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:30
+#: includes/taxonomies/class-taxonomy-listing-label.php:39
+#: includes/taxonomies/class-taxonomy-listing-make.php:38
+#: includes/taxonomies/class-taxonomy-listing-model.php:38
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:30
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:30
+msgid "Car %s"
+msgstr "ماشین %s"
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:34
+#: includes/taxonomies/class-taxonomy-listing-color.php:34
+#: includes/taxonomies/class-taxonomy-listing-condition.php:43
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:34
+#: includes/taxonomies/class-taxonomy-listing-door.php:34
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:34
+#: includes/taxonomies/class-taxonomy-listing-feature.php:50
+#: includes/taxonomies/class-taxonomy-listing-feature.php:81
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:34
+#: includes/taxonomies/class-taxonomy-listing-label.php:43
+#: includes/taxonomies/class-taxonomy-listing-location.php:34
+#: includes/taxonomies/class-taxonomy-listing-make.php:42
+#: includes/taxonomies/class-taxonomy-listing-model.php:42
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:34
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:34
+#: includes/taxonomies/class-taxonomy-listing-type.php:42
+msgid "Parent %s"
+msgstr "والد %s"
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:35
+#: includes/taxonomies/class-taxonomy-listing-color.php:35
+#: includes/taxonomies/class-taxonomy-listing-condition.php:44
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:35
+#: includes/taxonomies/class-taxonomy-listing-door.php:35
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:35
+#: includes/taxonomies/class-taxonomy-listing-feature.php:51
+#: includes/taxonomies/class-taxonomy-listing-feature.php:82
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:35
+#: includes/taxonomies/class-taxonomy-listing-label.php:44
+#: includes/taxonomies/class-taxonomy-listing-location.php:35
+#: includes/taxonomies/class-taxonomy-listing-make.php:43
+#: includes/taxonomies/class-taxonomy-listing-model.php:43
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:35
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:35
+#: includes/taxonomies/class-taxonomy-listing-type.php:43
+msgid "Parent %s:"
+msgstr "والد %s:"
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:36
+#: includes/taxonomies/class-taxonomy-listing-color.php:36
+#: includes/taxonomies/class-taxonomy-listing-condition.php:45
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:36
+#: includes/taxonomies/class-taxonomy-listing-door.php:36
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:36
+#: includes/taxonomies/class-taxonomy-listing-feature.php:52
+#: includes/taxonomies/class-taxonomy-listing-feature.php:83
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:36
+#: includes/taxonomies/class-taxonomy-listing-label.php:45
+#: includes/taxonomies/class-taxonomy-listing-location.php:36
+#: includes/taxonomies/class-taxonomy-listing-make.php:44
+#: includes/taxonomies/class-taxonomy-listing-model.php:44
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:36
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:36
+#: includes/taxonomies/class-taxonomy-listing-type.php:44
+#: templates/submission/my-listings.php:158
+#: templates/submission/my-listings.php:159
+msgid "Edit"
+msgstr "ویرایش"
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:38
+#: includes/taxonomies/class-taxonomy-listing-color.php:38
+#: includes/taxonomies/class-taxonomy-listing-condition.php:47
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:38
+#: includes/taxonomies/class-taxonomy-listing-door.php:38
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:38
+#: includes/taxonomies/class-taxonomy-listing-feature.php:54
+#: includes/taxonomies/class-taxonomy-listing-feature.php:85
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:38
+#: includes/taxonomies/class-taxonomy-listing-label.php:47
+#: includes/taxonomies/class-taxonomy-listing-location.php:38
+#: includes/taxonomies/class-taxonomy-listing-make.php:46
+#: includes/taxonomies/class-taxonomy-listing-model.php:46
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:38
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:38
+#: includes/taxonomies/class-taxonomy-listing-type.php:46
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:185
+msgid "Add New"
+msgstr "افزودن جدید"
+
+#: includes/taxonomies/class-taxonomy-listing-category.php:45
+msgctxt "Car category slug - resave permalinks after changing this"
+msgid "listing-category"
+msgstr "دسته بندی آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-color.php:27
+msgid "Colors"
+msgstr "رنگ‌ها"
+
+#: includes/taxonomies/class-taxonomy-listing-color.php:45
+msgctxt "Car color slug - resave permalinks after changing this"
+msgid "listing-color"
+msgstr "رنگ آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-condition.php:36
+msgid "Conditions"
+msgstr "شرایط"
+
+#: includes/taxonomies/class-taxonomy-listing-condition.php:54
+msgctxt "Car condition slug - resave permalinks after changing this"
+msgid "listing-condition"
+msgstr "وضعیت آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-condition.php:79
+#: includes/taxonomies/class-taxonomy-listing-condition.php:99
+#: includes/taxonomies/class-taxonomy-listing-label.php:79
+#: includes/taxonomies/class-taxonomy-listing-label.php:99
+msgid "Background Color"
+msgstr "رنگ پس‌زمینه"
+
+#: includes/taxonomies/class-taxonomy-listing-condition.php:83
+#: includes/taxonomies/class-taxonomy-listing-condition.php:105
+#: includes/taxonomies/class-taxonomy-listing-label.php:83
+#: includes/taxonomies/class-taxonomy-listing-label.php:105
+msgid "Text Color"
+msgstr "رنگ متن"
+
+#: includes/taxonomies/class-taxonomy-listing-condition.php:87
+#: includes/taxonomies/class-taxonomy-listing-condition.php:111
+#: includes/taxonomies/class-taxonomy-listing-condition.php:156
+#: includes/taxonomies/class-taxonomy-listing-feature.php:220
+#: includes/taxonomies/class-taxonomy-listing-feature.php:230
+#: includes/taxonomies/class-taxonomy-listing-feature.php:248
+#: includes/taxonomies/class-taxonomy-listing-label.php:87
+#: includes/taxonomies/class-taxonomy-listing-label.php:111
+#: includes/taxonomies/class-taxonomy-listing-label.php:156
+msgid "Order"
+msgstr "سفارش"
+
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:27
+msgid "Cylinders"
+msgstr "سیلندرها"
+
+#: includes/taxonomies/class-taxonomy-listing-cylinder.php:45
+msgctxt "Car cylinder slug - resave permalinks after changing this"
+msgid "listing-cylinder"
+msgstr "سیلندر آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-door.php:27
+msgid "Doors"
+msgstr "درها"
+
+#: includes/taxonomies/class-taxonomy-listing-door.php:45
+msgctxt "Car door slug - resave permalinks after changing this"
+msgid "listing-door"
+msgstr "در آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:27
+msgid "Drive Types"
+msgstr "انواع رانندگی"
+
+#: includes/taxonomies/class-taxonomy-listing-drive-type.php:45
+msgctxt "Car drive type slug - resave permalinks after changing this"
+msgid "listing-drive-type"
+msgstr "نوع حرکت آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:42
+msgid "Features Category"
+msgstr "دسته بندی ویژگی‌ها"
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:43
+msgid "Features Categories"
+msgstr "دسته بندی ویژگی‌ها"
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:73
+msgid "Feature"
+msgstr "ویژگی"
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:92
+msgctxt "Car feature slug - resave permalinks after changing this"
+msgid "listing-feature"
+msgstr "ویژگی آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:146
+#: includes/taxonomies/class-taxonomy-listing-feature.php:156
+msgid "Select Category"
+msgstr "انتخاب دسته بندی"
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:181
+msgid "Choose a feature category"
+msgstr "یک دسته بندی ویژگی را انتخاب کنید"
+
+#: includes/taxonomies/class-taxonomy-listing-feature.php:193
+#: includes/taxonomies/class-taxonomy-listing-make.php:158
+#: includes/taxonomies/class-taxonomy-listing-type.php:159
+msgid ""
+"Choose on what listing categories should this term be available. Set to "
+"empty for all."
+msgstr ""
+"انتخاب کنید که این اصطلاح برای چه دسته‌های لیست قابل دسترسی باشد. برای همه "
+"خالی کنید."
+
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:27
+msgid "Fuel Types"
+msgstr "انواع سوخت"
+
+#: includes/taxonomies/class-taxonomy-listing-fuel-type.php:45
+msgctxt "Car fuel type slug - resave permalinks after changing this"
+msgid "listing-fuel-type"
+msgstr "نوع سوخت آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-label.php:36
+msgid "Labels"
+msgstr "برچسب‌ها"
+
+#: includes/taxonomies/class-taxonomy-listing-label.php:54
+msgctxt "Car label slug - resave permalinks after changing this"
+msgid "listing-label"
+msgstr "برچسب آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-location.php:27
+msgid "Locations"
+msgstr "موقعیت‌ها"
+
+#: includes/taxonomies/class-taxonomy-listing-location.php:30
+#: includes/taxonomies/class-taxonomy-listing-type.php:38
+msgid "Listing %s"
+msgstr "لیست %s"
+
+#: includes/taxonomies/class-taxonomy-listing-location.php:45
+msgctxt "Listing location slug - resave permalinks after changing this"
+msgid "listing-location"
+msgstr "مکان آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-make.php:35
+msgid "Makes"
+msgstr "سازندگان"
+
+#: includes/taxonomies/class-taxonomy-listing-make.php:53
+msgctxt "Car make slug - resave permalinks after changing this"
+msgid "listing-make"
+msgstr "سازنده آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-make.php:99
+#: includes/taxonomies/class-taxonomy-listing-model.php:99
+#: includes/taxonomies/class-taxonomy-listing-type.php:99
+msgid "All"
+msgstr "همه"
+
+#: includes/taxonomies/class-taxonomy-listing-make.php:109
+#: includes/taxonomies/class-taxonomy-listing-make.php:119
+#: includes/taxonomies/class-taxonomy-listing-type.php:109
+#: includes/taxonomies/class-taxonomy-listing-type.php:119
+msgid "Select Categories"
+msgstr "انتخاب دسته‌ها"
+
+#: includes/taxonomies/class-taxonomy-listing-model.php:35
+msgid "Models"
+msgstr "مدل‌ها"
+
+#: includes/taxonomies/class-taxonomy-listing-model.php:53
+msgctxt "Car model slug - resave permalinks after changing this"
+msgid "listing-model"
+msgstr "مدل آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-model.php:109
+#: includes/taxonomies/class-taxonomy-listing-model.php:119
+msgid "Select Makes"
+msgstr "انتخاب سازنده‌ها"
+
+#: includes/taxonomies/class-taxonomy-listing-model.php:158
+msgid ""
+"Choose on what listing makes should this term be available. Set to empty for "
+"all."
+msgstr ""
+"انتخاب کنید که این اصطلاح برای چه سازنده‌های آگهی قابل دسترسی باشد. برای همه "
+"خالی کنید."
+
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:27
+msgid "Offer Types"
+msgstr "انواع پیشنهاد"
+
+#: includes/taxonomies/class-taxonomy-listing-offer-type.php:45
+msgctxt "Car offer type slug - resave permalinks after changing this"
+msgid "listing-offer-type"
+msgstr "نوع پیشنهاد آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:27
+msgid "Transmissions"
+msgstr "گیربکس‌ها"
+
+#: includes/taxonomies/class-taxonomy-listing-transmission.php:45
+msgctxt "Car transmission slug - resave permalinks after changing this"
+msgid "listing-transmission"
+msgstr "گیربکس آگهی"
+
+#: includes/taxonomies/class-taxonomy-listing-type.php:35
+msgid "Types"
+msgstr "انواع"
+
+#: includes/taxonomies/class-taxonomy-listing-type.php:53
+msgctxt "Listing type slug - resave permalinks after changing this"
+msgid "listing-type"
+msgstr "نوع آگهی"
+
+#: includes/widgets/class-widget-listing-filter.php:24
+msgid "Listing Filter"
+msgstr "فیلتر لیست"
+
+#: includes/widgets/class-widget-listing-filter.php:26
+msgid "Filter for filtering listings."
+msgstr "فیلتر برای فیلتر کردن آگهی ها."
+
+#: includes/widgets/class-widget-listing-filter.php:83
+#: includes/widgets/class-widget-listing-save-search-form.php:80
+msgid "Button text"
+msgstr "متن دکمه"
+
+#: includes/widgets/class-widget-listing-filter.php:89
+msgid "Filter Fields"
+msgstr "فیلدهای فیلتر"
+
+#: includes/widgets/class-widget-listing-filter.php:124
+#: includes/widgets/class-widget-listing-filter.php:129
+msgid "Show Advance Filter Fields"
+msgstr "نمایش فیلدهای فیلتر پیشرفته"
+
+#: includes/widgets/class-widget-listing-filter.php:134
+msgid "Advance Filter Fields"
+msgstr "فیلدهای فیلتر پیشرفته"
+
+#: includes/widgets/class-widget-listing-save-search-form.php:24
+msgid "Listing Save Search Form"
+msgstr "فرم ذخیره جستجو لیست"
+
+#: includes/widgets/class-widget-listing-save-search-form.php:26
+msgid "Listing save search form for add email alert."
+msgstr "فرم جستجوی لیست برای افزودن هشدار ایمیل."
+
+#: libraries/cmb2/cmb2-tabs/example.php:9
+#: libraries/cmb2/cmb2-tabs/example.php:109
+msgid "Example tabs"
+msgstr "تب‌های نمونه"
+
+#: libraries/cmb2/cmb2-tabs/example.php:25
+#: libraries/cmb2/cmb2-tabs/example.php:131
+msgid "Tab 1"
+msgstr "تب ۱"
+
+#: libraries/cmb2/cmb2-tabs/example.php:33
+#: libraries/cmb2/cmb2-tabs/example.php:57
+#: libraries/cmb2/cmb2-tabs/example.php:139
+#: libraries/cmb2/cmb2-tabs/example.php:163
+msgid "Subtitle"
+msgstr "زیرنویس"
+
+#: libraries/cmb2/cmb2-tabs/example.php:38
+#: libraries/cmb2/cmb2-tabs/example.php:144
+msgid "Background image"
+msgstr "تصویر پس‌زمینه"
+
+#: libraries/cmb2/cmb2-tabs/example.php:49
+#: libraries/cmb2/cmb2-tabs/example.php:155
+msgid "Tab 2"
+msgstr "تب ۲"
+
+#: libraries/cmb2/cmb2-tabs/example.php:65
+#: libraries/cmb2/cmb2-tabs/example.php:171
+msgid "Review {#}"
+msgstr ""
+
+#: libraries/cmb2/cmb2-tabs/example.php:66
+#: libraries/cmb2/cmb2-tabs/example.php:172
+msgid "Add review"
+msgstr "افزودن نقد"
+
+#: libraries/cmb2/cmb2-tabs/example.php:67
+#: libraries/cmb2/cmb2-tabs/example.php:173
+msgid "Remove review"
+msgstr "حذف نقد"
+
+#: libraries/cmb2/cmb2-tabs/example.php:72
+#: libraries/cmb2/cmb2-tabs/example.php:178
+msgid "Author name"
+msgstr "نام نویسنده"
+
+#: libraries/cmb2/cmb2-tabs/example.php:77
+#: libraries/cmb2/cmb2-tabs/example.php:183
+msgid "Author avatar"
+msgstr "آواتار نویسنده"
+
+#: libraries/cmb2/cmb2-tabs/example.php:85
+#: libraries/cmb2/cmb2-tabs/example.php:191
+msgid "Comment"
+msgstr "نظر"
+
+#: libraries/cmb2/cmb2_field_ajax_search/cmb2-field-ajax-search.php:238
+msgid "Error : Unauthorized action"
+msgstr "خطا: عملیات غیرمجاز"
+
+#: libraries/cmb2/cmb2_field_ajax_search/cmb2-field-ajax-search.php:244
+msgid "Error : Wrong request parameters"
+msgstr "خطا: پارامترهای درخواست اشتباه"
+
+#: libraries/cmb2/cmb2_field_file/cmb2-field-type-file.php:63
+msgid "Upload Files"
+msgstr "بارگذاری فایل‌ها"
+
+#: libraries/cmb2/cmb2_field_file/cmb2-field-type-file.php:65
+msgid "Upload File"
+msgstr "بارگذاری فایل"
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:44
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:45
+msgid "Timezone"
+msgstr "منطقه زمانی"
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:82
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:83
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:137
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:138
+#: templates/widgets/filter-fields/price_range_slider.php:21
+#: templates/widgets/filter-fields/range_slider.php:20
+msgid "From"
+msgstr "از"
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:97
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:98
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:152
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:153
+#: templates/widgets/filter-fields/text_date.php:34
+msgid "To"
+msgstr "به"
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:116
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:171
+msgid "Enter Hours"
+msgstr "ساعت را وارد کنید"
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:117
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:172
+msgid "Open All Days"
+msgstr "همه روزها را باز کنید"
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:118
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:173
+msgid "Closed All Days"
+msgstr "همه روزها را ببندید"
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:186
+#: templates/listings-styles/inner-list-favorite.php:70
+#: templates/submission/my-listings.php:163
+#: templates/submission/my-listings.php:164
+msgid "Remove"
+msgstr "حذف"
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:242
+msgid "Select a city"
+msgstr "انتخاب یک شهر"
+
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:287
+#: libraries/cmb2/cmb2_field_hours/cmb2-field-hours.php:292
+msgid "UTC"
+msgstr "UTC"
+
+#: libraries/cmb2/cmb2_field_map/cmb-field-map.php:31
+msgid "Enter search e.g. Lincoln Park"
+msgstr "جستجو را وارد کنید مثلاً لینکلن پارک"
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:45
+msgid "Update Rate"
+msgstr "نرخ به‌روزرسانی"
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:60
+msgid "Please choose a currency."
+msgstr "لطفاً یک واحد پولی را انتخاب کنید."
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:69
+msgid "Unable to communicate with Instagram."
+msgstr "قادر به ارتباط با اینستاگرام نیست."
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:73
+msgid "Instagram did not return a 200."
+msgstr "اینستاگرام ۲۰۰ نرمال نداد."
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:79
+msgid "The currency is not available."
+msgstr "واحد پولی موجود نیست."
+
+#: libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php:85
+msgid "error."
+msgstr "خطا."
+
+#: templates/listings-styles/inner-list-favorite.php:41
+#: templates/listings-styles/inner-list.php:41
+msgid "%s ago"
+msgstr "%s پیش"
+
+#: templates/listings-styles/inner-list-favorite.php:47
+#: templates/listings-styles/inner-list.php:47
+msgid "%d Home Area"
+msgstr "%d مساحت خانه"
+
+#: templates/listings-styles/inner-list-favorite.php:50
+#: templates/listings-styles/inner-list.php:50
+msgid "%d Beds"
+msgstr "%d تختخواب"
+
+#: templates/listings-styles/inner-list-favorite.php:53
+#: templates/listings-styles/inner-list.php:53
+msgid "%d Baths"
+msgstr "%d حمام"
+
+#: templates/loop/listing/archive-inner.php:38
+#: templates/loop/listing/pagination.php:11
+#: templates/misc/listing-favorites.php:102
+#: templates/misc/my-saved-searches.php:151 templates/single-listing.php:16
+msgid "Previous page"
+msgstr "صفحه قبلی"
+
+#: templates/loop/listing/archive-inner.php:39
+#: templates/loop/listing/pagination.php:12
+#: templates/misc/listing-favorites.php:103
+#: templates/misc/my-saved-searches.php:152 templates/single-listing.php:17
+msgid "Next page"
+msgstr "صفحه بعدی"
+
+#: templates/loop/listing/archive-inner.php:45
+msgid "No listing found."
+msgstr "هیچ آگهی یافت نشد."
+
+#: templates/loop/listing/listings-save-search-form.php:12
+msgid "Save Search"
+msgstr "ذخیره جستجو"
+
+#: templates/loop/listing/listings-save-search-form.php:46
+msgid "Save"
+msgstr "ذخیره"
+
+#: templates/loop/listing/orderby.php:10
+msgid "Lowest Price"
+msgstr "کمترین قیمت"
+
+#: templates/loop/listing/orderby.php:11
+msgid "Highest Price"
+msgstr "بیشترین قیمت"
+
+#: templates/loop/listing/orderby.php:22
+msgid "Sort by:"
+msgstr "مرتب سازی بر اساس:"
+
+#: templates/loop/listing/orderby.php:23
+msgid "Sort by"
+msgstr "مرتب سازی بر اساس"
+
+#. translators: %d: total results
+#: templates/loop/listing/results-count.php:11
+msgid "Showing the single result"
+msgid_plural "Showing all %d results"
+msgstr[0] "نمایش نتیجه تکی"
+msgstr[1] "نمایش همهٔ نتایج %d"
+
+#. translators: 1: first result 2: last result 3: total results
+#: templates/loop/listing/results-count.php:16
+msgctxt "with first and last result"
+msgid "Showing the single result"
+msgid_plural ""
+"Showing <span class=\"first\">%1$d</span> &ndash; <span class=\"last\">"
+"%2$d</span> of %3$d results"
+msgstr[0] "نمایش نتیجه تکی"
+msgstr[1] ""
+
+#: templates/loop/listing/results-filters.php:9
+msgid "Your Selected"
+msgstr "انتخاب شده شما"
+
+#: templates/loop/listing/results-filters.php:16
+msgid "Clear all"
+msgstr "پاک کردن همه"
+
+#: templates/misc/delete-profile-form.php:11
+msgid "Are you sure! You want to delete your profile."
+msgstr "آیا مطمئنید! می خواهید پروفایل خود را حذف کنید."
+
+#: templates/misc/delete-profile-form.php:12
+msgid "This can't be undone!"
+msgstr "این قابل بازگشت نیست!"
+
+#: templates/misc/delete-profile-form.php:17
+msgid "Please enter your login Password to confirm:"
+msgstr "لطفاً رمز عبور ورود خود را برای تأیید وارد کنید:"
+
+#: templates/misc/delete-profile-form.php:26
+msgid "Delete Profile"
+msgstr "حذف پروفایل"
+
+#: templates/misc/listing-compare.php:24
+msgid "Basic Info"
+msgstr "اطلاعات اصلی"
+
+#: templates/misc/listing-compare.php:79
+#: templates/misc/listing-favorites.php:110
+msgid "No listings found."
+msgstr "هیچ آگهی یافت نشد."
+
+#: templates/misc/listing-favorites.php:12
+#: templates/misc/my-saved-searches.php:15
+#: templates/submission/my-listings.php:20
+msgid "Search ..."
+msgstr "جستجو ..."
+
+#: templates/misc/listing-favorites.php:35
+#: templates/misc/my-saved-searches.php:38
+#: templates/submission/my-listings.php:38
+msgid "Sort by: "
+msgstr "مرتب سازی بر اساس: "
+
+#: templates/misc/login.php:13
+msgid "Username Or Email"
+msgstr "نام کاربری یا ایمیل"
+
+#: templates/misc/login.php:15
+msgid "Enter username or email"
+msgstr "نام کاربری یا ایمیل را وارد کنید"
+
+#: templates/misc/login.php:18 templates/misc/register.php:48
+msgid "Password"
+msgstr "رمز عبور"
+
+#: templates/misc/login.php:20 templates/misc/login.php:53
+#: templates/misc/register.php:50 templates/misc/register.php:55
+msgid "Enter Password"
+msgstr "رمز عبور را وارد کنید"
+
+#: templates/misc/login.php:26
+msgid "Keep me signed in"
+msgstr "ورود من را بخاطر بسپار"
+
+#: templates/misc/login.php:32
+msgid "Forgot Password"
+msgstr "رمز عبور را فراموش کرده‌ام"
+
+#: templates/misc/login.php:32
+msgid "Lost Your Password?"
+msgstr "رمز عبور خود را فراموش کرده‌اید؟"
+
+#: templates/misc/login.php:37
+msgid "Login"
+msgstr "ورود"
+
+#: templates/misc/login.php:51
+msgid "Username or E-mail"
+msgstr "نام کاربری یا ایمیل"
+
+#: templates/misc/login.php:60
+msgid "Get New Password"
+msgstr "دریافت رمز عبور جدید"
+
+#: templates/misc/login.php:61
+msgid "Cancel"
+msgstr "لغو"
+
+#: templates/misc/login.php:64
+msgid "Back To Login"
+msgstr "بازگشت به صفحه ورود"
+
+#: templates/misc/my-saved-searches.php:9
+msgid "Listing Saved Searches"
+msgstr "جستجوهای ذخیره شده آگهی"
+
+#: templates/misc/my-saved-searches.php:60
+msgid "Number Listings"
+msgstr "تعداد آگهی ها"
+
+#: templates/misc/my-saved-searches.php:61
+msgid "Times"
+msgstr "زمان‌ها"
+
+#: templates/misc/my-saved-searches.php:62
+msgid "Actions"
+msgstr "اقدامات"
+
+#: templates/misc/my-saved-searches.php:128
+msgid "Listings found %d"
+msgstr "لیست‌های یافت شده %d"
+
+#: templates/misc/my-saved-searches.php:157
+msgid "No listing alert found."
+msgstr "هشدار لیستی یافت نشد."
+
+#: templates/misc/not-allowed.php:8
+msgid "You are not allowed to access this page."
+msgstr "شما مجاز به دسترسی به این صفحه نیستید."
+
+#: templates/misc/password-form.php:9
+msgid "Old password"
+msgstr "رمز عبور قدیمی"
+
+#: templates/misc/password-form.php:14
+msgid "New password"
+msgstr "رمز عبور جدید"
+
+#: templates/misc/password-form.php:19
+msgid "Retype password"
+msgstr "تکرار رمز عبور"
+
+#: templates/misc/password-form.php:23
+msgid "Change Password"
+msgstr "تغییر رمز عبور"
+
+#: templates/misc/profile-form-normal.php:12 templates/misc/profile-form.php:7
+msgid "Edit Profile"
+msgstr "ویرایش پروفایل"
+
+#: templates/misc/profile-form-normal.php:36
+msgid "Change Avatar"
+msgstr "تغییر آواتار"
+
+#: templates/misc/profile-form-normal.php:47
+#: templates/misc/profile-form-normal.php:49
+#: templates/misc/uploaded-file-html.php:20
+#: templates/misc/uploaded-file-html.php:22
+msgid "remove"
+msgstr "حذف"
+
+#: templates/misc/profile-form-normal.php:61
+msgid "Upload Image"
+msgstr "بارگذاری تصویر"
+
+#: templates/misc/profile-form-normal.php:68
+msgid "First name"
+msgstr "نام"
+
+#: templates/misc/profile-form-normal.php:72
+msgid "Last name"
+msgstr "نام خانوادگی"
+
+#: templates/misc/profile-form-normal.php:76
+#: templates/single-listing/contact-form.php:36
+msgid "E-mail"
+msgstr "ایمیل"
+
+#: templates/misc/profile-form-normal.php:83
+msgid "Address"
+msgstr "آدرس"
+
+#: templates/misc/profile-form-normal.php:92
+msgid "Biographical Info"
+msgstr "اطلاعات زندگینامه‌ای"
+
+#: templates/misc/profile-form.php:32
+msgid "Save Profile"
+msgstr "ذخیره پروفایل"
+
+#: templates/misc/register.php:13
+msgid "Username"
+msgstr "نام کاربری"
+
+#: templates/misc/register.php:15
+msgid "Enter Username"
+msgstr "نام کاربری را وارد کنید"
+
+#: templates/misc/register.php:20
+msgid "Enter Email"
+msgstr "ایمیل را وارد کنید"
+
+#: templates/misc/register.php:37
+msgid "Select Country Code"
+msgstr "کد کشور را انتخاب کنید"
+
+#: templates/misc/register.php:53
+msgid "Confirm Password"
+msgstr "تأیید رمز عبور"
+
+#: templates/misc/register.php:66
+msgid "Register now"
+msgstr "هم‌اکنون ثبت‌نام کنید"
+
+#: templates/misc/user-dashboard.php:23
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#: templates/misc/user-dashboard.php:28
+msgid "Posted Listings"
+msgstr "آگهیی های ارسال‌شده"
+
+#: templates/misc/user-dashboard.php:34
+msgid "Favorites"
+msgstr "موردعلاقه‌ها"
+
+#: templates/misc/user-dashboard.php:79 templates/misc/user-reviews.php:64
+msgid "No reviews found."
+msgstr "هیچ بررسی‌ای یافت نشد."
+
+#: templates/misc/user-review-item.php:18
+#: templates/single-listing/review.php:18
+msgid "Rated %d out of 5"
+msgstr "امتیاز داده‌شده %d از 5"
+
+#: templates/misc/user-review-item.php:29
+#: templates/single-listing/review.php:29
+msgid "Your comment is awaiting approval"
+msgstr "نظر شما منتظر تأیید است"
+
+#: templates/single-listing.php:18
+msgid "Page"
+msgstr "صفحه"
+
+#: templates/single-listing/contact-form.php:23
+msgid "Contact %s"
+msgstr "تماس با %s"
+
+#: templates/single-listing/contact-form.php:46
+msgid "Message"
+msgstr "پیام"
+
+#: templates/single-listing/contact-form.php:56
+msgid "Send Message"
+msgstr "ارسال پیام"
+
+#: templates/single-listing/description.php:11
+msgid "Overview"
+msgstr "بررسی کلی"
+
+#: templates/single-listing/detail.php:11
+msgid "Details"
+msgstr "جزئیات"
+
+#: templates/single-listing/detail.php:15
+msgid "Listing ID : "
+msgstr "شناسه أگهی: "
+
+#: templates/single-listing/detail.php:22
+msgid "Price : "
+msgstr "قیمت: "
+
+#: templates/single-listing/detail.php:29
+msgid "Year built : "
+msgstr "سال ساخت: "
+
+#: templates/single-listing/features.php:16
+msgid "Amenities"
+msgstr "امکانات"
+
+#: templates/single-listing/header.php:20
+msgid "posted %s ago"
+msgstr "ارسال شده %s پیش"
+
+#: templates/single-listing/related.php:53
+msgid "Related Listings"
+msgstr "آگهی های مرتبط"
+
+#: templates/single-listing/reviews.php:34
+msgid "There are no reviews yet."
+msgstr "هنوز هیچ بررسی‌ای صورت نگرفته است."
+
+#: templates/single-listing/reviews.php:43
+msgid "Add a review"
+msgstr "افزودن بررسی"
+
+#: templates/single-listing/reviews.php:43
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr "اولین نفری باشید که &ldquo;%s&rdquo; را نقد می‌کنید"
+
+#: templates/single-listing/reviews.php:44
+msgid "Leave a Reply to %s"
+msgstr "پاسخی بنویسید به %s"
+
+#: templates/single-listing/reviews.php:48
+msgid "Name"
+msgstr "نام"
+
+#: templates/single-listing/reviews.php:49
+msgid "Your Name"
+msgstr "نام شما"
+
+#: templates/single-listing/reviews.php:51
+msgid "your@mail.com"
+msgstr ""
+
+#: templates/single-listing/reviews.php:53
+msgid "Submit Review"
+msgstr "ارسال نظر"
+
+#: templates/single-listing/reviews.php:58
+msgid "You must be <a href=\"\">logged in</a> to post a review."
+msgstr "برای ارسال نظر باید <a href=\"\">وارد سیستم</a> شوید."
+
+#: templates/single-listing/reviews.php:60
+msgid "Review"
+msgstr "نظر"
+
+#: templates/single-listing/reviews.php:60
+msgid "Write Comment"
+msgstr "نظر بنویسید"
+
+#: templates/single-listing/video.php:14
+msgid "Video"
+msgstr "ویدئو"
+
+#: templates/submission/listing-submit-done.php:13
+msgid ""
+"Listing listed successfully. To view your listing <a href=\"%s\">click "
+"here</a>."
+msgstr ""
+"آگهی با موفقیت ثبت شد. برای مشاهده آگهی خود <a href=\"%s\">اینجا کلیک "
+"کنید</a>."
+
+#: templates/submission/listing-submit-done.php:16
+msgid ""
+"Listing submitted successfully. Your listing will be visible once approved."
+msgstr ""
+"لیست شما با موفقیت ارسال شد. لیست شما پس از تأیید قابل مشاهده خواهد بود."
+
+#: templates/submission/listing-submit-preview.php:26
+msgid "Submit Listing"
+msgstr "ثبت آگهی"
+
+#: templates/submission/listing-submit-preview.php:27
+msgid "Edit Listing"
+msgstr "ویرایش لیست"
+
+#: templates/submission/my-listings.php:108
+msgid "Urgent"
+msgstr "فوری"
+
+#: templates/submission/my-listings.php:127
+msgid "Created: "
+msgstr "ایجاد شده: "
+
+#: templates/submission/my-listings.php:151
+msgid "View"
+msgstr "مشاهده"
+
+#: templates/submission/my-listings.php:185
+msgid "You don't have any listings, yet. Start by creating new one."
+msgstr "هنوز هیچ آگهی ندارید. با ایجاد یک آگهی جدید ثبت کنید."
+
+#: templates/widgets/filter-fields/distance.php:16
+msgid "Radius"
+msgstr "شعاع"
+
+#: templates/widgets/filter-fields/distance.php:17
+msgid "%s: <span class=\"text-distance\">%s</span> %s"
+msgstr ""
+
+#: templates/widgets/filter-fields/min_max_text.php:19
+msgid "Min %s"
+msgstr "حداقل %s"
+
+#: templates/widgets/filter-fields/min_max_text.php:24
+msgid "Max %s"
+msgstr "حداکثر %s"
+
+#: templates/widgets/filter-fields/number_select.php:6
+msgid "%s : Any"
+msgstr "%s : هر"
+
+#: templates/widgets/filter-fields/regions_select.php:104
+#: templates/widgets/filter-fields/select.php:24
+msgid "Filter by %s"
+msgstr "فیلتر بر اساس %s"
+
+#: templates/widgets/filter-fields/tax_radios.php:82
+msgid "Show More"
+msgstr "نمایش بیشتر"
+
+#: templates/widgets/filter-fields/text_date.php:26
+msgid "Form"
+msgstr "فرم"
+
+#: templates/widgets/listing-filter.php:38
+msgid "Advanced Search"
+msgstr "جستجوی پیشرفته"
+
+#: wp-cardealer.php:219
+msgid "Expired <span class=\"count\">(%s)</span>"
+msgid_plural "Expired <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-cardealer.php:230
+msgid "Preview <span class=\"count\">(%s)</span>"
+msgid_plural "Preview <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-cardealer.php:236
+msgctxt "post status"
+msgid "Pending Approval"
+msgstr "در انتظار تأیید"
+
+#: wp-cardealer.php:242
+msgid "Pending Approve <span class=\"count\">(%s)</span>"
+msgid_plural "Pending Approve <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
