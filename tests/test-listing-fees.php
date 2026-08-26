@@ -80,8 +80,10 @@ assert_same( false, WP_CarDealer_Price::is_listing_fee_field( '_listing_price' )
 $formatted = WP_CarDealer_Price::format_toman_amount( 500000 );
 assert_contains( '500,000', $formatted, 'formats Toman with thousand separators' );
 assert_contains( 'تومان', $formatted, 'appends تومان without converting from USD' );
-assert_same( '', WP_CarDealer_Price::format_toman_amount( 0 ), 'hides zero fees' );
-assert_same( '', WP_CarDealer_Price::format_toman_amount( '' ), 'hides empty fees' );
+assert_same( '', WP_CarDealer_Price::format_toman_amount( 0 ), 'hides zero unless asked to show it' );
+assert_same( '', WP_CarDealer_Price::format_toman_amount( '' ), 'hides empty unless asked to show zero' );
+assert_contains( '0', WP_CarDealer_Price::format_toman_amount( '', true ), 'empty amount can render as 0' );
+assert_contains( '0', WP_CarDealer_Price::format_toman_amount( 0, true ), 'zero amount can render as 0' );
 
 $GLOBALS['wp_cardealer_test_meta'][12] = array(
 	'_listing_customs_fee'  => '500000',
@@ -100,7 +102,9 @@ $GLOBALS['wp_cardealer_test_meta'][13] = array(
 );
 $partial = WP_CarDealer_Price::get_listing_fees_html( 13 );
 assert_contains( 'هزینه حمل‌ونقل', $partial, 'shows shipping when customs is empty' );
-assert_same( false, strpos( $partial, 'هزینه گمرک' ) !== false, 'hides empty customs row' );
+assert_contains( 'هزینه گمرک', $partial, 'keeps the empty customs row' );
+assert_contains( 'listing-price-extra--customs_fee', $partial, 'renders the empty customs row wrapper' );
+assert_contains( '>0</span>', $partial, 'empty customs amount renders as 0' );
 
 assert_same( '', WP_CarDealer_Price::get_listing_fees_html( 0 ), 'no HTML without a listing id' );
 
