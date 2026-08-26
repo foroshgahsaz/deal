@@ -839,10 +839,12 @@ class WP_CarDealer_Custom_Fields {
 			case $prefix.'location':
 				$field['taxonomy'] = ! empty( $field_data['taxonomy'] ) ? $field_data['taxonomy'] : 'listing_location';
 				$field['type'] = 'wpcd_taxonomy_location';
+				$field['name'] = '';
+				$field['classes'] = 'wpcd-location-field-row';
 				if ( empty( $field['attributes'] ) || ! is_array( $field['attributes'] ) ) {
 					$field['attributes'] = array();
 				}
-				$field['attributes']['placeholder'] = ! empty( $field['placeholder'] ) ? $field['placeholder'] : 'شهر را انتخاب کنید';
+				$field['attributes']['placeholder'] = ! empty( $field['placeholder'] ) ? $field['placeholder'] : 'شهر را انتخاب کنید…';
 				break;
 			case $prefix.'type':
 			case $prefix.'make':

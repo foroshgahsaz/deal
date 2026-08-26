@@ -8,7 +8,7 @@ class WP_CarDealer_CMB2_Field_Taxonomy_Location {
 	/**
 	 * Current version number
 	 */
-	const VERSION = '1.0.0';
+	const VERSION = '1.1.0';
 
 	/**
 	 * Initialize the plugin by hooking into CMB2
@@ -36,39 +36,63 @@ class WP_CarDealer_CMB2_Field_Taxonomy_Location {
 		if ( version_compare( CMB2_VERSION, '2.2.2', '>=' ) ) {
 			$field_type_object->type = new CMB2_Type_Select( $field_type_object );
 		}
-		
-		$nb_fields = apply_filters('wp_cardealer_cmb2_field_taxonomy_location_number', 4);
-		$parent = 0;
-		echo '<div class="field-taxonomy-location-wrapper field-taxonomy-location-wrapper-'.$nb_fields.'">';
-		for ($i=1; $i <= $nb_fields; $i++) {
 
+		$nb_fields   = (int) apply_filters( 'wp_cardealer_cmb2_field_taxonomy_location_number', 4 );
+		$parent      = 0;
+		$description = $field->args( 'description' );
+		$field_id    = $field_type_object->_id();
+
+		echo '<div class="wpcd-location-picker field-taxonomy-location-wrapper field-taxonomy-location-wrapper-' . esc_attr( $nb_fields ) . '">';
+
+		if ( $description ) {
+			echo '<p class="wpcd-location-picker-help">' . esc_html( $description ) . '</p>';
+		}
+
+		for ( $i = 1; $i <= $nb_fields; $i++ ) {
 			$taxonomy_options = $this->get_taxonomy_options( $field_escaped_value, $field_type_object, $parent );
-			$parent = !empty($taxonomy_options['parent']) ? $taxonomy_options['parent'] : 'no';
-			
-			$field_name = apply_filters('wp_cardealer_cmb2_field_taxonomy_location_field_name_'.$i, 'Country');
-			$placeholder = $field->args( 'attributes', 'placeholder' ) ? $field->args( 'attributes', 'placeholder' ) : $field->args( 'description' );
-			$placeholder = sprintf($placeholder, $field_name);
+			$parent           = ! empty( $taxonomy_options['parent'] ) ? $taxonomy_options['parent'] : 'no';
 
-			$a = $field_type_object->parse_args( 'wpcd_taxonomy_location', array(
-				'style'            => 'width: 99%',
-				'class'            => 'wpcd_taxonomy_location wpcd_taxonomy_location'.$i,
-				'name'             => $field_type_object->_name() . '[]',
-				'id'               => $field_type_object->_id().$i,
-				'desc'             => $field_type_object->_desc( true ),
-				'options'          => $taxonomy_options['option'],
-				'data-placeholder' => $placeholder,
-				'data-next' => ($i + 1),
-				'data-taxonomy' => $field_type_object->field->args( 'taxonomy' ),
-				'data-allowclear' => true
-			) );
+			$field_name  = apply_filters( 'wp_cardealer_cmb2_field_taxonomy_location_field_name_' . $i, 'Country' );
+			$placeholder = apply_filters(
+				'wp_cardealer_cmb2_field_taxonomy_location_placeholder_' . $i,
+				sprintf(
+					$field->args( 'attributes', 'placeholder' ) ? $field->args( 'attributes', 'placeholder' ) : $field->args( 'description' ),
+					$field_name
+				)
+			);
 
-			$attrs = $field_type_object->concat_attrs( $a, array( 'desc', 'options' ) );
-			echo sprintf( '<div class="field-taxonomy-location-%d"><select%s>%s</select></div>', $i, $attrs, $a['options'] );
+			$select_id = $field_id . $i;
+
+			$a = $field_type_object->parse_args(
+				'wpcd_taxonomy_location',
+				array(
+					'style'            => 'width: 100%',
+					'class'            => 'wpcd_taxonomy_location wpcd_taxonomy_location' . $i,
+					'name'             => $field_type_object->_name() . '[]',
+					'id'               => $select_id,
+					'options'          => $taxonomy_options['option'],
+					'data-placeholder' => $placeholder,
+					'data-next'        => ( $i + 1 ),
+					'data-taxonomy'    => $field_type_object->field->args( 'taxonomy' ),
+					'data-allowclear'  => true,
+				)
+			);
+
+			$attrs    = $field_type_object->concat_attrs( $a, array( 'desc', 'options' ) );
+			$select   = sprintf( '<select%s>%s</select>', $attrs, $a['options'] );
+			$level_no = $i === 1 ? 'city' : ( $i === 2 ? 'district' : 'level-' . $i );
+
+			printf(
+				'<div class="wpcd-location-picker-row field-taxonomy-location-%1$d wpcd-location-picker-row--%4$s"><label class="wpcd-location-picker-label" for="%2$s">%3$s</label><div class="wpcd-location-picker-control">%5$s</div></div>',
+				$i,
+				esc_attr( $select_id ),
+				esc_html( $field_name ),
+				esc_attr( $level_no ),
+				$select
+			);
 		}
+
 		echo '</div>';
-		if ( !empty($a['desc']) ) {
-			echo $a['desc'];
-		}
 	}
 
 	public function get_taxonomy_options( $field_escaped_value, $field_type_object, $parent ) {

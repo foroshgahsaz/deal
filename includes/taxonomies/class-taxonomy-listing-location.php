@@ -18,6 +18,8 @@ class WP_CarDealer_Taxonomy_Listing_Location {
 		add_filter( 'wp_cardealer_cmb2_field_taxonomy_location_number', array( __CLASS__, 'dropdown_levels' ) );
 		add_filter( 'wp_cardealer_cmb2_field_taxonomy_location_field_name_1', array( __CLASS__, 'level_one_label' ) );
 		add_filter( 'wp_cardealer_cmb2_field_taxonomy_location_field_name_2', array( __CLASS__, 'level_two_label' ) );
+		add_filter( 'wp_cardealer_cmb2_field_taxonomy_location_placeholder_1', array( __CLASS__, 'level_one_placeholder' ) );
+		add_filter( 'wp_cardealer_cmb2_field_taxonomy_location_placeholder_2', array( __CLASS__, 'level_two_placeholder' ) );
 	}
 
 	public static function dropdown_levels() {
@@ -30,6 +32,14 @@ class WP_CarDealer_Taxonomy_Listing_Location {
 
 	public static function level_two_label() {
 		return 'زیرمجموعه';
+	}
+
+	public static function level_one_placeholder() {
+		return 'شهر را انتخاب کنید…';
+	}
+
+	public static function level_two_placeholder() {
+		return 'زیرمجموعه را انتخاب کنید…';
 	}
 
 	public static function definition() {

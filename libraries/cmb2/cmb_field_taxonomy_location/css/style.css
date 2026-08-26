@@ -1,8 +1,111 @@
-.field-taxonomy-location-wrapper > * {
-	position: relative;
+/* WP CarDealer — hierarchical location picker */
+.cmb2-wrap .cmb-row.cmb-type-wpcd_taxonomy_location,
+.cmb2-wrap .cmb-row.wpcd-location-field-row {
+	margin: 0;
+	padding: 0;
+	border: 0;
 }
+
+.cmb2-wrap .cmb-type-wpcd_taxonomy_location .cmb-th,
+.cmb2-wrap .wpcd-location-field-row .cmb-th {
+	display: none;
+}
+
+.cmb2-wrap .cmb-type-wpcd_taxonomy_location .cmb-td,
+.cmb2-wrap .wpcd-location-field-row .cmb-td {
+	float: none;
+	width: 100% !important;
+	margin: 0;
+	padding: 0;
+}
+
+.wpcd-location-picker {
+	background: #f8fafc;
+	border: 1px solid #dbe3ef;
+	border-radius: 10px;
+	padding: 16px 18px;
+	max-width: 560px;
+}
+
+.wpcd-location-picker-help {
+	margin: 0 0 14px;
+	padding: 10px 12px;
+	background: #eef4ff;
+	border: 1px solid #c9daf8;
+	border-radius: 8px;
+	color: #3c4b63;
+	font-size: 12px;
+	line-height: 1.7;
+}
+
+.wpcd-location-picker-row {
+	display: grid;
+	grid-template-columns: 108px minmax(0, 1fr);
+	align-items: center;
+	gap: 12px 16px;
+	margin: 0 0 12px;
+}
+
+.wpcd-location-picker-row:last-child {
+	margin-bottom: 0;
+}
+
+.wpcd-location-picker-label {
+	margin: 0;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2939;
+	line-height: 1.4;
+}
+
+.wpcd-location-picker-control {
+	position: relative;
+	min-width: 0;
+}
+
+.wpcd-location-picker-control .select2-container {
+	width: 100% !important;
+	max-width: 100%;
+}
+
+.wpcd-location-picker-control .select2-container .select2-selection--single {
+	height: 40px;
+	border: 1px solid #c5ceda;
+	border-radius: 8px;
+	background: #fff;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.wpcd-location-picker-control .select2-container--focus .select2-selection--single,
+.wpcd-location-picker-control .select2-container--open .select2-selection--single {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+.wpcd-location-picker-control .select2-container .select2-selection__rendered {
+	line-height: 38px;
+	padding-right: 34px;
+	padding-left: 12px;
+	color: #1d2939;
+	font-size: 13px;
+}
+
+.wpcd-location-picker-control .select2-container .select2-selection__arrow {
+	height: 38px;
+	right: auto;
+	left: 8px;
+}
+
+.wpcd-location-picker-row--district .wpcd-location-picker-label::before {
+	content: "↳";
+	display: inline-block;
+	margin-left: 6px;
+	color: #7a8799;
+	font-weight: 400;
+}
+
 .field-taxonomy-location-wrapper .loading::before {
-	background: rgba(255, 255, 255, 0.5) url("loading.gif") no-repeat center center/25px auto;
+	background: rgba(255, 255, 255, 0.72) url("loading.gif") no-repeat center center/25px auto;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -11,5 +114,36 @@
 	z-index: 9;
 	width: 100%;
 	height: 100%;
-	content: '';
+	content: "";
+	border-radius: 8px;
+}
+
+.ui-tabs-vertical .wpcd-location-picker {
+	max-width: none;
+}
+
+@media (max-width: 782px) {
+	.wpcd-location-picker-row {
+		grid-template-columns: 1fr;
+		gap: 6px;
+	}
+
+	.wpcd-location-picker {
+		max-width: none;
+	}
+}
+
+body.rtl .wpcd-location-picker-control .select2-container .select2-selection__rendered {
+	padding-right: 12px;
+	padding-left: 34px;
+}
+
+body.rtl .wpcd-location-picker-control .select2-container .select2-selection__arrow {
+	left: auto;
+	right: 8px;
+}
+
+body.rtl .wpcd-location-picker-row--district .wpcd-location-picker-label::before {
+	margin-left: 0;
+	margin-right: 6px;
 }

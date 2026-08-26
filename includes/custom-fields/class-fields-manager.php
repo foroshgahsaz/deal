@@ -1021,7 +1021,7 @@ class WP_CarDealer_Fields_Manager {
             array(
                 'type'                => $prefix . 'location',
                 'id'                  => $prefix . 'location',
-                'name'                => 'موقعیت',
+                'name'                => '',
                 'taxonomy'            => 'listing_location',
                 'description'         => 'شهر و زیرمجموعه را انتخاب کنید. این فیلد جدا از آدرس متنی و نقشه است.',
                 'show_in_submit_form' => 'yes',
