@@ -158,6 +158,7 @@ if ( !class_exists("WP_CarDealer") ) {
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-price.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-navasan.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-listing-location.php';
+			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-listing-body-damage.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-query.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-shortcodes.php';
 
@@ -271,6 +272,7 @@ if ( !class_exists("WP_CarDealer") ) {
 			require_once WP_CARDEALER_PLUGIN_DIR . 'libraries/cmb2/cmb_field_taxonomy_select2_parent/cmb-field-taxonomy-select2-parent.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'libraries/cmb2/cmb_field_taxonomy_select2_search/cmb-field-taxonomy-select2-search.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'libraries/cmb2/cmb_field_taxonomy_location/cmb-field-taxonomy-location.php';
+			require_once WP_CARDEALER_PLUGIN_DIR . 'libraries/cmb2/cmb_field_body_damage/cmb-field-body-damage.php';
 
 			require_once WP_CARDEALER_PLUGIN_DIR . 'libraries/cmb2/cmb2_field_rate_exchange/cmb2-field-type-rate_exchange.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'libraries/cmb2/cmb2_field_enable_input/cmb2-field-enable-input.php';

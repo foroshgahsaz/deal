@@ -41,6 +41,7 @@ class WP_CarDealer_Elementor {
 		$dynamic_tags->register( new WP_CarDealer_Elementor_Tag_Listing_Fees_Html() );
 		$dynamic_tags->register( new WP_CarDealer_Elementor_Tag_Customs_Fee() );
 		$dynamic_tags->register( new WP_CarDealer_Elementor_Tag_Shipping_Fee() );
+		$dynamic_tags->register( new WP_CarDealer_Elementor_Tag_Body_Damage() );
 	}
 
 	/**
@@ -317,6 +318,45 @@ class WP_CarDealer_Elementor_Tag_Shipping_Fee extends WP_CarDealer_Elementor_Tag
 
 	protected function get_fee_suffix() {
 		return 'shipping_fee';
+	}
+}
+
+class WP_CarDealer_Elementor_Tag_Body_Damage extends WP_CarDealer_Elementor_Tag_Listing_Base {
+
+	public function get_name() {
+		return 'wp-cardealer-listing-body-damage';
+	}
+
+	public function get_title() {
+		return 'رنگ‌شدگی و تعویض بدنه';
+	}
+
+	public function get_categories() {
+		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
+	}
+
+	public function get_content_type() {
+		return 'html';
+	}
+
+	protected function register_controls() {}
+
+	public function render() {
+		if ( ! class_exists( 'WP_CarDealer_Listing' ) ) {
+			return;
+		}
+
+		$post_id = $this->get_listing_post_id();
+		if ( ! $post_id ) {
+			return;
+		}
+
+		$html = WP_CarDealer_Listing::get_body_damage_html( $post_id );
+		if ( ! $html ) {
+			return;
+		}
+
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- inline SVG diagram
 	}
 }
 

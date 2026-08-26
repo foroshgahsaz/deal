@@ -18,6 +18,7 @@ class WP_CarDealer_Fields_Manager {
         add_action( 'init', array(__CLASS__, 'init_hook'), 10 );
         add_filter( 'wp-cardealer-get-custom-fields-data', array( __CLASS__, 'inject_listing_fee_fields' ), 200, 2 );
         add_filter( 'wp-cardealer-get-custom-fields-data', array( __CLASS__, 'inject_listing_location_fields' ), 210, 2 );
+        add_filter( 'wp-cardealer-get-custom-fields-data', array( __CLASS__, 'inject_listing_body_damage_fields' ), 220, 2 );
         add_filter( 'wp_cardealer_list_simple_type', array( __CLASS__, 'add_listing_fee_simple_types' ) );
 	}
 
@@ -1025,6 +1026,85 @@ class WP_CarDealer_Fields_Manager {
                 'taxonomy'            => 'listing_location',
                 'description'         => 'شهر و زیرمجموعه را انتخاب کنید. این فیلد جدا از آدرس متنی و نقشه است.',
                 'show_in_submit_form' => 'yes',
+                'show_in_admin_edit'  => 'yes',
+                'required'            => '',
+            ),
+        );
+    }
+
+    /**
+     * Inject the «رنگ‌شدگی» tab after location fields.
+     *
+     * @param mixed  $fields
+     * @param string $prefix
+     * @return mixed
+     */
+    public static function inject_listing_body_damage_fields( $fields, $prefix = '' ) {
+        if ( $prefix && $prefix !== WP_CARDEALER_LISTING_PREFIX ) {
+            return $fields;
+        }
+
+        if ( empty( $fields ) || ! is_array( $fields ) ) {
+            return $fields;
+        }
+
+        $field_id  = WP_CARDEALER_LISTING_PREFIX . 'body_damage';
+        $heading_id = WP_CARDEALER_LISTING_PREFIX . 'heading_body_damage';
+
+        if ( self::saved_fields_contain( $fields, $field_id ) ) {
+            return $fields;
+        }
+
+        $block    = self::get_listing_body_damage_field_configs();
+        $result   = array();
+        $inserted = false;
+        $anchor_id = WP_CARDEALER_LISTING_PREFIX . 'location';
+
+        foreach ( $fields as $field ) {
+            $result[] = $field;
+            if ( $inserted || ! is_array( $field ) ) {
+                continue;
+            }
+            $type = isset( $field['type'] ) ? $field['type'] : '';
+            $id   = isset( $field['id'] ) ? $field['id'] : '';
+            if ( $type === $anchor_id || $id === $anchor_id ) {
+                foreach ( $block as $config ) {
+                    $result[] = $config;
+                }
+                $inserted = true;
+            }
+        }
+
+        if ( ! $inserted ) {
+            foreach ( $block as $config ) {
+                $result[] = $config;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @return array
+     */
+    public static function get_listing_body_damage_field_configs() {
+        $prefix = WP_CARDEALER_LISTING_PREFIX;
+
+        return array(
+            array(
+                'type'                => 'heading',
+                'id'                  => $prefix . 'heading_body_damage',
+                'name'                => 'رنگ‌شدگی',
+                'icon'                => 'dashicons-art',
+                'show_in_submit_form' => 'no',
+                'show_in_admin_edit'  => 'yes',
+            ),
+            array(
+                'type'                => $prefix . 'body_damage',
+                'id'                  => $prefix . 'body_damage',
+                'name'                => '',
+                'description'         => 'وضعیت رنگ‌شدگی یا تعویض هر قطعه بدنه فلزی را مشخص کنید.',
+                'show_in_submit_form' => 'no',
                 'show_in_admin_edit'  => 'yes',
                 'required'            => '',
             ),

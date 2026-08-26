@@ -133,6 +133,7 @@ class WP_CarDealer_Scripts {
 		));
 		wp_enqueue_script( 'wp-cardealer-main' );
 		wp_enqueue_style( 'wp-cardealer-listing-price', WP_CARDEALER_PLUGIN_URL . 'assets/css/listing-price.css', array(), WP_CARDEALER_PLUGIN_VERSION );
+		wp_enqueue_style( 'wp-cardealer-listing-body-damage', WP_CARDEALER_PLUGIN_URL . 'assets/css/listing-body-damage.css', array(), WP_CARDEALER_PLUGIN_VERSION );
 	}
 
 	/**
@@ -181,6 +182,7 @@ class WP_CarDealer_Scripts {
 		));
 		wp_enqueue_script( 'wp-cardealer-admin-main' );
 		wp_enqueue_style( 'wp-cardealer-listing-price', WP_CARDEALER_PLUGIN_URL . 'assets/css/listing-price.css', array(), WP_CARDEALER_PLUGIN_VERSION );
+		wp_enqueue_style( 'wp-cardealer-listing-body-damage', WP_CARDEALER_PLUGIN_URL . 'assets/css/listing-body-damage.css', array(), WP_CARDEALER_PLUGIN_VERSION );
 	}
 
 }

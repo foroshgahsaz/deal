@@ -66,6 +66,20 @@ class WP_CarDealer_Listing {
 
 		return WP_CarDealer_Price::get_listing_fees_html( $post_id );
 	}
+
+	/**
+	 * Body paint / replacement diagram HTML.
+	 *
+	 * @param int $post_id
+	 * @return string
+	 */
+	public static function get_body_damage_html( $post_id ) {
+		if ( ! class_exists( 'WP_CarDealer_Listing_Body_Damage' ) ) {
+			return '';
+		}
+
+		return WP_CarDealer_Listing_Body_Damage::get_html( $post_id );
+	}
 	
 	// add product viewed
 	public static function track_listing_view() {

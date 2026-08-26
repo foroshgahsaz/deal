@@ -1,0 +1,80 @@
+.wpcd-body-damage-admin {
+	max-width: 640px;
+}
+
+.wpcd-body-damage-admin-table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	background: #fff;
+	border: 1px solid #dbe3ef;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.wpcd-body-damage-admin-table thead th {
+	background: #f3f6fb;
+	color: #334155;
+	font-size: 12px;
+	font-weight: 600;
+	text-align: right;
+	padding: 10px 14px;
+	border-bottom: 1px solid #dbe3ef;
+}
+
+.wpcd-body-damage-admin-table tbody tr + tr th,
+.wpcd-body-damage-admin-table tbody tr + tr td {
+	border-top: 1px solid #edf2f7;
+}
+
+.wpcd-body-damage-admin-part {
+	width: 42%;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1e293b;
+	padding: 10px 14px;
+	vertical-align: middle;
+}
+
+.wpcd-body-damage-admin-status {
+	padding: 8px 14px;
+	vertical-align: middle;
+}
+
+.wpcd-body-damage-admin-select {
+	width: 100%;
+	max-width: 280px;
+	min-height: 36px;
+	border: 1px solid #c5ceda;
+	border-radius: 8px;
+	background: #fff;
+	padding: 4px 10px;
+	font-size: 13px;
+}
+
+.wpcd-body-damage-admin-select:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	outline: none;
+}
+
+.wpcd-body-damage-admin-help {
+	margin-top: 10px;
+	margin-bottom: 0;
+	color: #64748b;
+	font-size: 12px;
+	line-height: 1.7;
+}
+
+.cmb2-wrap .cmb-type-wpcd_body_damage .cmb-th,
+.cmb2-wrap .wpcd-body-damage-field-row .cmb-th {
+	display: none;
+}
+
+.cmb2-wrap .cmb-type-wpcd_body_damage .cmb-td,
+.cmb2-wrap .wpcd-body-damage-field-row .cmb-td {
+	float: none;
+	width: 100% !important;
+	margin: 0;
+	padding: 0;
+}

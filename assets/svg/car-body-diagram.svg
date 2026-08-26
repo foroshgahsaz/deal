@@ -1,0 +1,58 @@
+<svg viewBox="125 0 570 620" class="listing-body-damage-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+	<text x="207" y="30" class="listing-body-damage-view-label">3E* †~</text>
+	<text x="410" y="30" class="listing-body-damage-view-label">FE'Ì ('D'</text>
+	<text x="613" y="30" class="listing-body-damage-view-label">3E* 1'3*</text>
+	<g transform="translate(290,48)">
+		<path d="M60 8 L180 8 Q205 8 210 26 L212 44 L28 44 L30 26 Q35 8 60 8 Z" class="body-part" data-part="front_bumper"><title>Front bumper</title></path>
+		<path d="M30 48 L210 48 L216 148 L24 148 Z" class="body-part" data-part="hood"><title>Hood</title></path>
+		<path d="M26 152 L214 152 L196 208 L44 208 Z" class="body-part body-part--glass"><title>Windshield</title></path>
+		<path d="M24 152 L6 158 L8 174 L26 168 Z" class="body-part body-part--mirror"><title>Left mirror</title></path>
+		<path d="M216 152 L234 158 L232 174 L214 168 Z" class="body-part body-part--mirror"><title>Right mirror</title></path>
+		<path d="M50 212 L190 212 Q196 212 196 218 L196 324 Q196 330 190 330 L50 330 Q44 330 44 324 L44 218 Q44 212 50 212 Z" class="body-part" data-part="roof"><title>Roof</title></path>
+		<path d="M44 334 L196 334 L206 388 L34 388 Z" class="body-part body-part--glass"><title>Rear window</title></path>
+		<path d="M34 392 L206 392 L212 462 L28 462 Z" class="body-part" data-part="trunk"><title>Trunk</title></path>
+		<path d="M28 466 L212 466 L214 484 Q212 508 188 508 L52 508 Q28 508 26 484 Z" class="body-part" data-part="rear_bumper"><title>Rear bumper</title></path>
+	</g>
+	<g transform="translate(282,50) rotate(90)">
+		<g>
+			<circle cx="95" cy="112" r="34" class="body-part body-part--tire"><title>Left front wheel</title></circle>
+			<circle class="body-part-rim" cx="95" cy="112" r="14"></circle>
+		</g>
+		<g>
+			<circle cx="383" cy="112" r="34" class="body-part body-part--tire"><title>Left rear wheel</title></circle>
+			<circle class="body-part-rim" cx="383" cy="112" r="14"></circle>
+		</g>
+		<path d="M8 62 Q0 64 0 80 L0 96 Q0 108 14 108 L42 108 L42 60 Q22 58 8 62 Z" class="body-part" data-part="front_bumper"><title>Front bumper</title></path>
+		<path d="M42 60 L42 108 L55 108 A40 40 0 0 1 135 108 L148 108 L148 58 Q100 54 42 60 Z" class="body-part" data-part="left_front_fender"><title>Left front fender</title></path>
+		<path d="M148 56 L150 40 L166 38 L168 52 L152 54 Z" class="body-part body-part--mirror"><title>Left mirror</title></path>
+		<path d="M148 58 L148 108 L262 108 L262 58 Q205 54 148 58 Z" class="body-part" data-part="left_front_door"><title>Left front door</title></path>
+		<path d="M156 52 L186 24 L258 24 L258 52 Q207 49 156 52 Z" class="body-part body-part--glass"><title>Left front door glass</title></path>
+		<path d="M262 58 L262 108 L345 108 L345 58 Q300 55 262 58 Z" class="body-part body-part--aux"><title>Left rear door</title></path>
+		<path d="M266 52 L266 24 L330 24 L340 52 Q300 50 266 52 Z" class="body-part body-part--glass"><title>Left rear door glass</title></path>
+		<path d="M345 58 L345 108 A40 40 0 0 1 423 108 L436 108 L436 66 Q418 54 396 52 Q370 54 345 58 Z" class="body-part" data-part="left_quarter_panel"><title>Left quarter panel</title></path>
+		<path d="M150 108 L343 108 L343 118 L150 118 Z" class="body-part body-part--aux"><title>Left rocker panel</title></path>
+		<path d="M436 66 L436 108 L452 108 Q468 108 468 94 L468 78 Q468 66 454 66 Z" class="body-part" data-part="rear_bumper"><title>Rear bumper</title></path>
+		<path class="body-part-outline" d="M186 24 Q262 16 334 24"></path>
+	</g>
+	<g transform="translate(538,50) scale(-1,1) rotate(90)">
+		<g>
+			<circle cx="95" cy="112" r="34" class="body-part body-part--tire"><title>Right front wheel</title></circle>
+			<circle class="body-part-rim" cx="95" cy="112" r="14"></circle>
+		</g>
+		<g>
+			<circle cx="383" cy="112" r="34" class="body-part body-part--tire"><title>Right rear wheel</title></circle>
+			<circle class="body-part-rim" cx="383" cy="112" r="14"></circle>
+		</g>
+		<path d="M8 62 Q0 64 0 80 L0 96 Q0 108 14 108 L42 108 L42 60 Q22 58 8 62 Z" class="body-part" data-part="front_bumper"><title>Front bumper</title></path>
+		<path d="M42 60 L42 108 L55 108 A40 40 0 0 1 135 108 L148 108 L148 58 Q100 54 42 60 Z" class="body-part" data-part="right_front_fender"><title>Right front fender</title></path>
+		<path d="M148 56 L150 40 L166 38 L168 52 L152 54 Z" class="body-part body-part--mirror"><title>Right mirror</title></path>
+		<path d="M148 58 L148 108 L262 108 L262 58 Q205 54 148 58 Z" class="body-part" data-part="right_front_door"><title>Right front door</title></path>
+		<path d="M156 52 L186 24 L258 24 L258 52 Q207 49 156 52 Z" class="body-part body-part--glass"><title>Right front door glass</title></path>
+		<path d="M262 58 L262 108 L345 108 L345 58 Q300 55 262 58 Z" class="body-part body-part--aux"><title>Right rear door</title></path>
+		<path d="M266 52 L266 24 L330 24 L340 52 Q300 50 266 52 Z" class="body-part body-part--glass"><title>Right rear door glass</title></path>
+		<path d="M345 58 L345 108 A40 40 0 0 1 423 108 L436 108 L436 66 Q418 54 396 52 Q370 54 345 58 Z" class="body-part" data-part="right_quarter_panel"><title>Right quarter panel</title></path>
+		<path d="M150 108 L343 108 L343 118 L150 118 Z" class="body-part body-part--aux"><title>Right rocker panel</title></path>
+		<path d="M436 66 L436 108 L452 108 Q468 108 468 94 L468 78 Q468 66 454 66 Z" class="body-part" data-part="rear_bumper"><title>Rear bumper</title></path>
+		<path class="body-part-outline" d="M186 24 Q262 16 334 24"></path>
+	</g>
+</svg>
