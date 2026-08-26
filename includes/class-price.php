@@ -142,6 +142,49 @@ class WP_CarDealer_Price {
 	 * @param int $post_id
 	 * @return string
 	 */
+	/**
+	 * @param int    $post_id
+	 * @param string $suffix customs_fee|shipping_fee
+	 * @return string
+	 */
+	public static function get_listing_fee_value( $post_id, $suffix ) {
+		$post_id = absint( $post_id );
+		if ( ! $post_id || ! isset( self::get_listing_fee_fields()[ $suffix ] ) ) {
+			return '';
+		}
+
+		return (string) get_post_meta( $post_id, WP_CARDEALER_LISTING_PREFIX . $suffix, true );
+	}
+
+	/**
+	 * Formatted Toman HTML for one fee field.
+	 *
+	 * @param int    $post_id
+	 * @param string $suffix customs_fee|shipping_fee
+	 * @param bool   $show_zero
+	 * @return string
+	 */
+	public static function get_listing_fee_formatted( $post_id, $suffix, $show_zero = true ) {
+		return self::format_toman_amount( self::get_listing_fee_value( $post_id, $suffix ), $show_zero );
+	}
+
+	/**
+	 * Plain-text fee for Elementor text widgets (no HTML spans).
+	 *
+	 * @param int    $post_id
+	 * @param string $suffix customs_fee|shipping_fee
+	 * @param bool   $show_zero
+	 * @return string
+	 */
+	public static function get_listing_fee_plain( $post_id, $suffix, $show_zero = true ) {
+		$html = self::get_listing_fee_formatted( $post_id, $suffix, $show_zero );
+		if ( $html === '' ) {
+			return '';
+		}
+
+		return trim( preg_replace( '/\s+/', ' ', strip_tags( str_replace( '&nbsp;', ' ', $html ) ) ) );
+	}
+
 	public static function get_listing_fees_html( $post_id ) {
 		$post_id = absint( $post_id );
 		if ( ! $post_id ) {
@@ -150,9 +193,7 @@ class WP_CarDealer_Price {
 
 		$rows = array();
 		foreach ( self::get_listing_fee_fields() as $suffix => $label ) {
-			$meta_key  = WP_CARDEALER_LISTING_PREFIX . $suffix;
-			$value     = get_post_meta( $post_id, $meta_key, true );
-			$formatted = self::format_toman_amount( $value, true );
+			$formatted = self::get_listing_fee_formatted( $post_id, $suffix, true );
 
 			$rows[] = '<span class="listing-price-extra listing-price-extra--' . esc_attr( $suffix ) . '">'
 				. '<span class="listing-price-extra-label">' . esc_html( $label ) . ' : </span>'

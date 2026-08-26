@@ -52,6 +52,20 @@ class WP_CarDealer_Listing {
 		$obj = WP_CarDealer_Listing_Meta::get_instance( $post_id );
 		return $obj->get_price_html();
 	}
+
+	/**
+	 * Customs + shipping rows for Elementor or theme hooks.
+	 *
+	 * @param int $post_id
+	 * @return string
+	 */
+	public static function get_fees_html( $post_id ) {
+		if ( ! class_exists( 'WP_CarDealer_Price' ) ) {
+			return '';
+		}
+
+		return WP_CarDealer_Price::get_listing_fees_html( $post_id );
+	}
 	
 	// add product viewed
 	public static function track_listing_view() {
