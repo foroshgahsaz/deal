@@ -107,6 +107,7 @@ assert_same( false, WP_CarDealer_Listing_Body_Damage::has_damage( 21 ), 'detects
 
 $html = WP_CarDealer_Listing_Body_Damage::get_html( 20 );
 assert_contains( 'listing-body-damage-diagram', $html, 'renders diagram wrapper' );
+assert_contains( 'سمت چپ', $html, 'svg view labels use persian utf-8 text' );
 assert_contains( 'is-replaced', $html, 'applies replaced class in svg' );
 assert_contains( 'is-painted', $html, 'applies painted class in svg' );
 assert_contains( 'گلگیر جلو راست', $html, 'lists replaced part in persian' );
