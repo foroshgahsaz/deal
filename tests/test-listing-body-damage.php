@@ -126,5 +126,20 @@ assert_same( '_listing_heading_body_damage', $injected[1]['id'], 'heading uses b
 assert_same( '_listing_body_damage', $injected[2]['type'], 'inserts body damage field after heading' );
 assert_same( 'no', $injected[2]['show_in_submit_form'], 'body damage is admin only' );
 
+$duplicate = WP_CarDealer_Fields_Manager::dedupe_listing_body_damage_fields(
+	array(
+		array( 'type' => 'heading', 'id' => '_listing_heading_body_damage' ),
+		array( 'type' => '_listing_body_damage', 'id' => '_listing_body_damage' ),
+		array( 'type' => 'heading', 'id' => '_listing_heading_body_damage' ),
+		array( 'type' => '_listing_body_damage', 'id' => '_listing_body_damage' ),
+	),
+	WP_CARDEALER_LISTING_PREFIX
+);
+assert_same( 2, count( $duplicate ), 'dedupes duplicate body damage tab rows' );
+assert_same( '_listing_body_damage', $duplicate[1]['type'], 'keeps first body damage field row' );
+
+$again = WP_CarDealer_Fields_Manager::inject_listing_body_damage_fields( $injected, WP_CARDEALER_LISTING_PREFIX );
+assert_same( count( $injected ), count( $again ), 'does not duplicate body damage on second inject pass' );
+
 echo "\n{$passed} passed, {$failed} failed\n";
 exit( $failed > 0 ? 1 : 0 );

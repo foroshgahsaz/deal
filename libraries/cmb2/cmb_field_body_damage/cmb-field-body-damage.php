@@ -11,11 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class WP_CarDealer_CMB2_Field_Body_Damage {
 
-	const VERSION = '1.0.0';
+	const VERSION = '1.0.1';
 
 	public function __construct() {
 		add_filter( 'cmb2_render_wpcd_body_damage', array( $this, 'render' ), 10, 5 );
 		add_filter( 'cmb2_sanitize_wpcd_body_damage', array( $this, 'sanitize' ), 10, 4 );
+		add_filter( 'cmb2_types_esc_wpcd_body_damage', array( $this, 'escaped_value' ), 10, 3 );
+		add_action( 'save_post_listing', array( $this, 'save_listing_meta' ), 20, 2 );
 	}
 
 	public function render( $field, $field_escaped_value, $field_object_id, $field_object_type, $field_type_object ) {
@@ -60,10 +62,90 @@ class WP_CarDealer_CMB2_Field_Body_Damage {
 
 	public function sanitize( $check, $meta_value, $object_id, $field_args ) {
 		unset( $check, $object_id, $field_args );
+
 		if ( ! class_exists( 'WP_CarDealer_Listing_Body_Damage' ) ) {
-			return '';
+			return array();
 		}
-		return WP_CarDealer_Listing_Body_Damage::encode_damage_map( $meta_value );
+
+		return WP_CarDealer_Listing_Body_Damage::sanitize_damage_map(
+			$this->normalize_meta_value( $meta_value )
+		);
+	}
+
+	public function escaped_value( $check, $meta_value, $field_args ) {
+		unset( $field_args );
+
+		if ( ! class_exists( 'WP_CarDealer_Listing_Body_Damage' ) ) {
+			return $check;
+		}
+
+		if ( is_array( $meta_value ) ) {
+			return WP_CarDealer_Listing_Body_Damage::sanitize_damage_map( $meta_value );
+		}
+
+		return WP_CarDealer_Listing_Body_Damage::sanitize_damage_map(
+			$this->normalize_meta_value( $meta_value )
+		);
+	}
+
+	/**
+	 * Fallback save when CMB2 tabs do not persist the custom field.
+	 *
+	 * @param int      $post_id
+	 * @param \WP_Post $post
+	 */
+	public function save_listing_meta( $post_id, $post ) {
+		unset( $post );
+
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+
+		if ( wp_is_post_revision( $post_id ) ) {
+			return;
+		}
+
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
+
+		if ( ! class_exists( 'WP_CarDealer_Listing_Body_Damage' ) ) {
+			return;
+		}
+
+		if ( ! isset( $_POST[ WP_CarDealer_Listing_Body_Damage::META_KEY ] ) ) {
+			return;
+		}
+
+		$raw = wp_unslash( $_POST[ WP_CarDealer_Listing_Body_Damage::META_KEY ] );
+		if ( ! is_array( $raw ) ) {
+			return;
+		}
+
+		update_post_meta(
+			$post_id,
+			WP_CarDealer_Listing_Body_Damage::META_KEY,
+			WP_CarDealer_Listing_Body_Damage::sanitize_damage_map( $raw )
+		);
+	}
+
+	/**
+	 * @param mixed $meta_value
+	 * @return array
+	 */
+	private function normalize_meta_value( $meta_value ) {
+		if ( is_array( $meta_value ) ) {
+			return $meta_value;
+		}
+
+		if ( is_string( $meta_value ) && $meta_value !== '' ) {
+			$decoded = json_decode( $meta_value, true );
+			if ( is_array( $decoded ) ) {
+				return $decoded;
+			}
+		}
+
+		return array();
 	}
 
 	public function enqueue_assets() {

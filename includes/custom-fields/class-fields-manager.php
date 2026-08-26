@@ -19,6 +19,7 @@ class WP_CarDealer_Fields_Manager {
         add_filter( 'wp-cardealer-get-custom-fields-data', array( __CLASS__, 'inject_listing_fee_fields' ), 200, 2 );
         add_filter( 'wp-cardealer-get-custom-fields-data', array( __CLASS__, 'inject_listing_location_fields' ), 210, 2 );
         add_filter( 'wp-cardealer-get-custom-fields-data', array( __CLASS__, 'inject_listing_body_damage_fields' ), 220, 2 );
+        add_filter( 'wp-cardealer-get-custom-fields-data', array( __CLASS__, 'dedupe_listing_body_damage_fields' ), 230, 2 );
         add_filter( 'wp_cardealer_list_simple_type', array( __CLASS__, 'add_listing_fee_simple_types' ) );
 	}
 
@@ -1048,16 +1049,13 @@ class WP_CarDealer_Fields_Manager {
             return $fields;
         }
 
-        $field_id  = WP_CARDEALER_LISTING_PREFIX . 'body_damage';
-        $heading_id = WP_CARDEALER_LISTING_PREFIX . 'heading_body_damage';
-
-        if ( self::saved_fields_contain( $fields, $field_id ) ) {
+        if ( self::saved_fields_contain_body_damage( $fields ) ) {
             return $fields;
         }
 
-        $block    = self::get_listing_body_damage_field_configs();
-        $result   = array();
-        $inserted = false;
+        $block     = self::get_listing_body_damage_field_configs();
+        $result    = array();
+        $inserted  = false;
         $anchor_id = WP_CARDEALER_LISTING_PREFIX . 'location';
 
         foreach ( $fields as $field ) {
@@ -1082,6 +1080,105 @@ class WP_CarDealer_Fields_Manager {
         }
 
         return $result;
+    }
+
+    /**
+     * Remove duplicate «رنگ‌شدگی» heading/field rows from saved Fields Manager data.
+     *
+     * @param mixed  $fields
+     * @param string $prefix
+     * @return mixed
+     */
+    public static function dedupe_listing_body_damage_fields( $fields, $prefix = '' ) {
+        if ( $prefix && $prefix !== WP_CARDEALER_LISTING_PREFIX ) {
+            return $fields;
+        }
+
+        if ( empty( $fields ) || ! is_array( $fields ) ) {
+            return $fields;
+        }
+
+        $heading_id = WP_CARDEALER_LISTING_PREFIX . 'heading_body_damage';
+        $field_id   = WP_CARDEALER_LISTING_PREFIX . 'body_damage';
+        $seen       = array(
+            'heading' => false,
+            'field'   => false,
+        );
+        $result     = array();
+
+        foreach ( $fields as $field ) {
+            if ( ! is_array( $field ) ) {
+                $result[] = $field;
+                continue;
+            }
+
+            $type = isset( $field['type'] ) ? $field['type'] : '';
+            $id   = isset( $field['id'] ) ? $field['id'] : '';
+
+            if ( self::field_matches_body_damage_heading( $type, $id, $heading_id ) ) {
+                if ( $seen['heading'] ) {
+                    continue;
+                }
+                $seen['heading'] = true;
+            } elseif ( self::field_matches_body_damage_field( $type, $id, $field_id ) ) {
+                if ( $seen['field'] ) {
+                    continue;
+                }
+                $seen['field'] = true;
+            }
+
+            $result[] = $field;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array $fields
+     * @return bool
+     */
+    public static function saved_fields_contain_body_damage( $fields ) {
+        if ( empty( $fields ) || ! is_array( $fields ) ) {
+            return false;
+        }
+
+        $heading_id = WP_CARDEALER_LISTING_PREFIX . 'heading_body_damage';
+        $field_id   = WP_CARDEALER_LISTING_PREFIX . 'body_damage';
+        $has_field  = false;
+
+        foreach ( $fields as $field ) {
+            if ( ! is_array( $field ) ) {
+                continue;
+            }
+            $type = isset( $field['type'] ) ? $field['type'] : '';
+            $id   = isset( $field['id'] ) ? $field['id'] : '';
+            if ( self::field_matches_body_damage_field( $type, $id, $field_id ) ) {
+                $has_field = true;
+                break;
+            }
+        }
+
+        return $has_field;
+    }
+
+    /**
+     * @param string $type
+     * @param string $id
+     * @param string $heading_id
+     * @return bool
+     */
+    public static function field_matches_body_damage_heading( $type, $id, $heading_id ) {
+        return $type === 'heading' && $id === $heading_id;
+    }
+
+    /**
+     * @param string $type
+     * @param string $id
+     * @param string $field_id
+     * @return bool
+     */
+    public static function field_matches_body_damage_field( $type, $id, $field_id ) {
+        return $type === $field_id || $id === $field_id || $type === 'wpcd_body_damage';
     }
 
     /**

@@ -477,6 +477,7 @@ class WP_CarDealer_Custom_Fields {
 		        $required_types = WP_CarDealer_Fields_Manager::get_user_all_types_fields_required();
 		    }
 			$i = 1;
+			$seen_body_damage_field = false;
 			foreach ($custom_all_fields as $key => $custom_field) {
 				$check_package_field = true;
 				if ( $prefix == WP_CARDEALER_LISTING_PREFIX && !$admin_field ) {
@@ -498,6 +499,17 @@ class WP_CarDealer_Custom_Fields {
 						$fieldkey = isset($custom_field['key']) ? $custom_field['key'] : '';
 						$fieldtype = isset($custom_field['type']) ? $custom_field['type'] : '';
 						$field_data = $custom_field;
+					} else {
+						$field_data = $custom_field;
+						$fieldtype  = $fieldkey;
+					}
+
+					if ( $prefix === WP_CARDEALER_LISTING_PREFIX && WP_CarDealer_Fields_Manager::field_matches_body_damage_field( $fieldkey, isset( $field_data['id'] ) ? $field_data['id'] : '', WP_CARDEALER_LISTING_PREFIX . 'body_damage' ) ) {
+						if ( $seen_body_damage_field ) {
+							$i++;
+							continue;
+						}
+						$seen_body_damage_field = true;
 					}
 					
 					if ( !$admin_field && (!empty($field_data['show_in_submit_form']) || $fieldtype == 'heading') && $fieldkey !== $prefix.'featured' ) {
