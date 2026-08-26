@@ -68,6 +68,14 @@ function is_wp_error( $thing ) {
 	return false;
 }
 
+function esc_attr( $text ) {
+	return htmlspecialchars( (string) $text, ENT_QUOTES, 'UTF-8' );
+}
+
+function wp_kses_post( $html ) {
+	return $html;
+}
+
 require_once dirname( __DIR__ ) . '/includes/class-listing-location.php';
 
 $failed = 0;
@@ -111,6 +119,12 @@ $GLOBALS['wp_cardealer_post_terms'][99] = array(
 assert_same( 'ورامین', WP_CarDealer_Listing_Location::get_leaf_name( 99 ), 'returns deepest assigned term name' );
 assert_same( 'تهران › ورامین', WP_CarDealer_Listing_Location::get_path_text( 99 ), 'builds full location path' );
 assert_contains( 'tehran', WP_CarDealer_Listing_Location::get_path_html( 99 ), 'path html links include parent slug' );
+assert_contains( 'listing-location-link', WP_CarDealer_Listing_Location::get_path_html( 99 ), 'path html uses link class' );
+assert_contains( 'varamin', WP_CarDealer_Listing_Location::get_path_html( 99 ), 'path html links include child slug' );
+assert_contains( 'tehran', WP_CarDealer_Listing_Location::get_leaf_link_html( 99 ), 'leaf link targets parent city archive' );
+assert_contains( 'ورامین', WP_CarDealer_Listing_Location::get_leaf_link_html( 99 ), 'leaf link keeps child label text' );
+assert_same( 'تهران', WP_CarDealer_Listing_Location::get_city_term( 99 )->name, 'returns parent city term' );
+assert_same( 1, WP_CarDealer_Listing_Location::get_leaf_link_term( 99 )->term_id, 'leaf link term is the city' );
 assert_same( '', WP_CarDealer_Listing_Location::get_leaf_name( 100 ), 'empty listing returns blank leaf' );
 
 $chain = WP_CarDealer_Listing_Location::get_term_chain( 99 );
