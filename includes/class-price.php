@@ -32,8 +32,22 @@ class WP_CarDealer_Price {
 		}
 		$decimals = false;
 		$money_decimals = wp_cardealer_get_option('money_decimals');
+		$navasan_rate = 0;
+		if ( class_exists( 'WP_CarDealer_Navasan' ) && WP_CarDealer_Navasan::is_enabled() ) {
+			$navasan_rate = WP_CarDealer_Navasan::get_usd_toman_rate();
+		}
+		$navasan_display = $navasan_rate > 0;
 
-		if ( wp_cardealer_get_option('enable_multi_currencies') === 'yes' ) {
+		if ( $navasan_display && ! $without_rate_exchange ) {
+			$price = WP_CarDealer_Navasan::convert_amount( $price, $navasan_rate );
+		}
+
+		if ( $navasan_display ) {
+			$symbol = WP_CarDealer_Navasan::get_toman_symbol();
+			$currency_position = wp_cardealer_get_option( 'navasan_currency_position', 'after_space' );
+			$decimals = false;
+			$money_decimals = 0;
+		} elseif ( wp_cardealer_get_option('enable_multi_currencies') === 'yes' ) {
 			$current_currency = self::get_current_currency();
 			$multi_currencies = self::get_currencies_settings();
 
@@ -103,6 +117,10 @@ class WP_CarDealer_Price {
 	public static function convert_price_exchange( $price ) {
 		if ( empty( $price ) || ! is_numeric( $price ) ) {
 			$price = 0;
+		}
+		if ( class_exists( 'WP_CarDealer_Navasan' ) && WP_CarDealer_Navasan::is_enabled() ) {
+			$price = WP_CarDealer_Navasan::convert_usd_to_toman( $price );
+			return $price;
 		}
 		if ( wp_cardealer_get_option('enable_multi_currencies') === 'yes' ) {
 			$current_currency = self::get_current_currency();

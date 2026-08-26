@@ -426,7 +426,8 @@ class WP_CarDealer_Fields_Manager {
                 'name'              => __( 'Price', 'wp-cardealer' ),
                 'id'                => $prefix . 'price',
                 'type'              => 'text',
-                'placeholder'       => __( 'e.g. 1000', 'wp-cardealer' ),
+                'placeholder'       => __( 'e.g. 25000 (USD)', 'wp-cardealer' ),
+                'desc'              => __( 'Enter the price in US dollars (USD). The website displays this amount in Tomans using the BrsApi live rate.', 'wp-cardealer' ),
                 'field_call_back' => array( 'WP_CarDealer_Abstract_Filter', 'filter_field_listing_price'),
                 'show_compare'      => true
             ),

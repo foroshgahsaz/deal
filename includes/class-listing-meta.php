@@ -96,7 +96,9 @@ class WP_CarDealer_Listing_Meta {
 		if ( $price_custom ) {
 			return apply_filters( 'wp-cardealer-get-price-html', $price_custom, $this->post_id, $this );
 		}
-		$price = $this->get_post_meta( 'price' );
+		$price = class_exists( 'WP_CarDealer_Navasan' )
+			? WP_CarDealer_Navasan::get_stored_usd_price( $this->post_id )
+			: $this->get_post_meta( 'price' );
 
 		if ( empty( $price ) || ! is_numeric( $price ) ) {
 			return false;

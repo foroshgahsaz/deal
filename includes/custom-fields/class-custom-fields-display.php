@@ -52,6 +52,14 @@ class WP_CarDealer_Custom_Fields_Display {
         }
 		$output_value = '';
 
+		if ( $field_id === WP_CARDEALER_LISTING_PREFIX . 'price' && is_numeric( $value ) ) {
+			$formatted_price = WP_CarDealer_Price::format_price( $value );
+			if ( $formatted_price ) {
+				$output_value = $formatted_price;
+			}
+		}
+
+		if ( $output_value === '' ) {
 		switch ( $field_type ) {
             case 'text':
             case 'number':
@@ -96,9 +104,10 @@ class WP_CarDealer_Custom_Fields_Display {
             			$return .= '<a href="'.esc_url($value).'">'.esc_html__('Download file', 'wp-cardealer').'</a>';
             		}
                 }
-                $output_value = $return;
+            $output_value = $return;
             break;
         }
+		}
         ob_start();
         if ( $current_hook === 'wp-cardealer-single-listing-details' ) {
             ?>
