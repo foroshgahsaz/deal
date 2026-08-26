@@ -87,10 +87,6 @@ class WP_CarDealer_Elementor_Tag_Location_Leaf extends WP_CarDealer_Elementor_Ta
 		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
 	}
 
-	public function get_content_type() {
-		return 'html';
-	}
-
 	protected function register_controls() {}
 
 	public function render() {
@@ -124,10 +120,6 @@ class WP_CarDealer_Elementor_Tag_Location_Path extends WP_CarDealer_Elementor_Ta
 
 	public function get_categories() {
 		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
-	}
-
-	public function get_content_type() {
-		return 'html';
 	}
 
 	protected function register_controls() {
@@ -179,10 +171,6 @@ class WP_CarDealer_Elementor_Tag_Listing_Price_Html extends WP_CarDealer_Element
 		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
 	}
 
-	public function get_content_type() {
-		return 'html';
-	}
-
 	protected function register_controls() {}
 
 	public function render() {
@@ -218,10 +206,6 @@ class WP_CarDealer_Elementor_Tag_Listing_Fees_Html extends WP_CarDealer_Elemento
 		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
 	}
 
-	public function get_content_type() {
-		return 'html';
-	}
-
 	protected function register_controls() {}
 
 	public function render() {
@@ -251,10 +235,6 @@ abstract class WP_CarDealer_Elementor_Tag_Listing_Fee extends WP_CarDealer_Eleme
 
 	public function get_categories() {
 		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
-	}
-
-	public function get_content_type() {
-		return 'html';
 	}
 
 	protected function register_controls() {
@@ -333,10 +313,6 @@ class WP_CarDealer_Elementor_Tag_Body_Damage extends WP_CarDealer_Elementor_Tag_
 
 	public function get_categories() {
 		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
-	}
-
-	public function get_content_type() {
-		return 'html';
 	}
 
 	protected function register_controls() {}
