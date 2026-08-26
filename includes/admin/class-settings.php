@@ -351,8 +351,8 @@ class WP_CarDealer_Settings {
 						),
 					),
 					array(
-						'name' => __( 'USD to Toman (Navasan)', 'wp-cardealer' ),
-						'desc' => sprintf( __( 'Enter listing prices in USD. Frontend output is converted to Toman with the live rate from <a href="%s" target="_blank" rel="noopener noreferrer">Navasan</a>. Themes do not need to be changed.', 'wp-cardealer' ), 'https://www.navasan.tech/api/webserviceguide/' ),
+						'name' => __( 'USD to Toman (BrsApi)', 'wp-cardealer' ),
+						'desc' => sprintf( __( 'Enter listing prices in USD. Frontend output is converted to Toman with the live rate from <a href="%s" target="_blank" rel="noopener noreferrer">BrsApi gold and currency API</a>. Themes do not need to be changed.', 'wp-cardealer' ), 'https://brsapi.ir/free-api-gold-currency-webservice/' ),
 						'type' => 'wp_cardealer_title',
 						'id'   => 'wp_cardealer_title_general_settings_navasan',
 						'before_row' => '<hr>',
@@ -370,10 +370,10 @@ class WP_CarDealer_Settings {
 						'desc'    => __( 'When enabled, the listing price field is treated as USD and visitors see Tomans.', 'wp-cardealer' ),
 					),
 					array(
-						'name' => __( 'Navasan API token', 'wp-cardealer' ),
+						'name' => __( 'BrsApi API key', 'wp-cardealer' ),
 						'id'   => 'navasan_api_key',
 						'type' => 'text',
-						'desc' => sprintf( __( 'Paste the API key from Navasan. See the <a href="%s" target="_blank" rel="noopener noreferrer">web service guide</a> to get a token.', 'wp-cardealer' ), 'https://www.navasan.tech/api/webserviceguide/' ),
+						'desc' => sprintf( __( 'Paste the API key from BrsApi. See the <a href="%s" target="_blank" rel="noopener noreferrer">gold and currency web service</a> to get a key.', 'wp-cardealer' ), 'https://brsapi.ir/free-api-gold-currency-webservice/' ),
 						'attributes' => array(
 							'placeholder' => __( 'API key', 'wp-cardealer' ),
 							'autocomplete' => 'off',
@@ -384,8 +384,8 @@ class WP_CarDealer_Settings {
 						'id'      => 'navasan_usd_item',
 						'type'    => 'select',
 						'options' => WP_CarDealer_Navasan::get_usd_item_options(),
-						'default' => 'usd_sell',
-						'desc'    => __( 'Which Navasan USD market rate is used for conversion. Tehran sell is the usual free-market rate.', 'wp-cardealer' ),
+						'default' => 'USD',
+						'desc'    => __( 'Which BrsApi symbol is used for conversion. USD is the free-market dollar; USDT_IRT is tether.', 'wp-cardealer' ),
 					),
 					array(
 						'name'    => __( 'Rate cache (minutes)', 'wp-cardealer' ),
@@ -413,7 +413,7 @@ class WP_CarDealer_Settings {
 						'default' => 'after_space',
 					),
 					array(
-						'name' => __( 'Navasan connection', 'wp-cardealer' ),
+						'name' => __( 'BrsApi connection', 'wp-cardealer' ),
 						'id'   => 'navasan_connection_status',
 						'type' => 'wp_cardealer_navasan_status',
 						'save_field' => false,
@@ -2005,7 +2005,7 @@ function wp_cardealer_navasan_status_callback( $field_object, $escaped_value, $o
 	$rate = ! empty( $last['rate'] ) ? $last['rate'] : '';
 	$date = ! empty( $last['date'] ) ? $last['date'] : '';
 	$fetched_at = ! empty( $last['fetched_at'] ) ? $last['fetched_at'] : '';
-	$item = ! empty( $last['item'] ) ? $last['item'] : 'usd_sell';
+	$item = ! empty( $last['item'] ) ? $last['item'] : 'USD';
 
 	echo '<div class="wp-cardealer-navasan-status">';
 	if ( $rate ) {
@@ -2015,7 +2015,7 @@ function wp_cardealer_navasan_status_callback( $field_object, $escaped_value, $o
 		if ( $date || $fetched_at ) {
 			echo '<p class="description">';
 			if ( $date ) {
-				echo esc_html__( 'Navasan date:', 'wp-cardealer' ) . ' ' . esc_html( $date ) . ' ';
+				echo esc_html__( 'BrsApi date:', 'wp-cardealer' ) . ' ' . esc_html( $date ) . ' ';
 			}
 			if ( $fetched_at ) {
 				echo esc_html__( 'Fetched at:', 'wp-cardealer' ) . ' ' . esc_html( $fetched_at );

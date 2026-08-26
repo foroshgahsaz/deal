@@ -1,6 +1,6 @@
 <?php
 /**
- * Standalone tests for Navasan USD→Toman helpers.
+ * Standalone tests for BrsApi USD→Toman helpers.
  *
  * Run: php tests/test-navasan.php
  */
@@ -35,52 +35,60 @@ function assert_same( $expected, $actual, $message ) {
 	echo '      actual:   ' . var_export( $actual, true ) . "\n";
 }
 
-function assert_true( $condition, $message ) {
-	assert_same( true, (bool) $condition, $message );
-}
-
 $payload = array(
-	'usd_sell' => array(
-		'value'     => '11100',
-		'change'    => -25,
-		'timestamp' => 1568212950,
-		'date'      => '1398-06-20 19:12:30',
+	'gold'     => array(),
+	'currency' => array(
+		array(
+			'date'           => '1405/06/04',
+			'time'           => '18:14',
+			'time_unix'      => 1787755476,
+			'symbol'         => 'USDT_IRT',
+			'name'           => 'دلار تتر',
+			'price'          => 198726,
+			'change_value'   => -358,
+			'change_percent' => -0.18,
+			'unit'           => 'تومان',
+		),
+		array(
+			'date'           => '1405/06/04',
+			'time'           => '18:14',
+			'time_unix'      => 1787755476,
+			'symbol'         => 'USD',
+			'name_en'        => 'US Dollar',
+			'name'           => 'دلار',
+			'price'          => 200500,
+			'change_value'   => 0,
+			'change_percent' => 0,
+			'unit'           => 'تومان',
+		),
 	),
 );
 
-$parsed = WP_CarDealer_Navasan::extract_rate_from_payload( $payload, 'usd_sell' );
-assert_same( 11100.0, $parsed['rate'], 'extracts usd_sell.value from latest payload' );
-assert_same( '1398-06-20 19:12:30', $parsed['date'], 'extracts Navasan date' );
-assert_same( 1568212950, $parsed['timestamp'], 'extracts timestamp' );
+$parsed = WP_CarDealer_Navasan::extract_rate_from_payload( $payload, 'USD' );
+assert_same( 200500.0, $parsed['rate'], 'extracts USD.price from BrsApi currency list' );
+assert_same( 'USD', $parsed['item'], 'keeps USD symbol' );
+assert_same( 'دلار', $parsed['name'], 'extracts Persian name' );
+assert_same( '1405/06/04 18:14', $parsed['date'], 'joins BrsApi date and time' );
+assert_same( 1787755476, $parsed['timestamp'], 'extracts time_unix' );
 
-$flat = array(
-	'value'     => '95000',
-	'change'    => 10,
-	'timestamp' => 1700000000,
-	'date'      => '1402-01-01 12:00:00',
-);
-$parsed_flat = WP_CarDealer_Navasan::extract_rate_from_payload( $flat, 'usd_sell' );
-assert_same( 95000.0, $parsed_flat['rate'], 'extracts value from a flat item payload' );
+$tether = WP_CarDealer_Navasan::extract_rate_from_payload( $payload, 'USDT_IRT' );
+assert_same( 198726.0, $tether['rate'], 'extracts USDT_IRT from the same payload' );
 
-$empty = WP_CarDealer_Navasan::extract_rate_from_payload( array( 'foo' => 'bar' ), 'usd_sell' );
+$list = WP_CarDealer_Navasan::extract_rate_from_payload( $payload['currency'], 'USD' );
+assert_same( 200500.0, $list['rate'], 'accepts a flat list of currency rows' );
+
+$empty = WP_CarDealer_Navasan::extract_rate_from_payload( array( 'foo' => 'bar' ), 'USD' );
 assert_same( 0.0, $empty['rate'], 'returns 0 for invalid payload' );
 
-$null = WP_CarDealer_Navasan::extract_rate_from_payload( null, 'usd_sell' );
+$null = WP_CarDealer_Navasan::extract_rate_from_payload( null, 'USD' );
 assert_same( 0.0, $null['rate'], 'returns 0 for non-array payload' );
 
-assert_same( 277500000.0, WP_CarDealer_Navasan::convert_amount( 25000, 11100 ), 'converts 25000 USD at 11100 Toman' );
-assert_same( 0.0, WP_CarDealer_Navasan::convert_amount( 'abc', 11100 ), 'non-numeric USD becomes 0' );
-assert_same( 25000.0, WP_CarDealer_Navasan::convert_amount( 25000, 0 ), 'rate 0 leaves the USD amount unchanged' );
-assert_same( 25000.0, WP_CarDealer_Navasan::convert_amount( 25000, -1 ), 'negative rate leaves the USD amount unchanged' );
-assert_same( 277500001.0, WP_CarDealer_Navasan::convert_amount( 25000.00009, 11100 ), 'rounds converted Toman to nearest integer' );
+assert_same( 200500.0, WP_CarDealer_Navasan::price_to_toman( 200500, 'تومان' ), 'keeps Toman prices as-is' );
+assert_same( 85900.0, WP_CarDealer_Navasan::price_to_toman( 859000, 'ریال' ), 'converts Rial prices to Toman' );
 
-$nested_other = array(
-	'usd_buy' => array(
-		'value' => '11050',
-	),
-);
-$parsed_other = WP_CarDealer_Navasan::extract_rate_from_payload( $nested_other, 'usd_buy' );
-assert_same( 11050.0, $parsed_other['rate'], 'extracts a non-default item key' );
+assert_same( 5012500000.0, WP_CarDealer_Navasan::convert_amount( 25000, 200500 ), 'converts 25000 USD at 200500 Toman' );
+assert_same( 0.0, WP_CarDealer_Navasan::convert_amount( 'abc', 200500 ), 'non-numeric USD becomes 0' );
+assert_same( 25000.0, WP_CarDealer_Navasan::convert_amount( 25000, 0 ), 'rate 0 leaves the USD amount unchanged' );
 
 echo "\n{$passed} passed, {$failed} failed\n";
 exit( $failed > 0 ? 1 : 0 );

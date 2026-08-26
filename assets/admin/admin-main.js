@@ -296,7 +296,7 @@
                 event.preventDefault();
                 var $result = $('.wp-cardealer-navasan-test-result');
                 var apiKey = $('#navasan_api_key').val() || '';
-                var item = $('#navasan_usd_item').val() || 'usd_sell';
+                var item = $('#navasan_usd_item').val() || 'USD';
 
                 $button.prop('disabled', true);
                 $result.removeClass('notice-success notice-error').text( wp_cardealer_opts.navasan_testing || 'Testing...' );

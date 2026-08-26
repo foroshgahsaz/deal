@@ -4753,8 +4753,8 @@ msgid_plural "Pending Approve <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "USD to Toman (Navasan)"
-msgstr "دلار به تومان (نوسان)"
+msgid "USD to Toman (BrsApi)"
+msgstr "دلار به تومان (BrsApi)"
 
 msgid "Enable USD to Toman conversion"
 msgstr "فعال‌سازی تبدیل دلار به تومان"
@@ -4762,8 +4762,14 @@ msgstr "فعال‌سازی تبدیل دلار به تومان"
 msgid "When enabled, the listing price field is treated as USD and visitors see Tomans."
 msgstr "در صورت فعال بودن، فیلد قیمت آگهی دلار در نظر گرفته می‌شود و بازدیدکننده تومان می‌بیند."
 
-msgid "Navasan API token"
-msgstr "توکن API نوسان"
+msgid "BrsApi API key"
+msgstr "کلید API وب‌سرویس BrsApi"
+
+msgid "Enter listing prices in USD. Frontend output is converted to Toman with the live rate from <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">BrsApi gold and currency API</a>. Themes do not need to be changed."
+msgstr "قیمت آگهی را به دلار وارد کنید. خروجی قالب با نرخ زنده <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">وب‌سرویس طلا و ارز BrsApi</a> به تومان تبدیل می‌شود و نیازی به تغییر قالب نیست."
+
+msgid "Paste the API key from BrsApi. See the <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">gold and currency web service</a> to get a key."
+msgstr "کلید API را از BrsApi وارد کنید. برای دریافت کلید <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">وب‌سرویس طلا و ارز</a> را ببینید."
 
 msgid "API key"
 msgstr "کلید API"
@@ -4771,8 +4777,8 @@ msgstr "کلید API"
 msgid "USD rate source"
 msgstr "منبع نرخ دلار"
 
-msgid "Which Navasan USD market rate is used for conversion. Tehran sell is the usual free-market rate."
-msgstr "کدام نرخ دلار نوسان برای تبدیل استفاده شود. فروش تهران معمولاً نرخ بازار آزاد است."
+msgid "Which BrsApi symbol is used for conversion. USD is the free-market dollar; USDT_IRT is tether."
+msgstr "کدام نماد BrsApi برای تبدیل استفاده شود. USD دلار بازار آزاد است و USDT_IRT تتر است."
 
 msgid "Rate cache (minutes)"
 msgstr "کش نرخ (دقیقه)"
@@ -4795,8 +4801,8 @@ msgstr "قبل با فاصله - تومان 10"
 msgid "Before - تومان10"
 msgstr "قبل - تومان10"
 
-msgid "Navasan connection"
-msgstr "اتصال نوسان"
+msgid "BrsApi connection"
+msgstr "اتصال BrsApi"
 
 msgid "Last fetched rate:"
 msgstr "آخرین نرخ دریافت‌شده:"
@@ -4804,8 +4810,8 @@ msgstr "آخرین نرخ دریافت‌شده:"
 msgid "Toman per 1 USD"
 msgstr "تومان به‌ازای هر ۱ دلار"
 
-msgid "Navasan date:"
-msgstr "تاریخ نوسان:"
+msgid "BrsApi date:"
+msgstr "تاریخ BrsApi:"
 
 msgid "Fetched at:"
 msgstr "زمان دریافت:"
@@ -4816,26 +4822,29 @@ msgstr "هنوز نرخی ذخیره نشده است. توکن API را ذخیر
 msgid "Test token and refresh rate"
 msgstr "تست توکن و به‌روزرسانی نرخ"
 
-msgid "Testing Navasan connection..."
-msgstr "در حال تست اتصال نوسان..."
+msgid "Testing BrsApi connection..."
+msgstr "در حال تست اتصال BrsApi..."
 
-msgid "Navasan API token is empty."
-msgstr "توکن API نوسان خالی است."
+msgid "BrsApi API key is empty."
+msgstr "کلید API وب‌سرویس BrsApi خالی است."
 
-msgid "Navasan API token is invalid."
-msgstr "توکن API نوسان نامعتبر است."
+msgid "BrsApi API key is invalid or the request was blocked."
+msgstr "کلید API وب‌سرویس BrsApi نامعتبر است یا درخواست مسدود شد."
 
-msgid "Unable to fetch the USD rate from Navasan."
-msgstr "دریافت نرخ دلار از نوسان ممکن نشد."
+msgid "Unable to fetch the USD rate from BrsApi."
+msgstr "دریافت نرخ دلار از BrsApi ممکن نشد."
 
-msgid "Navasan did not return a valid USD rate."
-msgstr "نوسان نرخ دلار معتبری برنگرداند."
+msgid "BrsApi did not return a valid USD rate."
+msgstr "BrsApi نرخ دلار معتبری برنگرداند."
 
 msgid "Connection successful. Current rate: %1$s Toman per 1 USD (%2$s)."
 msgstr "اتصال موفق بود. نرخ فعلی: %1$s تومان به‌ازای هر ۱ دلار (%2$s)."
 
-msgid "Tehran USD sell (usd_sell)"
-msgstr "دلار تهران فروش (usd_sell)"
+msgid "US Dollar (USD)"
+msgstr "دلار آمریکا (USD)"
+
+msgid "Tether (USDT_IRT)"
+msgstr "دلار تتر (USDT_IRT)"
 
 msgid "Tehran USD buy (usd_buy)"
 msgstr "دلار تهران خرید (usd_buy)"
@@ -4852,8 +4861,8 @@ msgstr "دلار مبادله‌ای (mob_usd)"
 msgid "Herat USD sell (harat_naghdi_sell)"
 msgstr "دلار هرات فروش (harat_naghdi_sell)"
 
-msgid "Enter the price in US dollars (USD). The website displays this amount in Tomans using the Navasan live rate."
-msgstr "قیمت را به دلار آمریکا وارد کنید. سایت همین مبلغ را با نرخ زنده نوسان به تومان نمایش می‌دهد."
+msgid "Enter the price in US dollars (USD). The website displays this amount in Tomans using the BrsApi live rate."
+msgstr "قیمت را به دلار آمریکا وارد کنید. سایت همین مبلغ را با نرخ زنده BrsApi به تومان نمایش می‌دهد."
 
 msgid "e.g. 25000 (USD)"
 msgstr "مثال: 25000 (دلار)"

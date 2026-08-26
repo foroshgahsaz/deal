@@ -1,11 +1,11 @@
 <?php
 /**
- * Navasan USD to Toman conversion.
+ * USD to Toman conversion via BrsApi gold/currency web service.
  *
  * Listing prices are stored in USD. Frontend output is converted to Toman
- * via the Navasan latest-price API so any theme using the plugin formatters
- * shows Tomans without theme changes.
+ * so any theme using the plugin formatters shows Tomans without theme changes.
  *
+ * @link https://brsapi.ir/free-api-gold-currency-webservice/
  * @package wp-cardealer
  */
 
@@ -17,9 +17,9 @@ class WP_CarDealer_Navasan {
 
 	const TRANSIENT_RATE = 'wp_cardealer_navasan_usd_toman_rate';
 	const OPTION_LAST_RESULT = 'wp_cardealer_navasan_last_result';
-	const DEFAULT_ITEM = 'usd_sell';
+	const DEFAULT_ITEM = 'USD';
 	const DEFAULT_CACHE_MINUTES = 60;
-	const API_URL = 'http://api.navasan.tech/latest/';
+	const API_URL = 'https://Api.BrsApi.ir/Market/Gold_Currency.php';
 
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'schedule_refresh' ) );
@@ -60,7 +60,7 @@ class WP_CarDealer_Navasan {
 	}
 
 	/**
-	 * Navasan item used as the USD market rate. Default is Tehran sell.
+	 * BrsApi currency symbol used as the USD market rate. Default is USD.
 	 *
 	 * @return string
 	 */
@@ -69,6 +69,19 @@ class WP_CarDealer_Navasan {
 
 		if ( empty( $item ) || ! is_string( $item ) ) {
 			return self::DEFAULT_ITEM;
+		}
+
+		$legacy = array(
+			'usd_sell'          => 'USD',
+			'usd_buy'           => 'USD',
+			'usd'               => 'USD',
+			'mex_usd_sell'      => 'USD',
+			'mob_usd'           => 'USD',
+			'harat_naghdi_sell' => 'USD',
+		);
+		$lower = strtolower( $item );
+		if ( isset( $legacy[ $lower ] ) ) {
+			return $legacy[ $lower ];
 		}
 
 		return $item;
@@ -170,7 +183,7 @@ class WP_CarDealer_Navasan {
 	}
 
 	/**
-	 * Fetch the latest rate from Navasan and cache it.
+	 * Fetch the latest rate from BrsApi and cache it.
 	 *
 	 * @param string $api_key Optional override (settings form test).
 	 * @param string $item    Optional override.
@@ -189,7 +202,7 @@ class WP_CarDealer_Navasan {
 	}
 
 	/**
-	 * Persist a successful Navasan payload.
+	 * Persist a successful BrsApi payload.
 	 *
 	 * @param array $result
 	 * @return void
@@ -202,8 +215,10 @@ class WP_CarDealer_Navasan {
 			array(
 				'rate'       => $rate,
 				'item'       => isset( $result['item'] ) ? $result['item'] : self::get_usd_item(),
+				'name'       => isset( $result['name'] ) ? $result['name'] : '',
 				'date'       => isset( $result['date'] ) ? $result['date'] : '',
 				'timestamp'  => isset( $result['timestamp'] ) ? (int) $result['timestamp'] : time(),
+				'unit'       => isset( $result['unit'] ) ? $result['unit'] : 'تومان',
 				'fetched_at' => current_time( 'mysql' ),
 			),
 			false
@@ -211,7 +226,7 @@ class WP_CarDealer_Navasan {
 	}
 
 	/**
-	 * Call Navasan latest-price API.
+	 * Call BrsApi latest gold/currency endpoint.
 	 *
 	 * @param string $api_key
 	 * @param string $item
@@ -229,14 +244,13 @@ class WP_CarDealer_Navasan {
 		if ( $api_key === '' ) {
 			return array(
 				'success' => false,
-				'message' => __( 'Navasan API token is empty.', 'wp-cardealer' ),
+				'message' => __( 'BrsApi API key is empty.', 'wp-cardealer' ),
 			);
 		}
 
 		$url = add_query_arg(
 			array(
-				'api_key' => $api_key,
-				'item'    => $item,
+				'key' => $api_key,
 			),
 			self::API_URL
 		);
@@ -246,9 +260,13 @@ class WP_CarDealer_Navasan {
 		$response = wp_remote_get(
 			$url,
 			array(
-				'timeout'    => 15,
-				'sslverify'  => false,
-				'user-agent' => 'WP-CarDealer-Navasan/' . ( defined( 'WP_CARDEALER_PLUGIN_VERSION' ) ? WP_CARDEALER_PLUGIN_VERSION : '1.0' ),
+				'timeout'     => 20,
+				'sslverify'   => true,
+				'redirection' => 0,
+				'headers'     => array(
+					'Accept' => 'application/json',
+				),
+				'user-agent'  => 'WP-CarDealer/' . ( defined( 'WP_CARDEALER_PLUGIN_VERSION' ) ? WP_CARDEALER_PLUGIN_VERSION : '1.0' ),
 			)
 		);
 
@@ -263,17 +281,20 @@ class WP_CarDealer_Navasan {
 		$body = wp_remote_retrieve_body( $response );
 		$data = json_decode( $body, true );
 
-		if ( $code === 401 ) {
+		if ( $code === 401 || $code === 403 ) {
 			return array(
 				'success' => false,
-				'message' => __( 'Navasan API token is invalid.', 'wp-cardealer' ),
+				'message' => __( 'BrsApi API key is invalid or the request was blocked.', 'wp-cardealer' ),
+				'code'    => $code,
 			);
 		}
 
 		if ( $code !== 200 ) {
-			$message = __( 'Unable to fetch the USD rate from Navasan.', 'wp-cardealer' );
+			$message = __( 'Unable to fetch the USD rate from BrsApi.', 'wp-cardealer' );
 			if ( is_array( $data ) && ! empty( $data['message'] ) ) {
 				$message = $data['message'];
+			} elseif ( is_array( $data ) && ! empty( $data['message_error'] ) ) {
+				$message = $data['message_error'];
 			}
 
 			return array(
@@ -287,7 +308,7 @@ class WP_CarDealer_Navasan {
 		if ( $parsed['rate'] <= 0 ) {
 			return array(
 				'success' => false,
-				'message' => __( 'Navasan did not return a valid USD rate.', 'wp-cardealer' ),
+				'message' => __( 'BrsApi did not return a valid USD rate.', 'wp-cardealer' ),
 			);
 		}
 
@@ -297,7 +318,10 @@ class WP_CarDealer_Navasan {
 	}
 
 	/**
-	 * Parse Navasan JSON into a rate. Handles both `{item:{value:...}}` and `{value:...}`.
+	 * Parse BrsApi JSON into a Toman-per-USD rate.
+	 *
+	 * Free endpoint shape:
+	 * { "gold": [...], "currency": [ { "symbol": "USD", "price": 200500, "unit": "تومان" }, ... ] }
 	 *
 	 * @param mixed  $data
 	 * @param string $item
@@ -307,39 +331,110 @@ class WP_CarDealer_Navasan {
 		$result = array(
 			'rate'      => 0,
 			'item'      => $item,
+			'name'      => '',
 			'date'      => '',
 			'timestamp' => 0,
 			'change'    => '',
+			'unit'      => 'تومان',
 		);
 
-		if ( ! is_array( $data ) ) {
+		$rows = self::flatten_brs_items( $data );
+		if ( empty( $rows ) ) {
 			return $result;
 		}
 
-		$row = null;
-		if ( isset( $data[ $item ] ) && is_array( $data[ $item ] ) ) {
-			$row = $data[ $item ];
-		} elseif ( isset( $data['value'] ) ) {
-			$row = $data;
-		} else {
-			foreach ( $data as $maybe_row ) {
-				if ( is_array( $maybe_row ) && isset( $maybe_row['value'] ) ) {
-					$row = $maybe_row;
-					break;
+		$match = null;
+		foreach ( $rows as $row ) {
+			if ( ! is_array( $row ) || empty( $row['symbol'] ) ) {
+				continue;
+			}
+			if ( strcasecmp( (string) $row['symbol'], (string) $item ) === 0 ) {
+				$match = $row;
+				break;
+			}
+		}
+
+		if ( ! is_array( $match ) || ! isset( $match['price'] ) || ! is_numeric( $match['price'] ) ) {
+			return $result;
+		}
+
+		$unit = isset( $match['unit'] ) ? (string) $match['unit'] : 'تومان';
+		$rate = self::price_to_toman( (float) $match['price'], $unit );
+		if ( $rate <= 0 ) {
+			return $result;
+		}
+
+		$date = isset( $match['date'] ) ? (string) $match['date'] : '';
+		$time = isset( $match['time'] ) ? (string) $match['time'] : '';
+
+		$result['rate']      = $rate;
+		$result['item']      = (string) $match['symbol'];
+		$result['name']      = isset( $match['name'] ) ? (string) $match['name'] : '';
+		$result['date']      = trim( $date . ( $time !== '' ? ' ' . $time : '' ) );
+		$result['timestamp'] = isset( $match['time_unix'] ) ? (int) $match['time_unix'] : 0;
+		$result['change']    = isset( $match['change_value'] ) ? $match['change_value'] : '';
+		$result['unit']      = 'تومان';
+
+		return $result;
+	}
+
+	/**
+	 * Collect gold/currency/cryptocurrency rows from a BrsApi payload.
+	 *
+	 * @param mixed $data
+	 * @return array
+	 */
+	public static function flatten_brs_items( $data ) {
+		if ( ! is_array( $data ) ) {
+			return array();
+		}
+
+		if ( isset( $data['data'] ) && is_array( $data['data'] ) ) {
+			$data = $data['data'];
+		}
+
+		$rows = array();
+		foreach ( array( 'gold', 'currency', 'cryptocurrency' ) as $section ) {
+			if ( isset( $data[ $section ] ) && is_array( $data[ $section ] ) ) {
+				foreach ( $data[ $section ] as $row ) {
+					if ( is_array( $row ) ) {
+						$rows[] = $row;
+					}
 				}
 			}
 		}
 
-		if ( ! is_array( $row ) || ! isset( $row['value'] ) || ! is_numeric( $row['value'] ) ) {
-			return $result;
+		if ( ! empty( $rows ) ) {
+			return $rows;
 		}
 
-		$result['rate']      = (float) $row['value'];
-		$result['date']      = isset( $row['date'] ) ? (string) $row['date'] : '';
-		$result['timestamp'] = isset( $row['timestamp'] ) ? (int) $row['timestamp'] : 0;
-		$result['change']    = isset( $row['change'] ) ? $row['change'] : '';
+		if ( isset( $data[0] ) && is_array( $data[0] ) ) {
+			return $data;
+		}
 
-		return $result;
+		return array();
+	}
+
+	/**
+	 * Normalize a BrsApi price to Toman. Pro docs use Rial; free API uses Toman.
+	 *
+	 * @param float  $price
+	 * @param string $unit
+	 * @return float
+	 */
+	public static function price_to_toman( $price, $unit ) {
+		if ( ! is_numeric( $price ) || (float) $price <= 0 ) {
+			return 0;
+		}
+
+		$price = (float) $price;
+		$unit  = trim( (string) $unit );
+
+		if ( $unit === 'ریال' || strcasecmp( $unit, 'rial' ) === 0 || strcasecmp( $unit, 'irr' ) === 0 ) {
+			return $price / 10;
+		}
+
+		return $price;
 	}
 
 	/**
@@ -420,18 +515,14 @@ class WP_CarDealer_Navasan {
 	}
 
 	/**
-	 * USD market sources supported by Navasan latest API.
+	 * USD market sources supported by BrsApi gold/currency.
 	 *
 	 * @return array
 	 */
 	public static function get_usd_item_options() {
 		return array(
-			'usd_sell'        => __( 'Tehran USD sell (usd_sell)', 'wp-cardealer' ),
-			'usd_buy'         => __( 'Tehran USD buy (usd_buy)', 'wp-cardealer' ),
-			'usd'             => __( 'US dollar (usd)', 'wp-cardealer' ),
-			'mex_usd_sell'    => __( 'National Exchange USD sell (mex_usd_sell)', 'wp-cardealer' ),
-			'mob_usd'         => __( 'NIMA/exchange USD (mob_usd)', 'wp-cardealer' ),
-			'harat_naghdi_sell' => __( 'Herat USD sell (harat_naghdi_sell)', 'wp-cardealer' ),
+			'USD'       => __( 'US Dollar (USD)', 'wp-cardealer' ),
+			'USDT_IRT'  => __( 'Tether (USDT_IRT)', 'wp-cardealer' ),
 		);
 	}
 }
