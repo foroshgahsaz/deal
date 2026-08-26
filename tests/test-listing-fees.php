@@ -85,6 +85,14 @@ assert_same( '', WP_CarDealer_Price::format_toman_amount( '' ), 'hides empty unl
 assert_contains( '0', WP_CarDealer_Price::format_toman_amount( '', true ), 'empty amount can render as 0' );
 assert_contains( '0', WP_CarDealer_Price::format_toman_amount( 0, true ), 'zero amount can render as 0' );
 
+$GLOBALS['wp_cardealer_test_meta'][14] = array(
+	'_listing_customs_fee' => '750000',
+);
+assert_same( '750000', WP_CarDealer_Price::get_listing_fee_value( 14, 'customs_fee' ), 'reads customs meta value' );
+assert_contains( '750,000', WP_CarDealer_Price::get_listing_fee_formatted( 14, 'customs_fee' ), 'formats customs fee html' );
+assert_contains( '750,000', WP_CarDealer_Price::get_listing_fee_plain( 14, 'customs_fee' ), 'formats customs fee plain text' );
+assert_contains( '0', WP_CarDealer_Price::get_listing_fee_plain( 14, 'shipping_fee', true ), 'empty shipping renders as zero in plain text' );
+
 $GLOBALS['wp_cardealer_test_meta'][12] = array(
 	'_listing_customs_fee'  => '500000',
 	'_listing_shipping_fee' => '900000',

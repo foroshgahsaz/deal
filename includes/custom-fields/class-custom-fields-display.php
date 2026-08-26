@@ -47,7 +47,9 @@ class WP_CarDealer_Custom_Fields_Display {
 		$field_id = !empty($custom_field['id']) ? $custom_field['id'] : '';
 		$field_name = !empty($custom_field['name']) ? $custom_field['name'] : '';
 		$value = get_post_meta( $post->ID, $field_id, true );
-        if ( empty($value) ) {
+		$is_fee_field = class_exists( 'WP_CarDealer_Price' ) && WP_CarDealer_Price::is_listing_fee_field( $field_id );
+
+        if ( empty( $value ) && ! $is_fee_field ) {
             return;
         }
 		$output_value = '';
@@ -57,8 +59,8 @@ class WP_CarDealer_Custom_Fields_Display {
 			if ( $formatted_price ) {
 				$output_value = $formatted_price;
 			}
-		} elseif ( class_exists( 'WP_CarDealer_Price' ) && WP_CarDealer_Price::is_listing_fee_field( $field_id ) ) {
-			$formatted_fee = WP_CarDealer_Price::format_toman_amount( $value );
+		} elseif ( $is_fee_field ) {
+			$formatted_fee = WP_CarDealer_Price::format_toman_amount( $value, true );
 			if ( $formatted_fee ) {
 				$output_value = $formatted_fee;
 			}
