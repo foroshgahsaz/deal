@@ -1,64 +1,82 @@
 <?php
 /**
- * Locations
+ * Listing location taxonomy (موقعیت).
  *
- * @package    wp-cardealer
- * @author     Habq 
- * @license    GNU General Public License, version 3
+ * @package wp-cardealer
  */
- 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
-class WP_ListingDealer_Taxonomy_Listing_Location{
 
-	/**
-	 *
-	 */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+class WP_CarDealer_Taxonomy_Listing_Location {
+
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'definition' ), 1 );
+		add_action( 'init', array( __CLASS__, 'maybe_seed_terms' ), 20 );
+		add_filter( 'wp_cardealer_cmb2_field_taxonomy_location_number', array( __CLASS__, 'dropdown_levels' ) );
+		add_filter( 'wp_cardealer_cmb2_field_taxonomy_location_field_name_1', array( __CLASS__, 'level_one_label' ) );
+		add_filter( 'wp_cardealer_cmb2_field_taxonomy_location_field_name_2', array( __CLASS__, 'level_two_label' ) );
 	}
 
-	/**
-	 *
-	 */
+	public static function dropdown_levels() {
+		return 2;
+	}
+
+	public static function level_one_label() {
+		return 'شهر';
+	}
+
+	public static function level_two_label() {
+		return 'زیرمجموعه';
+	}
+
 	public static function definition() {
-		$singular = __( 'Location', 'wp-cardealer' );
-		$plural   = __( 'Locations', 'wp-cardealer' );
-
 		$labels = array(
-			'name'              => sprintf(__( 'Listing %s', 'wp-cardealer' ), $plural),
-			'singular_name'     => $singular,
-			'search_items'      => sprintf(__( 'Search %s', 'wp-cardealer' ), $plural),
-			'all_items'         => sprintf(__( 'All %s', 'wp-cardealer' ), $plural),
-			'parent_item'       => sprintf(__( 'Parent %s', 'wp-cardealer' ), $singular),
-			'parent_item_colon' => sprintf(__( 'Parent %s:', 'wp-cardealer' ), $singular),
-			'edit_item'         => __( 'Edit', 'wp-cardealer' ),
-			'update_item'       => __( 'Update', 'wp-cardealer' ),
-			'add_new_item'      => __( 'Add New', 'wp-cardealer' ),
-			'new_item_name'     => sprintf(__( 'New %s', 'wp-cardealer' ), $singular),
-			'menu_name'         => $plural,
+			'name'              => 'موقعیت‌ها',
+			'singular_name'     => 'موقعیت',
+			'search_items'      => 'جستجوی موقعیت',
+			'all_items'         => 'همه موقعیت‌ها',
+			'parent_item'       => 'موقعیت والد',
+			'parent_item_colon' => 'موقعیت والد:',
+			'edit_item'         => 'ویرایش موقعیت',
+			'update_item'       => 'به‌روزرسانی موقعیت',
+			'add_new_item'      => 'افزودن موقعیت جدید',
+			'new_item_name'     => 'نام موقعیت جدید',
+			'menu_name'         => 'موقعیت',
 		);
 
-		$rewrite_slug = get_option('wp_cardealer_listing_location_slug');
-		if ( empty($rewrite_slug) ) {
-			$rewrite_slug = _x( 'listing-location', 'Listing location slug - resave permalinks after changing this', 'wp-cardealer' );
+		$rewrite_slug = get_option( 'wp_cardealer_listing_location_slug' );
+		if ( empty( $rewrite_slug ) ) {
+			$rewrite_slug = 'listing-location';
 		}
-		$rewrite = array(
-			'slug'         => $rewrite_slug,
-			'with_front'   => false,
-			'hierarchical' => false,
+
+		register_taxonomy(
+			'listing_location',
+			'listing',
+			array(
+				'labels'             => apply_filters( 'wp_cardealer_taxomony_listing_location_labels', $labels ),
+				'hierarchical'       => true,
+				'rewrite'            => array(
+					'slug'         => $rewrite_slug,
+					'with_front'   => false,
+					'hierarchical' => true,
+				),
+				'public'             => true,
+				'show_ui'            => true,
+				'show_admin_column'  => true,
+				'show_in_rest'       => true,
+				'show_in_quick_edit' => false,
+				'meta_box_cb'        => false,
+			)
 		);
-		register_taxonomy( 'listing_location', 'listing', array(
-			'labels'            => apply_filters( 'wp_cardealer_taxomony_listing_location_labels', $labels ),
-			'hierarchical'      => true,
-			'rewrite'           => $rewrite,
-			'public'            => true,
-			'show_ui'           => true,
-			'show_in_rest'		=> true
-		) );
 	}
 
+	public static function maybe_seed_terms() {
+		if ( class_exists( 'WP_CarDealer_Listing_Location' ) ) {
+			WP_CarDealer_Listing_Location::maybe_seed_terms();
+		}
+	}
 }
 
-WP_ListingDealer_Taxonomy_Listing_Location::init();
+WP_CarDealer_Taxonomy_Listing_Location::init();

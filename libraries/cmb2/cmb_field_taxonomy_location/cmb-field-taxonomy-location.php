@@ -112,8 +112,25 @@ class WP_CarDealer_CMB2_Field_Taxonomy_Location {
 		if ( empty($field->data_args()['id']) ) {
 			return array();
 		}
+
 		$object_id = $field->data_args()['id'];
-		$terms = get_the_terms( $object_id, $field->args( 'taxonomy' ) );
+		$taxonomy  = $field->args( 'taxonomy' );
+
+		if ( class_exists( 'WP_CarDealer_Listing_Location' ) && $taxonomy === WP_CarDealer_Listing_Location::TAXONOMY ) {
+			$chain = WP_CarDealer_Listing_Location::get_term_chain( $object_id );
+			if ( empty( $chain ) ) {
+				return array();
+			}
+
+			$ids = array();
+			foreach ( $chain as $term ) {
+				$ids[] = $term->term_id;
+			}
+
+			return $ids;
+		}
+
+		$terms = get_the_terms( $object_id, $taxonomy );
 
 		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 			foreach ( $terms as $index => $term ) {
@@ -141,19 +158,19 @@ class WP_CarDealer_CMB2_Field_Taxonomy_Location {
 	 * Handle sanitization for repeatable fields
 	 */
 	public function sanitize( $check, $meta_value, $object_id, $field_args ) {
-		if ( empty($meta_value) || !is_array( $meta_value ) ) {
-			wp_set_object_terms( $object_id, '', $field_args['taxonomy'], false );
+		if ( empty( $meta_value ) || ! is_array( $meta_value ) ) {
+			wp_set_object_terms( $object_id, array(), $field_args['taxonomy'], false );
 			return $check;
 		}
-		if ( $field_args['repeatable'] ) {
-			foreach ( $meta_value as $key => $val ) {
-				$meta_value[$key] = array_map( 'absint', $val );
-				wp_set_object_terms( $object_id, array_map( 'absint', $val ), $field_args['taxonomy'], false );
-			}
-		} else {
-			$meta_value = array_map( 'absint', $meta_value );
-			wp_set_object_terms( $object_id, $meta_value, $field_args['taxonomy'], false );
+
+		$meta_value = array_values( array_filter( array_map( 'absint', $meta_value ) ) );
+		if ( empty( $meta_value ) ) {
+			wp_set_object_terms( $object_id, array(), $field_args['taxonomy'], false );
+			return $check;
 		}
+
+		$term_id = (int) end( $meta_value );
+		wp_set_object_terms( $object_id, $term_id, $field_args['taxonomy'], false );
 
 		return $meta_value;
 	}

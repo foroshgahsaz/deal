@@ -17,6 +17,7 @@ class WP_CarDealer_Fields_Manager {
         add_action( 'admin_menu', array( __CLASS__, 'register_page' ), 1 );
         add_action( 'init', array(__CLASS__, 'init_hook'), 10 );
         add_filter( 'wp-cardealer-get-custom-fields-data', array( __CLASS__, 'inject_listing_fee_fields' ), 200, 2 );
+        add_filter( 'wp-cardealer-get-custom-fields-data', array( __CLASS__, 'inject_listing_location_fields' ), 210, 2 );
         add_filter( 'wp_cardealer_list_simple_type', array( __CLASS__, 'add_listing_fee_simple_types' ) );
 	}
 
@@ -160,7 +161,7 @@ class WP_CarDealer_Fields_Manager {
                                         if ( in_array( $fieldtype, $dtypes) ) {
                                             $output .= apply_filters('wp_cardealer_custom_field_available_simple_html', $fieldtype, $count_node, $field_values);
 
-                                        } elseif ( in_array( $fieldtype, apply_filters( 'wp_cardealer_list_tax_type', array( $prefix.'condition', $prefix.'label', $prefix.'category', $prefix.'type', $prefix.'color', $prefix.'cylinder', $prefix.'door', $prefix.'drive_type', $prefix.'fuel_type', $prefix.'make', $prefix.'model', $prefix.'offer_type', $prefix.'transmission' ) ) ) ) {
+                                        } elseif ( in_array( $fieldtype, apply_filters( 'wp_cardealer_list_tax_type', array( $prefix.'condition', $prefix.'label', $prefix.'category', $prefix.'type', $prefix.'color', $prefix.'cylinder', $prefix.'door', $prefix.'drive_type', $prefix.'fuel_type', $prefix.'location', $prefix.'make', $prefix.'model', $prefix.'offer_type', $prefix.'transmission' ) ) ) ) {
                                             
                                             $output .= apply_filters('wp_cardealer_custom_field_available_tax_html', $fieldtype, $count_node, $field_values);
 
@@ -607,6 +608,15 @@ class WP_CarDealer_Fields_Manager {
                 'show_compare'      => true
             ),
             array(
+                'name'              => 'موقعیت',
+                'id'                => $prefix . 'location',
+                'type'              => 'wpcd_taxonomy_location',
+                'taxonomy'          => 'listing_location',
+                'description'       => 'شهر و زیرمجموعه را انتخاب کنید. این فیلد جدا از آدرس متنی و نقشه است.',
+                'field_call_back' => array( 'WP_CarDealer_Abstract_Filter', 'filter_field_location_select'),
+                'show_compare'      => true,
+            ),
+            array(
                 'name'              => __( 'Make', 'wp-cardealer' ),
                 'id'                => $prefix . 'make',
                 'type'              => 'pw_taxonomy_multiselect',
@@ -942,6 +952,86 @@ class WP_CarDealer_Fields_Manager {
     }
 
     /**
+     * Inject the «موقعیت» tab heading + location field into saved Fields Manager data.
+     *
+     * @param mixed  $fields
+     * @param string $prefix
+     * @return mixed
+     */
+    public static function inject_listing_location_fields( $fields, $prefix = '' ) {
+        if ( $prefix && $prefix !== WP_CARDEALER_LISTING_PREFIX ) {
+            return $fields;
+        }
+
+        if ( empty( $fields ) || ! is_array( $fields ) ) {
+            return $fields;
+        }
+
+        $location_id = WP_CARDEALER_LISTING_PREFIX . 'location';
+        $heading_id  = WP_CARDEALER_LISTING_PREFIX . 'heading_location';
+
+        if ( self::saved_fields_contain( $fields, $location_id ) ) {
+            return $fields;
+        }
+
+        $block = self::get_listing_location_field_configs();
+        $result = array();
+        $inserted = false;
+        $anchor_id = WP_CARDEALER_LISTING_PREFIX . 'map_location';
+
+        foreach ( $fields as $field ) {
+            $result[] = $field;
+            if ( $inserted || ! is_array( $field ) ) {
+                continue;
+            }
+            $type = isset( $field['type'] ) ? $field['type'] : '';
+            $id   = isset( $field['id'] ) ? $field['id'] : '';
+            if ( $type === $anchor_id || $id === $anchor_id || $type === WP_CARDEALER_LISTING_PREFIX . 'address' || $id === WP_CARDEALER_LISTING_PREFIX . 'address' ) {
+                foreach ( $block as $config ) {
+                    $result[] = $config;
+                }
+                $inserted = true;
+            }
+        }
+
+        if ( ! $inserted ) {
+            foreach ( $block as $config ) {
+                $result[] = $config;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @return array
+     */
+    public static function get_listing_location_field_configs() {
+        $prefix = WP_CARDEALER_LISTING_PREFIX;
+
+        return array(
+            array(
+                'type'                => 'heading',
+                'id'                  => $prefix . 'heading_location',
+                'name'                => 'موقعیت',
+                'icon'                => 'dashicons-location-alt',
+                'show_in_submit_form' => 'yes',
+                'show_in_admin_edit'  => 'yes',
+            ),
+            array(
+                'type'                => $prefix . 'location',
+                'id'                  => $prefix . 'location',
+                'name'                => 'موقعیت',
+                'taxonomy'            => 'listing_location',
+                'description'         => 'شهر و زیرمجموعه را انتخاب کنید. این فیلد جدا از آدرس متنی و نقشه است.',
+                'show_in_submit_form' => 'yes',
+                'show_in_admin_edit'  => 'yes',
+                'required'            => '',
+            ),
+        );
+    }
+
+    /**
      * @param array  $fields
      * @param string $field_id
      * @return bool
@@ -1078,7 +1168,7 @@ class WP_CarDealer_Fields_Manager {
                 $html .= apply_filters( 'wp_cardealer_custom_field_available_simple_html', $fieldtype, $global_custom_field_counter, $dfield_values );
 
 
-            } elseif ( in_array( $fieldtype, apply_filters( 'wp_cardealer_list_tax_type', array($prefix.'condition', $prefix.'label', $prefix.'category', $prefix.'type', $prefix.'color', $prefix.'cylinder', $prefix.'door', $prefix.'drive_type', $prefix.'feature', $prefix.'fuel_type', $prefix.'make', $prefix.'model', $prefix.'offer_type', $prefix.'transmission') ) ) ) {
+            } elseif ( in_array( $fieldtype, apply_filters( 'wp_cardealer_list_tax_type', array($prefix.'condition', $prefix.'label', $prefix.'category', $prefix.'type', $prefix.'color', $prefix.'cylinder', $prefix.'door', $prefix.'drive_type', $prefix.'feature', $prefix.'fuel_type', $prefix.'location', $prefix.'make', $prefix.'model', $prefix.'offer_type', $prefix.'transmission') ) ) ) {
                 
                 $html .= apply_filters( 'wp_cardealer_custom_field_available_tax_html', $fieldtype, $global_custom_field_counter, $dfield_values );
 

@@ -837,16 +837,13 @@ class WP_CarDealer_Custom_Fields {
 				}
 			break;
 			case $prefix.'location':
-				$field['taxonomy'] = !empty($field_data['taxonomy']) ? $field_data['taxonomy'] : '';
-				$location_type = wp_cardealer_get_option('location_multiple_fields', 'yes');
-				
-				if ( $location_type === 'yes' ) {
-					$field['type'] = 'wpcd_taxonomy_location';
-				} else {
-					$field['type'] = 'pw_taxonomy_select';
+				$field['taxonomy'] = ! empty( $field_data['taxonomy'] ) ? $field_data['taxonomy'] : 'listing_location';
+				$field['type'] = 'wpcd_taxonomy_location';
+				if ( empty( $field['attributes'] ) || ! is_array( $field['attributes'] ) ) {
+					$field['attributes'] = array();
 				}
-				// $field['type'] = !empty($field_data['type']) ? $field_data['type'] : 'pw_taxonomy_select';
-			break;
+				$field['attributes']['placeholder'] = ! empty( $field['placeholder'] ) ? $field['placeholder'] : 'شهر را انتخاب کنید';
+				break;
 			case $prefix.'type':
 			case $prefix.'make':
 				$field['type'] = !empty($field_data['select_type']) ? $field_data['select_type'] : 'pw_taxonomy_select';

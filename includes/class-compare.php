@@ -330,6 +330,7 @@ class WP_CarDealer_Compare {
             case 'door':
             case 'drive_type':
             case 'fuel_type':
+            case 'location':
             case 'make':
             case 'model':
             case 'offer_type':

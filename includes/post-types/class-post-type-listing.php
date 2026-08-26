@@ -499,6 +499,21 @@ class WP_CarDealer_Post_Type_Car {
 				wp_dropdown_categories($tax_args);
 			}
 
+			if ( $meta_obj->check_post_meta_exist('location') ) {
+				$selected = isset($_GET['listing_location']) ? $_GET['listing_location'] : '';
+				$tax_args = array(
+					'taxonomy'     => 'listing_location',
+					'orderby'      => 'name',
+					'show_count'   => 1,
+					'hierarchical' => 1,
+					'name'         => 'listing_location',
+					'selected'     => $selected,
+					'show_option_all' => 'همه موقعیت‌ها',
+					'value_field'  => 'slug',
+				);
+				wp_dropdown_categories( $tax_args );
+			}
+
 			if ( $meta_obj->check_post_meta_exist('model') ) {
 				// models
 				$selected = isset($_GET['listing_model']) ? $_GET['listing_model'] : '';

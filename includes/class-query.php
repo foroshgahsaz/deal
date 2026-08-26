@@ -125,11 +125,16 @@ class WP_CarDealer_Query {
 
 	
 	public static function get_listing_location_name( $post_id = null, $separator = ',' ) {
-		static $listing_locations;
-
 		if ( null == $post_id ) {
 			$post_id = get_the_ID();
 		}
+
+		if ( class_exists( 'WP_CarDealer_Listing_Location' ) ) {
+			$html = WP_CarDealer_Listing_Location::get_path_html( $post_id, $separator );
+			return $html ? $html : false;
+		}
+
+		static $listing_locations;
 
 		if ( ! empty( $listing_locations[ $post_id ] ) ) {
 			return $listing_locations[ $post_id ];

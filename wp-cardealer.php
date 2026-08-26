@@ -65,6 +65,7 @@ if ( !class_exists("WP_CarDealer") ) {
 			// 3rd-party
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/3rd-party/class-wpml.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/3rd-party/class-polylang.php';
+			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/3rd-party/class-elementor.php';
 			
 			// Admin Settings
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/admin/class-settings.php';
@@ -143,6 +144,9 @@ if ( !class_exists("WP_CarDealer") ) {
 			if ( empty($fields) || isset($fields[WP_CARDEALER_LISTING_PREFIX.'feature']) ) {
 				require_once WP_CARDEALER_PLUGIN_DIR . 'includes/taxonomies/class-taxonomy-listing-feature.php';
 			}
+			if ( empty($fields) || isset($fields[WP_CARDEALER_LISTING_PREFIX.'location']) ) {
+				require_once WP_CARDEALER_PLUGIN_DIR . 'includes/taxonomies/class-taxonomy-listing-location.php';
+			}
 			
 
 			//
@@ -153,6 +157,7 @@ if ( !class_exists("WP_CarDealer") ) {
 			
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-price.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-navasan.php';
+			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-listing-location.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-query.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-shortcodes.php';
 
