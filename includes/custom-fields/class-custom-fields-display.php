@@ -57,6 +57,11 @@ class WP_CarDealer_Custom_Fields_Display {
 			if ( $formatted_price ) {
 				$output_value = $formatted_price;
 			}
+		} elseif ( class_exists( 'WP_CarDealer_Price' ) && WP_CarDealer_Price::is_listing_fee_field( $field_id ) ) {
+			$formatted_fee = WP_CarDealer_Price::format_toman_amount( $value );
+			if ( $formatted_fee ) {
+				$output_value = $formatted_fee;
+			}
 		}
 
 		if ( $output_value === '' ) {

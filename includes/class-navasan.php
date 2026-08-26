@@ -537,9 +537,17 @@ class WP_CarDealer_Navasan {
 			return $options[ $item ];
 		}
 
-		$mapped = self::get_usd_item();
-		if ( isset( $options[ $mapped ] ) ) {
-			return $options[ $mapped ];
+		$legacy = array(
+			'usd_sell'          => 'USD',
+			'usd_buy'           => 'USD',
+			'usd'               => 'USD',
+			'mex_usd_sell'      => 'USD',
+			'mob_usd'           => 'USD',
+			'harat_naghdi_sell' => 'USD',
+		);
+		$lower = strtolower( (string) $item );
+		if ( isset( $legacy[ $lower ] ) && isset( $options[ $legacy[ $lower ] ] ) ) {
+			return $options[ $legacy[ $lower ] ];
 		}
 
 		return 'دلار آمریکا';

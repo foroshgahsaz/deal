@@ -16,6 +16,148 @@ class WP_CarDealer_Price {
 	public static function init() {
 	    add_action( 'init', array( __CLASS__, 'process_currency' ) );
 	}
+
+	/**
+	 * Extra listing costs entered in Toman (not converted from USD).
+	 *
+	 * @return array meta_key_suffix => label
+	 */
+	public static function get_listing_fee_fields() {
+		return array(
+			'customs_fee'  => 'هزینه گمرک',
+			'shipping_fee' => 'هزینه حمل‌ونقل',
+		);
+	}
+
+	/**
+	 * @param string $field_id Full meta key, e.g. _listing_customs_fee
+	 * @return bool
+	 */
+	public static function is_listing_fee_field( $field_id ) {
+		if ( ! defined( 'WP_CARDEALER_LISTING_PREFIX' ) ) {
+			return false;
+		}
+
+		foreach ( array_keys( self::get_listing_fee_fields() ) as $suffix ) {
+			if ( $field_id === WP_CARDEALER_LISTING_PREFIX . $suffix ) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Normalize a Toman fee from admin/frontend input.
+	 *
+	 * @param mixed $value
+	 * @return string Empty string or a numeric string in Toman.
+	 */
+	public static function sanitize_toman_fee( $value ) {
+		if ( is_array( $value ) ) {
+			$value = reset( $value );
+		}
+
+		if ( $value === null || $value === false ) {
+			return '';
+		}
+
+		$value = trim( (string) $value );
+		if ( $value === '' ) {
+			return '';
+		}
+
+		$persian = array( '۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹' );
+		$arabic  = array( '٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩' );
+		$latin   = array( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' );
+		$value   = str_replace( $persian, $latin, $value );
+		$value   = str_replace( $arabic, $latin, $value );
+		$value   = str_replace( array( ',', '٬', '،', ' ' ), '', $value );
+		if ( strpos( $value, '-' ) !== false ) {
+			return '';
+		}
+		$value   = preg_replace( '/[^\d.]/', '', $value );
+
+		if ( $value === '' || ! is_numeric( $value ) ) {
+			return '';
+		}
+
+		$number = (float) $value;
+		if ( $number < 0 ) {
+			return '';
+		}
+
+		if ( floor( $number ) == $number ) {
+			return (string) (int) $number;
+		}
+
+		return (string) $number;
+	}
+
+	/**
+	 * Format an amount that is already in Toman. Never runs USD conversion.
+	 *
+	 * @param mixed $amount
+	 * @return string
+	 */
+	public static function format_toman_amount( $amount ) {
+		if ( $amount === '' || $amount === null || ! is_numeric( $amount ) ) {
+			return '';
+		}
+
+		$amount = (float) $amount;
+		if ( $amount <= 0 ) {
+			return '';
+		}
+
+		if ( class_exists( 'WP_CarDealer_Mixes' ) ) {
+			$formatted = WP_CarDealer_Mixes::format_number( $amount, false, 0 );
+		} else {
+			$formatted = number_format( $amount, 0, '.', ',' );
+		}
+
+		$symbol = 'تومان';
+		if ( class_exists( 'WP_CarDealer_Navasan' ) ) {
+			$symbol = WP_CarDealer_Navasan::get_toman_symbol();
+		}
+
+		return '<span class="price-text">' . $formatted . '</span> <span class="suffix">' . $symbol . '</span>';
+	}
+
+	/**
+	 * HTML for customs/shipping rows under the converted listing price.
+	 *
+	 * @param int $post_id
+	 * @return string
+	 */
+	public static function get_listing_fees_html( $post_id ) {
+		$post_id = absint( $post_id );
+		if ( ! $post_id ) {
+			return '';
+		}
+
+		$rows = array();
+		foreach ( self::get_listing_fee_fields() as $suffix => $label ) {
+			$meta_key = WP_CARDEALER_LISTING_PREFIX . $suffix;
+			$value    = get_post_meta( $post_id, $meta_key, true );
+			$formatted = self::format_toman_amount( $value );
+			if ( $formatted === '' ) {
+				continue;
+			}
+
+			$rows[] = '<span class="listing-price-extra listing-price-extra--' . esc_attr( $suffix ) . '">'
+				. '<span class="listing-price-extra-label">' . esc_html( $label ) . ' : </span>'
+				. '<span class="listing-price-extra-value">' . $formatted . '</span>'
+				. '</span>';
+		}
+
+		if ( empty( $rows ) ) {
+			return '';
+		}
+
+		return '<span class="listing-price-extras">' . implode( '', $rows ) . '</span>';
+	}
+
 	/**
 	 * Formats price
 	 *

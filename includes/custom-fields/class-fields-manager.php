@@ -16,6 +16,8 @@ class WP_CarDealer_Fields_Manager {
 	public static function init() {
         add_action( 'admin_menu', array( __CLASS__, 'register_page' ), 1 );
         add_action( 'init', array(__CLASS__, 'init_hook'), 10 );
+        add_filter( 'wp-cardealer-get-custom-fields-data', array( __CLASS__, 'inject_listing_fee_fields' ), 200, 2 );
+        add_filter( 'wp_cardealer_list_simple_type', array( __CLASS__, 'add_listing_fee_simple_types' ) );
 	}
 
     public static function register_page() {
@@ -432,6 +434,36 @@ class WP_CarDealer_Fields_Manager {
                 'show_compare'      => true
             ),
             array(
+                'name'              => 'هزینه گمرک',
+                'id'                => $prefix . 'customs_fee',
+                'type'              => 'text',
+                'placeholder'       => 'مثال: ۵۰۰۰۰۰ (تومان)',
+                'desc'              => 'مبلغ را به تومان وارد کنید. این هزینه تبدیل نمی‌شود و زیر قیمت آگهی نمایش داده می‌شود.',
+                'description'       => 'مبلغ را به تومان وارد کنید. این هزینه تبدیل نمی‌شود و زیر قیمت آگهی نمایش داده می‌شود.',
+                'attributes'        => array(
+                    'type'      => 'number',
+                    'min'       => 0,
+                    'step'      => '1',
+                    'inputmode' => 'numeric',
+                ),
+                'show_compare'      => false,
+            ),
+            array(
+                'name'              => 'هزینه حمل‌ونقل',
+                'id'                => $prefix . 'shipping_fee',
+                'type'              => 'text',
+                'placeholder'       => 'مثال: ۹۰۰۰۰۰ (تومان)',
+                'desc'              => 'مبلغ را به تومان وارد کنید. این هزینه تبدیل نمی‌شود و زیر قیمت آگهی نمایش داده می‌شود.',
+                'description'       => 'مبلغ را به تومان وارد کنید. این هزینه تبدیل نمی‌شود و زیر قیمت آگهی نمایش داده می‌شود.',
+                'attributes'        => array(
+                    'type'      => 'number',
+                    'min'       => 0,
+                    'step'      => '1',
+                    'inputmode' => 'numeric',
+                ),
+                'show_compare'      => false,
+            ),
+            array(
                 'name'              => __( 'Price Prefix', 'wp-cardealer' ),
                 'id'                => $prefix . 'price_prefix',
                 'type'              => 'text',
@@ -795,6 +827,142 @@ class WP_CarDealer_Fields_Manager {
         );
 
         return apply_filters( 'wp-cardealer-user-type-available-fields', $fields );
+    }
+
+    /**
+     * Field configs injected into saved Fields Manager data so existing sites
+     * get the Toman fee inputs next to Price without a manual Fields Manager save.
+     *
+     * @return array
+     */
+    public static function get_listing_fee_field_configs() {
+        $prefix = WP_CARDEALER_LISTING_PREFIX;
+
+        return array(
+            array(
+                'type'                => $prefix . 'customs_fee',
+                'id'                  => $prefix . 'customs_fee',
+                'name'                => 'هزینه گمرک',
+                'placeholder'         => 'مثال: ۵۰۰۰۰۰ (تومان)',
+                'description'         => 'مبلغ را به تومان وارد کنید. این هزینه تبدیل نمی‌شود و زیر قیمت آگهی نمایش داده می‌شود.',
+                'show_in_submit_form' => 'yes',
+                'show_in_admin_edit'  => 'yes',
+                'required'            => '',
+            ),
+            array(
+                'type'                => $prefix . 'shipping_fee',
+                'id'                  => $prefix . 'shipping_fee',
+                'name'                => 'هزینه حمل‌ونقل',
+                'placeholder'         => 'مثال: ۹۰۰۰۰۰ (تومان)',
+                'description'         => 'مبلغ را به تومان وارد کنید. این هزینه تبدیل نمی‌شود و زیر قیمت آگهی نمایش داده می‌شود.',
+                'show_in_submit_form' => 'yes',
+                'show_in_admin_edit'  => 'yes',
+                'required'            => '',
+            ),
+        );
+    }
+
+    /**
+     * Treat fee keys as simple available fields in Fields Manager.
+     *
+     * @param array $types
+     * @return array
+     */
+    public static function add_listing_fee_simple_types( $types ) {
+        if ( ! is_array( $types ) ) {
+            $types = array();
+        }
+
+        $prefix = WP_CARDEALER_LISTING_PREFIX;
+        foreach ( array( 'customs_fee', 'shipping_fee' ) as $suffix ) {
+            $id = $prefix . $suffix;
+            if ( ! in_array( $id, $types, true ) ) {
+                $types[] = $id;
+            }
+        }
+
+        return $types;
+    }
+
+    /**
+     * Insert fee fields after Price in already-saved field layouts.
+     *
+     * @param mixed  $fields
+     * @param string $prefix
+     * @return mixed
+     */
+    public static function inject_listing_fee_fields( $fields, $prefix = '' ) {
+        if ( $prefix && $prefix !== WP_CARDEALER_LISTING_PREFIX ) {
+            return $fields;
+        }
+
+        if ( empty( $fields ) || ! is_array( $fields ) ) {
+            return $fields;
+        }
+
+        $new_fields = self::get_listing_fee_field_configs();
+        $missing    = array();
+
+        foreach ( $new_fields as $config ) {
+            if ( ! self::saved_fields_contain( $fields, $config['type'] ) ) {
+                $missing[] = $config;
+            }
+        }
+
+        if ( empty( $missing ) ) {
+            return $fields;
+        }
+
+        $result     = array();
+        $inserted   = false;
+        $price_id   = WP_CARDEALER_LISTING_PREFIX . 'price';
+
+        foreach ( $fields as $field ) {
+            $result[] = $field;
+            if ( $inserted || ! is_array( $field ) ) {
+                continue;
+            }
+            $type = isset( $field['type'] ) ? $field['type'] : '';
+            $id   = isset( $field['id'] ) ? $field['id'] : '';
+            if ( $type === $price_id || $id === $price_id ) {
+                foreach ( $missing as $config ) {
+                    $result[] = $config;
+                }
+                $inserted = true;
+            }
+        }
+
+        if ( ! $inserted ) {
+            foreach ( $missing as $config ) {
+                $result[] = $config;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array  $fields
+     * @param string $field_id
+     * @return bool
+     */
+    public static function saved_fields_contain( $fields, $field_id ) {
+        if ( empty( $fields ) || ! is_array( $fields ) ) {
+            return false;
+        }
+
+        foreach ( $fields as $field ) {
+            if ( ! is_array( $field ) ) {
+                continue;
+            }
+            $type = isset( $field['type'] ) ? $field['type'] : '';
+            $id   = isset( $field['id'] ) ? $field['id'] : '';
+            if ( $type === $field_id || $id === $field_id ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public static function get_custom_fields_data($prefix) {

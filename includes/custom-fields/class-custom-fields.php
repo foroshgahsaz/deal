@@ -371,7 +371,7 @@ class WP_CarDealer_Custom_Fields {
 						}
 					}
 
-					if ( !in_array($fieldkey, array( $prefix.'heading', $prefix.'featured_image', $prefix.'gallery', $prefix.'description', $prefix.'expiry_date', $prefix.'price_prefix', $prefix.'price_suffix', $prefix.'price_custom', $prefix.'lot_dimensions', $prefix.'video', $prefix.'map_location', $prefix.'featured_image', $prefix.'gallery', $prefix.'attachments', $prefix.'address', $prefix.'file' )) ) {
+					if ( !in_array($fieldkey, array( $prefix.'heading', $prefix.'featured_image', $prefix.'gallery', $prefix.'description', $prefix.'expiry_date', $prefix.'price_prefix', $prefix.'price_suffix', $prefix.'price_custom', $prefix.'customs_fee', $prefix.'shipping_fee', $prefix.'lot_dimensions', $prefix.'video', $prefix.'map_location', $prefix.'featured_image', $prefix.'gallery', $prefix.'attachments', $prefix.'address', $prefix.'file' )) ) {
 
 						$id = str_replace($prefix, '', $field_data['id']);
 						$fields[$id] = self::render_field($field_data, $fieldkey, $fieldtype, $i, $admin_field, $fieldtype_type);
@@ -901,6 +901,18 @@ class WP_CarDealer_Custom_Fields {
 					$field['default'] = $userdata->user_url;
 					break;
 			}
+		}
+
+		if ( class_exists( 'WP_CarDealer_Price' ) && WP_CarDealer_Price::is_listing_fee_field( $id ) ) {
+			$field['type'] = 'text';
+			$field['sanitization_cb'] = array( 'WP_CarDealer_Price', 'sanitize_toman_fee' );
+			if ( empty( $field['attributes'] ) || ! is_array( $field['attributes'] ) ) {
+				$field['attributes'] = array();
+			}
+			$field['attributes']['type'] = 'number';
+			$field['attributes']['min'] = 0;
+			$field['attributes']['step'] = '1';
+			$field['attributes']['inputmode'] = 'numeric';
 		}
 
 		return apply_filters( 'wp-cardealer-types-render_field', $field, $field_data, $fieldkey, $fieldtype, $priority);

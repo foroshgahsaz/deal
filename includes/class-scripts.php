@@ -132,6 +132,7 @@ class WP_CarDealer_Scripts {
 			'usd_to_toman_rate' => class_exists( 'WP_CarDealer_Navasan' ) ? WP_CarDealer_Navasan::get_usd_toman_rate() : 0,
 		));
 		wp_enqueue_script( 'wp-cardealer-main' );
+		wp_enqueue_style( 'wp-cardealer-listing-price', WP_CARDEALER_PLUGIN_URL . 'assets/css/listing-price.css', array(), WP_CARDEALER_PLUGIN_VERSION );
 	}
 
 	/**
@@ -179,6 +180,7 @@ class WP_CarDealer_Scripts {
 			'navasan_testing' => 'در حال آزمایش اتصال وب‌سرویس...',
 		));
 		wp_enqueue_script( 'wp-cardealer-admin-main' );
+		wp_enqueue_style( 'wp-cardealer-listing-price', WP_CARDEALER_PLUGIN_URL . 'assets/css/listing-price.css', array(), WP_CARDEALER_PLUGIN_VERSION );
 	}
 
 }
