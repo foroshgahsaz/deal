@@ -176,7 +176,7 @@ class WP_CarDealer_Scripts {
 		wp_localize_script( 'wp-cardealer-admin-main', 'wp_cardealer_opts', array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 			'navasan_nonce' => wp_create_nonce( 'wp_cardealer_navasan_test' ),
-			'navasan_testing' => esc_html__( 'Testing BrsApi connection...', 'wp-cardealer' ),
+			'navasan_testing' => 'در حال آزمایش اتصال وب‌سرویس...',
 		));
 		wp_enqueue_script( 'wp-cardealer-admin-main' );
 	}

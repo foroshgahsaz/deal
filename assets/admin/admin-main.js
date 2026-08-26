@@ -299,7 +299,7 @@
                 var item = $('#navasan_usd_item').val() || 'USD';
 
                 $button.prop('disabled', true);
-                $result.removeClass('notice-success notice-error').text( wp_cardealer_opts.navasan_testing || 'Testing...' );
+                $result.removeClass('notice-success notice-error').text( wp_cardealer_opts.navasan_testing || 'در حال آزمایش اتصال...' );
 
                 $.post(wp_cardealer_opts.ajaxurl, {
                     action: 'wp_cardealer_navasan_test_token',
@@ -310,11 +310,11 @@
                     if ( response && response.success && response.data ) {
                         $result.css('color', '#008a20').text(response.data.message);
                     } else {
-                        var message = (response && response.data && response.data.message) ? response.data.message : 'Request failed.';
+                        var message = (response && response.data && response.data.message) ? response.data.message : 'درخواست ناموفق بود.';
                         $result.css('color', '#d63638').text(message);
                     }
                 }).fail(function() {
-                    $result.css('color', '#d63638').text('Request failed.');
+                    $result.css('color', '#d63638').text('درخواست ناموفق بود.');
                 }).always(function() {
                     $button.prop('disabled', false);
                 });
