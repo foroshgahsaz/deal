@@ -103,7 +103,79 @@ class WP_CarDealer_Listing_Location {
 	 * @param string $separator
 	 * @return string
 	 */
-	public static function get_path_html( $post_id, $separator = ' › ' ) {
+	/**
+	 * @param WP_Term $term
+	 * @return string
+	 */
+	public static function get_term_archive_url( $term ) {
+		if ( ! $term || is_wp_error( $term ) ) {
+			return '';
+		}
+
+		$link = get_term_link( $term, self::TAXONOMY );
+		if ( is_wp_error( $link ) ) {
+			return '';
+		}
+
+		return $link;
+	}
+
+	/**
+	 * Top-level city in the assigned chain (parent of the leaf when present).
+	 *
+	 * @param int $post_id
+	 * @return WP_Term|null
+	 */
+	public static function get_city_term( $post_id ) {
+		$chain = self::get_term_chain( $post_id );
+
+		return ! empty( $chain ) ? $chain[0] : null;
+	}
+
+	/**
+	 * Term used for the leaf label link: city when a parent exists, otherwise the leaf.
+	 *
+	 * @param int $post_id
+	 * @return WP_Term|null
+	 */
+	public static function get_leaf_link_term( $post_id ) {
+		$leaf = self::get_deepest_term( $post_id );
+		if ( ! $leaf ) {
+			return null;
+		}
+
+		if ( $leaf->parent ) {
+			$city = get_term( (int) $leaf->parent, self::TAXONOMY );
+			if ( $city && ! is_wp_error( $city ) ) {
+				return $city;
+			}
+		}
+
+		return $leaf;
+	}
+
+	/**
+	 * @param int    $post_id
+	 * @param string $class
+	 * @return string
+	 */
+	public static function get_leaf_link_html( $post_id, $class = 'listing-location-link' ) {
+		$leaf = self::get_deepest_term( $post_id );
+		if ( ! $leaf ) {
+			return '';
+		}
+
+		$link_term = self::get_leaf_link_term( $post_id );
+		$url       = $link_term ? self::get_term_archive_url( $link_term ) : '';
+
+		if ( ! $url ) {
+			return esc_html( $leaf->name );
+		}
+
+		return '<a href="' . esc_url( $url ) . '" class="' . esc_attr( $class ) . '">' . esc_html( $leaf->name ) . '</a>';
+	}
+
+	public static function get_path_html( $post_id, $separator = ' › ', $class = 'listing-location-link' ) {
 		$chain = self::get_term_chain( $post_id );
 		if ( empty( $chain ) ) {
 			return '';
@@ -111,10 +183,15 @@ class WP_CarDealer_Listing_Location {
 
 		$parts = array();
 		foreach ( $chain as $term ) {
-			$parts[] = '<a href="' . esc_url( get_term_link( $term ) ) . '">' . esc_html( $term->name ) . '</a>';
+			$url = self::get_term_archive_url( $term );
+			if ( $url ) {
+				$parts[] = '<a href="' . esc_url( $url ) . '" class="' . esc_attr( $class ) . '">' . esc_html( $term->name ) . '</a>';
+			} else {
+				$parts[] = esc_html( $term->name );
+			}
 		}
 
-		return implode( '<span class="separator">' . esc_html( $separator ) . '</span>', $parts );
+		return implode( '<span class="listing-location-separator">' . esc_html( $separator ) . '</span>', $parts );
 	}
 
 	/**

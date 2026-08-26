@@ -86,6 +86,10 @@ class WP_CarDealer_Elementor_Tag_Location_Leaf extends WP_CarDealer_Elementor_Ta
 		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
 	}
 
+	public function get_content_type() {
+		return 'html';
+	}
+
 	protected function register_controls() {}
 
 	public function render() {
@@ -98,7 +102,12 @@ class WP_CarDealer_Elementor_Tag_Location_Leaf extends WP_CarDealer_Elementor_Ta
 			return;
 		}
 
-		echo esc_html( WP_CarDealer_Listing_Location::get_leaf_name( $post_id ) );
+		$html = WP_CarDealer_Listing_Location::get_leaf_link_html( $post_id );
+		if ( ! $html ) {
+			return;
+		}
+
+		echo wp_kses_post( $html );
 	}
 }
 
@@ -114,6 +123,10 @@ class WP_CarDealer_Elementor_Tag_Location_Path extends WP_CarDealer_Elementor_Ta
 
 	public function get_categories() {
 		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
+	}
+
+	public function get_content_type() {
+		return 'html';
 	}
 
 	protected function register_controls() {
@@ -142,7 +155,12 @@ class WP_CarDealer_Elementor_Tag_Location_Path extends WP_CarDealer_Elementor_Ta
 			$separator = ' › ';
 		}
 
-		echo esc_html( WP_CarDealer_Listing_Location::get_path_text( $post_id, $separator ) );
+		$html = WP_CarDealer_Listing_Location::get_path_html( $post_id, $separator );
+		if ( ! $html ) {
+			return;
+		}
+
+		echo wp_kses_post( $html );
 	}
 }
 

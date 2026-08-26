@@ -14,6 +14,7 @@ class WP_CarDealer_Taxonomy_Listing_Location {
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'definition' ), 1 );
 		add_action( 'init', array( __CLASS__, 'maybe_seed_terms' ), 20 );
+		add_action( 'pre_get_posts', array( __CLASS__, 'location_archive_include_children' ), 25 );
 		add_filter( 'wp_cardealer_cmb2_field_taxonomy_location_number', array( __CLASS__, 'dropdown_levels' ) );
 		add_filter( 'wp_cardealer_cmb2_field_taxonomy_location_field_name_1', array( __CLASS__, 'level_one_label' ) );
 		add_filter( 'wp_cardealer_cmb2_field_taxonomy_location_field_name_2', array( __CLASS__, 'level_two_label' ) );
@@ -76,6 +77,49 @@ class WP_CarDealer_Taxonomy_Listing_Location {
 		if ( class_exists( 'WP_CarDealer_Listing_Location' ) ) {
 			WP_CarDealer_Listing_Location::maybe_seed_terms();
 		}
+	}
+
+	/**
+	 * City archives include sub-locations so one city link lists every area ad.
+	 *
+	 * @param WP_Query $query
+	 */
+	public static function location_archive_include_children( $query ) {
+		if ( is_admin() || ! $query->is_main_query() || ! $query->is_tax( 'listing_location' ) ) {
+			return;
+		}
+
+		$term = $query->get_queried_object();
+		if ( ! ( $term instanceof WP_Term ) ) {
+			return;
+		}
+
+		$tax_query = $query->get( 'tax_query' );
+		if ( ! is_array( $tax_query ) ) {
+			$tax_query = array();
+		}
+
+		$found = false;
+		foreach ( $tax_query as $key => $clause ) {
+			if ( $key === 'relation' || ! is_array( $clause ) ) {
+				continue;
+			}
+			if ( isset( $clause['taxonomy'] ) && $clause['taxonomy'] === 'listing_location' ) {
+				$tax_query[ $key ]['include_children'] = true;
+				$found = true;
+			}
+		}
+
+		if ( ! $found ) {
+			$tax_query[] = array(
+				'taxonomy'         => 'listing_location',
+				'field'            => 'term_id',
+				'terms'            => array( (int) $term->term_id ),
+				'include_children' => true,
+			);
+		}
+
+		$query->set( 'tax_query', $tax_query );
 	}
 }
 
