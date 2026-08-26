@@ -351,48 +351,48 @@ class WP_CarDealer_Settings {
 						),
 					),
 					array(
-						'name' => __( 'USD to Toman (BrsApi)', 'wp-cardealer' ),
-						'desc' => sprintf( __( 'Enter listing prices in USD. Frontend output is converted to Toman with the live rate from <a href="%s" target="_blank" rel="noopener noreferrer">BrsApi gold and currency API</a>. Themes do not need to be changed.', 'wp-cardealer' ), 'https://brsapi.ir/free-api-gold-currency-webservice/' ),
+						'name' => 'تبدیل دلار به تومان',
+						'desc' => sprintf( 'قیمت آگهی را به دلار وارد کنید. سایت همان مبلغ را با نرخ زنده <a href="%s" target="_blank" rel="noopener noreferrer">وب‌سرویس طلا و ارز</a> به تومان نشان می‌دهد. قالب نیاز به تغییر ندارد.', 'https://brsapi.ir/free-api-gold-currency-webservice/' ),
 						'type' => 'wp_cardealer_title',
 						'id'   => 'wp_cardealer_title_general_settings_navasan',
 						'before_row' => '<hr>',
 						'after_row'  => '<hr>'
 					),
 					array(
-						'name'    => __( 'Enable USD to Toman conversion', 'wp-cardealer' ),
+						'name'    => 'فعال‌سازی تبدیل دلار به تومان',
 						'id'      => 'enable_usd_to_toman',
 						'type'    => 'select',
 						'options' => array(
-							'yes' => __( 'Yes', 'wp-cardealer' ),
-							'no'  => __( 'No', 'wp-cardealer' ),
+							'yes' => 'بله',
+							'no'  => 'خیر',
 						),
 						'default' => 'yes',
-						'desc'    => __( 'When enabled, the listing price field is treated as USD and visitors see Tomans.', 'wp-cardealer' ),
+						'desc'    => 'با روشن بودن این گزینه، مبلغی که در آگهی می‌زنید دلار است و بازدیدکننده تومان می‌بیند.',
 					),
 					array(
-						'name' => __( 'BrsApi API key', 'wp-cardealer' ),
+						'name' => 'کلید وب‌سرویس طلا و ارز',
 						'id'   => 'navasan_api_key',
 						'type' => 'text',
-						'desc' => sprintf( __( 'Paste the API key from BrsApi. See the <a href="%s" target="_blank" rel="noopener noreferrer">gold and currency web service</a> to get a key.', 'wp-cardealer' ), 'https://brsapi.ir/free-api-gold-currency-webservice/' ),
+						'desc' => sprintf( 'کلید دریافتی از وب‌سرویس را اینجا بگذارید. راهنما: <a href="%s" target="_blank" rel="noopener noreferrer">سرویس قیمت طلا و ارز</a>.', 'https://brsapi.ir/free-api-gold-currency-webservice/' ),
 						'attributes' => array(
-							'placeholder' => __( 'API key', 'wp-cardealer' ),
+							'placeholder' => 'کلید وب‌سرویس',
 							'autocomplete' => 'off',
 						),
 					),
 					array(
-						'name'    => __( 'USD rate source', 'wp-cardealer' ),
+						'name'    => 'منبع نرخ دلار',
 						'id'      => 'navasan_usd_item',
 						'type'    => 'select',
 						'options' => WP_CarDealer_Navasan::get_usd_item_options(),
 						'default' => 'USD',
-						'desc'    => __( 'Which BrsApi symbol is used for conversion. USD is the free-market dollar; USDT_IRT is tether.', 'wp-cardealer' ),
+						'desc'    => 'دلار آمریکا همان نرخ بازار آزاد است. تتر نرخ دلار تتر است.',
 					),
 					array(
-						'name'    => __( 'Rate cache (minutes)', 'wp-cardealer' ),
+						'name'    => 'بازهٔ به‌روزرسانی نرخ (دقیقه)',
 						'id'      => 'navasan_cache_minutes',
 						'type'    => 'text_small',
 						'default' => '60',
-						'desc'    => __( 'How long the fetched USD rate is cached. Minimum 5 minutes.', 'wp-cardealer' ),
+						'desc'    => 'نرخ برای هر آگهی جداگانه گرفته نمی‌شود. یک‌بار از وب‌سرویس خوانده می‌شود و تا این مدت (حداقل ۵ دقیقه) برای همهٔ آگهی‌ها استفاده می‌گردد. ویرایش آگهی هم درخواست جدید نمی‌فرستد، مگر کش تمام شده باشد.',
 						'attributes' => array(
 							'type'    => 'number',
 							'min'     => 5,
@@ -401,19 +401,19 @@ class WP_CarDealer_Settings {
 						),
 					),
 					array(
-						'name'    => __( 'Toman symbol position', 'wp-cardealer' ),
+						'name'    => 'جایگاه نوشتهٔ تومان',
 						'id'      => 'navasan_currency_position',
 						'type'    => 'select',
 						'options' => array(
-							'after_space'  => __( 'After with space - 10 تومان', 'wp-cardealer' ),
-							'after'        => __( 'After - 10تومان', 'wp-cardealer' ),
-							'before_space' => __( 'Before with space - تومان 10', 'wp-cardealer' ),
-							'before'       => __( 'Before - تومان10', 'wp-cardealer' ),
+							'after_space'  => 'بعد از عدد با فاصله — ۱۰ تومان',
+							'after'        => 'بعد از عدد بدون فاصله — ۱۰تومان',
+							'before_space' => 'قبل از عدد با فاصله — تومان ۱۰',
+							'before'       => 'قبل از عدد بدون فاصله — تومان۱۰',
 						),
 						'default' => 'after_space',
 					),
 					array(
-						'name' => __( 'BrsApi connection', 'wp-cardealer' ),
+						'name' => 'وضعیت اتصال وب‌سرویس',
 						'id'   => 'navasan_connection_status',
 						'type' => 'wp_cardealer_navasan_status',
 						'save_field' => false,
@@ -2006,27 +2006,28 @@ function wp_cardealer_navasan_status_callback( $field_object, $escaped_value, $o
 	$date = ! empty( $last['date'] ) ? $last['date'] : '';
 	$fetched_at = ! empty( $last['fetched_at'] ) ? $last['fetched_at'] : '';
 	$item = ! empty( $last['item'] ) ? $last['item'] : 'USD';
+	$item_label = class_exists( 'WP_CarDealer_Navasan' ) ? WP_CarDealer_Navasan::get_usd_item_label( $item ) : 'دلار آمریکا';
 
 	echo '<div class="wp-cardealer-navasan-status">';
 	if ( $rate ) {
-		echo '<p class="wp-cardealer-navasan-rate-line"><strong>' . esc_html__( 'Last fetched rate:', 'wp-cardealer' ) . '</strong> ';
-		echo esc_html( number_format_i18n( $rate ) ) . ' ' . esc_html__( 'Toman per 1 USD', 'wp-cardealer' );
-		echo ' <code>' . esc_html( $item ) . '</code></p>';
+		echo '<p class="wp-cardealer-navasan-rate-line"><strong>آخرین نرخ ذخیره‌شده:</strong> ';
+		echo esc_html( number_format_i18n( $rate ) ) . ' تومان به‌ازای هر ۱ دلار';
+		echo ' (' . esc_html( $item_label ) . ')</p>';
 		if ( $date || $fetched_at ) {
 			echo '<p class="description">';
 			if ( $date ) {
-				echo esc_html__( 'BrsApi date:', 'wp-cardealer' ) . ' ' . esc_html( $date ) . ' ';
+				echo 'زمان نرخ در وب‌سرویس: ' . esc_html( $date ) . ' ';
 			}
 			if ( $fetched_at ) {
-				echo esc_html__( 'Fetched at:', 'wp-cardealer' ) . ' ' . esc_html( $fetched_at );
+				echo 'زمان دریافت در سایت: ' . esc_html( $fetched_at );
 			}
 			echo '</p>';
 		}
 	} else {
-		echo '<p class="description">' . esc_html__( 'No rate cached yet. Save your API token and click the button below to test the connection.', 'wp-cardealer' ) . '</p>';
+		echo '<p class="description">هنوز نرخی ذخیره نشده است. تنظیمات را ذخیره کنید و دکمهٔ زیر را برای آزمایش اتصال بزنید.</p>';
 	}
 
-	echo '<p><button type="button" class="button" id="wp-cardealer-navasan-test">' . esc_html__( 'Test token and refresh rate', 'wp-cardealer' ) . '</button></p>';
+	echo '<p><button type="button" class="button" id="wp-cardealer-navasan-test">آزمایش کلید و به‌روزرسانی نرخ</button></p>';
 	echo '<p class="wp-cardealer-navasan-test-result" role="status"></p>';
 	echo '</div>';
 }

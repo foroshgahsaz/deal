@@ -244,7 +244,7 @@ class WP_CarDealer_Navasan {
 		if ( $api_key === '' ) {
 			return array(
 				'success' => false,
-				'message' => __( 'BrsApi API key is empty.', 'wp-cardealer' ),
+				'message' => 'کلید وب‌سرویس خالی است.',
 			);
 		}
 
@@ -284,13 +284,13 @@ class WP_CarDealer_Navasan {
 		if ( $code === 401 || $code === 403 ) {
 			return array(
 				'success' => false,
-				'message' => __( 'BrsApi API key is invalid or the request was blocked.', 'wp-cardealer' ),
+				'message' => 'کلید وب‌سرویس نامعتبر است یا درخواست مسدود شد.',
 				'code'    => $code,
 			);
 		}
 
 		if ( $code !== 200 ) {
-			$message = __( 'Unable to fetch the USD rate from BrsApi.', 'wp-cardealer' );
+			$message = 'دریافت نرخ دلار از وب‌سرویس ممکن نشد.';
 			if ( is_array( $data ) && ! empty( $data['message'] ) ) {
 				$message = $data['message'];
 			} elseif ( is_array( $data ) && ! empty( $data['message_error'] ) ) {
@@ -308,7 +308,7 @@ class WP_CarDealer_Navasan {
 		if ( $parsed['rate'] <= 0 ) {
 			return array(
 				'success' => false,
-				'message' => __( 'BrsApi did not return a valid USD rate.', 'wp-cardealer' ),
+				'message' => 'وب‌سرویس نرخ دلار معتبری برنگرداند.',
 			);
 		}
 
@@ -480,7 +480,7 @@ class WP_CarDealer_Navasan {
 
 	public static function ajax_test_token() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_send_json_error( array( 'message' => __( 'You are not allowed to do this.', 'wp-cardealer' ) ) );
+			wp_send_json_error( array( 'message' => 'اجازهٔ این کار را ندارید.' ) );
 		}
 
 		check_ajax_referer( 'wp_cardealer_navasan_test', 'nonce' );
@@ -493,7 +493,7 @@ class WP_CarDealer_Navasan {
 		if ( empty( $result['success'] ) || empty( $result['rate'] ) ) {
 			wp_send_json_error(
 				array(
-					'message' => isset( $result['message'] ) ? $result['message'] : __( 'Request failed.', 'wp-cardealer' ),
+					'message' => isset( $result['message'] ) ? $result['message'] : 'درخواست ناموفق بود.',
 				)
 			);
 		}
@@ -503,10 +503,9 @@ class WP_CarDealer_Navasan {
 		wp_send_json_success(
 			array(
 				'message' => sprintf(
-					/* translators: 1: rate, 2: currency item */
-					__( 'Connection successful. Current rate: %1$s Toman per 1 USD (%2$s).', 'wp-cardealer' ),
+					'اتصال برقرار شد. نرخ فعلی: %1$s تومان به‌ازای هر ۱ دلار (%2$s).',
 					number_format_i18n( $result['rate'] ),
-					$result['item']
+					self::get_usd_item_label( $result['item'] )
 				),
 				'rate'    => $result['rate'],
 				'date'    => isset( $result['date'] ) ? $result['date'] : '',
@@ -521,9 +520,37 @@ class WP_CarDealer_Navasan {
 	 */
 	public static function get_usd_item_options() {
 		return array(
-			'USD'       => __( 'US Dollar (USD)', 'wp-cardealer' ),
-			'USDT_IRT'  => __( 'Tether (USDT_IRT)', 'wp-cardealer' ),
+			'USD'      => 'دلار آمریکا',
+			'USDT_IRT' => 'تتر',
 		);
+	}
+
+	/**
+	 * Persian label for a BrsApi currency symbol.
+	 *
+	 * @param string $item
+	 * @return string
+	 */
+	public static function get_usd_item_label( $item ) {
+		$options = self::get_usd_item_options();
+		if ( isset( $options[ $item ] ) ) {
+			return $options[ $item ];
+		}
+
+		$legacy = array(
+			'usd_sell'          => 'USD',
+			'usd_buy'           => 'USD',
+			'usd'               => 'USD',
+			'mex_usd_sell'      => 'USD',
+			'mob_usd'           => 'USD',
+			'harat_naghdi_sell' => 'USD',
+		);
+		$lower = strtolower( (string) $item );
+		if ( isset( $legacy[ $lower ] ) && isset( $options[ $legacy[ $lower ] ] ) ) {
+			return $options[ $legacy[ $lower ] ];
+		}
+
+		return 'دلار آمریکا';
 	}
 }
 
