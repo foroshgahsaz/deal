@@ -98,15 +98,26 @@ class WP_CarDealer_Price {
 	 * Format an amount that is already in Toman. Never runs USD conversion.
 	 *
 	 * @param mixed $amount
+	 * @param bool  $show_zero When true, empty or invalid amounts render as 0.
 	 * @return string
 	 */
-	public static function format_toman_amount( $amount ) {
+	public static function format_toman_amount( $amount, $show_zero = false ) {
 		if ( $amount === '' || $amount === null || ! is_numeric( $amount ) ) {
-			return '';
+			if ( ! $show_zero ) {
+				return '';
+			}
+			$amount = 0;
 		}
 
 		$amount = (float) $amount;
-		if ( $amount <= 0 ) {
+		if ( $amount < 0 ) {
+			if ( ! $show_zero ) {
+				return '';
+			}
+			$amount = 0;
+		}
+
+		if ( $amount == 0 && ! $show_zero ) {
 			return '';
 		}
 
@@ -126,6 +137,7 @@ class WP_CarDealer_Price {
 
 	/**
 	 * HTML for customs/shipping rows under the converted listing price.
+	 * Empty fees still render as 0 تومان.
 	 *
 	 * @param int $post_id
 	 * @return string
@@ -138,21 +150,14 @@ class WP_CarDealer_Price {
 
 		$rows = array();
 		foreach ( self::get_listing_fee_fields() as $suffix => $label ) {
-			$meta_key = WP_CARDEALER_LISTING_PREFIX . $suffix;
-			$value    = get_post_meta( $post_id, $meta_key, true );
-			$formatted = self::format_toman_amount( $value );
-			if ( $formatted === '' ) {
-				continue;
-			}
+			$meta_key  = WP_CARDEALER_LISTING_PREFIX . $suffix;
+			$value     = get_post_meta( $post_id, $meta_key, true );
+			$formatted = self::format_toman_amount( $value, true );
 
 			$rows[] = '<span class="listing-price-extra listing-price-extra--' . esc_attr( $suffix ) . '">'
 				. '<span class="listing-price-extra-label">' . esc_html( $label ) . ' : </span>'
 				. '<span class="listing-price-extra-value">' . $formatted . '</span>'
 				. '</span>';
-		}
-
-		if ( empty( $rows ) ) {
-			return '';
 		}
 
 		return '<span class="listing-price-extras">' . implode( '', $rows ) . '</span>';

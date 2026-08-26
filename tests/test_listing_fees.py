@@ -47,14 +47,22 @@ def is_listing_fee_field(field_id):
     return field_id in {PREFIX + suffix for suffix in FEE_FIELDS}
 
 
-def format_toman_amount(amount):
+def format_toman_amount(amount, show_zero=False):
     if amount == "" or amount is None:
-        return ""
+        if not show_zero:
+            return ""
+        amount = 0
     try:
         amount_f = float(amount)
     except (TypeError, ValueError):
-        return ""
-    if amount_f <= 0:
+        if not show_zero:
+            return ""
+        amount_f = 0
+    if amount_f < 0:
+        if not show_zero:
+            return ""
+        amount_f = 0
+    if amount_f == 0 and not show_zero:
         return ""
     formatted = f"{int(round(amount_f)):,}"
     return f'<span class="price-text">{formatted}</span> <span class="suffix">تومان</span>'
@@ -66,17 +74,13 @@ def get_listing_fees_html(post_id, meta):
         return ""
     rows = []
     for suffix, label in FEE_FIELDS.items():
-        formatted = format_toman_amount(meta.get(PREFIX + suffix, ""))
-        if not formatted:
-            continue
+        formatted = format_toman_amount(meta.get(PREFIX + suffix, ""), True)
         rows.append(
             f'<span class="listing-price-extra listing-price-extra--{suffix}">'
             f'<span class="listing-price-extra-label">{label} : </span>'
             f'<span class="listing-price-extra-value">{formatted}</span>'
             "</span>"
         )
-    if not rows:
-        return ""
     return '<span class="listing-price-extras">' + "".join(rows) + "</span>"
 
 
@@ -141,8 +145,10 @@ def main():
     formatted = format_toman_amount(500000)
     assert_contains("500,000", formatted, "formats Toman with thousand separators")
     assert_contains("تومان", formatted, "appends تومان without converting from USD")
-    assert_same("", format_toman_amount(0), "hides zero fees")
-    assert_same("", format_toman_amount(""), "hides empty fees")
+    assert_same("", format_toman_amount(0), "hides zero unless asked to show it")
+    assert_same("", format_toman_amount(""), "hides empty unless asked to show zero")
+    assert_contains("0", format_toman_amount("", True), "empty amount can render as 0")
+    assert_contains("0", format_toman_amount(0, True), "zero amount can render as 0")
 
     fees_html = get_listing_fees_html(
         12,
@@ -159,7 +165,9 @@ def main():
         {"_listing_customs_fee": "", "_listing_shipping_fee": "900000"},
     )
     assert_contains("هزینه حمل‌ونقل", partial, "shows shipping when customs is empty")
-    assert_same(False, "هزینه گمرک" in partial, "hides empty customs row")
+    assert_contains("هزینه گمرک", partial, "keeps the empty customs row")
+    assert_contains("listing-price-extra--customs_fee", partial, "renders the empty customs row wrapper")
+    assert_contains(">0</span>", partial, "empty customs amount renders as 0")
     assert_same("", get_listing_fees_html(0, {}), "no HTML without a listing id")
 
     assert_same([], inject_listing_fee_fields([], PREFIX), "does not invent fields when Fields Manager data is empty")
