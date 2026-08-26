@@ -332,7 +332,7 @@ class WP_CarDealer_Elementor_Tag_Body_Damage extends WP_CarDealer_Elementor_Tag_
 			return;
 		}
 
-		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- inline SVG diagram
+		echo wp_kses_post( $html );
 	}
 }
 

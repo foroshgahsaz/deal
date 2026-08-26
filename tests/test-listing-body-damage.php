@@ -32,6 +32,10 @@ function esc_html__( $text ) {
 	return esc_html( $text );
 }
 
+function esc_attr__( $text ) {
+	return esc_attr( $text );
+}
+
 function esc_html_e( $text ) {
 	echo esc_html( $text );
 }
@@ -42,6 +46,33 @@ function wp_json_encode( $data ) {
 
 function add_action() {}
 function add_filter() {}
+
+function home_url( $path = '' ) {
+	return 'https://example.test/' . ltrim( (string) $path, '/' );
+}
+
+function add_query_arg( $key, $value, $url ) {
+	$separator = strpos( $url, '?' ) === false ? '?' : '&';
+	return $url . $separator . rawurlencode( (string) $key ) . '=' . rawurlencode( (string) $value );
+}
+
+function get_post_type( $post_id ) {
+	return $post_id ? 'listing' : '';
+}
+
+function wp_unslash( $value ) {
+	return $value;
+}
+
+function esc_url( $url ) {
+	return esc_attr( $url );
+}
+
+function status_header( $code ) {
+	unset( $code );
+}
+
+function nocache_headers() {}
 
 require_once dirname( __DIR__ ) . '/includes/class-listing-body-damage.php';
 require_once dirname( __DIR__ ) . '/includes/custom-fields/class-fields-manager.php';
@@ -107,9 +138,14 @@ assert_same( false, WP_CarDealer_Listing_Body_Damage::has_damage( 21 ), 'detects
 
 $html = WP_CarDealer_Listing_Body_Damage::get_html( 20 );
 assert_contains( 'listing-body-damage-diagram', $html, 'renders diagram wrapper' );
-assert_contains( 'سمت چپ', $html, 'svg view labels use persian utf-8 text' );
-assert_contains( 'is-replaced', $html, 'applies replaced class in svg' );
-assert_contains( 'is-painted', $html, 'applies painted class in svg' );
+assert_contains( 'listing-body-damage-svg-img', $html, 'renders diagram as img for elementor compatibility' );
+assert_contains( 'سمت چپ', $html, 'view labels use persian html text' );
+assert_contains( 'نمای بالا', $html, 'includes top view label' );
+assert_contains( 'wpcd_listing_body_diagram=20', $html, 'embeds listing diagram svg url' );
+
+$svg = WP_CarDealer_Listing_Body_Damage::get_diagram_svg( $map );
+assert_contains( 'is-replaced', $svg, 'applies replaced class in svg payload' );
+assert_contains( 'is-painted', $svg, 'applies painted class in svg payload' );
 assert_contains( 'گلگیر جلو راست', $html, 'lists replaced part in persian' );
 assert_contains( 'درب صندوق', $html, 'lists painted part in persian' );
 

@@ -12,12 +12,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WP_CarDealer_Listing_Body_Damage {
 
 	const META_KEY = '_listing_body_damage';
+	const DIAGRAM_QUERY_VAR = 'wpcd_listing_body_diagram';
 
 	const STATUS_PAINTED  = 'painted';
 	const STATUS_REPLACED   = 'replaced';
 
 	const COLOR_PAINTED  = '#2563eb';
 	const COLOR_REPLACED = '#8B5E3C';
+
+	public static function init() {
+		add_action( 'template_redirect', array( __CLASS__, 'maybe_output_diagram_svg' ) );
+	}
 
 	/**
 	 * @return array slug => Persian label
@@ -202,7 +207,88 @@ class WP_CarDealer_Listing_Body_Damage {
 			}
 		}
 
-		return $svg;
+		return trim( $svg );
+	}
+
+	/**
+	 * @param int $post_id
+	 * @return string
+	 */
+	public static function get_diagram_url( $post_id ) {
+		$post_id = absint( $post_id );
+		if ( ! $post_id ) {
+			return '';
+		}
+
+		return add_query_arg( self::DIAGRAM_QUERY_VAR, $post_id, home_url( '/' ) );
+	}
+
+	/**
+	 * Serve the listing body diagram SVG when requested directly.
+	 */
+	public static function maybe_output_diagram_svg() {
+		if ( empty( $_GET[ self::DIAGRAM_QUERY_VAR ] ) ) {
+			return;
+		}
+
+		$post_id = absint( wp_unslash( $_GET[ self::DIAGRAM_QUERY_VAR ] ) );
+		if ( ! $post_id || get_post_type( $post_id ) !== 'listing' ) {
+			status_header( 404 );
+			exit;
+		}
+
+		$svg = self::get_diagram_svg( self::get_damage_map( $post_id ) );
+		if ( $svg === '' ) {
+			status_header( 404 );
+			exit;
+		}
+
+		nocache_headers();
+		header( 'Content-Type: image/svg+xml; charset=utf-8' );
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG asset output
+		echo $svg;
+		exit;
+	}
+
+	/**
+	 * Render the diagram as an HTML img (Elementor-safe) with Persian view labels.
+	 *
+	 * @param array $map
+	 * @param int   $post_id
+	 * @return string
+	 */
+	public static function get_diagram_markup( $map, $post_id = 0 ) {
+		$post_id = absint( $post_id );
+		$svg     = self::get_diagram_svg( $map );
+		if ( $svg === '' || ! $post_id ) {
+			return '';
+		}
+
+		$src = self::get_diagram_url( $post_id );
+		if ( $src === '' ) {
+			return '';
+		}
+
+		ob_start();
+		?>
+		<div class="listing-body-damage-diagram-inner" dir="ltr">
+			<div class="listing-body-damage-view-labels" aria-hidden="true">
+				<span class="listing-body-damage-view-label"><?php esc_html_e( 'سمت چپ', 'wp-cardealer' ); ?></span>
+				<span class="listing-body-damage-view-label"><?php esc_html_e( 'نمای بالا', 'wp-cardealer' ); ?></span>
+				<span class="listing-body-damage-view-label"><?php esc_html_e( 'سمت راست', 'wp-cardealer' ); ?></span>
+			</div>
+			<img
+				class="listing-body-damage-svg-img"
+				src="<?php echo esc_url( $src ); ?>"
+				alt="<?php echo esc_attr__( 'نقشه وضعیت بدنه', 'wp-cardealer' ); ?>"
+				width="570"
+				height="620"
+				decoding="async"
+				loading="lazy"
+			/>
+		</div>
+		<?php
+		return ob_get_clean();
 	}
 
 	/**
@@ -217,7 +303,7 @@ class WP_CarDealer_Listing_Body_Damage {
 
 		$map     = self::get_damage_map( $post_id );
 		$marked  = self::get_marked_parts( $map );
-		$diagram = self::get_diagram_svg( $map );
+		$diagram = self::get_diagram_markup( $map, $post_id );
 
 		if ( $diagram === '' ) {
 			return '';
@@ -226,7 +312,7 @@ class WP_CarDealer_Listing_Body_Damage {
 		ob_start();
 		?>
 		<div class="listing-body-damage">
-			<div class="listing-body-damage-diagram" dir="ltr"><?php echo $diagram; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- sanitized SVG file ?></div>
+			<div class="listing-body-damage-diagram"><?php echo $diagram; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped img + labels ?></div>
 			<div class="listing-body-damage-legend">
 				<span class="listing-body-damage-legend-item listing-body-damage-legend-item--painted"><?php esc_html_e( 'رنگ‌شده', 'wp-cardealer' ); ?></span>
 				<span class="listing-body-damage-legend-item listing-body-damage-legend-item--replaced"><?php esc_html_e( 'تعویض‌شده', 'wp-cardealer' ); ?></span>
@@ -261,3 +347,5 @@ class WP_CarDealer_Listing_Body_Damage {
 		return ob_get_clean();
 	}
 }
+
+WP_CarDealer_Listing_Body_Damage::init();

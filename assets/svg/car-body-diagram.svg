@@ -1,7 +1,12 @@
 <svg viewBox="125 0 570 620" class="listing-body-damage-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-	<text x="207" y="30" class="listing-body-damage-view-label">??? ??</text>
-	<text x="410" y="30" class="listing-body-damage-view-label">???? ????</text>
-	<text x="613" y="30" class="listing-body-damage-view-label">??? ????</text>
+	<style><![CDATA[
+		.body-part { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.2; }
+		.body-part--glass, .body-part--mirror, .body-part--tire, .body-part--aux { fill: #eef2f7; stroke: #cbd5e1; }
+		.body-part-rim { fill: #fff; stroke: #94a3b8; stroke-width: 1; }
+		.body-part-outline { fill: none; stroke: #cbd5e1; stroke-width: 1; }
+		.body-part.is-painted { fill: #2563eb; stroke: #1d4ed8; }
+		.body-part.is-replaced { fill: #8b5e3c; stroke: #6f4b2f; }
+	]]></style>
 	<g transform="translate(290,48)">
 		<path d="M60 8 L180 8 Q205 8 210 26 L212 44 L28 44 L30 26 Q35 8 60 8 Z" class="body-part" data-part="front_bumper"><title>Front bumper</title></path>
 		<path d="M30 48 L210 48 L216 148 L24 148 Z" class="body-part" data-part="hood"><title>Hood</title></path>
