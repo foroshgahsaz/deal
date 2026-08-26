@@ -94,17 +94,32 @@ class WP_CarDealer_Taxonomy_Listing_Location {
 			return;
 		}
 
-		$query->set(
-			'tax_query',
-			array(
-				array(
-					'taxonomy'         => 'listing_location',
-					'field'            => 'term_id',
-					'terms'            => array( (int) $term->term_id ),
-					'include_children' => true,
-				),
-			)
-		);
+		$tax_query = $query->get( 'tax_query' );
+		if ( ! is_array( $tax_query ) ) {
+			$tax_query = array();
+		}
+
+		$found = false;
+		foreach ( $tax_query as $key => $clause ) {
+			if ( $key === 'relation' || ! is_array( $clause ) ) {
+				continue;
+			}
+			if ( isset( $clause['taxonomy'] ) && $clause['taxonomy'] === 'listing_location' ) {
+				$tax_query[ $key ]['include_children'] = true;
+				$found = true;
+			}
+		}
+
+		if ( ! $found ) {
+			$tax_query[] = array(
+				'taxonomy'         => 'listing_location',
+				'field'            => 'term_id',
+				'terms'            => array( (int) $term->term_id ),
+				'include_children' => true,
+			);
+		}
+
+		$query->set( 'tax_query', $tax_query );
 	}
 }
 
