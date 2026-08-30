@@ -22,8 +22,9 @@ class WP_CarDealer_Navasan {
 	const DEFAULT_ITEM = 'USD';
 	const DEFAULT_CACHE_MINUTES = 60;
 	const API_URL = 'https://Api.BrsApi.ir/Market/Gold_Currency.php';
-	const API_TIMEOUT = 8;
+	const API_TIMEOUT = 5;
 	const REFRESH_LOCK_SECONDS = 300;
+	const BUILD = '20260830-defer-cron';
 
 	/**
 	 * Per-request memoization so listing archives do not hit the DB dozens of times.
@@ -38,6 +39,7 @@ class WP_CarDealer_Navasan {
 	private static $is_enabled_cache = null;
 
 	public static function init() {
+		add_action( 'init', array( __CLASS__, 'maybe_defer_frontend_cron' ), 0 );
 		add_action( 'init', array( __CLASS__, 'schedule_refresh' ) );
 		add_action( 'wp_cardealer_navasan_refresh_rate', array( __CLASS__, 'refresh_rate' ) );
 
@@ -45,6 +47,7 @@ class WP_CarDealer_Navasan {
 		add_action( 'wpcd_ajax_wp_cardealer_navasan_test_token', array( __CLASS__, 'ajax_test_token' ) );
 
 		add_action( 'update_option_wp_cardealer_settings', array( __CLASS__, 'maybe_flush_rate_cache' ), 10, 2 );
+		add_action( 'wp_footer', array( __CLASS__, 'render_build_marker' ), 9999 );
 	}
 
 	/**
@@ -233,12 +236,14 @@ class WP_CarDealer_Navasan {
 	}
 
 	/**
-	 * Remote fetch is allowed only for cron/admin test flows.
+	 * Never call BrsApi during a normal visitor/admin page request.
+	 * WP-Cron often runs due jobs at shutdown of the same HTTP request (output
+	 * buffering keeps TTFB at zero until then), which blocked the homepage for 5–8s+.
 	 *
 	 * @return bool
 	 */
 	public static function should_fetch_rate_synchronously() {
-		if ( wp_doing_cron() ) {
+		if ( defined( 'DOING_CRON' ) && DOING_CRON ) {
 			return true;
 		}
 
@@ -250,6 +255,34 @@ class WP_CarDealer_Navasan {
 		}
 
 		return (bool) apply_filters( 'wp_cardealer_navasan_allow_sync_fetch', false );
+	}
+
+	/**
+	 * Push overdue navasan cron jobs out of the current frontend request.
+	 *
+	 * @return void
+	 */
+	public static function maybe_defer_frontend_cron() {
+		if ( self::should_fetch_rate_synchronously() ) {
+			return;
+		}
+
+		$hook = 'wp_cardealer_navasan_refresh_rate';
+		$now  = time();
+		$moved = false;
+
+		while ( ( $timestamp = wp_next_scheduled( $hook ) ) && $timestamp <= $now ) {
+			wp_unschedule_event( $timestamp, $hook );
+			$moved = true;
+		}
+
+		if ( ! $moved ) {
+			return;
+		}
+
+		if ( ! wp_next_scheduled( $hook ) && self::is_enabled() ) {
+			wp_schedule_event( $now + HOUR_IN_SECONDS, 'hourly', $hook );
+		}
 	}
 
 	/**
@@ -311,6 +344,10 @@ class WP_CarDealer_Navasan {
 	 * @return float
 	 */
 	public static function refresh_rate( $api_key = '', $item = '' ) {
+		if ( ! self::should_fetch_rate_synchronously() ) {
+			return (float) self::get_stored_rate();
+		}
+
 		$result = self::fetch_latest_rate( $api_key, $item );
 
 		if ( empty( $result['success'] ) || empty( $result['rate'] ) ) {
@@ -567,6 +604,19 @@ class WP_CarDealer_Navasan {
 		$last = get_option( self::OPTION_LAST_RESULT, array() );
 
 		return is_array( $last ) ? $last : array();
+	}
+
+	/**
+	 * HTML comment so production deploys can be verified via view-source.
+	 *
+	 * @return void
+	 */
+	public static function render_build_marker() {
+		if ( ! self::is_enabled() ) {
+			return;
+		}
+
+		echo '<!-- wpcd-navasan-' . esc_attr( self::BUILD ) . ' -->' . "\n";
 	}
 
 	public static function schedule_refresh() {

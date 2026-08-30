@@ -2029,6 +2029,9 @@ function wp_cardealer_navasan_status_callback( $field_object, $escaped_value, $o
 
 	echo '<p><button type="button" class="button" id="wp-cardealer-navasan-test">آزمایش کلید و به‌روزرسانی نرخ</button></p>';
 	echo '<p class="wp-cardealer-navasan-test-result" role="status"></p>';
+	if ( class_exists( 'WP_CarDealer_Navasan' ) && WP_CarDealer_Navasan::BUILD ) {
+		echo '<p class="description">نسخهٔ ماژول نرخ: ' . esc_html( WP_CarDealer_Navasan::BUILD ) . '</p>';
+	}
 	echo '</div>';
 }
 

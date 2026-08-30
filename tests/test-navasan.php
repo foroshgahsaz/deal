@@ -94,10 +94,6 @@ assert_same( 200500.0, WP_CarDealer_Navasan::resolve_cached_rate( 200500, 0 ), '
 assert_same( 198726.0, WP_CarDealer_Navasan::resolve_cached_rate( false, 198726 ), 'falls back to last stored rate' );
 assert_same( 0.0, WP_CarDealer_Navasan::resolve_cached_rate( false, 0 ), 'returns 0 when nothing is cached' );
 
-function wp_doing_cron() {
-	return ! empty( $GLOBALS['wp_cardealer_test_doing_cron'] );
-}
-
 function wp_doing_ajax() {
 	return ! empty( $GLOBALS['wp_cardealer_test_doing_ajax'] );
 }
@@ -106,19 +102,19 @@ function sanitize_text_field( $text ) {
 	return is_string( $text ) ? trim( $text ) : '';
 }
 
-$GLOBALS['wp_cardealer_test_doing_cron'] = false;
 $GLOBALS['wp_cardealer_test_doing_ajax'] = false;
 assert_same( false, WP_CarDealer_Navasan::should_fetch_rate_synchronously(), 'frontend requests do not sync-fetch' );
-
-$GLOBALS['wp_cardealer_test_doing_cron'] = true;
-assert_same( true, WP_CarDealer_Navasan::should_fetch_rate_synchronously(), 'cron may sync-fetch' );
-$GLOBALS['wp_cardealer_test_doing_cron'] = false;
 
 $GLOBALS['wp_cardealer_test_doing_ajax'] = true;
 $_REQUEST['action'] = 'wp_cardealer_navasan_test_token';
 assert_same( true, WP_CarDealer_Navasan::should_fetch_rate_synchronously(), 'settings test ajax may sync-fetch' );
 $GLOBALS['wp_cardealer_test_doing_ajax'] = false;
 unset( $_REQUEST['action'] );
+
+if ( ! defined( 'DOING_CRON' ) ) {
+	define( 'DOING_CRON', true );
+}
+assert_same( true, WP_CarDealer_Navasan::should_fetch_rate_synchronously(), 'wp-cron.php may sync-fetch' );
 
 echo "\n{$passed} passed, {$failed} failed\n";
 exit( $failed > 0 ? 1 : 0 );
