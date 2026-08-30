@@ -16,10 +16,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WP_CarDealer_Navasan {
 
 	const TRANSIENT_RATE = 'wp_cardealer_navasan_usd_toman_rate';
+	const TRANSIENT_REFRESH_LOCK = 'wp_cardealer_navasan_refresh_lock';
 	const OPTION_LAST_RESULT = 'wp_cardealer_navasan_last_result';
 	const DEFAULT_ITEM = 'USD';
 	const DEFAULT_CACHE_MINUTES = 60;
 	const API_URL = 'https://Api.BrsApi.ir/Market/Gold_Currency.php';
+	const API_TIMEOUT = 8;
+	const REFRESH_LOCK_SECONDS = 300;
+
+	/**
+	 * Per-request memoization so listing archives do not hit the DB dozens of times.
+	 *
+	 * @var float|null
+	 */
+	private static $request_rate_cache = null;
 
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'schedule_refresh' ) );
@@ -112,31 +122,141 @@ class WP_CarDealer_Navasan {
 	}
 
 	/**
-	 * Cached USD→Toman rate. Falls back to the last successful fetch.
+	 * Cached USD→Toman rate. Never blocks frontend requests on a live API call.
 	 *
 	 * @return float
 	 */
 	public static function get_usd_toman_rate() {
+		if ( null !== self::$request_rate_cache ) {
+			return self::$request_rate_cache;
+		}
+
 		if ( ! self::is_enabled() ) {
-			return 0;
+			self::$request_rate_cache = 0.0;
+			return self::$request_rate_cache;
 		}
 
 		$cached = get_transient( self::TRANSIENT_RATE );
-		if ( is_numeric( $cached ) && (float) $cached > 0 ) {
-			return (float) $cached;
+		$rate   = self::resolve_cached_rate(
+			$cached,
+			self::get_fallback_rate()
+		);
+
+		if ( $rate > 0 ) {
+			if ( ! is_numeric( $cached ) || (float) $cached <= 0 ) {
+				self::backfill_transient_from_rate( $rate );
+			}
+			self::$request_rate_cache = $rate;
+			return self::$request_rate_cache;
 		}
 
-		$fetched = self::refresh_rate();
-		if ( $fetched > 0 ) {
-			return $fetched;
+		if ( self::should_fetch_rate_synchronously() ) {
+			$fetched = self::refresh_rate();
+			if ( $fetched > 0 ) {
+				self::$request_rate_cache = $fetched;
+				return self::$request_rate_cache;
+			}
+		} else {
+			self::schedule_immediate_refresh();
 		}
 
+		self::$request_rate_cache = 0.0;
+		return self::$request_rate_cache;
+	}
+
+	/**
+	 * Pick the best locally available rate without calling the API.
+	 *
+	 * @param mixed $transient
+	 * @param mixed $fallback
+	 * @return float
+	 */
+	public static function resolve_cached_rate( $transient, $fallback ) {
+		if ( is_numeric( $transient ) && (float) $transient > 0 ) {
+			return (float) $transient;
+		}
+
+		if ( is_numeric( $fallback ) && (float) $fallback > 0 ) {
+			return (float) $fallback;
+		}
+
+		return 0.0;
+	}
+
+	/**
+	 * @return float
+	 */
+	public static function get_fallback_rate() {
 		$last = get_option( self::OPTION_LAST_RESULT, array() );
-		if ( ! empty( $last['rate'] ) && is_numeric( $last['rate'] ) && (float) $last['rate'] > 0 ) {
-			return (float) $last['rate'];
+		if ( ! is_array( $last ) || empty( $last['rate'] ) ) {
+			return 0.0;
 		}
 
-		return 0;
+		return is_numeric( $last['rate'] ) ? (float) $last['rate'] : 0.0;
+	}
+
+	/**
+	 * Restore the transient when we still have a valid last-known rate.
+	 *
+	 * @param float $rate
+	 * @return void
+	 */
+	public static function backfill_transient_from_rate( $rate ) {
+		$rate = (float) $rate;
+		if ( $rate <= 0 ) {
+			return;
+		}
+
+		set_transient( self::TRANSIENT_RATE, $rate, self::get_cache_seconds() );
+	}
+
+	/**
+	 * Queue a background refresh instead of blocking page rendering.
+	 *
+	 * @return void
+	 */
+	public static function schedule_immediate_refresh() {
+		if ( get_transient( self::TRANSIENT_REFRESH_LOCK ) ) {
+			return;
+		}
+
+		set_transient( self::TRANSIENT_REFRESH_LOCK, 1, self::REFRESH_LOCK_SECONDS );
+
+		$hook = 'wp_cardealer_navasan_refresh_rate';
+		if ( ! wp_next_scheduled( $hook ) ) {
+			wp_schedule_single_event( time(), $hook );
+		}
+
+		if ( function_exists( 'spawn_cron' ) ) {
+			spawn_cron();
+		}
+	}
+
+	/**
+	 * Remote fetch is allowed only for cron/admin test flows.
+	 *
+	 * @return bool
+	 */
+	public static function should_fetch_rate_synchronously() {
+		if ( wp_doing_cron() ) {
+			return true;
+		}
+
+		if ( wp_doing_ajax() ) {
+			$action = isset( $_REQUEST['action'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['action'] ) ) : '';
+			if ( in_array( $action, array( 'wp_cardealer_navasan_test_token', 'wpcd_ajax_wp_cardealer_navasan_test_token' ), true ) ) {
+				return true;
+			}
+		}
+
+		return (bool) apply_filters( 'wp_cardealer_navasan_allow_sync_fetch', false );
+	}
+
+	/**
+	 * @return void
+	 */
+	public static function reset_request_rate_cache() {
+		self::$request_rate_cache = null;
 	}
 
 	/**
@@ -197,8 +317,9 @@ class WP_CarDealer_Navasan {
 		}
 
 		self::store_rate_result( $result );
+		self::$request_rate_cache = (float) $result['rate'];
 
-		return (float) $result['rate'];
+		return self::$request_rate_cache;
 	}
 
 	/**
@@ -260,7 +381,7 @@ class WP_CarDealer_Navasan {
 		$response = wp_remote_get(
 			$url,
 			array(
-				'timeout'     => 20,
+				'timeout'     => self::API_TIMEOUT,
 				'sslverify'   => true,
 				'redirection' => 0,
 				'headers'     => array(
@@ -468,14 +589,24 @@ class WP_CarDealer_Navasan {
 			$new_value = array();
 		}
 		$keys = array( 'navasan_api_key', 'navasan_usd_item', 'enable_usd_to_toman' );
+		$changed = false;
 		foreach ( $keys as $key ) {
 			$old = isset( $old_value[ $key ] ) ? $old_value[ $key ] : '';
 			$new = isset( $new_value[ $key ] ) ? $new_value[ $key ] : '';
 			if ( $old !== $new ) {
-				delete_transient( self::TRANSIENT_RATE );
+				$changed = true;
 				break;
 			}
 		}
+
+		if ( ! $changed ) {
+			return;
+		}
+
+		delete_transient( self::TRANSIENT_RATE );
+		delete_transient( self::TRANSIENT_REFRESH_LOCK );
+		self::reset_request_rate_cache();
+		self::schedule_immediate_refresh();
 	}
 
 	public static function ajax_test_token() {
