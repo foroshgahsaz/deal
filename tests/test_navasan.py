@@ -88,6 +88,22 @@ def convert_amount(usd, rate):
     return float(round(usd_f * rate_f))
 
 
+def resolve_cached_rate(transient, fallback):
+    try:
+        transient_f = float(transient)
+        if transient_f > 0:
+            return transient_f
+    except (TypeError, ValueError):
+        pass
+    try:
+        fallback_f = float(fallback)
+        if fallback_f > 0:
+            return fallback_f
+    except (TypeError, ValueError):
+        pass
+    return 0.0
+
+
 def assert_same(expected, actual, message):
     if expected != actual:
         raise AssertionError(f"{message}: expected {expected!r}, got {actual!r}")
@@ -136,6 +152,9 @@ def main():
     assert_same(5012500000.0, convert_amount(25000, 200500), "converts 25000 USD at 200500 Toman")
     assert_same(0.0, convert_amount("abc", 200500), "non-numeric USD becomes 0")
     assert_same(25000.0, convert_amount(25000, 0), "rate 0 leaves the USD amount unchanged")
+    assert_same(200500.0, resolve_cached_rate(200500, 0), "prefers transient rate")
+    assert_same(198726.0, resolve_cached_rate(False, 198726), "falls back to last stored rate")
+    assert_same(0.0, resolve_cached_rate(False, 0), "returns 0 when nothing is cached")
 
     sample = json.loads(
         '{"currency":[{"symbol":"USD","price":200500,"unit":"تومان","date":"1405/06/04","time":"18:14","time_unix":1787755476,"name":"دلار"}]}'
