@@ -17,6 +17,7 @@ class WP_CarDealer_Navasan {
 
 	const TRANSIENT_RATE = 'wp_cardealer_navasan_usd_toman_rate';
 	const TRANSIENT_REFRESH_LOCK = 'wp_cardealer_navasan_refresh_lock';
+	const OPTION_RATE = 'wp_cardealer_navasan_usd_rate';
 	const OPTION_LAST_RESULT = 'wp_cardealer_navasan_last_result';
 	const DEFAULT_ITEM = 'USD';
 	const DEFAULT_CACHE_MINUTES = 60;
@@ -30,6 +31,11 @@ class WP_CarDealer_Navasan {
 	 * @var float|null
 	 */
 	private static $request_rate_cache = null;
+
+	/**
+	 * @var bool|null
+	 */
+	private static $is_enabled_cache = null;
 
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'schedule_refresh' ) );
@@ -47,13 +53,17 @@ class WP_CarDealer_Navasan {
 	 * @return bool
 	 */
 	public static function is_enabled() {
+		if ( null !== self::$is_enabled_cache ) {
+			return self::$is_enabled_cache;
+		}
+
 		if ( wp_cardealer_get_option( 'enable_usd_to_toman', 'yes' ) !== 'yes' ) {
+			self::$is_enabled_cache = false;
 			return false;
 		}
 
-		$api_key = self::get_api_key();
-
-		return $api_key !== '';
+		self::$is_enabled_cache = self::get_api_key() !== '';
+		return self::$is_enabled_cache;
 	}
 
 	/**
@@ -122,7 +132,7 @@ class WP_CarDealer_Navasan {
 	}
 
 	/**
-	 * Cached USD→Toman rate. Never blocks frontend requests on a live API call.
+	 * Cached USD→Toman rate. Reads local cache only — never calls BrsApi during page render.
 	 *
 	 * @return float
 	 */
@@ -136,31 +146,11 @@ class WP_CarDealer_Navasan {
 			return self::$request_rate_cache;
 		}
 
-		$cached = get_transient( self::TRANSIENT_RATE );
-		$rate   = self::resolve_cached_rate(
-			$cached,
-			self::get_fallback_rate()
+		self::$request_rate_cache = self::resolve_cached_rate(
+			get_transient( self::TRANSIENT_RATE ),
+			self::get_stored_rate()
 		);
 
-		if ( $rate > 0 ) {
-			if ( ! is_numeric( $cached ) || (float) $cached <= 0 ) {
-				self::backfill_transient_from_rate( $rate );
-			}
-			self::$request_rate_cache = $rate;
-			return self::$request_rate_cache;
-		}
-
-		if ( self::should_fetch_rate_synchronously() ) {
-			$fetched = self::refresh_rate();
-			if ( $fetched > 0 ) {
-				self::$request_rate_cache = $fetched;
-				return self::$request_rate_cache;
-			}
-		} else {
-			self::schedule_immediate_refresh();
-		}
-
-		self::$request_rate_cache = 0.0;
 		return self::$request_rate_cache;
 	}
 
@@ -181,6 +171,18 @@ class WP_CarDealer_Navasan {
 		}
 
 		return 0.0;
+	}
+
+	/**
+	 * @return float
+	 */
+	public static function get_stored_rate() {
+		$rate = get_option( self::OPTION_RATE, 0 );
+		if ( is_numeric( $rate ) && (float) $rate > 0 ) {
+			return (float) $rate;
+		}
+
+		return self::get_fallback_rate();
 	}
 
 	/**
@@ -211,7 +213,7 @@ class WP_CarDealer_Navasan {
 	}
 
 	/**
-	 * Queue a background refresh instead of blocking page rendering.
+	 * Queue a deferred refresh for WP-Cron. Does not spawn HTTP or call BrsApi now.
 	 *
 	 * @return void
 	 */
@@ -223,13 +225,11 @@ class WP_CarDealer_Navasan {
 		set_transient( self::TRANSIENT_REFRESH_LOCK, 1, self::REFRESH_LOCK_SECONDS );
 
 		$hook = 'wp_cardealer_navasan_refresh_rate';
-		if ( ! wp_next_scheduled( $hook ) ) {
-			wp_schedule_single_event( time(), $hook );
+		if ( wp_next_scheduled( $hook ) ) {
+			return;
 		}
 
-		if ( function_exists( 'spawn_cron' ) ) {
-			spawn_cron();
-		}
+		wp_schedule_single_event( time() + ( 5 * MINUTE_IN_SECONDS ), $hook );
 	}
 
 	/**
@@ -257,6 +257,7 @@ class WP_CarDealer_Navasan {
 	 */
 	public static function reset_request_rate_cache() {
 		self::$request_rate_cache = null;
+		self::$is_enabled_cache   = null;
 	}
 
 	/**
@@ -331,6 +332,7 @@ class WP_CarDealer_Navasan {
 	public static function store_rate_result( $result ) {
 		$rate = (float) $result['rate'];
 		set_transient( self::TRANSIENT_RATE, $rate, self::get_cache_seconds() );
+		update_option( self::OPTION_RATE, $rate, true );
 		update_option(
 			self::OPTION_LAST_RESULT,
 			array(
@@ -577,7 +579,7 @@ class WP_CarDealer_Navasan {
 		}
 
 		if ( ! wp_next_scheduled( 'wp_cardealer_navasan_refresh_rate' ) ) {
-			wp_schedule_event( time() + 60, 'hourly', 'wp_cardealer_navasan_refresh_rate' );
+			wp_schedule_event( time() + HOUR_IN_SECONDS, 'hourly', 'wp_cardealer_navasan_refresh_rate' );
 		}
 	}
 

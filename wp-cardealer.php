@@ -330,7 +330,7 @@ if ( !class_exists("WP_CarDealer") ) {
 				wp_schedule_event( time(), 'daily', 'wp_cardealer_email_daily_notices' );
 			}
 			if ( ! wp_next_scheduled( 'wp_cardealer_navasan_refresh_rate' ) ) {
-				wp_schedule_event( time() + 60, 'hourly', 'wp_cardealer_navasan_refresh_rate' );
+				wp_schedule_event( time() + HOUR_IN_SECONDS, 'hourly', 'wp_cardealer_navasan_refresh_rate' );
 			}
 		}
 
