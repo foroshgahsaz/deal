@@ -24,7 +24,7 @@ class WP_CarDealer_Navasan {
 	const API_URL = 'https://Api.BrsApi.ir/Market/Gold_Currency.php';
 	const API_TIMEOUT = 5;
 	const REFRESH_LOCK_SECONDS = 300;
-	const BUILD = '20260831-cron-purge';
+	const BUILD = '20260831-no-frontend-cron';
 
 	/**
 	 * Per-request memoization so listing archives do not hit the DB dozens of times.
@@ -40,8 +40,8 @@ class WP_CarDealer_Navasan {
 
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'maybe_purge_legacy_cron_stack' ), 0 );
-		add_action( 'init', array( __CLASS__, 'maybe_defer_frontend_cron' ), 1 );
-		add_action( 'init', array( __CLASS__, 'schedule_refresh' ) );
+		add_action( 'init', array( __CLASS__, 'clear_frontend_cron' ), 1 );
+		add_action( 'admin_init', array( __CLASS__, 'maybe_refresh_stale_rate_in_admin' ) );
 		add_action( 'wp_cardealer_navasan_refresh_rate', array( __CLASS__, 'refresh_rate' ) );
 
 		add_action( 'wp_ajax_wp_cardealer_navasan_test_token', array( __CLASS__, 'ajax_test_token' ) );
@@ -228,8 +228,9 @@ class WP_CarDealer_Navasan {
 
 		set_transient( self::TRANSIENT_REFRESH_LOCK, 1, self::REFRESH_LOCK_SECONDS );
 
-		wp_clear_scheduled_hook( 'wp_cardealer_navasan_refresh_rate' );
-		wp_schedule_event( time() + ( 5 * MINUTE_IN_SECONDS ), 'hourly', 'wp_cardealer_navasan_refresh_rate' );
+		if ( is_admin() ) {
+			self::fetch_and_store_rate();
+		}
 	}
 
 	/**
@@ -260,38 +261,58 @@ class WP_CarDealer_Navasan {
 	 * @return void
 	 */
 	public static function maybe_purge_legacy_cron_stack() {
-		if ( get_option( 'wp_cardealer_navasan_cron_v2_purged' ) ) {
+		if ( get_option( 'wp_cardealer_navasan_cron_v3_purged' ) ) {
 			return;
 		}
 
 		wp_clear_scheduled_hook( 'wp_cardealer_navasan_refresh_rate' );
-
-		if ( self::is_enabled() ) {
-			wp_schedule_event( time() + HOUR_IN_SECONDS, 'hourly', 'wp_cardealer_navasan_refresh_rate' );
-		}
-
-		update_option( 'wp_cardealer_navasan_cron_v2_purged', 1, true );
+		delete_option( 'wp_cardealer_navasan_cron_v2_purged' );
+		update_option( 'wp_cardealer_navasan_cron_v3_purged', 1, true );
 	}
 
 	/**
-	 * Push overdue navasan cron jobs out of the current frontend request.
+	 * Never leave navasan cron events scheduled during visitor requests.
+	 * Due WP-Cron jobs run at shutdown and can block TTFB on shared hosts.
 	 *
 	 * @return void
 	 */
-	public static function maybe_defer_frontend_cron() {
-		if ( self::should_fetch_rate_synchronously() || ! self::is_enabled() ) {
+	public static function clear_frontend_cron() {
+		if ( is_admin() || self::should_fetch_rate_synchronously() ) {
 			return;
 		}
 
-		$hook = 'wp_cardealer_navasan_refresh_rate';
-		$next = wp_next_scheduled( $hook );
+		wp_clear_scheduled_hook( 'wp_cardealer_navasan_refresh_rate' );
+	}
 
-		if ( false === $next || $next > time() ) {
+	/**
+	 * Refresh the cached rate from wp-admin when the transient expired.
+	 *
+	 * @return void
+	 */
+	public static function maybe_refresh_stale_rate_in_admin() {
+		if ( ! is_admin() || ! self::is_enabled() || ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
-		wp_clear_scheduled_hook( $hook );
-		wp_schedule_event( time() + HOUR_IN_SECONDS, 'hourly', $hook );
+		if ( self::has_fresh_transient_rate() ) {
+			return;
+		}
+
+		if ( get_transient( 'wp_cardealer_navasan_admin_refresh_lock' ) ) {
+			return;
+		}
+
+		set_transient( 'wp_cardealer_navasan_admin_refresh_lock', 1, 15 * MINUTE_IN_SECONDS );
+		self::fetch_and_store_rate();
+	}
+
+	/**
+	 * @return bool
+	 */
+	public static function has_fresh_transient_rate() {
+		$cached = get_transient( self::TRANSIENT_RATE );
+
+		return is_numeric( $cached ) && (float) $cached > 0;
 	}
 
 	/**
@@ -357,6 +378,17 @@ class WP_CarDealer_Navasan {
 			return (float) self::get_stored_rate();
 		}
 
+		return self::fetch_and_store_rate( $api_key, $item );
+	}
+
+	/**
+	 * Always performs a remote fetch (admin / cron / tests only).
+	 *
+	 * @param string $api_key
+	 * @param string $item
+	 * @return float
+	 */
+	public static function fetch_and_store_rate( $api_key = '', $item = '' ) {
 		$result = self::fetch_latest_rate( $api_key, $item );
 
 		if ( empty( $result['success'] ) || empty( $result['rate'] ) ) {
@@ -629,14 +661,7 @@ class WP_CarDealer_Navasan {
 	}
 
 	public static function schedule_refresh() {
-		if ( ! self::is_enabled() ) {
-			wp_clear_scheduled_hook( 'wp_cardealer_navasan_refresh_rate' );
-			return;
-		}
-
-		if ( ! wp_next_scheduled( 'wp_cardealer_navasan_refresh_rate' ) ) {
-			wp_schedule_event( time() + HOUR_IN_SECONDS, 'hourly', 'wp_cardealer_navasan_refresh_rate' );
-		}
+		wp_clear_scheduled_hook( 'wp_cardealer_navasan_refresh_rate' );
 	}
 
 	public static function maybe_flush_rate_cache( $old_value, $new_value ) {
@@ -664,6 +689,7 @@ class WP_CarDealer_Navasan {
 		delete_transient( self::TRANSIENT_RATE );
 		delete_transient( self::TRANSIENT_REFRESH_LOCK );
 		self::reset_request_rate_cache();
+		wp_clear_scheduled_hook( 'wp_cardealer_navasan_refresh_rate' );
 		self::schedule_immediate_refresh();
 	}
 

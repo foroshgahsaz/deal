@@ -1963,7 +1963,13 @@ function wp_cardealer_get_option( $key = '', $default = false ) {
  * @return array WP_CarDealer settings
  */
 function wp_cardealer_get_settings() {
-	return apply_filters( 'wp_cardealer_get_settings', get_option( 'wp_cardealer_settings' ) );
+	static $settings = null;
+
+	if ( null === $settings ) {
+		$settings = apply_filters( 'wp_cardealer_get_settings', get_option( 'wp_cardealer_settings' ) );
+	}
+
+	return $settings;
 }
 
 
