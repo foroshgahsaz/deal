@@ -24,7 +24,7 @@ class WP_CarDealer_Navasan {
 	const API_URL = 'https://Api.BrsApi.ir/Market/Gold_Currency.php';
 	const API_TIMEOUT = 5;
 	const REFRESH_LOCK_SECONDS = 300;
-	const BUILD = '20260831-no-frontend-cron';
+	const BUILD = '20260901-skip-cron-clear';
 
 	/**
 	 * Per-request memoization so listing archives do not hit the DB dozens of times.
@@ -281,7 +281,12 @@ class WP_CarDealer_Navasan {
 			return;
 		}
 
-		wp_clear_scheduled_hook( 'wp_cardealer_navasan_refresh_rate' );
+		$hook = 'wp_cardealer_navasan_refresh_rate';
+		if ( ! wp_next_scheduled( $hook ) ) {
+			return;
+		}
+
+		wp_clear_scheduled_hook( $hook );
 	}
 
 	/**
