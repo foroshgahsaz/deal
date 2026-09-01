@@ -25,7 +25,7 @@ class WP_CarDealer_Price {
 	/**
 	 * Memoize Navasan formatting state for listing archives.
 	 *
-	 * @return array{display: bool, rate: float, symbol: string, currency_position: string}
+	 * @return array{display: bool, client_convert: bool, rate: float, symbol: string, currency_position: string}
 	 */
 	private static function get_navasan_format_context() {
 		if ( null !== self::$navasan_format_context ) {
@@ -34,6 +34,7 @@ class WP_CarDealer_Price {
 
 		self::$navasan_format_context = array(
 			'display'            => false,
+			'client_convert'     => false,
 			'rate'               => 0.0,
 			'symbol'             => '',
 			'currency_position'  => 'after_space',
@@ -48,11 +49,27 @@ class WP_CarDealer_Price {
 			return self::$navasan_format_context;
 		}
 
+		$symbol     = WP_CarDealer_Navasan::get_toman_symbol();
+		$position   = wp_cardealer_get_option( 'navasan_currency_position', 'after_space' );
+
+		if ( WP_CarDealer_Navasan::use_client_side_conversion() ) {
+			self::$navasan_format_context = array(
+				'display'           => false,
+				'client_convert'    => true,
+				'rate'              => $rate,
+				'symbol'            => $symbol,
+				'currency_position' => $position,
+			);
+
+			return self::$navasan_format_context;
+		}
+
 		self::$navasan_format_context = array(
 			'display'           => true,
+			'client_convert'    => false,
 			'rate'              => $rate,
-			'symbol'            => WP_CarDealer_Navasan::get_toman_symbol(),
-			'currency_position' => wp_cardealer_get_option( 'navasan_currency_position', 'after_space' ),
+			'symbol'            => $symbol,
+			'currency_position' => $position,
 		);
 
 		return self::$navasan_format_context;
@@ -265,6 +282,8 @@ class WP_CarDealer_Price {
 		$money_decimals = wp_cardealer_get_option('money_decimals');
 		$navasan_rate = $navasan['rate'];
 		$navasan_display = $navasan['display'];
+		$client_convert = ! empty( $navasan['client_convert'] );
+		$usd_source = (float) $price;
 
 		if ( $navasan_display && ! $without_rate_exchange ) {
 			$price = WP_CarDealer_Navasan::convert_amount( $price, $navasan_rate );
@@ -337,6 +356,10 @@ class WP_CarDealer_Price {
 					$price = '<span class="price-text">'.$price.'</span> ' . $currency_symbol;
 					break;
 			}
+		}
+
+		if ( $client_convert && ! $without_rate_exchange ) {
+			$price = '<span class="wpcd-usd-price" data-wpcd-usd="' . esc_attr( $usd_source ) . '">' . $price . '</span>';
 		}
 
 		return $price;

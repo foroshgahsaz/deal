@@ -413,6 +413,17 @@ class WP_CarDealer_Settings {
 						'default' => 'after_space',
 					),
 					array(
+						'name'    => 'نمایش قیمت در سایت',
+						'id'      => 'navasan_frontend_convert',
+						'type'    => 'select',
+						'options' => array(
+							'client' => 'سریع — تبدیل در مرورگر (توصیه‌شده)',
+							'server' => 'تبدیل در سرور (کندتر، بدون JavaScript)',
+						),
+						'default' => 'client',
+						'desc'    => 'حالت «سریع» بار PHP صفحه را مثل حالت خاموش نگه می‌دارد؛ تومان در مرورگر نمایش داده می‌شود.',
+					),
+					array(
 						'name' => 'وضعیت اتصال وب‌سرویس',
 						'id'   => 'navasan_connection_status',
 						'type' => 'wp_cardealer_navasan_status',

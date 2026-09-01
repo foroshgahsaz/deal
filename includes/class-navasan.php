@@ -24,7 +24,7 @@ class WP_CarDealer_Navasan {
 	const API_URL = 'https://Api.BrsApi.ir/Market/Gold_Currency.php';
 	const API_TIMEOUT = 5;
 	const REFRESH_LOCK_SECONDS = 300;
-	const BUILD = '20260901-no-cron-check';
+	const BUILD = '20260901-client-convert';
 
 	/**
 	 * Per-request memoization so listing archives do not hit the DB dozens of times.
@@ -80,6 +80,19 @@ class WP_CarDealer_Navasan {
 
 		self::$is_enabled_cache = self::get_api_key() !== '';
 		return self::$is_enabled_cache;
+	}
+
+	/**
+	 * Frontend performance mode: render USD in PHP, convert to Toman in the browser.
+	 *
+	 * @return bool
+	 */
+	public static function use_client_side_conversion() {
+		if ( ! self::is_enabled() || is_admin() || wp_doing_ajax() ) {
+			return false;
+		}
+
+		return wp_cardealer_get_option( 'navasan_frontend_convert', 'client' ) !== 'server';
 	}
 
 	/**

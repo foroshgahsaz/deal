@@ -128,7 +128,11 @@ class WP_CarDealer_Scripts {
 			'recaptcha_enable' => WP_CarDealer_Recaptcha::is_recaptcha_enabled(),
 			'divisors' => $divisors,
 			'enable_multi_currencies' => wp_cardealer_get_option('enable_multi_currencies'),
+			'enable_shorten_long_number' => wp_cardealer_get_option( 'enable_shorten_long_number', 'no' ),
 			'enable_usd_to_toman' => ( class_exists( 'WP_CarDealer_Navasan' ) && WP_CarDealer_Navasan::is_enabled() ) ? 'yes' : 'no',
+			'navasan_client_convert' => ( class_exists( 'WP_CarDealer_Navasan' ) && WP_CarDealer_Navasan::use_client_side_conversion() ) ? 'yes' : 'no',
+			'navasan_toman_symbol' => class_exists( 'WP_CarDealer_Navasan' ) ? WP_CarDealer_Navasan::get_toman_symbol() : '',
+			'navasan_currency_position' => wp_cardealer_get_option( 'navasan_currency_position', 'after_space' ),
 			'usd_to_toman_rate' => class_exists( 'WP_CarDealer_Navasan' ) ? WP_CarDealer_Navasan::get_usd_toman_rate() : 0,
 		));
 		wp_enqueue_script( 'wp-cardealer-main' );
