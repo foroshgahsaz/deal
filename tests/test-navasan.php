@@ -102,6 +102,10 @@ function sanitize_text_field( $text ) {
 	return is_string( $text ) ? trim( $text ) : '';
 }
 
+function wp_unslash( $value ) {
+	return is_string( $value ) ? stripslashes( $value ) : $value;
+}
+
 $GLOBALS['wp_cardealer_test_doing_ajax'] = false;
 assert_same( false, WP_CarDealer_Navasan::should_fetch_rate_synchronously(), 'frontend requests do not sync-fetch' );
 

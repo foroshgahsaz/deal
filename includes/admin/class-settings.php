@@ -1955,6 +1955,10 @@ $WP_CarDealer_Settings = new WP_CarDealer_Settings();
 function wp_cardealer_get_option( $key = '', $default = false ) {
 	global $wp_cardealer_options;
 
+	if ( class_exists( 'WP_CarDealer_Profiler' ) ) {
+		WP_CarDealer_Profiler::count( 'wp_cardealer_get_option' );
+	}
+
 	$wp_cardealer_options = wp_cardealer_get_settings();
 	
 	$value = ! empty( $wp_cardealer_options[ $key ] ) ? $wp_cardealer_options[ $key ] : $default;
@@ -2048,7 +2052,7 @@ function wp_cardealer_navasan_status_callback( $field_object, $escaped_value, $o
 	echo '<p class="wp-cardealer-navasan-test-result" role="status"></p>';
 	if ( class_exists( 'WP_CarDealer_Navasan' ) && WP_CarDealer_Navasan::BUILD ) {
 		echo '<p class="description">نسخهٔ ماژول نرخ: ' . esc_html( WP_CarDealer_Navasan::BUILD ) . '</p>';
-		echo '<p class="description">تشخیص سرعت: به صفحهٔ اول بروید و <code>?wpcd_navasan_profile=1</code> را به آدرس اضافه کنید، سپس View Source و <code>wpcd-profile</code> را جستجو کنید.</p>';
+		echo '<p class="description">تشخیص سرعت: صفحهٔ اول را با <code>?wpcd_profile=1</code> باز کنید، سپس در View Source عبارت <code>wpcd-profile</code> را جستجو کنید.</p>';
 	}
 	echo '</div>';
 }

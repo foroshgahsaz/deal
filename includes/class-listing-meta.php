@@ -92,6 +92,21 @@ class WP_CarDealer_Listing_Meta {
 	}
 	
 	public function get_price_html() {
+		if ( ! WP_CarDealer_Profiler::is_enabled() ) {
+			return $this->render_price_html();
+		}
+
+		WP_CarDealer_Profiler::start( 'get_price_html' );
+		$rendered = $this->render_price_html();
+		WP_CarDealer_Profiler::stop( 'get_price_html' );
+
+		return $rendered;
+	}
+
+	/**
+	 * @return bool|string
+	 */
+	private function render_price_html() {
 		$price_html = '';
 		$price_custom = $this->get_post_meta( 'price_custom' );
 

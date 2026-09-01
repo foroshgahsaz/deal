@@ -155,6 +155,7 @@ if ( !class_exists("WP_CarDealer") ) {
 			
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-review.php';
 			
+			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-profiler.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-price.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-navasan.php';
 			require_once WP_CARDEALER_PLUGIN_DIR . 'includes/class-listing-location.php';

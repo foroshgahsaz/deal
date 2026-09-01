@@ -270,6 +270,24 @@ class WP_CarDealer_Price {
 	 * @return bool|string
 	 */
 	public static function format_price( $price, $show_null = false, $without_rate_exchange = false ) {
+		if ( ! WP_CarDealer_Profiler::is_enabled() ) {
+			return self::render_price( $price, $show_null, $without_rate_exchange );
+		}
+
+		WP_CarDealer_Profiler::start( 'format_price' );
+		$rendered = self::render_price( $price, $show_null, $without_rate_exchange );
+		WP_CarDealer_Profiler::stop( 'format_price' );
+
+		return $rendered;
+	}
+
+	/**
+	 * @param mixed $price
+	 * @param bool  $show_null
+	 * @param bool  $without_rate_exchange
+	 * @return bool|string
+	 */
+	private static function render_price( $price, $show_null = false, $without_rate_exchange = false ) {
 		if ( empty( $price ) || ! is_numeric( $price ) ) {
 			if ( !$show_null ) {
 				return false;
