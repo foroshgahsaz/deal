@@ -2037,6 +2037,7 @@ function wp_cardealer_navasan_status_callback( $field_object, $escaped_value, $o
 	echo '<p class="wp-cardealer-navasan-test-result" role="status"></p>';
 	if ( class_exists( 'WP_CarDealer_Navasan' ) && WP_CarDealer_Navasan::BUILD ) {
 		echo '<p class="description">نسخهٔ ماژول نرخ: ' . esc_html( WP_CarDealer_Navasan::BUILD ) . '</p>';
+		echo '<p class="description">تشخیص سرعت: به صفحهٔ اول بروید و <code>?wpcd_navasan_profile=1</code> را به آدرس اضافه کنید، سپس View Source و <code>wpcd-profile</code> را جستجو کنید.</p>';
 	}
 	echo '</div>';
 }

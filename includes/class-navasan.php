@@ -24,7 +24,7 @@ class WP_CarDealer_Navasan {
 	const API_URL = 'https://Api.BrsApi.ir/Market/Gold_Currency.php';
 	const API_TIMEOUT = 5;
 	const REFRESH_LOCK_SECONDS = 300;
-	const BUILD = '20260901-skip-cron-clear';
+	const BUILD = '20260901-no-cron-check';
 
 	/**
 	 * Per-request memoization so listing archives do not hit the DB dozens of times.
@@ -38,9 +38,19 @@ class WP_CarDealer_Navasan {
 	 */
 	private static $is_enabled_cache = null;
 
+	/**
+	 * @var float|null
+	 */
+	private static $profile_start = null;
+
+	/**
+	 * @var array<int, array{0: string, 1: float}>
+	 */
+	private static $profile_marks = array();
+
 	public static function init() {
+		add_action( 'init', array( __CLASS__, 'profile_start' ), 0 );
 		add_action( 'init', array( __CLASS__, 'maybe_purge_legacy_cron_stack' ), 0 );
-		add_action( 'init', array( __CLASS__, 'clear_frontend_cron' ), 1 );
 		add_action( 'admin_init', array( __CLASS__, 'maybe_refresh_stale_rate_in_admin' ) );
 		add_action( 'wp_cardealer_navasan_refresh_rate', array( __CLASS__, 'refresh_rate' ) );
 
@@ -48,7 +58,9 @@ class WP_CarDealer_Navasan {
 		add_action( 'wpcd_ajax_wp_cardealer_navasan_test_token', array( __CLASS__, 'ajax_test_token' ) );
 
 		add_action( 'update_option_wp_cardealer_settings', array( __CLASS__, 'maybe_flush_rate_cache' ), 10, 2 );
+		add_action( 'wp_footer', array( __CLASS__, 'render_profile_report' ), 9998 );
 		add_action( 'wp_footer', array( __CLASS__, 'render_build_marker' ), 9999 );
+		add_action( 'shutdown', array( __CLASS__, 'log_profile_report' ), 9999 );
 	}
 
 	/**
@@ -154,6 +166,8 @@ class WP_CarDealer_Navasan {
 			get_transient( self::TRANSIENT_RATE ),
 			self::get_stored_rate()
 		);
+
+		self::profile_mark( 'rate_loaded' );
 
 		return self::$request_rate_cache;
 	}
@@ -261,32 +275,121 @@ class WP_CarDealer_Navasan {
 	 * @return void
 	 */
 	public static function maybe_purge_legacy_cron_stack() {
-		if ( get_option( 'wp_cardealer_navasan_cron_v3_purged' ) ) {
+		if ( get_option( 'wp_cardealer_navasan_cron_v4_purged' ) ) {
+			self::profile_mark( 'purge_skip' );
 			return;
 		}
 
 		wp_clear_scheduled_hook( 'wp_cardealer_navasan_refresh_rate' );
 		delete_option( 'wp_cardealer_navasan_cron_v2_purged' );
-		update_option( 'wp_cardealer_navasan_cron_v3_purged', 1, true );
+		delete_option( 'wp_cardealer_navasan_cron_v3_purged' );
+		update_option( 'wp_cardealer_navasan_cron_v4_purged', 1, true );
+		self::profile_mark( 'purge_done' );
 	}
 
 	/**
-	 * Never leave navasan cron events scheduled during visitor requests.
-	 * Due WP-Cron jobs run at shutdown and can block TTFB on shared hosts.
+	 * Lightweight admin profiling (?wpcd_navasan_profile=1).
 	 *
+	 * @return bool
+	 */
+	public static function should_profile() {
+		return isset( $_GET['wpcd_navasan_profile'] )
+			&& current_user_can( 'manage_options' );
+	}
+
+	/**
 	 * @return void
 	 */
-	public static function clear_frontend_cron() {
-		if ( is_admin() || self::should_fetch_rate_synchronously() ) {
+	public static function profile_start() {
+		if ( ! self::should_profile() ) {
 			return;
 		}
 
-		$hook = 'wp_cardealer_navasan_refresh_rate';
-		if ( ! wp_next_scheduled( $hook ) ) {
+		self::$profile_start = microtime( true );
+		self::$profile_marks = array();
+		self::profile_mark( 'boot' );
+	}
+
+	/**
+	 * @param string $label
+	 * @return void
+	 */
+	public static function profile_mark( $label ) {
+		if ( null === self::$profile_start ) {
 			return;
 		}
 
-		wp_clear_scheduled_hook( $hook );
+		self::$profile_marks[] = array( $label, microtime( true ) );
+	}
+
+	/**
+	 * @return int|null
+	 */
+	public static function get_cron_option_bytes() {
+		global $wpdb;
+		if ( ! isset( $wpdb ) ) {
+			return null;
+		}
+
+		$bytes = $wpdb->get_var( "SELECT LENGTH(option_value) FROM {$wpdb->options} WHERE option_name = 'cron' LIMIT 1" );
+
+		return is_numeric( $bytes ) ? (int) $bytes : null;
+	}
+
+	/**
+	 * @return string
+	 */
+	public static function build_profile_report() {
+		if ( null === self::$profile_start ) {
+			return '';
+		}
+
+		self::profile_mark( 'report' );
+
+		$parts    = array();
+		$previous = self::$profile_start;
+		foreach ( self::$profile_marks as $mark ) {
+			$ms       = round( ( $mark[1] - $previous ) * 1000, 1 );
+			$parts[]  = $mark[0] . ':' . $ms . 'ms';
+			$previous = $mark[1];
+		}
+
+		$total = round( ( microtime( true ) - self::$profile_start ) * 1000, 1 );
+		$mem   = round( memory_get_peak_usage( true ) / 1024 / 1024, 1 );
+		$cron  = self::get_cron_option_bytes();
+		$rate  = self::get_usd_toman_rate();
+
+		return sprintf(
+			'wpcd-profile total:%sms mem:%sMB enabled:%s rate:%s cron_bytes:%s %s',
+			$total,
+			$mem,
+			self::is_enabled() ? 'yes' : 'no',
+			$rate,
+			null === $cron ? 'n/a' : (string) $cron,
+			implode( ' ', $parts )
+		);
+	}
+
+	/**
+	 * @return void
+	 */
+	public static function render_profile_report() {
+		if ( null === self::$profile_start ) {
+			return;
+		}
+
+		echo "\n<!-- " . esc_html( self::build_profile_report() ) . " -->\n";
+	}
+
+	/**
+	 * @return void
+	 */
+	public static function log_profile_report() {
+		if ( null === self::$profile_start ) {
+			return;
+		}
+
+		error_log( self::build_profile_report() );
 	}
 
 	/**
