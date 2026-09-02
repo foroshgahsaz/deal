@@ -1214,17 +1214,21 @@
         },
         shortenNumber: function($number) {
             var self = this;
-            
-            var divisors = wp_cardealer_opts.divisors;
 
+            var divisors = wp_cardealer_opts.divisors || {};
+            var shortened = null;
+
+            // Returning a value from an $.each callback does not return from the
+            // enclosing function, and only false stops the walk, so the previous
+            // version kept dividing and then returned the bare number.
             $.each(divisors, function( $index, $value ) {
-                if ($number < ($value['divisor'] * 1000)) {
-                    $number = $number / $value['divisor'];
-                    return self.addCommas($number) + $value['key'];
+                if ( Math.abs($number) < ($value['divisor'] * 1000) ) {
+                    shortened = self.addCommas($number / $value['divisor']) + $value['key'];
+                    return false;
                 }
             });
 
-            return $number;
+            return shortened !== null ? shortened : self.addCommas($number);
         },
         addCommas: function(str) {
             var parts = (str + "").split("."),
