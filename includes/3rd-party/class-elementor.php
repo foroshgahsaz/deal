@@ -41,6 +41,7 @@ class WP_CarDealer_Elementor {
 		$dynamic_tags->register( new WP_CarDealer_Elementor_Tag_Listing_Fees_Html() );
 		$dynamic_tags->register( new WP_CarDealer_Elementor_Tag_Customs_Fee() );
 		$dynamic_tags->register( new WP_CarDealer_Elementor_Tag_Shipping_Fee() );
+		$dynamic_tags->register( new WP_CarDealer_Elementor_Tag_Total_Cost() );
 		$dynamic_tags->register( new WP_CarDealer_Elementor_Tag_Body_Damage() );
 	}
 
@@ -278,7 +279,7 @@ class WP_CarDealer_Elementor_Tag_Customs_Fee extends WP_CarDealer_Elementor_Tag_
 	}
 
 	public function get_title() {
-		return 'هزینه گمرک (تومان)';
+		return 'هزینه گمرک (دلار → تومان)';
 	}
 
 	protected function get_fee_suffix() {
@@ -293,11 +294,64 @@ class WP_CarDealer_Elementor_Tag_Shipping_Fee extends WP_CarDealer_Elementor_Tag
 	}
 
 	public function get_title() {
-		return 'هزینه حمل‌ونقل (تومان)';
+		return 'هزینه حمل‌ونقل (دلار → تومان)';
 	}
 
 	protected function get_fee_suffix() {
 		return 'shipping_fee';
+	}
+}
+
+class WP_CarDealer_Elementor_Tag_Total_Cost extends WP_CarDealer_Elementor_Tag_Listing_Base {
+
+	public function get_name() {
+		return 'wp-cardealer-listing-total-cost';
+	}
+
+	public function get_title() {
+		return 'هزینه کل (قیمت + گمرک + حمل)';
+	}
+
+	public function get_categories() {
+		return array( \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY );
+	}
+
+	protected function register_controls() {
+		$this->add_control(
+			'plain_text',
+			array(
+				'label'        => 'متن ساده (بدون HTML)',
+				'type'         => \Elementor\Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+	}
+
+	public function render() {
+		if ( ! class_exists( 'WP_CarDealer_Price' ) ) {
+			return;
+		}
+
+		$post_id = $this->get_listing_post_id();
+		if ( ! $post_id ) {
+			return;
+		}
+
+		$plain = $this->get_settings( 'plain_text' ) === 'yes';
+
+		if ( $plain ) {
+			$text = WP_CarDealer_Price::get_listing_total_cost_plain( $post_id );
+			if ( $text !== '' ) {
+				echo esc_html( $text );
+			}
+			return;
+		}
+
+		$html = WP_CarDealer_Price::get_listing_total_cost_html( $post_id );
+		if ( $html !== '' ) {
+			echo wp_kses_post( $html );
+		}
 	}
 }
 

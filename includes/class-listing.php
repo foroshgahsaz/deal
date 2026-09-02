@@ -68,6 +68,20 @@ class WP_CarDealer_Listing {
 	}
 
 	/**
+	 * Total cost (price + customs + shipping) for Elementor or theme hooks.
+	 *
+	 * @param int $post_id
+	 * @return string
+	 */
+	public static function get_total_cost_html( $post_id ) {
+		if ( ! class_exists( 'WP_CarDealer_Price' ) ) {
+			return '';
+		}
+
+		return WP_CarDealer_Price::get_listing_total_cost_html( $post_id );
+	}
+
+	/**
 	 * Body paint / replacement diagram HTML.
 	 *
 	 * @param int $post_id

@@ -921,7 +921,7 @@ class WP_CarDealer_Custom_Fields {
 
 		if ( class_exists( 'WP_CarDealer_Price' ) && WP_CarDealer_Price::is_listing_fee_field( $id ) ) {
 			$field['type'] = 'text';
-			$field['sanitization_cb'] = array( 'WP_CarDealer_Price', 'sanitize_toman_fee' );
+			$field['sanitization_cb'] = array( 'WP_CarDealer_Price', 'sanitize_usd_amount' );
 			if ( empty( $field['attributes'] ) || ! is_array( $field['attributes'] ) ) {
 				$field['attributes'] = array();
 			}

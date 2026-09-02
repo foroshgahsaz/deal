@@ -219,7 +219,7 @@ class WP_CarDealer_Price {
 	}
 
 	/**
-	 * Extra listing costs entered in Toman (not converted from USD).
+	 * Extra listing costs entered in USD and converted to Toman like the price.
 	 *
 	 * @return array meta_key_suffix => label
 	 */
@@ -249,12 +249,12 @@ class WP_CarDealer_Price {
 	}
 
 	/**
-	 * Normalize a Toman fee from admin/frontend input.
+	 * Normalize a USD amount from admin/frontend input.
 	 *
 	 * @param mixed $value
-	 * @return string Empty string or a numeric string in Toman.
+	 * @return string Empty string or a numeric string in USD.
 	 */
-	public static function sanitize_toman_fee( $value ) {
+	public static function sanitize_usd_amount( $value ) {
 		if ( is_array( $value ) ) {
 			$value = reset( $value );
 		}
@@ -293,6 +293,15 @@ class WP_CarDealer_Price {
 		}
 
 		return (string) $number;
+	}
+
+	/**
+	 * @deprecated Use sanitize_usd_amount()
+	 * @param mixed $value
+	 * @return string
+	 */
+	public static function sanitize_toman_fee( $value ) {
+		return self::sanitize_usd_amount( $value );
 	}
 
 	/**
@@ -358,7 +367,7 @@ class WP_CarDealer_Price {
 	}
 
 	/**
-	 * Formatted Toman HTML for one fee field.
+	 * Formatted Toman HTML for one fee field (stored in USD, shown in Toman).
 	 *
 	 * @param int    $post_id
 	 * @param string $suffix customs_fee|shipping_fee
@@ -366,7 +375,18 @@ class WP_CarDealer_Price {
 	 * @return string
 	 */
 	public static function get_listing_fee_formatted( $post_id, $suffix, $show_zero = true ) {
-		return self::format_toman_amount( self::get_listing_fee_value( $post_id, $suffix ), $show_zero );
+		$value = self::get_listing_fee_value( $post_id, $suffix );
+
+		if ( $value === '' || ! is_numeric( $value ) ) {
+			if ( ! $show_zero ) {
+				return '';
+			}
+			$value = 0;
+		}
+
+		$formatted = self::format_price( $value, $show_zero );
+
+		return $formatted ? $formatted : '';
 	}
 
 	/**
@@ -402,7 +422,103 @@ class WP_CarDealer_Price {
 				. '</span>';
 		}
 
-		return '<span class="listing-price-extras">' . implode( '', $rows ) . '</span>';
+		return '<div class="listing-price-extras">' . implode( '', $rows ) . '</div>';
+	}
+
+	/**
+	 * USD amount for one fee field. Empty meta counts as zero.
+	 *
+	 * @param int    $post_id
+	 * @param string $suffix customs_fee|shipping_fee
+	 * @return float
+	 */
+	public static function get_listing_fee_usd( $post_id, $suffix ) {
+		$value = self::get_listing_fee_value( $post_id, $suffix );
+
+		if ( $value === '' || ! is_numeric( $value ) ) {
+			return 0.0;
+		}
+
+		$amount = (float) $value;
+
+		return $amount > 0 ? $amount : 0.0;
+	}
+
+	/**
+	 * Sum of listing price plus customs and shipping, all in USD.
+	 *
+	 * @param int $post_id
+	 * @return float
+	 */
+	public static function get_listing_total_usd( $post_id ) {
+		$post_id = absint( $post_id );
+		if ( ! $post_id ) {
+			return 0.0;
+		}
+
+		if ( class_exists( 'WP_CarDealer_Navasan' ) ) {
+			$price = WP_CarDealer_Navasan::get_stored_usd_price( $post_id );
+		} else {
+			$price = get_post_meta( $post_id, WP_CARDEALER_LISTING_PREFIX . 'price', true );
+		}
+
+		$total = is_numeric( $price ) ? (float) $price : 0.0;
+
+		foreach ( array_keys( self::get_listing_fee_fields() ) as $suffix ) {
+			$total += self::get_listing_fee_usd( $post_id, $suffix );
+		}
+
+		return $total;
+	}
+
+	/**
+	 * Formatted total cost HTML (price + customs + shipping).
+	 *
+	 * @param int $post_id
+	 * @return string
+	 */
+	public static function get_listing_total_cost_formatted( $post_id ) {
+		$total_usd = self::get_listing_total_usd( $post_id );
+		if ( $total_usd <= 0 ) {
+			return '';
+		}
+
+		$formatted = self::format_price( $total_usd );
+
+		return $formatted ? $formatted : '';
+	}
+
+	/**
+	 * Plain-text total cost for Elementor text widgets.
+	 *
+	 * @param int $post_id
+	 * @return string
+	 */
+	public static function get_listing_total_cost_plain( $post_id ) {
+		$html = self::get_listing_total_cost_formatted( $post_id );
+		if ( $html === '' ) {
+			return '';
+		}
+
+		return trim( preg_replace( '/\s+/', ' ', strip_tags( str_replace( '&nbsp;', ' ', $html ) ) ) );
+	}
+
+	/**
+	 * Labelled total cost row for Elementor or theme hooks.
+	 *
+	 * @param int $post_id
+	 * @return string
+	 */
+	public static function get_listing_total_cost_html( $post_id ) {
+		$formatted = self::get_listing_total_cost_formatted( $post_id );
+		if ( $formatted === '' ) {
+			return '';
+		}
+
+		return '<div class="listing-total-cost">'
+			. '<span class="listing-total-cost-label">' . esc_html__( 'هزینه کل', 'wp-cardealer' ) . ' : </span>'
+			. '<span class="listing-total-cost-value">' . $formatted . '</span>'
+			. '</div>';
 	}
 
 	/**
