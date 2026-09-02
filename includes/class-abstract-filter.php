@@ -335,6 +335,25 @@ class WP_CarDealer_Abstract_Filter {
 	private static $range_field_markup = array();
 
 	/**
+	 * Report how many distinct range field signatures were built, which shows
+	 * whether the markup cache is being reused or defeated by a varying key.
+	 *
+	 * @param array $lines
+	 * @return array
+	 */
+	public static function add_profiler_context( $lines ) {
+		$keys = array_keys( self::$range_field_markup );
+
+		$lines[] = sprintf(
+			'range_field_keys distinct=%s sample=%s',
+			number_format( count( $keys ) ),
+			empty( $keys ) ? 'none' : reset( $keys )
+		);
+
+		return $lines;
+	}
+
+	/**
 	 * Signature covering every value the range slider templates read.
 	 *
 	 * @param string $template
@@ -852,3 +871,5 @@ class WP_CarDealer_Abstract_Filter {
 		return $meta_query;
 	}
 }
+
+add_filter( 'wp_cardealer_profiler_report_lines', array( 'WP_CarDealer_Abstract_Filter', 'add_profiler_context' ) );

@@ -160,18 +160,32 @@ class WP_CarDealer_Profiler {
 			return;
 		}
 
-		$trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 4 );
+		$trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 5 );
 
-		// Frame 0 is this method, frame 1 is the instrumented function itself.
-		$frame  = isset( $trace[2] ) ? $trace[2] : end( $trace );
-		$origin = isset( $frame['file'] ) ? basename( dirname( $frame['file'] ) ) . '/' . basename( $frame['file'] ) : 'unknown';
-		$origin .= isset( $frame['line'] ) ? ':' . $frame['line'] : '';
+		// Frame 1 holds the direct call site of the instrumented function, and
+		// each frame above it holds the call site one level further out.
+		$origin = self::describe_frame( isset( $trace[1] ) ? $trace[1] : null )
+			. '<-' . self::describe_frame( isset( $trace[2] ) ? $trace[2] : null )
+			. '<-' . self::describe_frame( isset( $trace[3] ) ? $trace[3] : null );
 
 		if ( ! isset( self::$callers[ $label ][ $origin ] ) ) {
 			self::$callers[ $label ][ $origin ] = 0;
 		}
 
 		self::$callers[ $label ][ $origin ]++;
+	}
+
+	/**
+	 * @param array|null $frame
+	 * @return string
+	 */
+	private static function describe_frame( $frame ) {
+		if ( ! is_array( $frame ) || ! isset( $frame['file'] ) ) {
+			return '?';
+		}
+
+		return basename( dirname( $frame['file'] ) ) . '/' . basename( $frame['file'] )
+			. ( isset( $frame['line'] ) ? ':' . $frame['line'] : '' );
 	}
 
 	/**

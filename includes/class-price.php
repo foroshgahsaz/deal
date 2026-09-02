@@ -82,6 +82,27 @@ class WP_CarDealer_Price {
 	public static function init() {
 	    add_action( 'init', array( __CLASS__, 'process_currency' ) );
 	    add_action( 'update_option_wp_cardealer_settings', array( __CLASS__, 'flush_runtime_cache' ) );
+	    add_filter( 'wp_cardealer_profiler_report_lines', array( __CLASS__, 'add_profiler_context' ) );
+	}
+
+	/**
+	 * Report how many distinct amounts were rendered, which distinguishes a
+	 * widget repeating one amount from a loop feeding in many amounts.
+	 *
+	 * @param array $lines
+	 * @return array
+	 */
+	public static function add_profiler_context( $lines ) {
+		$keys    = array_keys( self::$formatted_prices );
+		$samples = array_slice( $keys, 0, 3 );
+
+		$lines[] = sprintf(
+			'price_keys distinct=%s samples=%s',
+			number_format( count( $keys ) ),
+			empty( $samples ) ? 'none' : implode( ',', $samples )
+		);
+
+		return $lines;
 	}
 
 	/**

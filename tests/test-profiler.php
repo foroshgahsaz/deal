@@ -24,6 +24,17 @@ function current_filter() {
 }
 
 /**
+ * Two nested helpers so the sampled call chain has more than one frame.
+ */
+function wpcd_test_outer_caller() {
+	wpcd_test_inner_caller();
+}
+
+function wpcd_test_inner_caller() {
+	WP_CarDealer_Profiler::sample_caller( 'chained' );
+}
+
+/**
  * Minimal stand-in for WP_Object_Cache so cache read deltas can be asserted.
  */
 class WPCD_Test_Object_Cache {
@@ -120,6 +131,18 @@ WP_CarDealer_Profiler::count_hook();
 WP_CarDealer_Profiler::count_hook();
 $GLOBALS['wpcd_test_current_filter'] = 'wp_head';
 WP_CarDealer_Profiler::count_hook();
+
+// The sampled origin has to show the direct call site and its callers, because
+// naming only the outer frame hid which line actually made the call.
+wpcd_test_outer_caller();
+
+$chain = key( WP_CarDealer_Profiler::get_top_callers( 'chained' ) );
+
+assert_same( 2, substr_count( $chain, '<-' ), 'the sampled origin records three frames of context' );
+assert_same( true, strpos( $chain, 'test-profiler.php' ) !== false, 'the sampled origin names the calling file' );
+
+$frames = explode( '<-', $chain );
+assert_same( true, $frames[0] !== $frames[1], 'the direct call site is distinct from its caller' );
 
 $busiest = WP_CarDealer_Profiler::get_busiest_hooks( 2 );
 assert_same( array( 'the_content' => 2, 'wp_head' => 1 ), $busiest, 'busiest hooks are ranked by execution count' );
