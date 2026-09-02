@@ -278,7 +278,7 @@ class WP_CarDealer_Elementor_Tag_Customs_Fee extends WP_CarDealer_Elementor_Tag_
 	}
 
 	public function get_title() {
-		return 'هزینه گمرک (تومان)';
+		return 'هزینه گمرک (دلار → تومان)';
 	}
 
 	protected function get_fee_suffix() {
@@ -293,7 +293,7 @@ class WP_CarDealer_Elementor_Tag_Shipping_Fee extends WP_CarDealer_Elementor_Tag
 	}
 
 	public function get_title() {
-		return 'هزینه حمل‌ونقل (تومان)';
+		return 'هزینه حمل‌ونقل (دلار → تومان)';
 	}
 
 	protected function get_fee_suffix() {

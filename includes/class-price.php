@@ -219,7 +219,7 @@ class WP_CarDealer_Price {
 	}
 
 	/**
-	 * Extra listing costs entered in Toman (not converted from USD).
+	 * Extra listing costs entered in USD and converted to Toman like the price.
 	 *
 	 * @return array meta_key_suffix => label
 	 */
@@ -249,12 +249,12 @@ class WP_CarDealer_Price {
 	}
 
 	/**
-	 * Normalize a Toman fee from admin/frontend input.
+	 * Normalize a USD amount from admin/frontend input.
 	 *
 	 * @param mixed $value
-	 * @return string Empty string or a numeric string in Toman.
+	 * @return string Empty string or a numeric string in USD.
 	 */
-	public static function sanitize_toman_fee( $value ) {
+	public static function sanitize_usd_amount( $value ) {
 		if ( is_array( $value ) ) {
 			$value = reset( $value );
 		}
@@ -293,6 +293,15 @@ class WP_CarDealer_Price {
 		}
 
 		return (string) $number;
+	}
+
+	/**
+	 * @deprecated Use sanitize_usd_amount()
+	 * @param mixed $value
+	 * @return string
+	 */
+	public static function sanitize_toman_fee( $value ) {
+		return self::sanitize_usd_amount( $value );
 	}
 
 	/**
@@ -358,7 +367,7 @@ class WP_CarDealer_Price {
 	}
 
 	/**
-	 * Formatted Toman HTML for one fee field.
+	 * Formatted Toman HTML for one fee field (stored in USD, shown in Toman).
 	 *
 	 * @param int    $post_id
 	 * @param string $suffix customs_fee|shipping_fee
@@ -366,7 +375,18 @@ class WP_CarDealer_Price {
 	 * @return string
 	 */
 	public static function get_listing_fee_formatted( $post_id, $suffix, $show_zero = true ) {
-		return self::format_toman_amount( self::get_listing_fee_value( $post_id, $suffix ), $show_zero );
+		$value = self::get_listing_fee_value( $post_id, $suffix );
+
+		if ( $value === '' || ! is_numeric( $value ) ) {
+			if ( ! $show_zero ) {
+				return '';
+			}
+			$value = 0;
+		}
+
+		$formatted = self::format_price( $value, $show_zero );
+
+		return $formatted ? $formatted : '';
 	}
 
 	/**
@@ -402,7 +422,7 @@ class WP_CarDealer_Price {
 				. '</span>';
 		}
 
-		return '<span class="listing-price-extras">' . implode( '', $rows ) . '</span>';
+		return '<div class="listing-price-extras">' . implode( '', $rows ) . '</div>';
 	}
 
 	/**

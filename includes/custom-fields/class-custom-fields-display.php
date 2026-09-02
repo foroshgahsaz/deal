@@ -60,7 +60,8 @@ class WP_CarDealer_Custom_Fields_Display {
 				$output_value = $formatted_price;
 			}
 		} elseif ( $is_fee_field ) {
-			$formatted_fee = WP_CarDealer_Price::format_toman_amount( $value, true );
+			$fee_value = is_numeric( $value ) ? $value : 0;
+			$formatted_fee = WP_CarDealer_Price::format_price( $fee_value, true );
 			if ( $formatted_fee ) {
 				$output_value = $formatted_fee;
 			}

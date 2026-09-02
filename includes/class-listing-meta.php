@@ -144,6 +144,8 @@ class WP_CarDealer_Listing_Meta {
 			return false;
 		}
 
+		$price_html = '<div class="listing-price-stack">' . $price_html . '</div>';
+
 		return apply_filters( 'wp-cardealer-get-price-html', $price_html, $this->post_id, $this );
 	}
 }
