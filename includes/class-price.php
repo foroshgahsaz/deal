@@ -18,8 +18,50 @@ class WP_CarDealer_Price {
 	 */
 	private static $navasan_format_context = null;
 
+	/**
+	 * Per-request caches for helpers that are rebuilt on every rendered price.
+	 *
+	 * @var array|null
+	 */
+	private static $currencies_cache = null;
+
+	/**
+	 * @var array|null
+	 */
+	private static $currency_symbols_cache = null;
+
+	/**
+	 * @var array|null
+	 */
+	private static $currencies_settings_cache = null;
+
+	/**
+	 * @var array|null
+	 */
+	private static $shorten_divisors_cache = null;
+
+	/**
+	 * @var string|null
+	 */
+	private static $current_currency_cache = null;
+
+	/**
+	 * Drop the per-request caches. Used when settings change mid request.
+	 *
+	 * @return void
+	 */
+	public static function flush_runtime_cache() {
+		self::$navasan_format_context    = null;
+		self::$currencies_cache          = null;
+		self::$currency_symbols_cache    = null;
+		self::$currencies_settings_cache = null;
+		self::$shorten_divisors_cache    = null;
+		self::$current_currency_cache    = null;
+	}
+
 	public static function init() {
 	    add_action( 'init', array( __CLASS__, 'process_currency' ) );
+	    add_action( 'update_option_wp_cardealer_settings', array( __CLASS__, 'flush_runtime_cache' ) );
 	}
 
 	/**
@@ -431,12 +473,19 @@ class WP_CarDealer_Price {
 	}
 
 	public static function get_current_currency() {
+		if ( null !== self::$current_currency_cache ) {
+			return self::$current_currency_cache;
+		}
+
 		if ( wp_cardealer_get_option('enable_multi_currencies') === 'yes' ) {
 			$current_currency = !empty($_COOKIE['wp_cardealer_currency']) ? $_COOKIE['wp_cardealer_currency'] : wp_cardealer_get_option('currency', 'USD');
 		} else {
 			$current_currency = wp_cardealer_get_option('currency', 'USD');
 		}
-		return $current_currency;
+
+		self::$current_currency_cache = $current_currency;
+
+		return self::$current_currency_cache;
 	}
 	/**
 	 * Get full list of currency codes.
@@ -446,6 +495,10 @@ class WP_CarDealer_Price {
 	 * @return array
 	 */
 	public static function get_currencies() {
+		if ( null !== self::$currencies_cache ) {
+			return self::$currencies_cache;
+		}
+
 		$currencies = array_unique(
 			apply_filters(
 				'wp-cardealer-currencies',
@@ -617,7 +670,9 @@ class WP_CarDealer_Price {
 			)
 		);
 
-		return $currencies;
+		self::$currencies_cache = $currencies;
+
+		return self::$currencies_cache;
 	}
 
 	/**
@@ -629,6 +684,9 @@ class WP_CarDealer_Price {
 	 * @return array
 	 */
 	public static function get_currency_symbols() {
+		if ( null !== self::$currency_symbols_cache ) {
+			return self::$currency_symbols_cache;
+		}
 
 		$symbols = apply_filters(
 			'wp-cardealer-currency-symbols',
@@ -800,7 +858,9 @@ class WP_CarDealer_Price {
 			)
 		);
 
-		return $symbols;
+		self::$currency_symbols_cache = $symbols;
+
+		return self::$currency_symbols_cache;
 	}
 
 	/**
@@ -821,6 +881,10 @@ class WP_CarDealer_Price {
 	}
 
 	public static function get_currencies_settings() {
+		if ( null !== self::$currencies_settings_cache ) {
+			return self::$currencies_settings_cache;
+		}
+
 		$currency = wp_cardealer_get_option('currency', 'USD');
 		$return = array(
 			$currency => array(
@@ -840,7 +904,9 @@ class WP_CarDealer_Price {
 			}
 		}
 
-		return $return;
+		self::$currencies_settings_cache = $return;
+
+		return self::$currencies_settings_cache;
 	}
 
 	public static function number_shorten($number, $decimals = false, $money_decimals = 0 ) {
@@ -865,6 +931,9 @@ class WP_CarDealer_Price {
 	}
 
 	public static function get_shorten_divisors() {
+		if ( null !== self::$shorten_divisors_cache ) {
+			return self::$shorten_divisors_cache;
+		}
 
         $divisors = array(
             '' => [
@@ -945,7 +1014,9 @@ class WP_CarDealer_Price {
             ];
         }
 
-	    return apply_filters('wp_cardealer_get_shorten_divisors', $divisors);
+	    self::$shorten_divisors_cache = apply_filters('wp_cardealer_get_shorten_divisors', $divisors);
+
+	    return self::$shorten_divisors_cache;
 	}
 
 	public static function process_currency() {

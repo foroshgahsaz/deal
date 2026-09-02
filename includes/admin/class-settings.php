@@ -1980,12 +1980,42 @@ function wp_cardealer_get_option( $key = '', $default = false ) {
 function wp_cardealer_get_settings() {
 	static $settings = null;
 
-	if ( null === $settings ) {
+	if ( null === $settings || wp_cardealer_settings_cache_is_stale() ) {
 		$settings = apply_filters( 'wp_cardealer_get_settings', get_option( 'wp_cardealer_settings' ) );
 	}
 
 	return $settings;
 }
+
+/**
+ * Settings are read on nearly every rendered price, so they are cached for the
+ * request. Saving the settings screen must not serve the stale copy back.
+ *
+ * @return bool
+ */
+function wp_cardealer_settings_cache_is_stale() {
+	static $generation = 0;
+
+	$current = (int) apply_filters( 'wp_cardealer_settings_cache_generation', $GLOBALS['wp_cardealer_settings_generation'] ?? 0 );
+
+	if ( $current === $generation ) {
+		return false;
+	}
+
+	$generation = $current;
+
+	return true;
+}
+
+/**
+ * @return void
+ */
+function wp_cardealer_flush_settings_cache() {
+	$GLOBALS['wp_cardealer_settings_generation'] = ( $GLOBALS['wp_cardealer_settings_generation'] ?? 0 ) + 1;
+}
+add_action( 'update_option_wp_cardealer_settings', 'wp_cardealer_flush_settings_cache' );
+add_action( 'add_option_wp_cardealer_settings', 'wp_cardealer_flush_settings_cache' );
+add_action( 'delete_option_wp_cardealer_settings', 'wp_cardealer_flush_settings_cache' );
 
 
 /**
