@@ -162,7 +162,7 @@ class WP_CarDealer_Price {
 		if ( ! empty( $currency_args ) ) {
 			$context['symbol'] = ! empty( $currency_args['custom_symbol'] )
 				? $currency_args['custom_symbol']
-				: self::currency_symbol( $currency_args['currency'] );
+				: self::currency_symbol( isset( $currency_args['currency'] ) ? $currency_args['currency'] : '' );
 
 			$context['currency_position'] = ! empty( $currency_args['currency_position'] ) ? $currency_args['currency_position'] : 'before';
 			$context['rate_exchange_fee'] = ! empty( $currency_args['rate_exchange_fee'] ) ? $currency_args['rate_exchange_fee'] : 1;
