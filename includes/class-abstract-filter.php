@@ -419,7 +419,8 @@ class WP_CarDealer_Abstract_Filter {
 		$min = $max = 0;
 		//$min = $price_min->min < $price_max->min ? $price_min->min : $price_max->min;
 		$max = $price_min->max > $price_max->max ? $price_min->max : $price_max->max;
-		
+		$max = WP_CarDealer_Price::clamp_filter_price_max( $max );
+
 		if ( $min >= $max ) {
 			return;
 		}

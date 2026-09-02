@@ -447,6 +447,40 @@ class WP_CarDealer_Price {
 	}
 
 	/**
+	 * Ceiling for the price filter bounds.
+	 *
+	 * A single mistyped listing price sets the upper bound for the whole price
+	 * filter. Themes commonly build slider steps by walking from the lower to
+	 * the upper bound, so one bad row turns into an enormous loop.
+	 *
+	 * @return float
+	 */
+	public static function get_filter_price_ceiling() {
+		return (float) apply_filters( 'wp_cardealer_filter_price_ceiling', 100000000 );
+	}
+
+	/**
+	 * Clamp a price filter bound to the ceiling.
+	 *
+	 * @param mixed $max
+	 * @return float
+	 */
+	public static function clamp_filter_price_max( $max ) {
+		if ( ! is_numeric( $max ) ) {
+			return 0.0;
+		}
+
+		$max     = (float) $max;
+		$ceiling = self::get_filter_price_ceiling();
+
+		if ( $ceiling <= 0 || $max <= $ceiling ) {
+			return $max;
+		}
+
+		return $ceiling;
+	}
+
+	/**
 	 * Cache key for a formatted price, or null when the input cannot be keyed.
 	 *
 	 * @param mixed $price
@@ -538,8 +572,14 @@ class WP_CarDealer_Price {
 			$price = 0;
 		}
 		if ( class_exists( 'WP_CarDealer_Navasan' ) && WP_CarDealer_Navasan::is_enabled() ) {
-			$price = WP_CarDealer_Navasan::convert_usd_to_toman( $price );
-			return $price;
+			// In client mode the browser converts, so nothing may be converted
+			// server side. Themes use this to size price sliders, and returning
+			// Toman there multiplies every stepped loop by the exchange rate.
+			if ( WP_CarDealer_Navasan::use_client_side_conversion() ) {
+				return $price;
+			}
+
+			return WP_CarDealer_Navasan::convert_usd_to_toman( $price );
 		}
 		if ( wp_cardealer_get_option('enable_multi_currencies') === 'yes' ) {
 			$current_currency = self::get_current_currency();
