@@ -138,6 +138,11 @@ class WP_CarDealer_Listing_Meta {
 			if ( $fees_html ) {
 				$price_html .= $fees_html;
 			}
+
+			$total_html = WP_CarDealer_Price::get_listing_total_cost_html( $this->post_id );
+			if ( $total_html ) {
+				$price_html .= $total_html;
+			}
 		}
 
 		if ( $price_html === '' ) {

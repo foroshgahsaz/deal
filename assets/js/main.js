@@ -52,6 +52,12 @@
 
             self.convertNavasanPrices();
 
+            if ( typeof elementorFrontend !== 'undefined' ) {
+                elementorFrontend.hooks.addAction( 'frontend/element_ready/global', function() {
+                    self.convertNavasanPrices();
+                } );
+            }
+
             self.loadExtension();
         },
         loadExtension: function() {

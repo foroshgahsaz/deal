@@ -49,17 +49,67 @@ class WP_CarDealer_Elementor {
 	 * @return int
 	 */
 	public static function get_listing_post_id() {
+		$candidates = array();
+
 		$post_id = get_the_ID();
-		if ( $post_id && get_post_type( $post_id ) === 'listing' ) {
-			return (int) $post_id;
+		if ( $post_id ) {
+			$candidates[] = (int) $post_id;
+		}
+
+		global $post;
+		if ( $post instanceof WP_Post ) {
+			$candidates[] = (int) $post->ID;
+		}
+
+		$queried_id = get_queried_object_id();
+		if ( $queried_id ) {
+			$candidates[] = (int) $queried_id;
 		}
 
 		$queried = get_queried_object();
-		if ( $queried instanceof WP_Post && $queried->post_type === 'listing' ) {
-			return (int) $queried->ID;
+		if ( $queried instanceof WP_Post ) {
+			$candidates[] = (int) $queried->ID;
 		}
 
-		return 0;
+		foreach ( array_unique( array_filter( $candidates ) ) as $candidate_id ) {
+			if ( get_post_type( $candidate_id ) === 'listing' ) {
+				return (int) apply_filters( 'wp_cardealer_elementor_listing_post_id', $candidate_id, $candidate_id );
+			}
+		}
+
+		return (int) apply_filters( 'wp_cardealer_elementor_listing_post_id', 0, 0 );
+	}
+
+	/**
+	 * HTML tags allowed when dynamic tags print price markup.
+	 *
+	 * @return array
+	 */
+	public static function get_allowed_price_html_tags() {
+		$allowed = wp_kses_allowed_html( 'post' );
+
+		foreach ( array( 'span', 'div' ) as $tag ) {
+			if ( ! isset( $allowed[ $tag ] ) ) {
+				$allowed[ $tag ] = array();
+			}
+
+			$allowed[ $tag ]['class'] = true;
+			$allowed[ $tag ]['data-wpcd-usd'] = true;
+		}
+
+		return $allowed;
+	}
+
+	/**
+	 * @param string $html
+	 * @return void
+	 */
+	public static function echo_price_html( $html ) {
+		if ( $html === '' ) {
+			return;
+		}
+
+		echo wp_kses( $html, self::get_allowed_price_html_tags() );
 	}
 }
 
@@ -189,7 +239,7 @@ class WP_CarDealer_Elementor_Tag_Listing_Price_Html extends WP_CarDealer_Element
 			return;
 		}
 
-		echo wp_kses_post( $html );
+		WP_CarDealer_Elementor::echo_price_html( $html );
 	}
 }
 
@@ -224,7 +274,7 @@ class WP_CarDealer_Elementor_Tag_Listing_Fees_Html extends WP_CarDealer_Elemento
 			return;
 		}
 
-		echo wp_kses_post( $html );
+		WP_CarDealer_Elementor::echo_price_html( $html );
 	}
 }
 
@@ -268,7 +318,7 @@ abstract class WP_CarDealer_Elementor_Tag_Listing_Fee extends WP_CarDealer_Eleme
 			return;
 		}
 
-		echo wp_kses_post( WP_CarDealer_Price::get_listing_fee_formatted( $post_id, $suffix, true ) );
+		WP_CarDealer_Elementor::echo_price_html( WP_CarDealer_Price::get_listing_fee_formatted( $post_id, $suffix, true ) );
 	}
 }
 
@@ -348,10 +398,7 @@ class WP_CarDealer_Elementor_Tag_Total_Cost extends WP_CarDealer_Elementor_Tag_L
 			return;
 		}
 
-		$html = WP_CarDealer_Price::get_listing_total_cost_html( $post_id );
-		if ( $html !== '' ) {
-			echo wp_kses_post( $html );
-		}
+		WP_CarDealer_Elementor::echo_price_html( WP_CarDealer_Price::get_listing_total_cost_html( $post_id ) );
 	}
 }
 

@@ -127,6 +127,9 @@ assert_contains( 'هزینه گمرک', $fees_html, 'renders customs label' );
 assert_contains( '107000000', $fees_html, 'converts customs fee to Toman' );
 assert_contains( 'listing-price-extras', $fees_html, 'wraps fee rows' );
 
+$total_only = WP_CarDealer_Price::get_listing_total_cost_html( 12 );
+assert_contains( 'listing-total-cost', $total_only, 'renders total cost block on its own' );
+
 assert_same( '', WP_CarDealer_Price::get_listing_total_cost_html( 0 ), 'no total without a listing id' );
 
 echo "\n{$passed} passed, {$failed} failed\n";
