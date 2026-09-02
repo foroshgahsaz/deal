@@ -431,8 +431,13 @@ class WP_CarDealer_Abstract_Filter {
 			return;
 		}
 
+		$template = apply_filters(
+			'wp_cardealer_price_range_slider_template',
+			WP_CarDealer_Template_Loader::locate_plugin( 'widgets/filter-fields/price_range_slider' )
+		);
+
 		ob_start();
-		include WP_CarDealer_Template_Loader::locate( 'widgets/filter-fields/price_range_slider' );
+		include $template;
 		self::$range_field_markup[ $cache_key ] = ob_get_clean();
 
 		echo self::$range_field_markup[ $cache_key ];

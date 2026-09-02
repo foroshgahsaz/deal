@@ -81,6 +81,39 @@ class WP_CarDealer_Template_Loader {
 	}
 
 	/**
+	 * Resolve a template from the plugin directory only.
+	 *
+	 * Some themes ship a price slider template that walks every step between the
+	 * lower and upper bounds and prints markup for each one. That turns one bad
+	 * listing price into thousands of DOM nodes and a tall blank area below the
+	 * footer. Filter widgets that only need the data attributes for jQuery UI
+	 * should use this instead of locate().
+	 *
+	 * @access public
+	 * @param string $name
+	 * @param string $plugin_dir
+	 * @return string
+	 * @throws Exception
+	 */
+	public static function locate_plugin( $name, $plugin_dir = WP_CARDEALER_PLUGIN_DIR ) {
+		$cache_key = 'plugin:' . $name . '|' . $plugin_dir;
+
+		if ( isset( self::$located[ $cache_key ] ) ) {
+			return self::$located[ $cache_key ];
+		}
+
+		if ( empty( $name ) || ! file_exists( $plugin_dir . "templates/{$name}.php" ) ) {
+			throw new Exception( "Template /templates/{$name}.php in plugin dir {$plugin_dir} not found." );
+		}
+
+		$template = $plugin_dir . "templates/{$name}.php";
+
+		self::$located[ $cache_key ] = $template;
+
+		return $template;
+	}
+
+	/**
 	 * Gets template path
 	 *
 	 * @access public

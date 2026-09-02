@@ -114,8 +114,29 @@ WP_CarDealer_Template_Loader::locate( 'widgets/filter-fields/price_range_slider'
 
 assert_same( 1, $GLOBALS['wpcd_test_locate_template_calls'], 'flushing the cache forces a fresh resolution' );
 
+// Plugin-only resolution must ignore theme overrides.
+@mkdir( $GLOBALS['wpcd_test_theme_dir'] . '/wp-cardealer/widgets/filter-fields', 0777, true );
+file_put_contents(
+	$GLOBALS['wpcd_test_theme_dir'] . '/wp-cardealer/widgets/filter-fields/price_range_slider.php',
+	'<?php // theme override'
+);
+WP_CarDealer_Template_Loader::flush_located_cache();
+$GLOBALS['wpcd_test_locate_template_calls'] = 0;
+
+$theme_override = WP_CarDealer_Template_Loader::locate( 'widgets/filter-fields/price_range_slider' );
+$plugin_only    = WP_CarDealer_Template_Loader::locate_plugin( 'widgets/filter-fields/price_range_slider' );
+
+assert_true( $theme_override !== $plugin_only, 'the theme override wins in locate()' );
+assert_same(
+	WP_CARDEALER_PLUGIN_DIR . 'templates/widgets/filter-fields/price_range_slider.php',
+	$plugin_only,
+	'locate_plugin() always returns the plugin file'
+);
+assert_same( 1, $GLOBALS['wpcd_test_locate_template_calls'], 'locate_plugin() never searches the theme' );
+
 // Cleanup.
 array_map( 'unlink', glob( WP_CARDEALER_PLUGIN_DIR . 'templates/widgets/filter-fields/*.php' ) );
+@unlink( $GLOBALS['wpcd_test_theme_dir'] . '/wp-cardealer/widgets/filter-fields/price_range_slider.php' );
 
 echo "\n{$passed} passed, {$failed} failed\n";
 exit( $failed > 0 ? 1 : 0 );
