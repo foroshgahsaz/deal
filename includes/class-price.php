@@ -1219,8 +1219,21 @@ class WP_CarDealer_Price {
 	    // lowest amount that matches
 	    foreach ($divisors as $key => $value) {
 	        if (abs($number) < ($value['divisor'] * 1000)) {
-	            $number = $number / $value['divisor'];
-	            return WP_CarDealer_Mixes::format_number($number, $decimals, $money_decimals) . $value['key'];
+	            $shortened = $number / $value['divisor'];
+	            $use_decimals = $decimals;
+	            $use_money_decimals = $money_decimals;
+
+	            // Totals like 1.22 billion were shown as "1 billion" because the
+	            // fractional unit was dropped. Keep up to two decimals when needed.
+	            if ( ! $use_decimals ) {
+	                $fraction = $shortened - floor( $shortened );
+	                if ( $fraction >= 0.01 ) {
+	                    $use_decimals = true;
+	                    $use_money_decimals = 2;
+	                }
+	            }
+
+	            return WP_CarDealer_Mixes::format_number( $shortened, $use_decimals, $use_money_decimals ) . $value['key'];
 	            break;
 	        }
 	    }

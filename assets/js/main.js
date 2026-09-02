@@ -1229,7 +1229,12 @@
             // version kept dividing and then returned the bare number.
             $.each(divisors, function( $index, $value ) {
                 if ( Math.abs($number) < ($value['divisor'] * 1000) ) {
-                    shortened = self.addCommas($number / $value['divisor']) + $value['key'];
+                    var divided = $number / $value['divisor'];
+                    var fraction = divided - Math.floor( divided );
+                    var display = fraction >= 0.01
+                        ? Math.round( divided * 100 ) / 100
+                        : Math.round( divided );
+                    shortened = self.addCommas( display ) + $value['key'];
                     return false;
                 }
             });

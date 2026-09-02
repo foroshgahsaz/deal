@@ -137,6 +137,14 @@ assert_contains( 'listing-price-extras', $fees_html, 'wraps fee rows' );
 $total_only = WP_CarDealer_Price::get_listing_total_cost_html( 12 );
 assert_contains( 'listing-total-cost', $total_only, 'renders total cost block on its own' );
 
+$GLOBALS['wpcd_test_options']['enable_shorten_long_number'] = 'yes';
+$GLOBALS['wpcd_test_options']['shorten_million'] = array( 'enable' => 'on', 'key' => ' میلیون' );
+$GLOBALS['wpcd_test_options']['shorten_billion'] = array( 'enable' => 'on', 'key' => ' میلیارد' );
+WP_CarDealer_Price::flush_runtime_cache();
+
+assert_contains( '856', WP_CarDealer_Price::number_shorten( 856000000 ), 'whole millions stay whole when shortened' );
+assert_contains( '1.22', WP_CarDealer_Price::number_shorten( 1219800000 ), 'fractional billions keep two decimals' );
+
 assert_same( '', WP_CarDealer_Price::get_listing_total_cost_html( 0 ), 'no total without a listing id' );
 
 echo "\n{$passed} passed, {$failed} failed\n";
