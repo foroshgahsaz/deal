@@ -2080,38 +2080,6 @@ function wp_cardealer_navasan_status_callback( $field_object, $escaped_value, $o
 
 	echo '<p><button type="button" class="button" id="wp-cardealer-navasan-test">آزمایش کلید و به‌روزرسانی نرخ</button></p>';
 	echo '<p class="wp-cardealer-navasan-test-result" role="status"></p>';
-	if ( class_exists( 'WP_CarDealer_Price_Audit' ) ) {
-		$audit   = WP_CarDealer_Price_Audit::get_report( 10 );
-		$ceiling = class_exists( 'WP_CarDealer_Price' ) ? WP_CarDealer_Price::get_filter_price_ceiling() : 0;
-
-		echo '<hr><p><strong>گران‌ترین آگهی‌ها</strong></p>';
-		echo '<p class="description">سقف اسلایدر فیلتر قیمت از بالاترین قیمت ثبت‌شده گرفته می‌شود، پس یک قیمت اشتباه، فیلتر کل سایت را خراب می‌کند. سقف مجاز فعلی ' . esc_html( number_format_i18n( $ceiling ) ) . ' است.</p>';
-
-		if ( empty( $audit ) ) {
-			echo '<p class="description">هیچ آگهی با قیمت عددی پیدا نشد.</p>';
-		} else {
-			echo '<table class="widefat striped" style="max-width:900px;"><thead><tr>';
-			echo '<th>شناسه</th><th>عنوان</th><th>وضعیت</th><th>قیمت ثبت‌شده</th><th></th>';
-			echo '</tr></thead><tbody>';
-
-			foreach ( $audit as $row ) {
-				$style = $row['flagged'] ? ' style="background:#fcf0f1;"' : '';
-				echo '<tr' . $style . '>';
-				echo '<td>' . esc_html( $row['id'] ) . '</td>';
-				echo '<td>' . esc_html( $row['title'] ) . '</td>';
-				echo '<td>' . esc_html( $row['status'] ) . '</td>';
-				echo '<td>' . esc_html( number_format_i18n( $row['price'] ) );
-				if ( $row['flagged'] ) {
-					echo ' <strong style="color:#d63638;">— غیرمعقول</strong>';
-				}
-				echo '</td>';
-				echo '<td><a href="' . esc_url( get_edit_post_link( $row['id'] ) ) . '">ویرایش</a></td>';
-				echo '</tr>';
-			}
-
-			echo '</tbody></table>';
-		}
-	}
 
 	echo '<hr><p><strong>سنجش سرعت صفحهٔ اول</strong></p>';
 	echo '<p><button type="button" class="button" id="wp-cardealer-speed-probe">اندازه‌گیری سرعت صفحهٔ اول</button></p>';
