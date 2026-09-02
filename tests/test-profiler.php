@@ -19,6 +19,10 @@ function esc_html( $text ) {
 	return $text;
 }
 
+function current_filter() {
+	return isset( $GLOBALS['wpcd_test_current_filter'] ) ? $GLOBALS['wpcd_test_current_filter'] : '';
+}
+
 /**
  * Minimal stand-in for WP_Object_Cache so cache read deltas can be asserted.
  */
@@ -104,6 +108,22 @@ assert_contains( 'cache_reads=112', $report, 'reports total cache reads for the 
 // Misses count towards total reads as well.
 $GLOBALS['wp_object_cache']->cache_misses += 3;
 assert_same( 115, WP_CarDealer_Profiler::get_cache_hits(), 'total reads include hits and misses' );
+
+// Hook counting stays off unless explicitly requested.
+assert_same( false, WP_CarDealer_Profiler::is_hook_mode(), 'segment mode does not count hooks' );
+
+$_GET['wpcd_profile'] = WP_CarDealer_Profiler::MODE_HOOKS;
+assert_same( true, WP_CarDealer_Profiler::is_hook_mode(), 'hook mode is opt-in via ?wpcd_profile=hooks' );
+
+$GLOBALS['wpcd_test_current_filter'] = 'the_content';
+WP_CarDealer_Profiler::count_hook();
+WP_CarDealer_Profiler::count_hook();
+$GLOBALS['wpcd_test_current_filter'] = 'wp_head';
+WP_CarDealer_Profiler::count_hook();
+
+$busiest = WP_CarDealer_Profiler::get_busiest_hooks( 2 );
+assert_same( array( 'the_content' => 2, 'wp_head' => 1 ), $busiest, 'busiest hooks are ranked by execution count' );
+assert_same( array( 'the_content' => 2 ), WP_CarDealer_Profiler::get_busiest_hooks( 1 ), 'the ranking honours the limit' );
 
 echo "\n{$passed} passed, {$failed} failed\n";
 exit( $failed > 0 ? 1 : 0 );

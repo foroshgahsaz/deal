@@ -14,10 +14,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class WP_CarDealer_Profiler {
 
+	const MODE_SEGMENTS = '1';
+	const MODE_HOOKS    = 'hooks';
+
 	/**
 	 * @var bool|null
 	 */
 	private static $enabled = null;
+
+	/**
+	 * Execution counts keyed by hook name, populated only in hook mode.
+	 *
+	 * @var array<string, int>
+	 */
+	private static $hooks = array();
 
 	/**
 	 * @var float
@@ -45,8 +55,19 @@ class WP_CarDealer_Profiler {
 
 		self::$started_at = microtime( true );
 
+		if ( self::is_hook_mode() ) {
+			add_action( 'all', array( __CLASS__, 'count_hook' ) );
+		}
+
 		add_action( 'wp_footer', array( __CLASS__, 'render' ), 99999 );
 		add_action( 'shutdown', array( __CLASS__, 'log' ), 99999 );
+	}
+
+	/**
+	 * @return string
+	 */
+	public static function get_mode() {
+		return isset( $_GET['wpcd_profile'] ) ? (string) $_GET['wpcd_profile'] : '';
 	}
 
 	/**
@@ -54,10 +75,46 @@ class WP_CarDealer_Profiler {
 	 */
 	public static function is_enabled() {
 		if ( null === self::$enabled ) {
-			self::$enabled = isset( $_GET['wpcd_profile'] ) && '1' === $_GET['wpcd_profile'];
+			self::$enabled = in_array( self::get_mode(), array( self::MODE_SEGMENTS, self::MODE_HOOKS ), true );
 		}
 
 		return self::$enabled;
+	}
+
+	/**
+	 * Hook mode counts every action and filter fired, which reveals runaway loops
+	 * anywhere in the request, including the theme and page builders.
+	 *
+	 * @return bool
+	 */
+	public static function is_hook_mode() {
+		return self::MODE_HOOKS === self::get_mode();
+	}
+
+	/**
+	 * @return void
+	 */
+	public static function count_hook() {
+		$hook = current_filter();
+
+		if ( ! isset( self::$hooks[ $hook ] ) ) {
+			self::$hooks[ $hook ] = 0;
+		}
+
+		self::$hooks[ $hook ]++;
+	}
+
+	/**
+	 * Hooks that fired most often this request.
+	 *
+	 * @param int $limit
+	 * @return array<string, int>
+	 */
+	public static function get_busiest_hooks( $limit = 15 ) {
+		$hooks = self::$hooks;
+		arsort( $hooks );
+
+		return array_slice( $hooks, 0, max( 1, (int) $limit ), true );
 	}
 
 	/**
@@ -193,6 +250,14 @@ class WP_CarDealer_Profiler {
 				number_format( $data['cache'] ),
 				number_format( $data['reentrant'] )
 			);
+		}
+
+		if ( self::is_hook_mode() ) {
+			$busiest = array();
+			foreach ( self::get_busiest_hooks() as $hook => $count ) {
+				$busiest[] = $hook . '=' . number_format( $count );
+			}
+			$lines[] = 'busiest_hooks ' . implode( ' ', $busiest );
 		}
 
 		return implode( ' | ', apply_filters( 'wp_cardealer_profiler_report_lines', $lines ) );
