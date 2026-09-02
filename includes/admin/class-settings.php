@@ -2080,9 +2080,13 @@ function wp_cardealer_navasan_status_callback( $field_object, $escaped_value, $o
 
 	echo '<p><button type="button" class="button" id="wp-cardealer-navasan-test">آزمایش کلید و به‌روزرسانی نرخ</button></p>';
 	echo '<p class="wp-cardealer-navasan-test-result" role="status"></p>';
+	echo '<hr><p><strong>سنجش سرعت صفحهٔ اول</strong></p>';
+	echo '<p><button type="button" class="button" id="wp-cardealer-speed-probe">اندازه‌گیری سرعت صفحهٔ اول</button></p>';
+	echo '<p class="wp-cardealer-speed-probe-result" role="status"></p>';
+	echo '<pre class="wp-cardealer-speed-probe-report" style="display:none;white-space:pre-wrap;background:#f6f7f7;padding:10px;border:1px solid #dcdcde;max-width:900px;overflow:auto;"></pre>';
+
 	if ( class_exists( 'WP_CarDealer_Navasan' ) && WP_CarDealer_Navasan::BUILD ) {
 		echo '<p class="description">نسخهٔ ماژول نرخ: ' . esc_html( WP_CarDealer_Navasan::BUILD ) . '</p>';
-		echo '<p class="description">تشخیص سرعت: صفحهٔ اول را با <code>?wpcd_profile=1</code> باز کنید، سپس در View Source عبارت <code>wpcd-profile</code> را جستجو کنید.</p>';
 	}
 
 	if ( class_exists( 'WP_CarDealer_Cron_Repair' ) ) {

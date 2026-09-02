@@ -183,6 +183,7 @@ class WP_CarDealer_Scripts {
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 			'navasan_nonce' => wp_create_nonce( 'wp_cardealer_navasan_test' ),
 			'navasan_testing' => 'در حال آزمایش اتصال وب‌سرویس...',
+			'speed_probe_nonce' => class_exists( 'WP_CarDealer_Speed_Probe' ) ? wp_create_nonce( WP_CarDealer_Speed_Probe::NONCE_ACTION ) : '',
 		));
 		wp_enqueue_script( 'wp-cardealer-admin-main' );
 		wp_enqueue_style( 'wp-cardealer-listing-price', WP_CARDEALER_PLUGIN_URL . 'assets/css/listing-price.css', array(), WP_CARDEALER_PLUGIN_VERSION );
