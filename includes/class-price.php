@@ -51,6 +51,15 @@ class WP_CarDealer_Price {
 	private static $currency_display_context = null;
 
 	/**
+	 * Rendered price markup keyed by amount and formatting flags.
+	 *
+	 * @var array<string, bool|string>
+	 */
+	private static $formatted_prices = array();
+
+	const PRICE_CACHE_LIMIT = 5000;
+
+	/**
 	 * Drop the per-request caches. Used when settings change mid request.
 	 *
 	 * @return void
@@ -63,6 +72,7 @@ class WP_CarDealer_Price {
 		self::$shorten_divisors_cache    = null;
 		self::$current_currency_cache    = null;
 		self::$currency_display_context  = null;
+		self::$formatted_prices          = array();
 
 		if ( class_exists( 'WP_CarDealer_Mixes' ) ) {
 			WP_CarDealer_Mixes::flush_runtime_cache();
@@ -382,15 +392,53 @@ class WP_CarDealer_Price {
 	 * @return bool|string
 	 */
 	public static function format_price( $price, $show_null = false, $without_rate_exchange = false ) {
-		if ( ! WP_CarDealer_Profiler::is_enabled() ) {
-			return self::render_price( $price, $show_null, $without_rate_exchange );
+		$profiling = WP_CarDealer_Profiler::is_enabled();
+
+		if ( $profiling ) {
+			WP_CarDealer_Profiler::start( 'format_price' );
+			WP_CarDealer_Profiler::sample_caller( 'format_price' );
 		}
 
-		WP_CarDealer_Profiler::start( 'format_price' );
+		$key = self::get_price_cache_key( $price, $show_null, $without_rate_exchange );
+
+		if ( null !== $key && array_key_exists( $key, self::$formatted_prices ) ) {
+			if ( $profiling ) {
+				WP_CarDealer_Profiler::count( 'format_price_cache_hit' );
+				WP_CarDealer_Profiler::stop( 'format_price' );
+			}
+
+			return self::$formatted_prices[ $key ];
+		}
+
 		$rendered = self::render_price( $price, $show_null, $without_rate_exchange );
-		WP_CarDealer_Profiler::stop( 'format_price' );
+
+		// The same amount renders identically all request long, and listing
+		// archives ask for the same handful of amounts over and over.
+		if ( null !== $key && count( self::$formatted_prices ) < self::PRICE_CACHE_LIMIT ) {
+			self::$formatted_prices[ $key ] = $rendered;
+		}
+
+		if ( $profiling ) {
+			WP_CarDealer_Profiler::stop( 'format_price' );
+		}
 
 		return $rendered;
+	}
+
+	/**
+	 * Cache key for a formatted price, or null when the input cannot be keyed.
+	 *
+	 * @param mixed $price
+	 * @param bool  $show_null
+	 * @param bool  $without_rate_exchange
+	 * @return string|null
+	 */
+	private static function get_price_cache_key( $price, $show_null, $without_rate_exchange ) {
+		if ( is_array( $price ) || is_object( $price ) ) {
+			return null;
+		}
+
+		return $price . '|' . ( $show_null ? '1' : '0' ) . '|' . ( $without_rate_exchange ? '1' : '0' );
 	}
 
 	/**

@@ -24,7 +24,7 @@ class WP_CarDealer_Navasan {
 	const API_URL = 'https://Api.BrsApi.ir/Market/Gold_Currency.php';
 	const API_TIMEOUT = 5;
 	const REFRESH_LOCK_SECONDS = 300;
-	const BUILD = '20260902-speed-probe';
+	const BUILD = '20260902-price-reuse';
 
 	/**
 	 * Per-request memoization so listing archives do not hit the DB dozens of times.

@@ -22,12 +22,29 @@ class WP_CarDealer_Profiler {
 	 */
 	private static $enabled = null;
 
+	const CALLER_SAMPLE_HEAD  = 40;
+	const CALLER_SAMPLE_EVERY = 500;
+
 	/**
 	 * Execution counts keyed by hook name, populated only in hook mode.
 	 *
 	 * @var array<string, int>
 	 */
 	private static $hooks = array();
+
+	/**
+	 * Sampled call sites keyed by segment label then "file:line".
+	 *
+	 * @var array<string, array<string, int>>
+	 */
+	private static $callers = array();
+
+	/**
+	 * How many times each segment has been offered for caller sampling.
+	 *
+	 * @var array<string, int>
+	 */
+	private static $caller_seen = array();
 
 	/**
 	 * @var float
@@ -118,6 +135,62 @@ class WP_CarDealer_Profiler {
 	}
 
 	/**
+	 * Sample which file and line called a segment.
+	 *
+	 * Capturing a backtrace on every call of a segment that runs hundreds of
+	 * thousands of times would itself dominate the measurement, so early calls
+	 * are recorded and then only every nth call after that. That is enough to
+	 * identify a dominant caller.
+	 *
+	 * @param string $label
+	 * @return void
+	 */
+	public static function sample_caller( $label ) {
+		if ( ! self::is_enabled() ) {
+			return;
+		}
+
+		if ( ! isset( self::$caller_seen[ $label ] ) ) {
+			self::$caller_seen[ $label ] = 0;
+		}
+
+		$seen = ++self::$caller_seen[ $label ];
+
+		if ( $seen > self::CALLER_SAMPLE_HEAD && 0 !== $seen % self::CALLER_SAMPLE_EVERY ) {
+			return;
+		}
+
+		$trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 4 );
+
+		// Frame 0 is this method, frame 1 is the instrumented function itself.
+		$frame  = isset( $trace[2] ) ? $trace[2] : end( $trace );
+		$origin = isset( $frame['file'] ) ? basename( dirname( $frame['file'] ) ) . '/' . basename( $frame['file'] ) : 'unknown';
+		$origin .= isset( $frame['line'] ) ? ':' . $frame['line'] : '';
+
+		if ( ! isset( self::$callers[ $label ][ $origin ] ) ) {
+			self::$callers[ $label ][ $origin ] = 0;
+		}
+
+		self::$callers[ $label ][ $origin ]++;
+	}
+
+	/**
+	 * @param string $label
+	 * @param int    $limit
+	 * @return array<string, int>
+	 */
+	public static function get_top_callers( $label, $limit = 5 ) {
+		if ( empty( self::$callers[ $label ] ) ) {
+			return array();
+		}
+
+		$callers = self::$callers[ $label ];
+		arsort( $callers );
+
+		return array_slice( $callers, 0, max( 1, (int) $limit ), true );
+	}
+
+	/**
 	 * Record a hit for a very hot call site where timing overhead is not worth it.
 	 *
 	 * @param string $label
@@ -202,6 +275,16 @@ class WP_CarDealer_Profiler {
 	}
 
 	/**
+	 * How many times a segment ran this request.
+	 *
+	 * @param string $label
+	 * @return int
+	 */
+	public static function get_calls( $label ) {
+		return isset( self::$segments[ $label ]['calls'] ) ? (int) self::$segments[ $label ]['calls'] : 0;
+	}
+
+	/**
 	 * Total object cache reads served so far this request.
 	 *
 	 * @return int
@@ -250,6 +333,15 @@ class WP_CarDealer_Profiler {
 				number_format( $data['cache'] ),
 				number_format( $data['reentrant'] )
 			);
+
+			$callers = self::get_top_callers( $label );
+			if ( ! empty( $callers ) ) {
+				$formatted = array();
+				foreach ( $callers as $origin => $count ) {
+					$formatted[] = $origin . '=' . number_format( $count );
+				}
+				$lines[] = $label . '_callers ' . implode( ' ', $formatted );
+			}
 		}
 
 		if ( self::is_hook_mode() ) {
