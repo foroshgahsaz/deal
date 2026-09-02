@@ -1,24 +1,17 @@
 <?php
 /**
- * Standalone tests for USD customs/shipping fee helpers.
+ * Standalone tests for Toman customs/shipping fee helpers.
  *
  * Run: php tests/test-listing-fees.php
  */
 
 define( 'ABSPATH', __DIR__ . '/' );
 define( 'WP_CARDEALER_LISTING_PREFIX', '_listing_' );
-define( 'MINUTE_IN_SECONDS', 60 );
-
-$GLOBALS['wpcd_test_options'] = array();
-$GLOBALS['wp_cardealer_test_meta'] = array();
 
 function add_action() {}
 function add_filter() {}
 function apply_filters( $tag, $value ) {
 	return $value;
-}
-function __( $text ) {
-	return $text;
 }
 function absint( $value ) {
 	return abs( (int) $value );
@@ -29,23 +22,9 @@ function esc_attr( $text ) {
 function esc_html( $text ) {
 	return htmlspecialchars( (string) $text, ENT_QUOTES, 'UTF-8' );
 }
-function is_admin() {
-	return false;
-}
-function wp_doing_ajax() {
-	return false;
-}
-function get_option( $name, $default = false ) {
-	return 'wp_cardealer_navasan_usd_rate' === $name ? 214000 : $default;
-}
-function get_transient( $name ) {
-	return false;
-}
-function wp_cardealer_get_option( $key = '', $default = false ) {
-	return isset( $GLOBALS['wpcd_test_options'][ $key ] ) && '' !== $GLOBALS['wpcd_test_options'][ $key ]
-		? $GLOBALS['wpcd_test_options'][ $key ]
-		: $default;
-}
+
+$GLOBALS['wp_cardealer_test_meta'] = array();
+
 function get_post_meta( $post_id, $key, $single = true ) {
 	if ( ! isset( $GLOBALS['wp_cardealer_test_meta'][ $post_id ][ $key ] ) ) {
 		return '';
@@ -53,22 +32,8 @@ function get_post_meta( $post_id, $key, $single = true ) {
 	return $GLOBALS['wp_cardealer_test_meta'][ $post_id ][ $key ];
 }
 
-require_once dirname( __DIR__ ) . '/includes/class-profiler.php';
-require_once dirname( __DIR__ ) . '/includes/class-mixes.php';
 require_once dirname( __DIR__ ) . '/includes/class-price.php';
-require_once dirname( __DIR__ ) . '/includes/class-navasan.php';
 require_once dirname( __DIR__ ) . '/includes/custom-fields/class-fields-manager.php';
-
-$GLOBALS['wpcd_test_options'] = array(
-	'currency'                => 'USD',
-	'currency_position'       => 'before',
-	'money_decimals'          => 0,
-	'enable_multi_currencies' => 'no',
-	'custom_symbol'           => '$',
-	'enable_usd_to_toman'     => 'yes',
-	'navasan_api_key'         => 'test-key',
-	'navasan_frontend_convert' => 'server',
-);
 
 $failed = 0;
 $passed = 0;
@@ -103,37 +68,45 @@ function assert_contains( $needle, $haystack, $message ) {
 	echo '      haystack: ' . var_export( $haystack, true ) . "\n";
 }
 
-assert_same( '500', WP_CarDealer_Price::sanitize_usd_amount( '500' ), 'keeps a latin USD amount' );
-assert_same( '500', WP_CarDealer_Price::sanitize_usd_amount( '۵۰۰' ), 'converts Persian digits' );
-assert_same( '900000', WP_CarDealer_Price::sanitize_usd_amount( '900,000' ), 'strips thousand separators' );
-assert_same( '', WP_CarDealer_Price::sanitize_usd_amount( '' ), 'empty stays empty' );
-assert_same( '', WP_CarDealer_Price::sanitize_usd_amount( '-10' ), 'rejects negative amounts' );
+assert_same( '500000', WP_CarDealer_Price::sanitize_toman_fee( '500000' ), 'keeps a latin Toman amount' );
+assert_same( '500000', WP_CarDealer_Price::sanitize_toman_fee( '۵۰۰۰۰۰' ), 'converts Persian digits' );
+assert_same( '900000', WP_CarDealer_Price::sanitize_toman_fee( '900,000' ), 'strips thousand separators' );
+assert_same( '', WP_CarDealer_Price::sanitize_toman_fee( '' ), 'empty stays empty' );
+assert_same( '', WP_CarDealer_Price::sanitize_toman_fee( '-10' ), 'rejects negative amounts' );
 assert_same( true, WP_CarDealer_Price::is_listing_fee_field( '_listing_customs_fee' ), 'recognizes customs fee key' );
 assert_same( true, WP_CarDealer_Price::is_listing_fee_field( '_listing_shipping_fee' ), 'recognizes shipping fee key' );
 assert_same( false, WP_CarDealer_Price::is_listing_fee_field( '_listing_price' ), 'does not treat USD price as a fee' );
 
+$formatted = WP_CarDealer_Price::format_toman_amount( 500000 );
+assert_contains( '500,000', $formatted, 'formats Toman with thousand separators' );
+assert_contains( 'تومان', $formatted, 'appends تومان without converting from USD' );
+assert_same( '', WP_CarDealer_Price::format_toman_amount( 0 ), 'hides zero unless asked to show it' );
+assert_same( '', WP_CarDealer_Price::format_toman_amount( '' ), 'hides empty unless asked to show zero' );
+assert_contains( '0', WP_CarDealer_Price::format_toman_amount( '', true ), 'empty amount can render as 0' );
+assert_contains( '0', WP_CarDealer_Price::format_toman_amount( 0, true ), 'zero amount can render as 0' );
+
 $GLOBALS['wp_cardealer_test_meta'][14] = array(
-	'_listing_customs_fee' => '500',
+	'_listing_customs_fee' => '750000',
 );
-assert_same( '500', WP_CarDealer_Price::get_listing_fee_value( 14, 'customs_fee' ), 'reads customs meta value' );
-assert_contains( '107000000', WP_CarDealer_Price::get_listing_fee_formatted( 14, 'customs_fee' ), 'converts customs fee USD to Toman' );
-assert_contains( '107000000', WP_CarDealer_Price::get_listing_fee_plain( 14, 'customs_fee' ), 'converts customs fee plain text to Toman' );
+assert_same( '750000', WP_CarDealer_Price::get_listing_fee_value( 14, 'customs_fee' ), 'reads customs meta value' );
+assert_contains( '750,000', WP_CarDealer_Price::get_listing_fee_formatted( 14, 'customs_fee' ), 'formats customs fee html' );
+assert_contains( '750,000', WP_CarDealer_Price::get_listing_fee_plain( 14, 'customs_fee' ), 'formats customs fee plain text' );
 assert_contains( '0', WP_CarDealer_Price::get_listing_fee_plain( 14, 'shipping_fee', true ), 'empty shipping renders as zero in plain text' );
 
 $GLOBALS['wp_cardealer_test_meta'][12] = array(
-	'_listing_customs_fee'  => '500',
-	'_listing_shipping_fee' => '900',
+	'_listing_customs_fee'  => '500000',
+	'_listing_shipping_fee' => '900000',
 );
 $fees_html = WP_CarDealer_Price::get_listing_fees_html( 12 );
 assert_contains( 'هزینه گمرک', $fees_html, 'renders customs label' );
 assert_contains( 'هزینه حمل‌ونقل', $fees_html, 'renders shipping label' );
-assert_contains( '107000000', $fees_html, 'renders converted customs amount' );
-assert_contains( '192600000', $fees_html, 'renders converted shipping amount' );
+assert_contains( '500,000', $fees_html, 'renders customs amount' );
+assert_contains( '900,000', $fees_html, 'renders shipping amount' );
 assert_contains( 'listing-price-extras', $fees_html, 'wraps extras for stacking under the main price' );
 
 $GLOBALS['wp_cardealer_test_meta'][13] = array(
 	'_listing_customs_fee'  => '',
-	'_listing_shipping_fee' => '900',
+	'_listing_shipping_fee' => '900000',
 );
 $partial = WP_CarDealer_Price::get_listing_fees_html( 13 );
 assert_contains( 'هزینه حمل‌ونقل', $partial, 'shows shipping when customs is empty' );
