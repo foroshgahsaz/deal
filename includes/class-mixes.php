@@ -12,14 +12,49 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class WP_CarDealer_Mixes {
-    
+
+    /**
+     * Number formatting settings, read once per request instead of once per number.
+     *
+     * @var array|null
+     */
+    private static $number_format_settings = null;
+
     public static function init() {
 
         add_action( 'login_form', array( __CLASS__, 'social_login_before' ), 1 );
         add_action( 'login_form', array( __CLASS__, 'social_login_after' ), 30 );
-
-        add_filter( 'wp_cardealer_filter_distance_type', array( __CLASS__, 'set_distance_type' ), 10 );
         
+        add_filter( 'wp_cardealer_filter_distance_type', array( __CLASS__, 'set_distance_type' ), 10 );
+
+        add_action( 'update_option_wp_cardealer_settings', array( __CLASS__, 'flush_runtime_cache' ) );
+    }
+
+    /**
+     * @return void
+     */
+    public static function flush_runtime_cache() {
+        self::$number_format_settings = null;
+    }
+
+    /**
+     * @return array{money_decimals: mixed, thousands_separator: string, dec_point: string}
+     */
+    private static function get_number_format_settings() {
+        if ( null !== self::$number_format_settings ) {
+            return self::$number_format_settings;
+        }
+
+        $thousands_separator = wp_cardealer_get_option('money_thousands_separator');
+        $dec_point           = wp_cardealer_get_option('money_dec_point');
+
+        self::$number_format_settings = array(
+            'money_decimals'      => wp_cardealer_get_option('money_decimals'),
+            'thousands_separator' => ! empty( $thousands_separator ) ? $thousands_separator : '',
+            'dec_point'           => ! empty( $dec_point ) ? $dec_point : '.',
+        );
+
+        return self::$number_format_settings;
     }
 
     /**
@@ -33,11 +68,12 @@ class WP_CarDealer_Mixes {
         if ( empty( $price ) || ! is_numeric( $price ) ) {
             return 0;
         }
+
+        $settings = self::get_number_format_settings();
+
         if ( !$decimals ) {
-            $money_decimals = wp_cardealer_get_option('money_decimals');
+            $money_decimals = $settings['money_decimals'];
         }
-        $money_thousands_separator = wp_cardealer_get_option('money_thousands_separator');
-        $money_dec_point = wp_cardealer_get_option('money_dec_point');
 
         $price_parts_dot = explode( '.', $price );
         $price_parts_col = explode( ',', $price );
@@ -48,10 +84,7 @@ class WP_CarDealer_Mixes {
             $decimals = 0;
         }
 
-        $dec_point = ! empty( $money_dec_point ) ? $money_dec_point : '.';
-        $thousands_separator = ! empty( $money_thousands_separator ) ? $money_thousands_separator : '';
-
-        $price = number_format( $price, $decimals, $dec_point, $thousands_separator );
+        $price = number_format( $price, $decimals, $settings['dec_point'], $settings['thousands_separator'] );
 
         return $price;
     }

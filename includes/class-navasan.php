@@ -24,7 +24,7 @@ class WP_CarDealer_Navasan {
 	const API_URL = 'https://Api.BrsApi.ir/Market/Gold_Currency.php';
 	const API_TIMEOUT = 5;
 	const REFRESH_LOCK_SECONDS = 300;
-	const BUILD = '20260902-price-cache';
+	const BUILD = '20260902-zero-cost';
 
 	/**
 	 * Per-request memoization so listing archives do not hit the DB dozens of times.
@@ -39,7 +39,6 @@ class WP_CarDealer_Navasan {
 	private static $is_enabled_cache = null;
 
 	public static function init() {
-		add_action( 'init', array( __CLASS__, 'maybe_purge_legacy_cron_stack' ), 0 );
 		add_action( 'admin_init', array( __CLASS__, 'maybe_refresh_stale_rate_in_admin' ) );
 		add_action( 'wp_cardealer_navasan_refresh_rate', array( __CLASS__, 'refresh_rate' ) );
 
@@ -171,6 +170,9 @@ class WP_CarDealer_Navasan {
 	/**
 	 * Cached USD→Toman rate. Reads local cache only — never calls BrsApi during page render.
 	 *
+	 * On the frontend only the autoloaded option is consulted, so rendering a
+	 * page costs no extra query. Freshness is a wp-admin concern.
+	 *
 	 * @return float
 	 */
 	public static function get_usd_toman_rate() {
@@ -183,10 +185,9 @@ class WP_CarDealer_Navasan {
 			return self::$request_rate_cache;
 		}
 
-		self::$request_rate_cache = self::resolve_cached_rate(
-			get_transient( self::TRANSIENT_RATE ),
-			self::get_stored_rate()
-		);
+		$transient = is_admin() ? get_transient( self::TRANSIENT_RATE ) : false;
+
+		self::$request_rate_cache = self::resolve_cached_rate( $transient, self::get_stored_rate() );
 
 		return self::$request_rate_cache;
 	}
@@ -289,36 +290,10 @@ class WP_CarDealer_Navasan {
 	}
 
 	/**
-	 * One-time cleanup for sites that accumulated thousands of navasan cron rows.
-	 *
-	 * @return void
-	 */
-	public static function maybe_purge_legacy_cron_stack() {
-		if ( get_option( 'wp_cardealer_navasan_cron_v4_purged' ) ) {
-			return;
-		}
-
-		wp_clear_scheduled_hook( 'wp_cardealer_navasan_refresh_rate' );
-		delete_option( 'wp_cardealer_navasan_cron_v2_purged' );
-		delete_option( 'wp_cardealer_navasan_cron_v3_purged' );
-		update_option( 'wp_cardealer_navasan_cron_v4_purged', 1, true );
-	}
-
-	/**
-	 * Size of the WordPress cron option, which bloats on sites that stacked events.
-	 *
 	 * @return int
 	 */
 	public static function get_cron_option_bytes() {
-		global $wpdb;
-
-		if ( ! isset( $wpdb ) ) {
-			return 0;
-		}
-
-		$bytes = $wpdb->get_var( "SELECT LENGTH(option_value) FROM {$wpdb->options} WHERE option_name = 'cron' LIMIT 1" );
-
-		return is_numeric( $bytes ) ? (int) $bytes : 0;
+		return class_exists( 'WP_CarDealer_Cron_Repair' ) ? WP_CarDealer_Cron_Repair::get_option_bytes() : 0;
 	}
 
 	/**

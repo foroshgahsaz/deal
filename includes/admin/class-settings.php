@@ -2084,6 +2084,20 @@ function wp_cardealer_navasan_status_callback( $field_object, $escaped_value, $o
 		echo '<p class="description">نسخهٔ ماژول نرخ: ' . esc_html( WP_CarDealer_Navasan::BUILD ) . '</p>';
 		echo '<p class="description">تشخیص سرعت: صفحهٔ اول را با <code>?wpcd_profile=1</code> باز کنید، سپس در View Source عبارت <code>wpcd-profile</code> را جستجو کنید.</p>';
 	}
+
+	if ( class_exists( 'WP_CarDealer_Cron_Repair' ) ) {
+		$cron_report = WP_CarDealer_Cron_Repair::get_last_report();
+		$cron_bytes  = WP_CarDealer_Cron_Repair::get_option_bytes();
+
+		echo '<p class="description">حجم فعلی جدول زمان‌بندی وردپرس: ' . esc_html( number_format_i18n( $cron_bytes ) ) . ' بایت</p>';
+
+		if ( ! empty( $cron_report['ran_at'] ) ) {
+			echo '<p class="description">پاک‌سازی زمان‌بندی در ' . esc_html( $cron_report['ran_at'] ) . ' انجام شد: ';
+			echo esc_html( number_format_i18n( (int) $cron_report['removed_events'] ) ) . ' رکورد حذف شد، ';
+			echo 'حجم از ' . esc_html( number_format_i18n( (int) $cron_report['bytes_before'] ) ) . ' به ';
+			echo esc_html( number_format_i18n( (int) $cron_report['bytes_after'] ) ) . ' بایت رسید.</p>';
+		}
+	}
 	echo '</div>';
 }
 
