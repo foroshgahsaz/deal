@@ -21,6 +21,11 @@
 	display: block;
 }
 
+.listing-price-extra-label {
+	display: inline;
+	font-weight: 500;
+}
+
 .listing-price-extra + .listing-price-extra {
 	margin-top: 2px;
 }

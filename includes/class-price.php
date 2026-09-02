@@ -390,6 +390,31 @@ class WP_CarDealer_Price {
 	}
 
 	/**
+	 * Fee row with a visible label prefix, e.g. "هزینه گمرک : ۱۰۷,۰۰۰,۰۰۰ تومان".
+	 *
+	 * @param int    $post_id
+	 * @param string $suffix customs_fee|shipping_fee
+	 * @param bool   $show_zero
+	 * @return string
+	 */
+	public static function get_listing_fee_labeled_html( $post_id, $suffix, $show_zero = true ) {
+		$labels = self::get_listing_fee_fields();
+		if ( ! isset( $labels[ $suffix ] ) ) {
+			return '';
+		}
+
+		$formatted = self::get_listing_fee_formatted( $post_id, $suffix, $show_zero );
+		if ( $formatted === '' ) {
+			return '';
+		}
+
+		return '<span class="listing-price-extra listing-price-extra--' . esc_attr( $suffix ) . '">'
+			. '<span class="listing-price-extra-label">' . esc_html( $labels[ $suffix ] ) . ' : </span>'
+			. '<span class="listing-price-extra-value">' . $formatted . '</span>'
+			. '</span>';
+	}
+
+	/**
 	 * Plain-text fee for Elementor text widgets (no HTML spans).
 	 *
 	 * @param int    $post_id
@@ -397,13 +422,24 @@ class WP_CarDealer_Price {
 	 * @param bool   $show_zero
 	 * @return string
 	 */
-	public static function get_listing_fee_plain( $post_id, $suffix, $show_zero = true ) {
+	public static function get_listing_fee_plain( $post_id, $suffix, $show_zero = true, $with_label = false ) {
 		$html = self::get_listing_fee_formatted( $post_id, $suffix, $show_zero );
 		if ( $html === '' ) {
 			return '';
 		}
 
-		return trim( preg_replace( '/\s+/', ' ', strip_tags( str_replace( '&nbsp;', ' ', $html ) ) ) );
+		$plain = trim( preg_replace( '/\s+/', ' ', strip_tags( str_replace( '&nbsp;', ' ', $html ) ) ) );
+
+		if ( ! $with_label ) {
+			return $plain;
+		}
+
+		$labels = self::get_listing_fee_fields();
+		if ( ! isset( $labels[ $suffix ] ) ) {
+			return $plain;
+		}
+
+		return $labels[ $suffix ] . ' : ' . $plain;
 	}
 
 	public static function get_listing_fees_html( $post_id ) {
@@ -414,12 +450,10 @@ class WP_CarDealer_Price {
 
 		$rows = array();
 		foreach ( self::get_listing_fee_fields() as $suffix => $label ) {
-			$formatted = self::get_listing_fee_formatted( $post_id, $suffix, true );
-
-			$rows[] = '<span class="listing-price-extra listing-price-extra--' . esc_attr( $suffix ) . '">'
-				. '<span class="listing-price-extra-label">' . esc_html( $label ) . ' : </span>'
-				. '<span class="listing-price-extra-value">' . $formatted . '</span>'
-				. '</span>';
+			$row = self::get_listing_fee_labeled_html( $post_id, $suffix, true );
+			if ( $row !== '' ) {
+				$rows[] = $row;
+			}
 		}
 
 		return '<div class="listing-price-extras">' . implode( '', $rows ) . '</div>';

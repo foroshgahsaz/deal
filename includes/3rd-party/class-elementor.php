@@ -314,11 +314,11 @@ abstract class WP_CarDealer_Elementor_Tag_Listing_Fee extends WP_CarDealer_Eleme
 		$plain  = $this->get_settings( 'plain_text' ) === 'yes';
 
 		if ( $plain ) {
-			echo esc_html( WP_CarDealer_Price::get_listing_fee_plain( $post_id, $suffix, true ) );
+			echo esc_html( WP_CarDealer_Price::get_listing_fee_plain( $post_id, $suffix, true, true ) );
 			return;
 		}
 
-		WP_CarDealer_Elementor::echo_price_html( WP_CarDealer_Price::get_listing_fee_formatted( $post_id, $suffix, true ) );
+		WP_CarDealer_Elementor::echo_price_html( WP_CarDealer_Price::get_listing_fee_labeled_html( $post_id, $suffix, true ) );
 	}
 }
 

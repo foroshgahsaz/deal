@@ -124,6 +124,13 @@ assert_contains( '5649600000', $total_html, 'converts total USD sum to Toman' );
 
 $fees_html = WP_CarDealer_Price::get_listing_fees_html( 12 );
 assert_contains( 'هزینه گمرک', $fees_html, 'renders customs label' );
+assert_contains( 'هزینه گمرک :', $fees_html, 'renders customs label with colon' );
+assert_contains( 'هزینه حمل‌ونقل :', $fees_html, 'renders shipping label with colon' );
+
+$labeled = WP_CarDealer_Price::get_listing_fee_labeled_html( 12, 'customs_fee' );
+assert_contains( 'listing-price-extra-label', $labeled, 'wraps the customs label' );
+assert_contains( 'هزینه گمرک :', $labeled, 'prefixes customs amount with its label' );
+assert_contains( 'هزینه گمرک :', WP_CarDealer_Price::get_listing_fee_plain( 12, 'customs_fee', true, true ), 'plain customs text includes the label' );
 assert_contains( '107000000', $fees_html, 'converts customs fee to Toman' );
 assert_contains( 'listing-price-extras', $fees_html, 'wraps fee rows' );
 
