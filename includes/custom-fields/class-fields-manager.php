@@ -437,27 +437,12 @@ class WP_CarDealer_Fields_Manager {
                 'show_compare'      => true
             ),
             array(
-                'name'              => 'هزینه گمرک',
-                'id'                => $prefix . 'customs_fee',
+                'name'              => 'هزینه واردات',
+                'id'                => $prefix . 'import_fee',
                 'type'              => 'text',
-                'placeholder'       => 'مثال: ۵۰۰ (دلار)',
-                'desc'              => 'مبلغ را به دلار آمریکا وارد کنید. سایت همان مبلغ را با نرخ زنده به تومان زیر قیمت آگهی نشان می‌دهد.',
-                'description'       => 'مبلغ را به دلار آمریکا وارد کنید. سایت همان مبلغ را با نرخ زنده به تومان زیر قیمت آگهی نشان می‌دهد.',
-                'attributes'        => array(
-                    'type'      => 'number',
-                    'min'       => 0,
-                    'step'      => '1',
-                    'inputmode' => 'numeric',
-                ),
-                'show_compare'      => false,
-            ),
-            array(
-                'name'              => 'هزینه حمل‌ونقل',
-                'id'                => $prefix . 'shipping_fee',
-                'type'              => 'text',
-                'placeholder'       => 'مثال: ۹۰۰ (دلار)',
-                'desc'              => 'مبلغ را به دلار آمریکا وارد کنید. سایت همان مبلغ را با نرخ زنده به تومان زیر قیمت آگهی نشان می‌دهد.',
-                'description'       => 'مبلغ را به دلار آمریکا وارد کنید. سایت همان مبلغ را با نرخ زنده به تومان زیر قیمت آگهی نشان می‌دهد.',
+                'placeholder'       => 'مثال: ۵۰۰۰ (دلار)',
+                'desc'              => 'مبلغ را به دلار آمریکا وارد کنید (گمرک و حمل‌ونقل). سایت همان مبلغ را با نرخ زنده به تومان زیر قیمت آگهی نشان می‌دهد.',
+                'description'       => 'مبلغ را به دلار آمریکا وارد کنید (گمرک و حمل‌ونقل). سایت همان مبلغ را با نرخ زنده به تومان زیر قیمت آگهی نشان می‌دهد.',
                 'attributes'        => array(
                     'type'      => 'number',
                     'min'       => 0,
@@ -843,7 +828,7 @@ class WP_CarDealer_Fields_Manager {
 
     /**
      * Field configs injected into saved Fields Manager data so existing sites
-     * get the Toman fee inputs next to Price without a manual Fields Manager save.
+     * get the import fee input next to Price without a manual Fields Manager save.
      *
      * @return array
      */
@@ -852,21 +837,11 @@ class WP_CarDealer_Fields_Manager {
 
         return array(
             array(
-                'type'                => $prefix . 'customs_fee',
-                'id'                  => $prefix . 'customs_fee',
-                'name'                => 'هزینه گمرک',
-                'placeholder'         => 'مثال: ۵۰۰ (دلار)',
-                'description'         => 'مبلغ را به دلار آمریکا وارد کنید. سایت همان مبلغ را با نرخ زنده به تومان زیر قیمت آگهی نشان می‌دهد.',
-                'show_in_submit_form' => 'yes',
-                'show_in_admin_edit'  => 'yes',
-                'required'            => '',
-            ),
-            array(
-                'type'                => $prefix . 'shipping_fee',
-                'id'                  => $prefix . 'shipping_fee',
-                'name'                => 'هزینه حمل‌ونقل',
-                'placeholder'         => 'مثال: ۹۰۰ (دلار)',
-                'description'         => 'مبلغ را به دلار آمریکا وارد کنید. سایت همان مبلغ را با نرخ زنده به تومان زیر قیمت آگهی نشان می‌دهد.',
+                'type'                => $prefix . 'import_fee',
+                'id'                  => $prefix . 'import_fee',
+                'name'                => 'هزینه واردات',
+                'placeholder'         => 'مثال: ۵۰۰۰ (دلار)',
+                'description'         => 'مبلغ را به دلار آمریکا وارد کنید (گمرک و حمل‌ونقل). سایت همان مبلغ را با نرخ زنده به تومان زیر قیمت آگهی نشان می‌دهد.',
                 'show_in_submit_form' => 'yes',
                 'show_in_admin_edit'  => 'yes',
                 'required'            => '',
@@ -886,7 +861,7 @@ class WP_CarDealer_Fields_Manager {
         }
 
         $prefix = WP_CARDEALER_LISTING_PREFIX;
-        foreach ( array( 'customs_fee', 'shipping_fee' ) as $suffix ) {
+        foreach ( array( 'import_fee' ) as $suffix ) {
             $id = $prefix . $suffix;
             if ( ! in_array( $id, $types, true ) ) {
                 $types[] = $id;
@@ -911,6 +886,25 @@ class WP_CarDealer_Fields_Manager {
         if ( empty( $fields ) || ! is_array( $fields ) ) {
             return $fields;
         }
+
+        $legacy_fee_ids = array(
+            WP_CARDEALER_LISTING_PREFIX . 'customs_fee',
+            WP_CARDEALER_LISTING_PREFIX . 'shipping_fee',
+        );
+        $fields         = array_values(
+            array_filter(
+                $fields,
+                function ( $field ) use ( $legacy_fee_ids ) {
+                    if ( ! is_array( $field ) ) {
+                        return true;
+                    }
+                    $type = isset( $field['type'] ) ? $field['type'] : '';
+                    $id   = isset( $field['id'] ) ? $field['id'] : '';
+
+                    return ! in_array( $type, $legacy_fee_ids, true ) && ! in_array( $id, $legacy_fee_ids, true );
+                }
+            )
+        );
 
         $new_fields = self::get_listing_fee_field_configs();
         $missing    = array();

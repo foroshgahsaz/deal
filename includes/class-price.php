@@ -225,9 +225,17 @@ class WP_CarDealer_Price {
 	 */
 	public static function get_listing_fee_fields() {
 		return array(
-			'customs_fee'  => 'هزینه گمرک',
-			'shipping_fee' => 'هزینه حمل‌ونقل',
+			'import_fee' => 'هزینه واردات',
 		);
+	}
+
+	/**
+	 * Meta suffixes kept only for reading legacy listings.
+	 *
+	 * @return array<int, string>
+	 */
+	public static function get_legacy_listing_fee_suffixes() {
+		return array( 'customs_fee', 'shipping_fee' );
 	}
 
 	/**
@@ -240,6 +248,12 @@ class WP_CarDealer_Price {
 		}
 
 		foreach ( array_keys( self::get_listing_fee_fields() ) as $suffix ) {
+			if ( $field_id === WP_CARDEALER_LISTING_PREFIX . $suffix ) {
+				return true;
+			}
+		}
+
+		foreach ( self::get_legacy_listing_fee_suffixes() as $suffix ) {
 			if ( $field_id === WP_CARDEALER_LISTING_PREFIX . $suffix ) {
 				return true;
 			}
@@ -359,11 +373,81 @@ class WP_CarDealer_Price {
 	 */
 	public static function get_listing_fee_value( $post_id, $suffix ) {
 		$post_id = absint( $post_id );
-		if ( ! $post_id || ! isset( self::get_listing_fee_fields()[ $suffix ] ) ) {
+		if ( ! $post_id ) {
+			return '';
+		}
+
+		if ( 'import_fee' === $suffix ) {
+			return self::resolve_listing_import_fee_usd( $post_id );
+		}
+
+		if ( in_array( $suffix, self::get_legacy_listing_fee_suffixes(), true ) ) {
+			$prefix = WP_CARDEALER_LISTING_PREFIX;
+			$import = get_post_meta( $post_id, $prefix . 'import_fee', true );
+			if ( $import !== '' && is_numeric( $import ) ) {
+				return '';
+			}
+
+			$value = get_post_meta( $post_id, $prefix . $suffix, true );
+
+			return ( $value !== '' && is_numeric( $value ) ) ? (string) $value : '';
+		}
+
+		if ( ! isset( self::get_listing_fee_fields()[ $suffix ] ) ) {
 			return '';
 		}
 
 		return (string) get_post_meta( $post_id, WP_CARDEALER_LISTING_PREFIX . $suffix, true );
+	}
+
+	/**
+	 * Stored import fee in USD, or the sum of legacy customs/shipping rows.
+	 *
+	 * @param int $post_id
+	 * @return string
+	 */
+	public static function resolve_listing_import_fee_usd( $post_id ) {
+		$post_id = absint( $post_id );
+		if ( ! $post_id ) {
+			return '';
+		}
+
+		$prefix = WP_CARDEALER_LISTING_PREFIX;
+		$import = get_post_meta( $post_id, $prefix . 'import_fee', true );
+
+		if ( $import !== '' && is_numeric( $import ) ) {
+			return self::normalize_usd_amount_string( (float) $import );
+		}
+
+		$legacy_total = 0.0;
+		foreach ( self::get_legacy_listing_fee_suffixes() as $suffix ) {
+			$value = get_post_meta( $post_id, $prefix . $suffix, true );
+			if ( $value !== '' && is_numeric( $value ) ) {
+				$legacy_total += (float) $value;
+			}
+		}
+
+		if ( $legacy_total <= 0 ) {
+			return '';
+		}
+
+		return self::normalize_usd_amount_string( $legacy_total );
+	}
+
+	/**
+	 * @param float $amount
+	 * @return string
+	 */
+	private static function normalize_usd_amount_string( $amount ) {
+		if ( $amount < 0 ) {
+			return '';
+		}
+
+		if ( floor( $amount ) == $amount ) {
+			return (string) (int) $amount;
+		}
+
+		return (string) $amount;
 	}
 
 	/**
@@ -479,7 +563,7 @@ class WP_CarDealer_Price {
 	}
 
 	/**
-	 * Sum of listing price plus customs and shipping, all in USD.
+	 * Sum of listing price plus import cost, all in USD.
 	 *
 	 * @param int $post_id
 	 * @return float
@@ -506,7 +590,7 @@ class WP_CarDealer_Price {
 	}
 
 	/**
-	 * Formatted total cost HTML (price + customs + shipping).
+	 * Formatted total cost HTML (price + import cost).
 	 *
 	 * @param int $post_id
 	 * @return string
