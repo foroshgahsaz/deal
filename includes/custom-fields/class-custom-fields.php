@@ -371,7 +371,7 @@ class WP_CarDealer_Custom_Fields {
 						}
 					}
 
-					if ( !in_array($fieldkey, array( $prefix.'heading', $prefix.'featured_image', $prefix.'gallery', $prefix.'description', $prefix.'expiry_date', $prefix.'price_prefix', $prefix.'price_suffix', $prefix.'price_custom', $prefix.'customs_fee', $prefix.'shipping_fee', $prefix.'body_damage', $prefix.'lot_dimensions', $prefix.'video', $prefix.'map_location', $prefix.'featured_image', $prefix.'gallery', $prefix.'attachments', $prefix.'address', $prefix.'file' )) ) {
+					if ( !in_array($fieldkey, array( $prefix.'heading', $prefix.'featured_image', $prefix.'gallery', $prefix.'description', $prefix.'expiry_date', $prefix.'price_prefix', $prefix.'price_suffix', $prefix.'price_custom', $prefix.'import_fee', $prefix.'body_damage', $prefix.'lot_dimensions', $prefix.'video', $prefix.'map_location', $prefix.'featured_image', $prefix.'gallery', $prefix.'attachments', $prefix.'address', $prefix.'file' )) ) {
 
 						$id = str_replace($prefix, '', $field_data['id']);
 						$fields[$id] = self::render_field($field_data, $fieldkey, $fieldtype, $i, $admin_field, $fieldtype_type);

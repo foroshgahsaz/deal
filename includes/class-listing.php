@@ -54,7 +54,7 @@ class WP_CarDealer_Listing {
 	}
 
 	/**
-	 * Customs + shipping rows for Elementor or theme hooks.
+	 * Import cost row for Elementor or theme hooks.
 	 *
 	 * @param int $post_id
 	 * @return string
@@ -68,7 +68,7 @@ class WP_CarDealer_Listing {
 	}
 
 	/**
-	 * Total cost (price + customs + shipping) for Elementor or theme hooks.
+	 * Total cost (price + import) for Elementor or theme hooks.
 	 *
 	 * @param int $post_id
 	 * @return string

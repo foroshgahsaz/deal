@@ -250,7 +250,7 @@ class WP_CarDealer_Elementor_Tag_Listing_Fees_Html extends WP_CarDealer_Elemento
 	}
 
 	public function get_title() {
-		return 'هزینه گمرک و حمل‌ونقل';
+		return 'هزینه واردات (زیر قیمت)';
 	}
 
 	public function get_categories() {
@@ -329,11 +329,11 @@ class WP_CarDealer_Elementor_Tag_Customs_Fee extends WP_CarDealer_Elementor_Tag_
 	}
 
 	public function get_title() {
-		return 'هزینه گمرک (دلار → تومان)';
+		return 'هزینه واردات (دلار → تومان، تگ قدیمی گمرک)';
 	}
 
 	protected function get_fee_suffix() {
-		return 'customs_fee';
+		return 'import_fee';
 	}
 }
 
@@ -344,11 +344,11 @@ class WP_CarDealer_Elementor_Tag_Shipping_Fee extends WP_CarDealer_Elementor_Tag
 	}
 
 	public function get_title() {
-		return 'هزینه حمل‌ونقل (دلار → تومان)';
+		return 'هزینه واردات (دلار → تومان، تگ قدیمی حمل)';
 	}
 
 	protected function get_fee_suffix() {
-		return 'shipping_fee';
+		return 'import_fee';
 	}
 }
 
@@ -359,7 +359,7 @@ class WP_CarDealer_Elementor_Tag_Total_Cost extends WP_CarDealer_Elementor_Tag_L
 	}
 
 	public function get_title() {
-		return 'هزینه کل (قیمت + گمرک + حمل)';
+		return 'هزینه کل (قیمت + واردات)';
 	}
 
 	public function get_categories() {
