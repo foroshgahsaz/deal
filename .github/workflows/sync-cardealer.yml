@@ -1,0 +1,28 @@
+name: Sync cardealer from deal export
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - cursor/cardealer-export-deb0
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout export branch
+        uses: actions/checkout@v4
+        with:
+          ref: cursor/cardealer-export-deb0
+          fetch-depth: 0
+
+      - name: Push to foroshgahsaz/cardealer main
+        env:
+          CARDEALER_SYNC_TOKEN: ${{ secrets.CARDEALER_SYNC_TOKEN }}
+        run: |
+          if [ -z "$CARDEALER_SYNC_TOKEN" ]; then
+            echo "::error::Add repository secret CARDEALER_SYNC_TOKEN (fine-grained PAT with Contents read/write on foroshgahsaz/cardealer)."
+            exit 1
+          fi
+          git remote add cardealer "https://x-access-token:${CARDEALER_SYNC_TOKEN}@github.com/foroshgahsaz/cardealer.git"
+          git push cardealer HEAD:main --force-with-lease
