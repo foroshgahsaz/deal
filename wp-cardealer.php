@@ -208,13 +208,32 @@ if ( !class_exists("WP_CarDealer") ) {
 		}
 
 		public static function plugin_update() {
-	        require_once WP_CARDEALER_PLUGIN_DIR . 'libraries/plugin-update-checker/plugin-update-checker.php';
-	        Puc_v4_Factory::buildUpdateChecker(
-	            'https://www.apusthemes.com/themeplugins/wp-cardealer.json',
-	            __FILE__,
-	            'wp-cardealer'
-	        );
-	    }
+			$bootstrap = WP_CARDEALER_PLUGIN_DIR . 'libraries/plugin-update-checker/plugin-update-checker.php';
+			if ( ! file_exists( $bootstrap ) ) {
+				return;
+			}
+
+			require_once $bootstrap;
+
+			$metadata_url = 'https://www.apusthemes.com/themeplugins/wp-cardealer.json';
+
+			if ( class_exists( '\YahnisElsts\PluginUpdateChecker\v5p6\PucFactory' ) ) {
+				\YahnisElsts\PluginUpdateChecker\v5p6\PucFactory::buildUpdateChecker(
+					$metadata_url,
+					__FILE__,
+					'wp-cardealer'
+				);
+				return;
+			}
+
+			if ( class_exists( 'Puc_v4_Factory' ) ) {
+				Puc_v4_Factory::buildUpdateChecker(
+					$metadata_url,
+					__FILE__,
+					'wp-cardealer'
+				);
+			}
+		}
 
 		public static function register_post_statuses() {
 			register_post_status(
